@@ -1,5 +1,55 @@
 *{
-	margin:0;
-	padding:0;
-	font-size:1.0 em;
+	margin: 0;
+	padding: 0;
+	font-size: 1.0em;
+}
+
+#nav-bar{
+	position: fixed;
+	width: 99%;
+	top: 0;
+	background: #ffffff;
+	padding: 1%;
+}
+
+#nav-bar h1{
+	float: left;
+}
+
+.nav-bar-menu{
+	float: right;
+	list-style-type: none;
+}
+
+.nav-bar-menu-item{
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
+
+#header{
+	background: url("./img/header.jpg");
+	background-size: cover;
+	background-position: center;
+	padding: 12.5%;
+}
+
+#header-title{
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 4em;
+}
+
+
+
+
+
+#footer{
+	background: #000000;
+	width: 100%;
+}
+
+#footer p{
+	color: #ffffff;
+	
 }
