@@ -49,7 +49,86 @@
 #content{
 	min-height: 1000px; /* DA RIMUOVERE */
 	padding: 1.5%;
+}
+
+.home-card{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	text-align: center;
+	width: 15%;
+	/*border-style: solid;*/
+}
+
+/*not needed*/
+.home-card img{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 64px;
+	height: 64px;
+}
+
+.home-card:hover{
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.title-container{
+	/*border-bottom-style: solid;*/
+	background-color: dodgerblue;
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+
+.title-container a{
+	color:white;
+}
+
+.home-card ul{
+	/*border-top-style: dotted;*/
+	list-style-type: none;
+	padding-top: 8px;
+	padding-bottom: 5px;
+}
+
+.home-card li{
+	padding-bottom: 15px; 
+}
+
+.title-container a:link{
+	text-decoration: none;
+}
+
+/*.title-container a:visited{
+
+}*/
+
+.title-container a:hover{
+	background-color:darkgrey;
+	text-decoration: none;
+}
+
+.title-container a:active{
+	color: black;
+	text-decoration: none;
+}
+
+li a:link{
+	text-decoration: none;
+}
+
+/*li a:visited{
 	
+}*/
+
+li a:hover{
+	background-color:darkgrey;
+	text-decoration: none;
+}
+
+li a:active{
+	color: black;
+	text-decoration: none;
 }
 
 /* Article in content */
