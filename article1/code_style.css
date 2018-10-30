@@ -1,0 +1,13 @@
+.code-snippet{
+    background-color: rgb(238, 238, 238);
+    padding: 1%;
+    max-width: 50%;
+}
+
+.java .keyword{
+    color: rgb(0, 0, 136)
+}
+
+.java .type{
+    color: rgb(127, 0, 85);
+}

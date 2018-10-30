@@ -49,13 +49,15 @@
 #content{
 	min-height: 1000px; /* DA RIMUOVERE */
 	padding: 1.5%;
-	
+	width: 80%;
+  	float: right; /* A destra per testare con la barra a sinistra */
 }
 
 /* Article in content */
 
 .article-content{
-	width: 80%;
+	max-width: 50%; /*Non occupa tutto lo spazio a sua disposizione */
+	margin: 0 auto; /* E' centrato rispetto al suo spazio */
 }
 
 /* Left navigation bar */
