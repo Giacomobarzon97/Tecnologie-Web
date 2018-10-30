@@ -4,6 +4,8 @@
 	font-size: 1.0em;
 }
 
+/* Nav-bar */
+
 #nav-bar{
 	position: fixed;
 	width: 99%;
@@ -27,6 +29,8 @@
 	margin-right: 20px;
 }
 
+/* Header */
+
 #header{
 	background: url("./img/header.jpg");
 	background-size: cover;
@@ -40,16 +44,39 @@
 	font-size: 4em;
 }
 
+/* Content and cards */
 
+#content{
+	min-height: 1000px; /* DA RIMUOVERE */
+	padding: 1.5%;
+	
+}
 
+/* Article in content */
 
+.article-content{
+	width: 80%;
+}
+
+/* Left navigation bar */
+
+#left-nav-bar {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    background-color: rgb(195, 255, 0);
+}
+
+/* Footer */
 
 #footer{
-	background: #000000;
-	width: 100%;
+	/*background: #000000;*/
+	background: #29292926;
+	width: 99%;
+	padding: 0.5% 0.5% 3% 0.5%;
 }
 
 #footer p{
 	color: #ffffff;
-	
+
 }
