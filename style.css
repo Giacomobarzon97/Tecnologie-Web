@@ -4,6 +4,12 @@
 	font-size: 1.0em;
 }
 
+html,body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
 /* Nav-bar */
 
 #nav-bar{
@@ -47,7 +53,6 @@
 /* Content and cards */
 
 #content{
-	min-height: 1000px; /* DA RIMUOVERE */
 	padding: 1.5%;
 }
 
@@ -55,7 +60,9 @@
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	text-align: center;
 	width: 15%;
-	/*border-style: solid;*/
+	float: left;
+	margin-right: 5%;
+	margin-top: 2%;
 }
 
 /*not needed*/
@@ -76,8 +83,8 @@
 .title-container{
 	/*border-bottom-style: solid;*/
 	background-color: dodgerblue;
-	padding-bottom: 15px;
-	padding-top: 15px;
+	padding-bottom: 5%;
+	padding-top: 5%;
 }
 
 .title-container a{
@@ -87,12 +94,12 @@
 .home-card ul{
 	/*border-top-style: dotted;*/
 	list-style-type: none;
-	padding-top: 8px;
-	padding-bottom: 5px;
+	padding-top: 4%;
+	padding-bottom: 2%;
 }
 
 .home-card li{
-	padding-bottom: 15px; 
+	padding-bottom: 5% 
 }
 
 .title-container a:link{
@@ -149,13 +156,15 @@ li a:active{
 /* Footer */
 
 #footer{
-	/*background: #000000;*/
-	background: #29292926;
-	width: 99%;
+	background: darkgray;
 	padding: 0.5% 0.5% 3% 0.5%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
 }
 
 #footer p{
 	color: #ffffff;
-
 }
