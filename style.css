@@ -5,7 +5,9 @@
 }
 body{
 	background: #F5F5F5;
+	font-family: 'Open Sans', sans-serif;
 }
+
 #nav{
 	top:0;
 	background: white;
@@ -34,7 +36,6 @@ body{
 	top:0;
 	left: 0;
 	background: #404040;
-	color:white;
 	position:fixed;
 	overflow: scroll;
 	height: 100%;
@@ -47,14 +48,31 @@ body{
 	padding:15px;
 	border-bottom: 1px solid #707070;
 }
+#sidebar>li>a{
+	text-decoration: none;
+	color:white;
+}
+#sidebar>li>img{
+	height: 1.0em;
+	width: 1.0em;
+	margin-left: 5px;
+}
 #sidebar>li>ul{
 	list-style-type: none;
 	padding-left: 10px
 }
 #sidebar>li>ul>li{
 	margin-top: 10px;
+}
+#sidebar>li>ul>li>a{
+	text-decoration: none;
 	color:#808080;
 }
+#sidebar>li>ul>li>a:hover{
+	transition: color 0.125s ease-in-out;
+	color:white;
+}
+
 
 #main-container{
 	height: 100%;
