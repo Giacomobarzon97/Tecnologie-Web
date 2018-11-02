@@ -1,7 +1,8 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 	font-size: 1.0em;
+	font-family: sans-serif;
 }
 
 html,body {
@@ -53,19 +54,17 @@ html,body {
 /* Content and cards */
 
 #content{
-	padding: 1.5%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .home-card{
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	text-align: center;
-	width: 15%;
-	float: left;
-	margin-right: 5%;
-	margin-top: 2%;
+	margin: 5%;
+	display: grid;
 }
 
-/*not needed*/
 .home-card img{
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -157,14 +156,15 @@ li a:active{
 
 #footer{
 	background: darkgray;
-	padding: 0.5% 0.5% 3% 0.5%;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	text-align: center;
+	padding-top: 2%;
+	clear: both;
+	width: 100%;
+	display: inline-block;
+	height: 4%;
+	margin-top: 10%; 
 }
 
 #footer p{
+	text-align: center;
 	color: #ffffff;
 }
