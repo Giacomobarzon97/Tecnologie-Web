@@ -17,7 +17,7 @@ html,body {
 	position: fixed;
 	width: 99%;
 	top: 0;
-	background: darkgrey;
+	background: white;
 	padding: 1%;
 }
 
@@ -52,10 +52,11 @@ html,body {
 /* Header */
 
 #header{
-	background: url("./img/header1.jpg");
+	/*background: url("./img/header1.jpg");*/
+	background-color: #4EAEDF;
 	background-size: cover;
 	background-position: center;
-	padding: 12.5%;
+	padding: 10%;
 }
 
 #header-title{
@@ -174,11 +175,9 @@ li a:active{
 /* Footer */
 
 #footer{
-	background: darkgray;
+	background:#363636;
 	padding-top: 2%;
-	clear: both;
 	width: 100%;
-	display: inline-block;
 	height: 4%;
 }
 
