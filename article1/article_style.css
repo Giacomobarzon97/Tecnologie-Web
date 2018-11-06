@@ -1,3 +1,5 @@
+/* CSS ARTICOLO */
+
 .article-content > h2 {
      text-align: center;
      font-size: 4em;
@@ -36,4 +38,48 @@
 .article-image img {
      max-width: 70%;
      max-height: 70%;
+}
+
+/* ----------------- */
+
+/* CSS COMMENTI */
+
+#comments-content {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.post-comment {
+    margin-top: 2%;
+}
+
+.post-comment-avatar > img {
+    max-width: 4%;
+    max-height: 4%;
+    padding: 1%;
+    float: left;
+}
+
+.post-comment-body-header > h4 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.post-comment-body-header > p {
+    display:inline;
+}
+
+.post-comment-body-content > p {
+    padding: 1%;
+    margin-left: 5%;
+}
+
+.post-comment-body-footer {
+    padding: 1%;
+    margin-left: 5%;
+    font-style: italic;
+}
+
+.post-comment > .post-comment-childrens {
+    padding-left: 5.5%;
 }
