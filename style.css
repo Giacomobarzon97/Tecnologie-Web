@@ -2,7 +2,7 @@
 	margin: 0;
 	padding: 0;
 	font-size: 1.0em;
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 html,body {
@@ -74,42 +74,46 @@ html,body {
 }
 
 .home-card{
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	/*border: solid;*/
 	text-align: center;
 }
 
 .home-card img{
 	padding-top: 5px;
 	padding-bottom: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+	float: left;
 	width: 64px;
 	height: 64px;
 }
 
-.home-card:hover{
+/*.home-card:hover{
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+}*/
 
 .title-container{
-	background-color: dodgerblue;
-	padding-bottom: 5%;
-	padding-top: 5%;
+	margin: 20px 10px 20px 10px;
+	float: left;
+
 }
 
 .title-container a{
-	color:white;
+	font-size: 1.5em;
+	color: dodgerblue;
 }
 
 .home-card ul{
+	float: left;
+	clear: left;
 	list-style-type: none;
 	padding-top: 4%;
-	padding-bottom: 2%;
+	padding-bottom: 4%;
+	margin-left: 72px;
 }
 
 .home-card li{
-	padding-bottom: 5% 
+	padding-bottom: 8%;
+	padding-top: 8%;
+	text-align: left;
 }
 
 .title-container a:link{
@@ -121,13 +125,17 @@ html,body {
 }*/
 
 .title-container a:hover{
-	background-color:darkgrey;
+	color:darkgrey;
 	text-decoration: none;
 }
 
 .title-container a:active{
 	color: black;
 	text-decoration: none;
+}
+
+li a {
+	color: dodgerblue;
 }
 
 li a:link{
@@ -139,7 +147,7 @@ li a:link{
 }*/
 
 li a:hover{
-	background-color:darkgrey;
+	color:darkgrey;
 	text-decoration: none;
 }
 
