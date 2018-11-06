@@ -68,14 +68,14 @@ html,body {
 
 #content{
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	grid-gap: 50px;
+	padding: 50px;
 }
 
 .home-card{
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	text-align: center;
-	margin: 5%;
-	display: grid;
 }
 
 .home-card img{
@@ -93,7 +93,6 @@ html,body {
 }
 
 .title-container{
-	/*border-bottom-style: solid;*/
 	background-color: dodgerblue;
 	padding-bottom: 5%;
 	padding-top: 5%;
@@ -104,7 +103,6 @@ html,body {
 }
 
 .home-card ul{
-	/*border-top-style: dotted;*/
 	list-style-type: none;
 	padding-top: 4%;
 	padding-bottom: 2%;
