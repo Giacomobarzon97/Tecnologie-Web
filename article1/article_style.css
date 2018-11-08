@@ -71,6 +71,28 @@
     display:inline;
 }
 
+.post-comment-body-header-votes{
+    float: right;
+    display: inline-table;
+    vertical-align: middle;
+}
+
+.post-comment-body-header-votes > .dislike-vote {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.post-comment-body-header-votes > .like-vote {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.post-comment-body-header-votes > p {
+    font-size: 1em;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
 .post-comment-body-content > p {
     padding: 1%;
     margin-left: 5%;
