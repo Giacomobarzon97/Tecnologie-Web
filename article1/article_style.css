@@ -54,6 +54,8 @@
 }
 
 .post-comment-avatar > img {
+    min-width: 20px;
+    min-height: 20px;
     max-width: 4%;
     max-height: 4%;
     padding: 1%;
@@ -82,4 +84,10 @@
 
 .post-comment > .post-comment-childrens {
     padding-left: 5.5%;
+}
+
+.post-comment-childrens > .post-comment {
+    border-style: none none none solid;
+    border-width: 2px;
+    border-color: #adadad;
 }
