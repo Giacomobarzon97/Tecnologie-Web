@@ -6,23 +6,25 @@
 }
 
 html,body {
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 	height: 100%;
+	width: 100%;
 }
 
 /* Nav-bar */
 
 #nav-bar{
 	position: fixed;
-	width: 99%;
+	width: 98%;
 	top: 0;
-	background: white;
+	background: rgb(94, 111, 126);
 	padding: 1%;
 }
 
 #nav-bar h1{
 	float: left;
+	font-size: 2em;
 }
 
 .nav-bar-menu{
@@ -34,6 +36,7 @@ html,body {
 	display: block;
 	float: left;
 	margin-right: 20px;
+	font-size: 2em;
 }
 
 .profile-pic {
@@ -53,7 +56,7 @@ html,body {
 
 #header{
 	background-color: #4EAEDF;
-	margin-top: 5%;
+	margin-top: 4.3%;
 }
 
 #header-title{
@@ -65,24 +68,46 @@ html,body {
 
 /* Content and cards */
 
-#content{
+#content {
+	background-color: rgb(240, 234, 234); 
+}
+
+#introduction {
+	display: inline-block;
+	text-align: center;
+	font-size: 1.5em;
+	margin: auto;
+	padding: 20px;
+}
+
+/*#grid{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	grid-gap: 50px;
+	grid-gap: 75px;
 	padding: 50px;
 	max-width: 1200px;
 	margin: auto;
+}*/
+
+#grid {
+	display: inline-block;
+	clear: both;
+	max-width: 1200px;
+	padding: 2em;
 }
 
 @media only screen and (max-width: 768px) {
-	#content{
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	#nav-bar h1{
+		float: left;
+		font-size: 1.5em;
 	}
-}
 
+	#grid {
+		display: inline-block;
+		clear: both;
+		margin: auto;
+	}
 
-@media only screen and (max-width: 768px) {
 	#header{
 		background-color: #4EAEDF;
 		margin-top: 5%;
@@ -92,11 +117,26 @@ html,body {
 		color: #FFFFFF;
 		font-size: 2em;
 	}
+	#introduction {
+		font-size: 1em;
+	}
+	
+	.nav-bar-menu-item{
+		display: block;
+		float: left;
+		margin-right: 20px;
+		font-size: 1.5em;
+	}
+
+	.home-card{
+		margin: auto;
+		font-size: 1.5em;
+	}
 }
 
 .home-card{
-	margin: auto;
-	
+	margin: 4%;
+	float: left;
 }
 
 .home-card img{
@@ -107,14 +147,9 @@ html,body {
 	height: 64px;
 }
 
-/*.home-card:hover{
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}*/
-
 .title-container{
 	margin: 20px 10px 20px 10px;
 	float: left;
-
 }
 
 .title-container a{
