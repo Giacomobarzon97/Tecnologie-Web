@@ -16,8 +16,15 @@ body{
 	height: 80px;
 }
 #nav h1{
+	float:left;
 	padding:30px;
-	float: left;
+}
+#nav img{
+	float:left;
+	display:inline-block;
+	margin:24px;
+	display:none;
+	cursor:pointer;
 }
 
 #nav ul{
@@ -26,8 +33,7 @@ body{
 }
 
 #nav li{
-	display: block;
-	float: left;
+	display:inline-block;
 	padding:30px;
 	margin-right: 20px;
 }
@@ -37,12 +43,17 @@ body{
 	left: 0;
 	background: #404040;
 	position:fixed;
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x:hidden;
 	height: 100%;
 	margin-top:80px;
 	width:250px;
 	padding-top:15px;
 	list-style-type: none;
+	transition:width 0.5s;
+}
+#sidebar::-webkit-scrollbar { 
+    display: none;
 }
 #sidebar>li{
 	padding:15px;
@@ -73,9 +84,15 @@ body{
 	color:white;
 }
 
-
 #main-container{
-	height: 100%;
+	min-height:100%;
 	margin-top:80px;
 	margin-left:250px;
+}
+#footer{
+	margin-left:250px;
+	background-color:rgb(51, 51, 51);
+	text-align:center;
+	padding:2.0em 0 2.0em 0;
+	color:white;
 }
