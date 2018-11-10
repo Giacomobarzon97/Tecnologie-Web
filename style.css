@@ -6,29 +6,25 @@
 }
 
 html,body {
+	margin: 0px;
+	padding: 0px;
 	height: 100%;
 	width: 100%;
 }
 
 /* Nav-bar */
 
-#all {
-	width: 100%;
-	height: 100;
-	margin: 0;
-}
-
 #nav-bar{
 	position: fixed;
 	width: 100%;
 	top: 0;
 	background: rgb(94, 111, 126);
-	padding: 0.5%;
+	padding: 1%;
 }
 
 #nav-bar h1{
 	float: left;
-	font-size: 1.2em;
+	font-size: 1.5em;
 }
 
 .nav-bar-menu{
@@ -39,8 +35,8 @@ html,body {
 .nav-bar-menu-item{
 	display: block;
 	float: left;
-	margin-right: 1em;
-	font-size: 1.2em;
+	margin-right: 20px;
+	font-size: 1.5em;
 }
 
 .profile-pic {
@@ -48,40 +44,39 @@ html,body {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	margin-right: 1em;
+	margin-right: 2em;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
 	background-image: url('./img/coding.svg');
+
 }
 
 /* Header */
 
 #header{
 	background-color: #4EAEDF;
-	width: 100%;
-	padding-top: 5%;
-	padding-bottom: 5%; 
+	margin-top: 4.3%;
 }
 
 #header-title{
-    text-align: center;
+	line-height: 150px;
+	text-align:center;
 	color: #FFFFFF;
-	font-size: 5em;
+	font-size: 4em;
 }
 
 /* Content and cards */
 
 #content {
-	width: 100%;
-	height: 100%;
 	background-color: rgb(240, 234, 234); 
 }
 
 #introduction {
 	text-align: center;
-	font-size: 1.2em;
-	padding: 2%;
+	font-size: 1.5em;
+	margin: auto;
+	padding: 20px;
 }
 
 /*#grid{
@@ -104,7 +99,7 @@ html,body {
 @media only screen and (max-width: 768px) {
 	#nav-bar h1{
 		float: left;
-		font-size: 1.5em;
+		font-size: 1.0em;
 	}
 
 	#grid {
@@ -115,15 +110,12 @@ html,body {
 
 	#header{
 		background-color: #4EAEDF;
-		width: 100%;
-		padding-top: 15%;
-		padding-bottom: 10%; 
+		margin-top: 5%;
 	}
-	
 	#header-title{
 		text-align: center;
 		color: #FFFFFF;
-		font-size: 3em;
+		font-size: 2em;
 	}
 	#introduction {
 		font-size: 1em;
@@ -133,12 +125,18 @@ html,body {
 		display: block;
 		float: left;
 		margin-right: 20px;
-		font-size: 1.5em;
+		font-size: 1.0em;
 	}
 
 	.home-card{
 		margin: auto;
-		font-size: 1.5em;
+		font-size: 1.2em;
+	}
+
+	#footer{
+		background: #363636;
+		font-size: 1em;
+		padding: 1.5em;
 	}
 }
 
@@ -238,12 +236,12 @@ li a:active{
 /* Footer */
 
 #footer{
-	background:#363636;
-	padding: 2.5em;
-	width: 100%;
+	background: #363636;
+	font-size: 1.5em;
+    padding: 1.5em;
 }
 
-#footer p{
+#footer p { 
 	text-align: center;
 	color: #ffffff;
 }
