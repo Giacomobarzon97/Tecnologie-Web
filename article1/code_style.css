@@ -1,31 +1,31 @@
 /* Impostazioni base snippet di codice */
 .code-snippet {
-     background-color: rgb(238, 238, 238);
-     padding: 1%;
-     max-width: 50%;
+    background-color: rgb(238, 238, 238);
+    padding: 1%;
+    max-width: 50%;
 }
 /* Snippet di codice più largo per mostrare più codice */
 .code-snippet-large {
-     max-width: 80%;
+    max-width: 80%;
 }
 /* Istruzione random per mandare a capo una riga di codice */
 .code-newline {
-     display: block;
+    display: block;
 }
 /* Indentazione del codice */
 .code-indent-1 {
-     text-indent: 2em;
+    text-indent: 2em;
 }
  .code-indent-2 {
-     text-indent: 4em;
+    text-indent: 4em;
 }
 /* Colorazione del codice */
 .java .keyword {
-     color: rgb(0, 0, 136) 
+    color: rgb(0, 0, 136) 
 }
 .java .type {
-     color: rgb(127, 0, 85);
+    color: rgb(127, 0, 85);
 }
 .java .string {
-     color: rgb(0, 136, 0);
+    color: rgb(0, 136, 0);
 }

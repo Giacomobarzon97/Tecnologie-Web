@@ -1,43 +1,43 @@
 /* CSS ARTICOLO */
 
 .article-content > h2 {
-     text-align: center;
-     font-size: 4em;
+    text-align: center;
+    font-size: 4em;
 }
 .article-content > h3 {
-     text-align: center;
-     font-size: 2em;
+    text-align: center;
+    font-size: 2em;
 }
 /* Gestione di un paragrafo di tutorial, con titolo, sottotitolo e lista */
 .content-paragraph {
-     padding: 4%;
+    padding: 4%;
 }
 .content-paragraph p {
-     margin: .2em .2em .2em 0;
+    margin: .2em .2em .2em 0;
 }
 .content-paragraph > h3 {
-     font-size: 2em;
+    font-size: 2em;
 }
  .content-list-nostyle {
-     list-style-type: none;
+    list-style-type: none;
 }
 .content-paragraph h4 {
-     font-size: 1em;
-     font-weight: bold;
-     padding-top: 2%;
-     padding-bottom: 0.3%;
+    font-size: 1em;
+    font-weight: bold;
+    padding-top: 2%;
+    padding-bottom: 0.3%;
 }
 /* Test immagine nell'articolo */
 .article-image {
-     border: thin silver solid;
-     font-style: italic;
-     font-size: 1em;
-     margin: 0.5em;
-     padding: 0.5em;
+    border: thin silver solid;
+    font-style: italic;
+    font-size: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
 }
 .article-image img {
-     max-width: 90%;
-     max-height: 90%;
+    max-width: 90%;
+    max-height: 90%;
 }
 .article-image figcaption {
 	text-align: center;
@@ -53,6 +53,8 @@
     margin: 0 auto;
 }
 
+/* Css input nuovo commento */
+
 .input-comment {
     margin-top: 2%;
 }
@@ -62,7 +64,7 @@
 }
 
 .input-comment-area > textarea {
-    font-size: 1em;
+    font-size: 1.1em;
     max-width: 90%;
     resize: none;
 }
@@ -71,13 +73,15 @@
     font-style: italic;
 }
 
+/* Css commento standard */
+
 .post-comment {
     margin-top: 2%;
 }
 
 .post-comment-avatar > img, .input-comment-avatar > img {
-    /*min-width: 20px;
-    min-height: 20px;*/
+    min-width: 15px;
+    min-height: 15px;
     width: 4%;
     height: 4%;
     padding: 1%;
@@ -146,22 +150,26 @@
     font-style: italic;
 }
 
+/* Stile univoco per il buttone di submit */
+
 .post-comment-body-footer > input, .input-comment-footer > input {
 	position: relative;
   	vertical-align: top;
   	width: 25%;
-  	height: 30px;
+    height: 30px; /* Troppo grosso su mobile */
   	padding: 0;
   	text-align: center;
   	color: white;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-      font-size: 1em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    font-size: 1em;
   	background: #3498db;
   	border: 0;
   	border-bottom: 2px solid #2a8bcc;
   	cursor: pointer;
   	box-shadow: inset 0 -2px #2a8bcc;
 }
+
+/* Css risposte ai commenti standard */
 
 .post-comment > .post-comment-childrens {
     padding-left: 6%;
