@@ -2,14 +2,13 @@
 	margin: 0;
 	padding: 0;
 	font-size: 1.0em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 html,body {
 	margin: 0px;
 	padding: 0px;
-	height: 100%;
-	width: 100%;
+	vertical-align: baseline;
 }
 
 /* Nav-bar */
@@ -18,13 +17,15 @@ html,body {
 	position: fixed;
 	width: 100%;
 	top: 0;
-	background: rgb(94, 111, 126);
-	padding: 1%;
+	background:#0078CE;
+	height: 3.5em;
 }
 
 #nav-bar h1{
 	float: left;
-	font-size: 1.5em;
+	color: #ffffff;
+	font-size: 1em;
+	padding: 1em;
 }
 
 .nav-bar-menu{
@@ -36,27 +37,28 @@ html,body {
 	display: block;
 	float: left;
 	margin-right: 20px;
-	font-size: 1.5em;
+	font-size: 1em;
+	color: #ffffff;
+	padding: 1em;
 }
 
 .profile-pic {
 	display: inline-block;
-	width: 40px;
-	height: 40px;
+	width: 32px;
+	height: 32px;
 	border-radius: 50%;
-	margin-right: 2em;
+	padding: 0em 0em 0.5em 0.5em;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
 	background-image: url('./img/coding.svg');
-
 }
 
 /* Header */
 
 #header{
-	background-color: #4EAEDF;
-	margin-top: 4.3%;
+	background-color: #616161;
+	padding-top: 5.3em; 
 }
 
 #header-title{
@@ -69,7 +71,7 @@ html,body {
 /* Content and cards */
 
 #content {
-	background-color: rgb(240, 234, 234); 
+	display: block;
 }
 
 #introduction {
@@ -91,26 +93,23 @@ html,body {
 #grid {
 	display: inline-block;
 	clear: both;
-	max-width: 1200px;
 	padding: 2em;
-	margin-left: 15%;
+	background-color: rgb(139, 139, 139);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	#nav-bar h1{
 		float: left;
-		font-size: 1.0em;
+		font-size: 1.5em;
+		padding: 0.5em;
 	}
 
 	#grid {
 		display: inline-block;
-		clear: both;
-		margin: auto;
 	}
 
 	#header{
-		background-color: #4EAEDF;
-		margin-top: 5%;
+		padding-top: 4em;
 	}
 	#header-title{
 		text-align: center;
@@ -124,25 +123,26 @@ html,body {
 	.nav-bar-menu-item{
 		display: block;
 		float: left;
-		margin-right: 20px;
-		font-size: 1.0em;
+		padding: 0.4em;
+		font-size: 1.5em;
 	}
 
-	.home-card{
-		margin: auto;
-		font-size: 1.2em;
+	.home-card {
+		font-size: 1.3em;
 	}
 
-	#footer{
+	#footer {
 		background: #363636;
-		font-size: 1em;
+		font-size: 1.5em;
 		padding: 1.5em;
 	}
 }
 
 .home-card{
 	margin: 4%;
+	padding: 0.5em;
 	float: left;
+	background-color: white;
 }
 
 .home-card img{
@@ -235,10 +235,10 @@ li a:active{
 
 /* Footer */
 
-#footer{
+#footer {
 	background: #363636;
-	font-size: 1.5em;
-    padding: 1.5em;
+	font-size: 1em;
+	padding: 1.5em;
 }
 
 #footer p { 
