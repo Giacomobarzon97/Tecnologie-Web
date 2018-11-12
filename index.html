@@ -14,13 +14,29 @@
 		
 	</head>
 
+	<script>
+		function myFunction() {
+		  var x = document.getElementById('nav-bar-menu');
+		  if (x.style.display === "inline") {
+		    x.style.display = "none";
+		  } else {
+		    x.style.display = "inline";
+		    x.style.backgroundColor = "black";
+		    x.style.textAlign = "center";
+		  }
+		}
+	</script>
+
 	<body>
 		<div id="nav-bar">
 			<h1 id="">Nome sito</h1>
-			<ul class="nav-bar-menu">
-				<!--<li class="nav-bar-menu-item"><a href="">About</a></li>-->
+			<div id="menu-icon">
+				<img src="./img/list-menu.png" onclick="myFunction()"/>
+			</div>			
+			<ul id="nav-bar-menu">
+				<li class="nav-bar-menu-item">About</li>
 				<li class="nav-bar-menu-item">ProfileName</li>
-				<li class="profile-pic"></li>
+				<li class="nav-bar-menu-item">Accedi</li>
 			</ul>
 		</div>
 
@@ -37,8 +53,9 @@
 					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
 				</p>
 		</div>
-		<div id="grid">
-			<div class="home-card">
+		<div id="grid">	
+			<div class="row">
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -48,8 +65,8 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
-			</div>
-			<div class="home-card">
+				</div>
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -59,8 +76,8 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
-			</div>
-			<div class="home-card">
+				</div>
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -70,8 +87,8 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
-			</div>
-			<div class="home-card">
+				</div>
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -81,8 +98,10 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
+				</div>
 			</div>
-			<div class="home-card">
+			<div class="row">
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -92,8 +111,8 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
-			</div>
-			<div class="home-card">
+				</div>
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -103,8 +122,8 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
-			</div>
-			<div class="home-card">
+				</div>
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -114,8 +133,8 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
-			</div>
-			<div class="home-card">
+				</div>
+				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
 					<a href="">Algorithms</a>
@@ -125,30 +144,8 @@
 					<li><a href="">Heap</a></li>
 					<li><a href="">Hash</a></li>
 				</ul>
-			</div>
-			<div class="home-card">
-					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
-				<div class="title-container">
-					<a href="">Algorithms</a>
 				</div>
-				<ul>
-					<li><a href="">Sorting Algorithms</a></li>
-					<li><a href="">Heap</a></li>
-					<li><a href="">Hash</a></li>
-				</ul>
 			</div>
-			<div class="home-card">
-					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
-				<div class="title-container">
-					<a href="">Algorithms</a>
-				</div>
-				<ul>
-					<li><a href="">Sorting Algorithms</a></li>
-					<li><a href="">Heap</a></li>
-					<li><a href="">Hash</a></li>
-				</ul>
-			</div>
-		</div>
 		</div>
 		<div id="footer">
 			<p>Footer bello</p>

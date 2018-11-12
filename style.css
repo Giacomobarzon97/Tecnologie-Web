@@ -28,7 +28,11 @@ html,body {
 	padding: 1em;
 }
 
-.nav-bar-menu{
+#menu-icon {
+	float:right;
+}
+
+#nav-bar-menu{
 	float: right;
 	list-style-type: none;
 }
@@ -40,6 +44,17 @@ html,body {
 	font-size: 1em;
 	color: #ffffff;
 	padding: 1em;
+}
+
+#menu-icon img{
+	width:32px;
+	height:32px;
+	display: none;
+	float: left;
+	margin-right: 0.5em;
+	font-size: 1em;
+	color: #ffffff;
+	padding: 0.7em;
 }
 
 .profile-pic {
@@ -91,13 +106,28 @@ html,body {
 }*/
 
 #grid {
-	display: inline-block;
-	clear: both;
-	padding: 2em;
+	padding-top: 2em;
+	padding-bottom: 2em;
 	background-color: rgb(139, 139, 139);
 }
 
-@media only screen and (max-width: 767px) {
+.row {
+	margin:0 auto;	
+	max-width:1500px;
+	width:100%;
+	overflow:hidden;
+	margin-top:50px;
+}
+
+.home-card{
+	width:24%;
+	float:left;
+	overflow:hidden;
+	margin-right: 0.5em;
+	background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
 	#nav-bar h1{
 		float: left;
 		font-size: 1.5em;
@@ -105,7 +135,26 @@ html,body {
 	}
 
 	#grid {
-		display: inline-block;
+		padding-top: 2em;
+		padding-bottom: 2em;
+		background-color: rgb(139, 139, 139);
+	}
+
+	.row {
+		margin:auto;	
+		width:100%;
+		overflow:hidden;
+		margin-top:50px;
+	}
+
+	.home-card{
+		width:85%;
+		margin-left: 1em;	
+		margin-bottom:0.5em;
+	}
+
+	.home-card:nth-child(3) {
+		clear:both;
 	}
 
 	#header{
@@ -120,11 +169,24 @@ html,body {
 		font-size: 1em;
 	}
 	
+	#nav-bar {
+		z-index: 0;
+	}
+
+	#nav-bar-menu {
+		display:none;
+		width: 100%;
+	}	
+	
 	.nav-bar-menu-item{
-		display: block;
 		float: left;
 		padding: 0.4em;
 		font-size: 1.5em;
+	}
+
+	#menu-icon img{
+		display: block;
+		cursor: pointer;
 	}
 
 	.home-card {
@@ -138,12 +200,6 @@ html,body {
 	}
 }
 
-.home-card{
-	margin: 4%;
-	padding: 0.5em;
-	float: left;
-	background-color: white;
-}
 
 .home-card img{
 	padding-top: 5px;
@@ -160,7 +216,6 @@ html,body {
 
 .title-container a{
 	font-size: 1.5em;
-	color: dodgerblue;
 }
 
 .home-card ul{
@@ -196,9 +251,6 @@ html,body {
 	text-decoration: none;
 }
 
-li a {
-	color: dodgerblue;
-}
 
 li a:link{
 	text-decoration: none;
