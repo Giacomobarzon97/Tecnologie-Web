@@ -88,6 +88,8 @@ body{
 	min-height:100%;
 	margin-top:80px;
 	margin-left:250px;
+	
+	transition: margin-left 0.5s;
 }
 #footer{
 	margin-left:250px;
@@ -95,4 +97,6 @@ body{
 	text-align:center;
 	padding:2.0em 0 2.0em 0;
 	color:white;
+	
+	transition: margin-left 0.5s;
 }
