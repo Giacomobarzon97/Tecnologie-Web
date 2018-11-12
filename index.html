@@ -11,27 +11,15 @@
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		
 		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="./script.js"></script>
 		
 	</head>
-
-	<script>
-		function myFunction() {
-		  var x = document.getElementById('nav-bar-menu');
-		  if (x.style.display === "inline") {
-		    x.style.display = "none";
-		  } else {
-		    x.style.display = "inline";
-		    x.style.backgroundColor = "black";
-		    x.style.textAlign = "center";
-		  }
-		}
-	</script>
-
+	
 	<body>
 		<div id="nav-bar">
 			<h1 id="">Nome sito</h1>
 			<div id="menu-icon">
-				<img src="./img/list-menu.png" onclick="myFunction()"/>
+				<img src="./img/list-menu.png" onclick="menuCollapse()"/>
 			</div>			
 			<ul id="nav-bar-menu">
 				<li class="nav-bar-menu-item">About</li>
@@ -54,7 +42,7 @@
 				</p>
 		</div>
 		<div id="grid">	
-			<div class="row">
+			
 				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
@@ -99,8 +87,8 @@
 					<li><a href="">Hash</a></li>
 				</ul>
 				</div>
-			</div>
-			<div class="row">
+			
+			
 				<div class="home-card">
 					<a href=""><img src="./img/algo.jpg" alt="algorithm image"/></a>
 				<div class="title-container">
@@ -145,7 +133,7 @@
 					<li><a href="">Hash</a></li>
 				</ul>
 				</div>
-			</div>
+			
 		</div>
 		<div id="footer">
 			<p>Footer bello</p>

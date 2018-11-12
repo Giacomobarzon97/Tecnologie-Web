@@ -40,6 +40,7 @@ html,body {
 .nav-bar-menu-item{
 	display: block;
 	float: left;
+	text-align: center;
 	margin-right: 20px;
 	font-size: 1em;
 	color: #ffffff;
@@ -57,7 +58,9 @@ html,body {
 	padding: 0.7em;
 }
 
-.profile-pic {
+/* Nav-bar end */
+
+/*.profile-pic {
 	display: inline-block;
 	width: 32px;
 	height: 32px;
@@ -67,21 +70,23 @@ html,body {
 	background-position: center center;
 	background-size: cover;
 	background-image: url('./img/coding.svg');
-}
+}*/
 
 /* Header */
 
 #header{
 	background-color: #616161;
-	padding-top: 5.3em; 
+	padding-top: 5.3em;
 }
 
 #header-title{
-	line-height: 150px;
+	line-height: 300px;
 	text-align:center;
 	color: #FFFFFF;
 	font-size: 4em;
 }
+
+/* Header end */
 
 /* Content and cards */
 
@@ -108,24 +113,24 @@ html,body {
 #grid {
 	padding-top: 2em;
 	padding-bottom: 2em;
+	width:100%;
+	overflow: hidden;
 	background-color: rgb(139, 139, 139);
 }
 
-.row {
-	margin:0 auto;	
-	max-width:1500px;
-	width:100%;
+.home-card{
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 1em;
 	overflow:hidden;
-	margin-top:50px;
+	background-color: white;
+	text-align: center;
 }
 
-.home-card{
-	width:24%;
-	float:left;
-	overflow:hidden;
-	margin-right: 0.5em;
-	background-color: white;
-}
+/* Content and cards end */
+
+/* Sezione media queries */
 
 @media only screen and (max-width: 768px) {
 	#nav-bar h1{
@@ -134,32 +139,10 @@ html,body {
 		padding: 0.5em;
 	}
 
-	#grid {
-		padding-top: 2em;
-		padding-bottom: 2em;
-		background-color: rgb(139, 139, 139);
-	}
-
-	.row {
-		margin:auto;	
-		width:100%;
-		overflow:hidden;
-		margin-top:50px;
-	}
-
-	.home-card{
-		width:85%;
-		margin-left: 1em;	
-		margin-bottom:0.5em;
-	}
-
-	.home-card:nth-child(3) {
-		clear:both;
-	}
-
 	#header{
 		padding-top: 4em;
 	}
+
 	#header-title{
 		text-align: center;
 		color: #FFFFFF;
@@ -169,19 +152,22 @@ html,body {
 		font-size: 1em;
 	}
 	
-	#nav-bar {
-		z-index: 0;
-	}
-
 	#nav-bar-menu {
-		display:none;
+		display: none;
 		width: 100%;
+		background-color: #000000;
+		float: right;
 	}	
-	
+
 	.nav-bar-menu-item{
-		float: left;
-		padding: 0.4em;
+		text-align: center;
+		margin: auto;
+		display: block;
+		width: 100%;
 		font-size: 1.5em;
+		color: #ffffff;
+		padding: 0.5em;
+		overflow: hidden;
 	}
 
 	#menu-icon img{
@@ -199,6 +185,8 @@ html,body {
 		padding: 1.5em;
 	}
 }
+
+/* Sezione media queries end */
 
 
 .home-card img{
@@ -237,10 +225,6 @@ html,body {
 	text-decoration: none;
 }
 
-/*.title-container a:visited{
-
-}*/
-
 .title-container a:hover{
 	color:darkgrey;
 	text-decoration: none;
@@ -256,9 +240,6 @@ li a:link{
 	text-decoration: none;
 }
 
-/*li a:visited{
-	
-}*/
 
 li a:hover{
 	color:darkgrey;
@@ -272,18 +253,14 @@ li a:active{
 
 /* Article in content */
 
-.article-content{
-	width: 80%;
-}
+
+/* Article in content end */
+
 
 /* Left navigation bar */
 
-#left-nav-bar {
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    background-color: rgb(195, 255, 0);
-}
+
+/* Left navigation bar end */
 
 /* Footer */
 
@@ -297,3 +274,5 @@ li a:active{
 	text-align: center;
 	color: #ffffff;
 }
+
+/* Footer end */
