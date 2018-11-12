@@ -47,7 +47,6 @@
 /* Content and cards */
 
 #content{
-	min-height: 1000px; /* DA RIMUOVERE */
 	padding: 1.5%;
 	width: 80%;
 	float: right; /* A destra per testare con la barra a sinistra */
@@ -58,6 +57,17 @@
 .article-content{
 	max-width: 50%; /*Non occupa tutto lo spazio a sua disposizione */
 	margin: 0 auto; /* E' centrato rispetto al suo spazio */
+}
+
+@media only screen and (max-width: 768px) {
+	#content{
+		width: 100%;
+	}
+	
+	.article-content{
+		max-width: 100%;
+		margin: 0;
+	}
 }
 
 /* Left navigation bar */

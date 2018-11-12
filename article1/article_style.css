@@ -1,3 +1,5 @@
+/* ----------------- */
+
 /* CSS ARTICOLO */
 
 .article-content > h2 {
@@ -8,6 +10,7 @@
     text-align: center;
     font-size: 2em;
 }
+
 /* Gestione di un paragrafo di tutorial, con titolo, sottotitolo e lista */
 .content-paragraph {
     padding: 4%;
@@ -16,7 +19,7 @@
     margin: .2em .2em .2em 0;
 }
 .content-paragraph > h3 {
-    font-size: 2em;
+    font-size: 1.7em;
 }
  .content-list-nostyle {
     list-style-type: none;
@@ -42,6 +45,41 @@
 .article-image figcaption {
 	text-align: center;
 	display:inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+	.article-content > h2 {
+		font-size: 1.9em;
+		padding: 1%;
+	}
+	
+	.article-content > h3 {
+    	font-size: 1.6em;
+    	margin-top: 1%;
+    	padding-left: 3%;
+    	padding-right: 5%;
+	}
+	
+	.content-paragraph {
+		padding: 3%;
+	}
+	
+	.content-paragraph > h3 {
+		font-size: 1.5em;
+	}
+	
+	.article-content {
+		text-align: center;
+	}
+	
+	.article-image {
+		margin: 0;
+		padding: 0;
+	    max-width: 90%;
+	    max-height: 90%;
+	    margin: 0 auto;
+	}
+	
 }
 
 /* ----------------- */
@@ -180,3 +218,40 @@
     border-width: 2px;
     border-color: #adadad;
 }
+
+@media only screen and (max-width: 768px) {
+	.post-comment-body-footer > input, .input-comment-footer > input {
+		width: 25%;
+    	height: 20%;
+    	font-size: 0.5em;
+	}
+	
+	.input-comment {
+		margin: 0 auto;
+	}
+	
+	.input-comment-avatar > img {
+		display: none;
+	}
+	
+	.post-comment-avatar > img, .input-comment-avatar > img {
+	    min-width: 20px;
+    	min-height: 20px;
+	    padding: 1%;
+	    float: left;
+	}
+	
+	.post-comment-body-header-votes > .dislike-vote {
+		max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+	}
+
+	.post-comment-body-header-votes > .like-vote {
+	    max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+	}
+}
+
+/* ----------------- */
