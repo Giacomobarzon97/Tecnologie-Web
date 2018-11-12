@@ -11,7 +11,7 @@
 	width: 99%;
 	top: 0;
 	background: #ffffff;
-	padding: 1%;
+	padding:1%;
 }
 
 #nav-bar h1{
@@ -65,6 +65,58 @@
     width: 20%;
     position: fixed;
     background-color: rgb(195, 255, 0);
+}
+
+/* page content */
+
+#content-article-content{
+	padding:0.1em 1.5em 0.5em;
+	margin-top:5%;
+	position:relative;
+	left:20%;
+	top:10%;
+	width:80%;
+	font-style: italic;
+	line-height: 1.5;
+	font-family: Verdana, Helvetica, sans-serif; 
+}
+
+#content-article-content>h1{
+	padding: 0.5em;
+	font-size: 2em;
+	line-height:1.5;
+	font-family: monospace;
+	font-variant: small-caps;
+	color: #000000;
+}
+
+#content-article-content>ul{
+	padding-left: 2.0em;
+	color: #708090;
+	background-color:#f0f0f0;
+	padding-right: 2em;
+	margin-bottom: 1em;
+	text-indent: -1em;
+	list-style: none;
+	list-style-image: url("./img/link.png");
+}
+
+#content-article-content>ul>li{
+	padding-left: 1em;
+}
+
+#content-article-content>ul>li>a:link{
+	color: #BCBA7E; /*not sure: non-visited link appears gold*/
+	text-decoration: none;
+}
+
+#content-article-content>ul>li>a:visited{
+	color: #000099;
+}
+
+#content-article-content>ul>li>a:hover{
+	background-color: #FFB6C1;
+	font-variant: small-caps;
 }
 
 /* Footer */
