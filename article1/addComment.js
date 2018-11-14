@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    //Comment Reply
+    //Comment Reply, create comment div and form
 	var commentReply = document.getElementsByClassName("comment-reply-start-button");
 	var previousReplyClick = null;
 	var commentFormDiv = document.createElement("div");
@@ -7,7 +7,7 @@ window.addEventListener("load", function () {
 
 	var commentForm = document.createElement("form");
 	commentForm.method="POST";
-	commentForm.action="";
+	commentForm.action=""; //To add later, as input names
 
 	var inputCommentArea = document.createElement("div");
 	inputCommentArea.className="input-comment-area";
@@ -30,6 +30,7 @@ window.addEventListener("load", function () {
 	commentForm.appendChild(inputCommentFooter);
 	commentFormDiv.appendChild(commentForm);
 
+	//Onclick() status, executed when clicking "Reply" button
 	for(var i=0; i<commentReply.length; i++){
 		commentReply[i].addEventListener("click",function(e){
 			e = e || window.event;

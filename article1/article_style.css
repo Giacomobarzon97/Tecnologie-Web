@@ -137,7 +137,7 @@
 }
 
 .post-comment-header-info {
-	display: inline-block;
+    display: inline-block;
 }
 
 .post-comment-header-info > h4 {
@@ -151,8 +151,8 @@
 
 .post-comment-body-header-votes{
     float: right;
-   	text-align:right;
-    display: inline;
+    text-align:right;
+    /*display: inline; - doesn't work with float*/
 }
 
 .post-comment-body-header-votes > .dislike-vote {
@@ -230,7 +230,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-	.post-comment-body-footer > input, .input-comment-footer > input {
+	.post-comment-body-footer > input, .input-comment-footer > input, .input-reply-footer > input {
 		width: 25%;
     	height: 20%;
     	font-size: 0.5em;
@@ -242,7 +242,7 @@
 	
 	.input-comment-avatar > img {
 		display: none;
-	}
+    }
 	
 	.post-comment-avatar > img, .input-comment-avatar > img {
 	    min-width: 20px;
