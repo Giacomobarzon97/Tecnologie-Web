@@ -8,9 +8,11 @@
       <meta name="keywords" content="" />
       <meta name="language" content="italian it" />
       <meta name="author" content="" />
-      <link rel="stylesheet" type="text/css" href="../style.css" />
-      <link rel="stylesheet" type="text/css" href="./article_style.css" />
-      <link rel="stylesheet" type="text/css" href="./code_style.css" />
+      
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="./article_style.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="./code_style.css" media="screen" />
 	</head>
 	<body>
 		<div id="nav-bar">
@@ -121,17 +123,35 @@
 				<!--Fine paragrafo-->
 			</div>
 			<!--Fine centratura articolo-->
-			<hr /> <!--SEPARATORE TEMPORANEO-->
+			<hr /> <!--SEPARATORE TEMPORANEO DALLA SEZIONE COMMENTI-->
 			<!--Inizio centratura commenti-->
 			<div id="comments-content">
+				<div class="input-comment">
+						<div class="input-comment-avatar">
+							<img src="../img/coding.svg" />
+						</div>
+						<div class="input-comment-area">
+								<textarea rows="4" cols="200" placeholder="Scrivi un commento..." name="comment-input"></textarea>
+						</div>
+						<div class="input-comment-footer">
+							<input type="submit" value="Invia commento">
+						</div>
+				</div>
 				<div class="post-comment">
 					<div class="post-comment-avatar">
 						<img src="../img/coding.svg" />
 					</div>
 					<div class="post-comment-body">
 						<div class="post-comment-body-header">
-							<h4>Scrappy Cocco</h4>
-							<p> 24 ore fa</p>
+							<div class="post-comment-header-info">
+								<h4>Scrappy Cocco</h4>
+								<p> 3 ore fa</p>
+							</div>
+							<div class="post-comment-body-header-votes">
+								<img src="../img/down-arrow.svg" class="dislike-vote" alt="dislike comment button" />
+								<p class="positive-vote">31</p>
+								<img src="../img/up-arrow.svg" class="like-vote" alt="like comment button" />
+							</div>
 						</div>
 						<div class="post-comment-body-content">
 							<p>
@@ -156,7 +176,7 @@
 							</p>
 						</div>
 						<div class="post-comment-body-footer">
-							<p>Rispondi al commento</p>
+							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
 						</div>
 					</div>
 				</div>
@@ -166,8 +186,15 @@
 					</div>
 					<div class="post-comment-body">
 						<div class="post-comment-body-header">
-							<h4>Scrappy Cocco</h4>
-							<p> 24 ore fa</p>
+							<div class="post-comment-header-info">
+								<h4>Scrappy Cocco</h4>
+								<p> 2 ore fa</p>
+							</div>
+							<div class="post-comment-body-header-votes">
+								<img src="../img/down-arrow.svg" class="dislike-vote" />
+								<p class="positive-vote">10</p>
+								<img src="../img/up-arrow.svg" class="like-vote" />
+							</div>
 						</div>
 						<div class="post-comment-body-content">
 							<p>
@@ -192,7 +219,7 @@
 							</p>
 						</div>
 						<div class="post-comment-body-footer">
-							<p>Rispondi al commento</p>
+							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
 						</div>
 					</div>
 					<div class="post-comment-childrens">
@@ -202,8 +229,15 @@
 							</div>
 							<div class="post-comment-body">
 								<div class="post-comment-body-header">
-									<h4>Scrappy Cocco</h4>
-									<p> 24 ore fa</p>
+									<div class="post-comment-header-info">
+										<h4>Scrappy Cocco</h4>
+										<p> 10 minuti fa</p>
+									</div>
+									<div class="post-comment-body-header-votes">
+										<img src="../img/down-arrow.svg" class="dislike-vote" />
+										<p class="negative-vote">-2</p>
+										<img src="../img/up-arrow.svg" class="like-vote" />
+									</div>
 								</div>
 								<div class="post-comment-body-content">
 									<p>
@@ -238,8 +272,15 @@
 							</div>
 							<div class="post-comment-body">
 								<div class="post-comment-body-header">
-									<h4>Scrappy Cocco</h4>
-									<p> 24 ore fa</p>
+									<div class="post-comment-header-info">
+										<h4>Scrappy Cocco</h4>
+										<p> 44 minuti fa</p>
+									</div>
+									<div class="post-comment-body-header-votes">
+										<img src="../img/down-arrow.svg" class="dislike-vote" />
+										<p class="positive-vote">7</p>
+										<img src="../img/up-arrow.svg" class="like-vote" />
+									</div>
 								</div>
 								<div class="post-comment-body-content">
 									<p>
@@ -274,8 +315,15 @@
 							</div>
 							<div class="post-comment-body">
 								<div class="post-comment-body-header">
-									<h4>Scrappy Cocco</h4>
-									<p> 24 ore fa</p>
+									<div class="post-comment-header-info">
+										<h4>Scrappy Cocco</h4>
+										<p> 50 minuti fa</p>
+									</div>
+									<div class="post-comment-body-header-votes">
+										<img src="../img/down-arrow.svg" class="dislike-vote" />
+										<p class="positive-vote">2</p>
+										<img src="../img/up-arrow.svg" class="like-vote" />
+									</div>
 								</div>
 								<div class="post-comment-body-content">
 									<p>
@@ -312,8 +360,15 @@
 					</div>
 					<div class="post-comment-body">
 						<div class="post-comment-body-header">
-							<h4>Scrappy Cocco</h4>
-							<p> 24 ore fa</p>
+							<div class="post-comment-header-info">
+								<h4>Scrappy Cocco</h4>
+								<p>Ieri</p>
+							</div>
+							<div class="post-comment-body-header-votes">
+								<img src="../img/down-arrow.svg" class="dislike-vote" />
+								<p class="negative-vote">-5</p>
+								<img src="../img/up-arrow.svg" class="like-vote" />
+							</div>
 						</div>
 						<div class="post-comment-body-content">
 							<p>

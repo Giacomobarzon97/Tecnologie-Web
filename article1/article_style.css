@@ -1,43 +1,85 @@
+/* ----------------- */
+
 /* CSS ARTICOLO */
 
 .article-content > h2 {
-     text-align: center;
-     font-size: 4em;
+    text-align: center;
+    font-size: 4em;
 }
 .article-content > h3 {
-     text-align: center;
-     font-size: 2em;
+    text-align: center;
+    font-size: 2em;
 }
+
 /* Gestione di un paragrafo di tutorial, con titolo, sottotitolo e lista */
 .content-paragraph {
-     padding: 4%;
+    padding: 4%;
 }
 .content-paragraph p {
-     margin: .2em .2em .2em 0;
+    margin: .2em .2em .2em 0;
 }
 .content-paragraph > h3 {
-     font-size: 2em;
+    font-size: 1.7em;
 }
  .content-list-nostyle {
-     list-style-type: none;
+    list-style-type: none;
 }
 .content-paragraph h4 {
-     font-size: 1em;
-     font-weight: bold;
-     padding-top: 2%;
-     padding-bottom: 0.3%;
+    font-size: 1em;
+    font-weight: bold;
+    padding-top: 2%;
+    padding-bottom: 0.3%;
 }
 /* Test immagine nell'articolo */
 .article-image {
-     border: thin silver solid;
-     font-style: italic;
-     font-size: 1em;
-     margin: 0.5em;
-     padding: 0.5em;
+    border: thin silver solid;
+    font-style: italic;
+    font-size: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
 }
 .article-image img {
-     max-width: 70%;
-     max-height: 70%;
+    max-width: 90%;
+    max-height: 90%;
+}
+.article-image figcaption {
+	text-align: center;
+	display:inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+	.article-content > h2 {
+		font-size: 1.9em;
+		padding: 1%;
+	}
+	
+	.article-content > h3 {
+    	font-size: 1.6em;
+    	margin-top: 1%;
+    	padding-left: 3%;
+    	padding-right: 5%;
+	}
+	
+	.content-paragraph {
+		padding: 3%;
+	}
+	
+	.content-paragraph > h3 {
+		font-size: 1.5em;
+	}
+	
+	.article-content {
+		text-align: center;
+	}
+	
+	.article-image {
+		margin: 0;
+		padding: 0;
+	    max-width: 90%;
+	    max-height: 90%;
+	    margin: 0 auto;
+	}
+	
 }
 
 /* ----------------- */
@@ -49,24 +91,94 @@
     margin: 0 auto;
 }
 
+/* Css input nuovo commento */
+
+.input-comment {
+    margin-top: 2%;
+}
+
+.input-comment-area {
+    margin-top: 1%;
+}
+
+.input-comment-area > textarea {
+    font-size: 1.1em;
+    max-width: 90%;
+    resize: none;
+}
+
+.input-comment-area > textarea::placeholder {
+    font-style: italic;
+}
+
+/* Css commento standard */
+
 .post-comment {
     margin-top: 2%;
 }
 
-.post-comment-avatar > img {
-    max-width: 4%;
-    max-height: 4%;
+.post-comment-avatar > img, .input-comment-avatar > img {
+    min-width: 15px;
+    min-height: 15px;
+    width: 4%;
+    height: 4%;
     padding: 1%;
     float: left;
 }
 
-.post-comment-body-header > h4 {
+.post-comment-body-header {
+	white-space: nowrap;
+}
+
+.post-comment-header-info {
+	display: inline-block;
+}
+
+.post-comment-header-info > h4 {
     font-size: 1em;
     font-weight: bold;
 }
 
-.post-comment-body-header > p {
+.post-comment-header-info > p {
     display:inline;
+}
+
+.post-comment-body-header-votes{
+    float: right;
+   	text-align:right;
+    display: inline;
+}
+
+.post-comment-body-header-votes > .dislike-vote {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 4%;
+    max-height: 4%;
+    padding-right: 1%;
+    
+}
+
+.post-comment-body-header-votes > .like-vote {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 4%;
+    max-height: 4%;
+    padding-left: 1%;
+}
+
+.post-comment-body-header-votes > p {
+    font-size: 1em;
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.post-comment-body-header-votes > .positive-vote {
+	color: #46e023;
+}
+
+.post-comment-body-header-votes > .negative-vote {
+	color: red;
 }
 
 .post-comment-body-content > p {
@@ -74,12 +186,76 @@
     margin-left: 5%;
 }
 
-.post-comment-body-footer {
+.post-comment-body-footer, .input-comment-footer {
     padding: 1%;
     margin-left: 5%;
     font-style: italic;
 }
 
-.post-comment > .post-comment-childrens {
-    padding-left: 5.5%;
+/* Stile univoco per il buttone di submit */
+
+.post-comment-body-footer > input, .input-comment-footer > input {
+	position: relative;
+  	vertical-align: top;
+  	width: 25%;
+    height: 30px; /* Troppo grosso su mobile */
+  	padding: 0;
+  	text-align: center;
+  	color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    font-size: 1em;
+  	background: #3498db;
+  	border: 0;
+  	border-bottom: 2px solid #2a8bcc;
+  	cursor: pointer;
+  	box-shadow: inset 0 -2px #2a8bcc;
 }
+
+/* Css risposte ai commenti standard */
+
+.post-comment > .post-comment-childrens {
+    padding-left: 6%;
+}
+
+.post-comment-childrens > .post-comment {
+    border-style: none none none solid;
+    border-width: 2px;
+    border-color: #adadad;
+}
+
+@media only screen and (max-width: 768px) {
+	.post-comment-body-footer > input, .input-comment-footer > input {
+		width: 25%;
+    	height: 20%;
+    	font-size: 0.5em;
+	}
+	
+	.input-comment {
+		margin: 0 auto;
+	}
+	
+	.input-comment-avatar > img {
+		display: none;
+	}
+	
+	.post-comment-avatar > img, .input-comment-avatar > img {
+	    min-width: 20px;
+    	min-height: 20px;
+	    padding: 1%;
+	    float: left;
+	}
+	
+	.post-comment-body-header-votes > .dislike-vote {
+		max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+	}
+
+	.post-comment-body-header-votes > .like-vote {
+	    max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+	}
+}
+
+/* ----------------- */
