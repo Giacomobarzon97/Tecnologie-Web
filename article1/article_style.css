@@ -111,6 +111,12 @@
     font-style: italic;
 }
 
+.input-reply-footer {
+    padding: 1%;
+    
+    font-style: italic;
+}
+
 /* Css commento standard */
 
 .post-comment {
@@ -194,7 +200,7 @@
 
 /* Stile univoco per il buttone di submit */
 
-.post-comment-body-footer > input, .input-comment-footer > input {
+.post-comment-body-footer > input, .input-comment-footer > input, .input-reply-footer > input {
 	position: relative;
   	vertical-align: top;
   	width: 25%;
