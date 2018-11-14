@@ -1,14 +1,32 @@
 @media only screen and (max-width: 768px) {
-	#nav img{
-		display:block;
-	}
 	#sidebar{
-		width:0px;
+		width:0%;
 	}
-	#main-container{
-		margin-left:0px;
+	#sidebar-header{
+		display: block;
 	}
-	#footer{
-		margin-left:0px;
+	#rightSideWrapper{
+		width:100%;
+	}
+	#nav{
+		width:100%;
+		height: 4em;
+	}
+	#nav>h1{
+		font-size:1.5em;
+		margin:0.5em;
+	}
+	#nav>ul{
+		margin: 1em 0em;
+	}
+	#nav>ul>li{
+		margin:0em 0.5em;
+	}
+	#nav>img{
+		display: block;
+		margin:1em 0px 0px 0.5em;		
+	}
+	#main{
+		margin-top: 4em;
 	}
 }

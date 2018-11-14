@@ -1,73 +1,74 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns=“http://www.w3.org/1999/xhtml” xml:lang=“it” lang="it" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it" >
 	<head>
-		<title>WebSite-Home</title>
+		<title>WebSite</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="title" content="progetto tech-web" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="language" content="italian it" />
 		<meta name="author" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 		
 		<link rel="stylesheet" type="text/css" href="style.css" />
-	</head>
+		<link rel="stylesheet" media="screen and (max-width: 768px)" type="text/css" href="mobile-style.css" />
 
+		<script src="scripts.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	</head>
+  
 	<body>
-		<div id="nav-bar">
-			<h1 id="">Nome sito</h1>
-			<ul class="nav-bar-menu">
-				<li class="nav-bar-menu-item"><a href="">About</a></li>
-				<li class="nav-bar-menu-item">ProfileName</li>
+    	<div id="mobile-sidebar-mask"></div>
+		<div id="sidebar">
+			<ul>
+				<li>
+					<a href="">Argomento 1</a>
+					<img src="img/expand-button.svg" alt="Expand"/>
+					<ul>
+						<li><a href="">Link 1</a></li>
+						<li><a href="">Link 1</a></li>
+						<li><a href="">Link 1</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">Argomento 1</a>
+					<img src="img/expand-button.svg" alt="Expand"/>
+					<ul>
+						<li><a href="">Link 1</a></li>
+						<li><a href="">Link 1</a></li>
+						<li><a href="">Link 1</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">Argomento 1</a>
+					<img src="img/expand-button.svg" alt="Expand"/>
+					<ul>
+						<li><a href="">Link 1</a></li>
+						<li><a href="">Link 1</a></li>
+						<li><a href="">Link 1</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 
-		<div id="header">
-			<h1 id="header-title">Title</h1>
-		</div>
-
-		<div id="content">
-			<div class="home-card">
-				<a href="">Titolo</a>
-				<img src=""/>
+		<div id="rightSideWrapper">
+			<div id="nav">
+				<img src="img/hamburger.svg" alt="hamburger-icon" id="nav-hamburger"/>
+				<h1>Nome Sito</h1> 
 				<ul>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
+					<li class="nav-bar-menu-item"><a href="">About</a></li>
+					<li class="nav-bar-menu-item">ProfileName</li>
 				</ul>
 			</div>
-			<div class="home-card">
-				<a href="">Titolo</a>
-				<img src=""/>
-				<ul>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
-				</ul>
+			
+			<div id="main">
+				<p>Side Content</p>
 			</div>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-		</div>
-
-		<div id="footer">
-			<p>Footer bello</p>
 		</div>
 	</body>
+	
+
+	
+
 </html>
