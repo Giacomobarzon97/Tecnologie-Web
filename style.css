@@ -29,8 +29,19 @@ html,body {
 	padding: 1em;
 }
 
-#nav-bar h1:hover {
+
+#nav-bar h1 a {
+	text-decoration: none;
+}
+
+#nav-bar h1 a:hover {
 	text-decoration: underline;
+	color: #FFFFFF;
+}
+
+#nav-bar h1 a:visited {
+	text-decoration: none;
+	color: #FFFFFF;
 }
 
 #menu-icon {
@@ -39,7 +50,6 @@ html,body {
 
 #nav-bar-menu{
 	float: right;
-	list-style-type: none;
 }
 
 .nav-bar-menu-item{
@@ -50,6 +60,14 @@ html,body {
 	font-size: 1em;
 	color: #ffffff;
 	padding: 1em;
+}
+
+.nav-bar-menu-item {
+	text-decoration: none;
+}
+
+.nav-bar-menu-item:hover {
+	text-decoration: underline;
 }
 
 #menu-icon img{
@@ -68,7 +86,7 @@ html,body {
 /* Header */
 
 #header{
-	background-color: rgb(177, 177, 177);
+	background-color: rgb(40, 42, 43);
 	background-size: cover;
 	background-position: center;
 	padding-top: 6em;
@@ -88,6 +106,13 @@ html,body {
 	margin-right: auto;
 }
 
+#header p {
+	padding: 1em 2em;
+	font-size: 1.25em;
+	text-align: center;
+	color: #FFFFFF;
+}
+
 /* Header end */
 
 /* Content and cards */
@@ -101,10 +126,6 @@ html,body {
 	font-size: 1.5em;
 	margin: auto;
 	padding: 20px;
-}
-
-li:hover { 
-	text-decoration:underline;
 }
 
 .grid{
@@ -165,8 +186,6 @@ li:hover {
 
 .links a{
 	color:rgba(00,00,00,0.87);
-	-webkit-transition: color underline 0.3s;
-	transition: color 0.3s;
 	text-align: center;
 	font-size: 1.5em;
 	display: block;
@@ -174,7 +193,7 @@ li:hover {
 }
 
 .links a:hover {
-	color: rgb(196, 68, 68);
+	color: #2A78B5;
 	text-decoration: underline;
 }
 
@@ -323,7 +342,7 @@ input[type=submit]:hover {
 	#nav-bar-menu {
 		display: none;
 		width: 100%;
-		background-color: #000000;
+		background-color: #FFFFFF;
 		float: right;
 	}	
 
@@ -333,7 +352,7 @@ input[type=submit]:hover {
 		display: block;
 		width: 100%;
 		font-size: 1.5em;
-		color: #ffffff;
+		color: #000000;
 		padding: 0.5em;
 		overflow: hidden;
 	}
