@@ -9,48 +9,45 @@ body{
 }
 
 /*-----SIDEBAR-----*/
-#sidebar {
+#sidebar-wrapper{
 	/*Strictly Necessary */
-	z-index:3;
+	z-index: 3;
 	position:fixed; 
 	height: 100%;
 	width:25%;
-	margin: 0px;  
-	overflow-y:scroll;
-	overflow-x:hidden;
-	transition:width 0.5s;
-
+	margin: 0px;
+	transition: width 0.5s;
 	/*Aesthetics*/
 	background: #404040;
 }
-#sidebar>ul>li{
+#sidebar>li{
 	padding:2em 6% 2em 6%;
 	border-bottom: 1px solid #707070;
 }
-#sidebar>ul>li>a{
+#sidebar>li>a{
 	text-decoration: none;
 	font-size: 1.3em;
 	color:white;
 }
-#sidebar>ul>li>img{
+#sidebar>li>img{
 	height: 1.0em;
 	width: 1.0em;
 	margin-left: 0.2em;
 }
-#sidebar>ul>li>ul{
+#sidebar>li>ul{
 	list-style-type: none;
 	padding-left: 1em;
 	overflow-y:hidden;
 	transition: height 0.5s;
 }
-#sidebar>ul>li>ul>li{
+#sidebar>li>ul>li{
 	margin-top: 0.5em;
 }
-#sidebar>ul>li>ul>li>a{
+#sidebar>li>ul>li>a{
 	text-decoration: none;
 	color:#808080;
 }
-#sidebar>ul>li>ul>li>a:hover{
+#sidebar>li>ul>li>a:hover{
 	transition: color 0.125s ease-in-out;
 	color:white;
 }

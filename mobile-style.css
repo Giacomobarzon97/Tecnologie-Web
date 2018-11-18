@@ -1,9 +1,6 @@
 @media only screen and (max-width: 768px) {
-	#sidebar{
+	#sidebar-wrapper{
 		width:0%;
-	}
-	#sidebar-header{
-		display: block;
 	}
 	#rightSideWrapper{
 		width:100%;
