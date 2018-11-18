@@ -70,51 +70,88 @@
 /* page content */
 
 #content-article-content{
-	padding:0.1em 1.5em 0.5em;
-	margin-top:5%;
-	position:relative;
-	left:20%;
-	top:10%;
-	width:80%;
-	font-style: italic;
+	margin-top: 5%;
+	margin-bottom: 2rem;
+	position: relative;
+	left: 20%;
+	width: 95%;
 	line-height: 1.5;
-	font-family: Verdana, Helvetica, sans-serif; 
-}
-
-#content-article-content>h1{
-	padding: 0.5em;
-	font-size: 2em;
-	line-height:1.5;
-	font-family: monospace;
-	font-variant: small-caps;
+	font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont,
+		"Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;	
+	max-width: 75rem;
 	color: #000000;
 }
 
-#content-article-content>ul{
+#content-article-introduction>h2{
+	font-size: 2.2rem;
+	margin-bottom: 1rem;
+}
+
+#content-article-introduction>p{
+	margin-bottom: 2rem;
+	line-height: 1.7;
+	font-size: 1.25rem;
+}
+
+#content-article-introduction>h3{
+	font-size: 1.6rem;
+	margin-bottom: 1rem;
+}
+
+#content-article-introduction>ul{
+	column-count: 2;
+	list-style: none;
+	padding-left: 0;
+	max-width: 60rem;
+	margin-bottom: 3rem;
+	text-indent: 1.5em;
+	list-style-image: checkmark icon;
+}
+
+#content-article-introduction>ul>li:before{
+	content: '✓';
+	font-style: italic;
+}
+
+#content-article-introduction>ul>li{
+	display: flex;
+	align-items: center;
+	margin-bottom: 0.25rem;
+}
+#content-article-body{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: whitesmoke;
+	position: relative;
+	padding: 5rem 0;
+}
+#content-article-body>ul{
 	padding-left: 2.0em;
 	color: #708090;
 	background-color:#f0f0f0;
 	padding-right: 2em;
-	margin-bottom: 1em;
+	margin-bottom: 3rem;
 	text-indent: -1em;
 	list-style: none;
 	list-style-image: url("./img/link.png");
 }
 
-#content-article-content>ul>li{
+#content-article-body>ul>li{
 	padding-left: 1em;
 }
 
-#content-article-content>ul>li>a:link{
+#content-article-body>ul>li>a:link{
 	color: #BCBA7E; /*not sure: non-visited link appears gold*/
 	text-decoration: none;
 }
 
-#content-article-content>ul>li>a:visited{
+#content-article-body>ul>li>a:visited{
 	color: #000099;
 }
 
-#content-article-content>ul>li>a:hover{
+#content-article-body>ul>li>a:hover{
 	background-color: #FFB6C1;
 	font-variant: small-caps;
 }
