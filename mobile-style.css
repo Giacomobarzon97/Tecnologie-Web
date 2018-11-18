@@ -29,4 +29,14 @@
 	#main{
 		margin-top: 4em;
 	}
+	#social{
+		float: none;
+		margin-left: 0em;
+	}
+	#developers{
+		float: none;
+		margin-right: 0%;
+		margin-top: 4em;
+		text-align: center;
+	}
 }
