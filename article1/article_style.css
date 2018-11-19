@@ -113,7 +113,6 @@
 
 .input-reply-footer {
     padding: 1%;
-    
     font-style: italic;
 }
 
@@ -155,25 +154,27 @@
     /*display: inline; - doesn't work with float*/
 }
 
-.post-comment-body-header-votes > .dislike-vote {
+.post-comment-body-header-votes img {
+    min-width: 15px;
+    min-height: 15px;
+    max-width: 30px;
+    max-height: 30px;
     display: inline-block;
     vertical-align: middle;
-    max-width: 4%;
-    max-height: 4%;
-    padding-right: 1%;
-    
+}
+
+.post-comment-body-header-votes > .dislike-vote {
+    padding-right: 2%;
+    cursor: pointer;
 }
 
 .post-comment-body-header-votes > .like-vote {
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 4%;
-    max-height: 4%;
-    padding-left: 1%;
+    padding-left: 2%;
+    cursor: pointer;
 }
 
 .post-comment-body-header-votes > p {
-    font-size: 1em;
+    font-size: 1.3em;
     font-weight: bold;
     vertical-align: middle;
     display: inline-block;
@@ -198,9 +199,20 @@
     font-style: italic;
 }
 
-/* Stile univoco per il buttone di submit */
+/* Stile univoco per il buttone di submit / link di risposta */
 
-.post-comment-body-footer > input, .input-comment-footer > input, .input-reply-footer > input {
+.post-comment-body-footer > input {
+    background:none!important;
+    color:inherit; /* Colore di default */
+    color:#D76901; /* Colore di test da cambiare*/
+    border:none; 
+    padding:0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+.input-comment-footer > input, .input-reply-footer > input {
 	position: relative;
   	vertical-align: top;
   	width: 25%;
