@@ -16,7 +16,6 @@ window.addEventListener("load", function () {
 	commentFormTextArea.rows = "7";
 	commentFormTextArea.cols = "100";
 	commentFormTextArea.value = "";
-	commentFormTextArea.placeholder = "Scrivi una risposta..."
 	inputCommentArea.appendChild(commentFormTextArea);
 
 	var commentFormSubmit = document.createElement("input");

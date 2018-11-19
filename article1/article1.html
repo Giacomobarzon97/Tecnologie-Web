@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns=“http://www.w3.org/1999/xhtml” xml:lang=“it” lang="it" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it" >
 	<head>
       <title>Articolo 1 - Website</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,25 +12,14 @@
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="./article_style.css" media="screen" />
-	  <link rel="stylesheet" type="text/css" href="./code_style.css" media="screen" />
-	  <script src="addComment.js"></script>
+	  <script src="articleScript.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div id="nav-bar">
-			<h1 id="">Nome sito</h1>
-			<ul class="nav-bar-menu">
-				<li class="nav-bar-menu-item">
-				<a href="">About</a>
-				</li>
-				<li class="nav-bar-menu-item">ProfileName</li>
-			</ul>
+
 		</div>
-		<!--Spazio random per saltare la nav-bar-->
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
+		<!--Spazio random per saltare la nav-bar, DA TOGLIERE-->
+		<p><br/><br/><br/><br/><br/></p>
 		<!--Inizio contenuto articolo-->
 		<div id="content">
 			<!--Inizio centratura articolo-->
@@ -114,10 +103,10 @@
 							Per scaricare il JDK segui il link qui sopra e bla bla bla bla bla bla bla bla bla bla bla 
 							bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
 						</p>
-						<figure class="article-image">
-							<img src="./imgs/install_guide/img1.png"/>
-							<figcaption>Screenshot della pagina di Download del JDK</figcaption>
-						</figure>
+						<div class="article-image">
+							<img src="./imgs/install_guide/img1.png" alt="Screenshot pagina download del JDK"/>
+							<p>Screenshot della pagina di Download del JDK</p>
+						</div>
 					</li>
 				</ol>
 				</div>
@@ -129,18 +118,18 @@
 			<div id="comments-content">
 				<div class="input-comment">
 						<div class="input-comment-avatar">
-							<img src="../img/coding.svg" />
+							<img src="../img/coding.svg" alt="Avatar Utente"/>
 						</div>
 						<div class="input-comment-area">
-								<textarea rows="4" cols="200" placeholder="Scrivi un commento..." name="comment-input"></textarea>
+								<textarea rows="4" cols="200" name="comment-input"></textarea>
 						</div>
 						<div class="input-comment-footer">
-							<input type="submit" value="Invia commento">
+							<input type="submit" value="Invia commento" />
 						</div>
 				</div>
 				<div class="post-comment">
 					<div class="post-comment-avatar">
-						<img src="../img/coding.svg" />
+						<img src="../img/coding.svg" alt="Avatar Utente"/>
 					</div>
 					<div class="post-comment-body">
 						<div class="post-comment-body-header">
@@ -177,13 +166,13 @@
 							</p>
 						</div>
 						<div class="post-comment-body-footer">
-							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
+							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button" />
 						</div>
 					</div>
 				</div>
 				<div class="post-comment">
 					<div class="post-comment-avatar">
-						<img src="../img/coding.svg" />
+						<img src="../img/coding.svg" alt="Avatar Utente"/>
 					</div>
 					<div class="post-comment-body">
 						<div class="post-comment-body-header">
@@ -192,9 +181,9 @@
 								<p> 2 ore fa</p>
 							</div>
 							<div class="post-comment-body-header-votes">
-								<img src="../img/dislike.svg" class="dislike-vote" />
+								<img src="../img/dislike.svg" class="dislike-vote" alt="Pulsante dislike" />
 								<p class="positive-vote">10</p>
-								<img src="../img/like.svg" class="like-vote" />
+								<img src="../img/like.svg" class="like-vote" alt="Pulsante like"/>
 							</div>
 						</div>
 						<div class="post-comment-body-content">
@@ -220,13 +209,13 @@
 							</p>
 						</div>
 						<div class="post-comment-body-footer">
-							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
+							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button" />
 						</div>
 					</div>
 					<div class="post-comment-childrens">
 						<div class="post-comment">
 							<div class="post-comment-avatar">
-								<img src="../img/coding.svg" />
+								<img src="../img/coding.svg" alt="Avatar Utente"/>
 							</div>
 							<div class="post-comment-body">
 								<div class="post-comment-body-header">
@@ -235,9 +224,9 @@
 										<p> 10 minuti fa</p>
 									</div>
 									<div class="post-comment-body-header-votes">
-										<img src="../img/dislike.svg" class="dislike-vote" />
+										<img src="../img/dislike.svg" class="dislike-vote" alt="Pulsante dislike" />
 										<p class="negative-vote">-2</p>
-										<img src="../img/like.svg" class="like-vote" />
+										<img src="../img/like.svg" class="like-vote" alt="Pulsante like"/>
 									</div>
 								</div>
 								<div class="post-comment-body-content">
@@ -263,13 +252,13 @@
 									</p>
 								</div>
 								<div class="post-comment-body-footer">
-									<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
+									<input type="submit" value="Rispondi al commento" class="comment-reply-start-button" />
 								</div>
 							</div>
 						</div>
 						<div class="post-comment">
 							<div class="post-comment-avatar">
-								<img src="../img/coding.svg" />
+								<img src="../img/coding.svg" alt="Avatar Utente"/>
 							</div>
 							<div class="post-comment-body">
 								<div class="post-comment-body-header">
@@ -278,9 +267,9 @@
 										<p> 44 minuti fa</p>
 									</div>
 									<div class="post-comment-body-header-votes">
-										<img src="../img/dislike.svg" class="dislike-vote" />
+										<img src="../img/dislike.svg" class="dislike-vote" alt="Pulsante dislike" />
 										<p class="positive-vote">7</p>
-										<img src="../img/like.svg" class="like-vote" />
+										<img src="../img/like.svg" class="like-vote" alt="Pulsante like"/>
 									</div>
 								</div>
 								<div class="post-comment-body-content">
@@ -306,13 +295,13 @@
 									</p>
 								</div>
 								<div class="post-comment-body-footer">
-									<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
+									<input type="submit" value="Rispondi al commento" class="comment-reply-start-button" />
 								</div>
 							</div>
 						</div>
 						<div class="post-comment">
 							<div class="post-comment-avatar">
-								<img src="../img/coding.svg" />
+								<img src="../img/coding.svg" alt="Avatar Utente"/>
 							</div>
 							<div class="post-comment-body">
 								<div class="post-comment-body-header">
@@ -321,9 +310,9 @@
 										<p> 50 minuti fa</p>
 									</div>
 									<div class="post-comment-body-header-votes">
-										<img src="../img/dislike.svg" class="dislike-vote" />
+										<img src="../img/dislike.svg" class="dislike-vote" alt="Pulsante dislike" />
 										<p class="positive-vote">2</p>
-										<img src="../img/like.svg" class="like-vote" />
+										<img src="../img/like.svg" class="like-vote" alt="Pulsante like"/>
 									</div>
 								</div>
 								<div class="post-comment-body-content">
@@ -349,7 +338,7 @@
 									</p>
 								</div>
 								<div class="post-comment-body-footer">
-									<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
+									<input type="submit" value="Rispondi al commento" class="comment-reply-start-button" />
 								</div>
 							</div>
 						</div>
@@ -357,7 +346,7 @@
 				</div>
 				<div class="post-comment">
 					<div class="post-comment-avatar">
-						<img src="../img/coding.svg" />
+						<img src="../img/coding.svg" alt="Avatar Utente"/>
 					</div>
 					<div class="post-comment-body">
 						<div class="post-comment-body-header">
@@ -366,9 +355,9 @@
 								<p>Ieri</p>
 							</div>
 							<div class="post-comment-body-header-votes">
-								<img src="../img/dislike.svg" class="dislike-vote" />
+								<img src="../img/dislike.svg" class="dislike-vote" alt="Pulsante dislike" />
 								<p class="negative-vote">-5</p>
-								<img src="../img/like.svg" class="like-vote" />
+								<img src="../img/like.svg" class="like-vote" alt="Pulsante like"/>
 							</div>
 						</div>
 						<div class="post-comment-body-content">
@@ -394,7 +383,7 @@
 							</p>
 						</div>
 						<div class="post-comment-body-footer">
-							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button">
+							<input type="submit" value="Rispondi al commento" class="comment-reply-start-button" />
 						</div>
 					</div>
 				</div>
