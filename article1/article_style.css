@@ -280,10 +280,15 @@
 	    margin: 0 auto;
     }
     
-    .post-comment-body-footer > input, .input-comment-footer > input, .input-reply-footer > input {
-		width: 25%;
-    	height: 20%;
-    	font-size: 0.5em;
+    .post-comment-body-footer > input {
+        /* Mobile css of the "reply" button-link */
+        /* Empty for now */
+    }
+    
+    .input-comment-footer > input, .input-reply-footer > input {
+		min-width: 55%;
+    	min-height: 20%;
+    	font-size: 1em;
 	}
 	
 	.input-comment {
