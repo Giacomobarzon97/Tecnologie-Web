@@ -1,8 +1,8 @@
 function menuCollapse() {
-    var x = document.getElementById('nav-bar-menu');
-    if (x.style.display === "inline") {
-      x.style.display = "none";
+    var y = document.getElementById('nav-bar-menu');
+    if (y.className === "menu") {
+      y.className += " responsive";
     } else {
-      x.style.display = "inline";
+      y.className = "menu";
     }
   }

@@ -5,7 +5,7 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-html,body {
+html, body {
 	margin: 0px;
 	padding: 0px;
 	vertical-align: baseline;
@@ -13,7 +13,7 @@ html,body {
 
 /* Nav-bar */
 
-#nav-bar{
+#nav-bar {
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -22,7 +22,7 @@ html,body {
 	z-index: 100;
 }
 
-#nav-bar h1{
+#site-title {
 	float: left;
 	color: #ffffff;
 	font-size: 1em;
@@ -30,16 +30,16 @@ html,body {
 }
 
 
-#nav-bar h1 a {
+.nav-bar-menu-item a {
 	text-decoration: none;
 }
 
-#nav-bar h1 a:hover {
+.nav-bar-menu-item a:hover {
 	text-decoration: underline;
 	color: #FFFFFF;
 }
 
-#nav-bar h1 a:visited {
+.nav-bar-menu-item a:visited {
 	text-decoration: none;
 	color: #FFFFFF;
 }
@@ -48,11 +48,12 @@ html,body {
 	float:right;
 }
 
-#nav-bar-menu{
+.menu {
 	float: right;
+	list-style-type: none;
 }
 
-.nav-bar-menu-item{
+.menu .nav-bar-menu-item {
 	display: block;
 	float: left;
 	text-align: center;
@@ -70,7 +71,7 @@ html,body {
 	text-decoration: underline;
 }
 
-#menu-icon img{
+#menu-icon img {
 	width:32px;
 	height:32px;
 	display: none;
@@ -85,7 +86,7 @@ html,body {
 
 /* Header */
 
-#header{
+#header {
 	background-color: rgb(40, 42, 43);
 	background-size: cover;
 	background-position: center;
@@ -94,7 +95,7 @@ html,body {
 	padding-bottom: 2em;
 }
 
-#header-title{
+#header-title {
 	text-align: center;
 	color: #FFFFFF;
 	font-size: 4em;
@@ -157,14 +158,14 @@ html,body {
 .home-card:nth-child(4){
 	margin-right:0;
 }
-.home-card h3{
+.home-card h2{
 	color:#2f80cc;
 	text-align: center;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 	font-size: 2em;
 }
-.links img{
+.links > li >img{
 	display: block;
     margin-left: auto;
 	margin-right: auto;
@@ -172,19 +173,20 @@ html,body {
 	margin-bottom: 0.5em;
 }
 
-.links {
+.links > li{
 	text-align: center;
 }
 
-.links a:nth-child(5) {
+.links > li:nth-child(5) > a {
 	color:rgba(00,00,00,0.87);
 	text-align: right;
 	margin-right: 0.5em;
 	margin-bottom: 0.2em;
 	font-size: 1.2em;
+	display: block;
 }
 
-.links a{
+.links > li > a{
 	color:rgba(00,00,00,0.87);
 	text-align: center;
 	font-size: 1.5em;
@@ -192,7 +194,7 @@ html,body {
 	margin-bottom: 1em;
 }
 
-.links a:hover {
+.links > li > a:hover {
 	color: #2A78B5;
 	text-decoration: underline;
 }
@@ -306,7 +308,7 @@ input[type=submit]:hover {
 /* Media queries */
 
 @media only screen and (max-width: 768px) {
-	#nav-bar h1{
+	#site-title{
 		float: left;
 		font-size: 1.5em;
 		padding: 0.5em;
@@ -338,23 +340,34 @@ input[type=submit]:hover {
 	.home-card:nth-child(3){
 		clear:both;
 	}
-	
-	#nav-bar-menu {
+
+	.menu {
 		display: none;
+		width: 100%;
+		background-color: #FFFFFF;
+		float: right;
+	}
+
+	.menu.responsive{
+		display: block;
 		width: 100%;
 		background-color: #FFFFFF;
 		float: right;
 	}	
 
-	.nav-bar-menu-item{
+	.menu.responsive > li{
 		text-align: center;
 		margin: auto;
 		display: block;
 		width: 100%;
+		overflow: hidden;
+	}
+
+	.menu.responsive > li > a{
+		width: 100%;
 		font-size: 1.5em;
 		color: #000000;
-		padding: 0.5em;
-		overflow: hidden;
+		padding: 0.25em;
 	}
 
 	#menu-icon img{
