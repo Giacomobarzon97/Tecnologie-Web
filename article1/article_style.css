@@ -123,19 +123,19 @@
 .post-comment-body-header-votes img {
     min-width: 15px;
     min-height: 15px;
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 20px;
+    max-height: 20px;
     display: inline-block;
     vertical-align: middle;
 }
 
 .post-comment-body-header-votes > .dislike-vote {
-    padding-right: 2%;
+    padding-right: 5%;
     cursor: pointer;
 }
 
 .post-comment-body-header-votes > .like-vote {
-    padding-left: 2%;
+    padding-left: 5%;
     cursor: pointer;
 }
 
