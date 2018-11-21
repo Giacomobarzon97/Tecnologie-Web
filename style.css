@@ -68,6 +68,20 @@ body{
 	float: right;
 	transition:width 0.5s;
 
+.article-content{
+	max-width: 50%; /*Non occupa tutto lo spazio a sua disposizione */
+	margin: 0 auto; /* E' centrato rispetto al suo spazio */
+}
+
+@media only screen and (max-width: 768px) {
+	#content{
+		width: 100%;
+	}
+	
+	.article-content{
+		max-width: 100%;
+		margin: 0;
+	}
 	/*Aesthetics*/
 }
 
