@@ -1,73 +1,158 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns=“http://www.w3.org/1999/xhtml” xml:lang=“it” lang="it" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html version="-//W3C//DTD XHTML 1.1//EN"
+	  xmlns="http://www.w3.org/1999/xhtml" xml:lang="it"
+	  lang="it"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml
+                          http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
+>
 	<head>
 		<title>WebSite-Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="title" content="progetto tech-web" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+		<meta name="title" content="progetto tecc-web" />
+        <meta name="description" content="computer science topics" />
+        <meta name="keywords" content="computer science" />
         <meta name="language" content="italian it" />
 		<meta name="author" content="" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		
 		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="./scripts.js"></script>
+		
 	</head>
-
+	
 	<body>
 		<div id="nav-bar">
-			<h1 id="">Nome sito</h1>
-			<ul class="nav-bar-menu">
+			<div id="site-title">NOME SITO</div>
+			<div id="menu-icon">
+				<img src="./img/list-menu.png" alt="menu icon" onclick="menuCollapse()"/>
+			</div>			
+			<ul id="nav-bar-menu" class="menu">
 				<li class="nav-bar-menu-item"><a href="">About</a></li>
-				<li class="nav-bar-menu-item">ProfileName</li>
+				<li class="nav-bar-menu-item"><a href="profile.html">ProfileName</a></li>
+				<li class="nav-bar-menu-item"><a href="">Accedi</a></li>
 			</ul>
 		</div>
 
 		<div id="header">
-			<h1 id="header-title">Title</h1>
+			<img src="./img/logo1.jpg" alt="logo"/>
 		</div>
-
 		<div id="content">
-			<div class="home-card">
-				<a href="">Titolo</a>
-				<img src=""/>
-				<ul>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
-				</ul>
+			<div id="introduction">
+					<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
+					</p>
+					<br/>
+					<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
+					</p>
 			</div>
-			<div class="home-card">
-				<a href="">Titolo</a>
-				<img src=""/>
-				<ul>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
-					<li><a href="">Link1</a></li>
-				</ul>
+		</div>
+			<div class="grid">
+				<h1>Argomenti</h1>
+				<div class="row">
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+					<div class="home-card">
+						<h2><a href="article.html">Algorithms</a></h2>
+						<ul class="links">
+							<li><a href="article.html"><img src="./img/algo.jpg" alt="algorithm topic" /></a></li>
+							<li><a href="#">Sorting</a></li>
+							<li><a href="#">Hash</a></li>
+							<li><a href="#">Heap</a></li>
+							<li><a href="#">More &rarr;</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-			<p>Some text some text some text some text..</p>
-		</div>
-
-		<div id="footer">
-			<p>Footer bello</p>
-		</div>
+			<div id="footer">
+				<div id="upper-footer">
+					<p>powered by</p>
+					<h1>Universita' di Padova</h1>
+				</div>
+				<div id="lower-footer">
+					<div id="developers">
+						<h2>Developed By</h2>
+						<ul>
+							<li>Barzon Giacomo</li>
+							<li>De Filippis Francesco</li>
+							<li>Greggio Giacomo</li>
+							<li>Roverato Michele</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 	</body>
 </html>
