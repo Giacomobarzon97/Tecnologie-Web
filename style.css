@@ -67,22 +67,6 @@ body{
 	width:75%; 
 	float: right;
 	transition:width 0.5s;
-
-.article-content{
-	max-width: 50%; /*Non occupa tutto lo spazio a sua disposizione */
-	margin: 0 auto; /* E' centrato rispetto al suo spazio */
-}
-
-@media only screen and (max-width: 768px) {
-	#content{
-		width: 100%;
-	}
-	
-	.article-content{
-		max-width: 100%;
-		margin: 0;
-	}
-	/*Aesthetics*/
 }
 
 #nav {
@@ -195,4 +179,335 @@ body{
 	margin-top: 1em;
 	color:#919191;
 }
+/*INIZIO STILE DI ROVE
+------------------------------------------------------------------------
+------------------------------------------------------------------------*/
+.article-content > h2 {
+    text-align: center;
+    font-size: 4em;
+}
+.article-content > h3 {
+    text-align: center;
+    font-size: 2em;
+}
+
+/* Gestione di un paragrafo di tutorial, con titolo, sottotitolo e lista */
+.content-paragraph {
+    padding: 4%;
+}
+.content-paragraph p {
+    margin: .2em .2em .2em 0;
+}
+.content-paragraph > h3 {
+    font-size: 1.7em;
+}
+ .content-list-nostyle {
+    list-style-type: none;
+}
+.content-paragraph h4 {
+    font-size: 1em;
+    font-weight: bold;
+    padding-top: 2%;
+    padding-bottom: 0.3%;
+}
+
+/* Test immagine nell'articolo */
+.article-image {
+    border: thin silver solid;
+    font-style: italic;
+    font-size: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.article-image img {
+    max-width: 90%;
+    max-height: 90%;
+}
+.article-image p {
+	text-align: left;
+	display: block;
+}
+
+/* ----------------- */
+
+/* CSS COMMENTI */
+
+#comments-content {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+/* Css input nuovo commento */
+
+.input-comment {
+    margin-top: 2%;
+}
+
+.input-comment-area {
+    margin-top: 1%;
+}
+
+.input-comment-area > textarea {
+    font-size: 1.1em;
+    max-width: 90%;
+    resize: none;
+}
+
+.input-comment-area > textarea::placeholder {
+    font-style: italic;
+}
+
+.input-reply-footer {
+    padding: 1%;
+    font-style: italic;
+}
+
+/* Css commento standard */
+
+.post-comment {
+    margin-top: 2%;
+}
+
+.post-comment-avatar > img, .input-comment-avatar > img {
+    min-width: 15px;
+    min-height: 15px;
+    width: 4%;
+    height: 4%;
+    padding: 1%;
+    float: left;
+}
+
+.post-comment-body-header {
+	white-space: nowrap;
+}
+
+.post-comment-header-info {
+    display: inline-block;
+}
+
+.post-comment-header-info > h4 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.post-comment-header-info > p {
+    display:inline;
+}
+
+.post-comment-body-header-votes{
+    float: right;
+    text-align:right;
+    /*display: inline; - doesn't work with float*/
+}
+
+.post-comment-body-header-votes img {
+    min-width: 15px;
+    min-height: 15px;
+    max-width: 20px;
+    max-height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.post-comment-body-header-votes > .dislike-vote {
+    padding-right: 5%;
+    cursor: pointer;
+}
+
+.post-comment-body-header-votes > .like-vote {
+    padding-left: 5%;
+    cursor: pointer;
+}
+
+.post-comment-body-header-votes > p {
+    font-size: 1.3em;
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.post-comment-body-header-votes > .positive-vote {
+	color: #46e023;
+}
+
+.post-comment-body-header-votes > .negative-vote {
+	color: red;
+}
+
+.post-comment-body-content > p {
+    padding: 1%;
+    margin-left: 5%;
+}
+
+.post-comment-body-footer, .input-comment-footer {
+    padding: 1%;
+    margin-left: 5%;
+    font-style: italic;
+}
+
+/* Stile univoco per il buttone di submit / link di risposta */
+
+.post-comment-body-footer > input {
+    background:none!important;
+    color:inherit; /* Colore di default */
+    color:#D76901; /* Colore di test da cambiare*/
+    border:none; 
+    padding:0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+.input-comment-footer > input, .input-reply-footer > input {
+	position: relative;
+  	vertical-align: top;
+  	width: 25%;
+    height: 30px; /* Troppo grosso su mobile */
+  	padding: 0;
+  	text-align: center;
+  	color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    font-size: 1em;
+  	background: #3498db;
+  	border: 0;
+  	border-bottom: 2px solid #2a8bcc;
+  	cursor: pointer;
+  	box-shadow: inset 0 -2px #2a8bcc;
+}
+
+/* Css risposte ai commenti standard */
+
+.post-comment > .post-comment-childrens {
+    padding-left: 6%;
+}
+
+.post-comment-childrens > .post-comment {
+    border-style: none none none solid;
+    border-width: 2px;
+    border-color: #adadad;
+}
+
+/* ----------------- */
+
+/* CSS SNIPPET CODICE */
+
+/* Impostazioni base snippet di codice */
+.code-snippet {
+    background-color: rgb(238, 238, 238);
+    padding: 1%;
+    max-width: 50%;
+}
+/* Snippet di codice più largo per mostrare più codice */
+.code-snippet-large {
+    max-width: 80%;
+}
+/* Istruzione random per mandare a capo una riga di codice */
+.code-newline {
+    display: block;
+}
+/* Indentazione del codice */
+.code-indent-1 {
+    text-indent: 2em;
+}
+ .code-indent-2 {
+    text-indent: 4em;
+}
+/* Colorazione del codice */
+.java .keyword {
+    color: rgb(0, 0, 136) 
+}
+.java .type {
+    color: rgb(127, 0, 85);
+}
+.java .string {
+    color: rgb(0, 136, 0);
+}
+
+/* ----------------- */
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 768px) {
+	.article-content > h2 {
+		font-size: 1.9em;
+		padding: 1%;
+	}
+	
+	.article-content > h3 {
+    	font-size: 1.6em;
+    	margin-top: 1%;
+    	padding-left: 3%;
+    	padding-right: 5%;
+	}
+	
+	.content-paragraph {
+		padding: 3%;
+	}
+	
+	.content-paragraph > h3 {
+		font-size: 1.5em;
+	}
+	
+	.article-content {
+		text-align: center;
+	}
+	
+	.article-image {
+		margin: 0;
+		padding: 0;
+	    max-width: 90%;
+	    max-height: 90%;
+	    margin: 0 auto;
+    }
+    
+    .post-comment-body-footer > input {
+        /* Mobile css of the "reply" button-link */
+        /* Empty for now */
+    }
+    
+    .input-comment-footer > input, .input-reply-footer > input {
+		min-width: 55%;
+    	min-height: 20%;
+    	font-size: 1em;
+	}
+	
+	.input-comment {
+		margin: 0 auto;
+	}
+	
+	.input-comment-avatar > img {
+		display: none;
+    }
+	
+	.post-comment-avatar > img, .input-comment-avatar > img {
+	    min-width: 20px;
+    	min-height: 20px;
+	    padding: 1%;
+	    float: left;
+	}
+	
+	.post-comment-body-header-votes > .dislike-vote {
+		max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+	}
+
+	.post-comment-body-header-votes > .like-vote {
+	    max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+    }
+    
+    .code-snippet {
+		margin: 0 auto;
+		max-width: 70%;
+	}
+	
+	.code-snippet-large {
+		margin: 0 auto;
+		max-width: 70%;
+	}
+	
+}
+
 
