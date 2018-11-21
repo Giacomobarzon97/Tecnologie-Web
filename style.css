@@ -4,6 +4,10 @@
 	font-size: 1.0em;
 }
 
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+
 /* Nav-bar */
 
 #nav-bar{
@@ -69,153 +73,48 @@
 
 /* page content */
 
-#content-article-content{
-	margin-top: 5%;
-	margin-bottom: 2rem;
-	position: relative;
-	left: 20%;
-	width: 95%;
-	line-height: 1.5;
-	font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-		sans-serif;	
-	max-width: 75rem;
-	color: #000000;
+#content-article-introduction, #content-article-body{
+	width:50%;
+	margin:0 25%;
 }
 
 #content-article-introduction>h2{
-	font-size: 2.2rem;
-	margin-bottom: 1rem;
-	font-family: "Regular Patch", "Regular Bold", "Nunito Sans",
-			-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
-			"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-size: 2.2em;
+	margin-bottom: 0.5em;
 }
 
 #content-article-introduction>p{
-	margin-bottom: 2rem;
+	margin-bottom: 1.5em;
 	line-height: 1.7;
-	font-size: 1.25rem;
+	font-size: 1.25em;
 }
 
 #content-article-introduction>h3{
-	font-size: 1.6rem;
-	margin-bottom: 1rem;
+	font-size: 1.6em;
+	margin-bottom: 0.5em;
 }
 
 #content-article-introduction>ul{
 	column-count: 2;
 	list-style: none;
 	padding-left: 0;
-	max-width: 60rem;
-	margin-bottom: 3rem;
-	text-indent: 1.5em;
-	list-style-image: checkmark icon;
-}
-
-#content-article-introduction>ul>li:before{
-	content: '✓';
-	font-style: italic;
+	max-width: 60em;
+	margin-bottom: 2.5em;
 }
 
 #content-article-introduction>ul>li{
-	display: flex;
 	align-items: center;
-	margin-bottom: 0.25rem;
+	margin-bottom: 0.25 em;
 }
+
 #content-article-body{
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	background-color: whitesmoke;
-	padding: 5rem 0;
-	margin: auto;
-	text-align: center;
-	font-size: 2.25rem;
+	margin:auto;
 }
-
-#content-article-body>h2{
-	font-family: "Regular Patch", "Regular Bold", "Nunito Sans",
-		-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
-		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+#content-article-body>ul{
+	list-style-type:none;
 }
-
-#content-article-body>div{
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	width: 56.25rem;
-	margin: auto;
-	margin-top: 3.5625rem;
-	-webkit-animation: fadeInTracks__3fylYIdas-SsoK-GgiYPCJ 1s forwards;
-	animation: fadeInTracks__3fylYIdas-SsoK-GgiYPCJ 1s forwards;
-}
-
-.first{
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: row;
-	width: 100%;
-	background-color: #ffffff;
-	border-left: solid 6px #4c7ef3;
-	border-bottom: solid 1px #d6d6d6;
-	text-align: left;
-}
-
-.number{
-	font-size: 2.25rem;
-    font-weight: bold;
-    color: #a3a3a3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 12.5rem;
-}
-
-.argument{
-	margin-right: 1rem;
-	width: 100%;
-}
-
-.argument h4{
-	font-size: 1.4rem;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
-
-.argument h6{
-	font-size: 1.2rem;
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
-}
-
-.argument p{
-	margin-top: -0.5rem;
-	font-size: 1rem;
-	width: 100%;
-	color: #7a7a7a;
-	margin-bottom: 1rem;
-}
-
-.second{
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: row;
-	width: 100%;
-	background-color: #ffffff;
-	border-left: solid 6px #ffa500;
-	border-bottom: solid 1px #d6d6d6;
-	text-align: left;
-}
-
-
-.second a:link{
-	text-decoration: none;
-}
-
-.second a:hover{
-	background-color: #FFB6C1;
-	font-variant: small-caps;
+#content-article-body>ul>li>ul{
+	list-style-type:none;
 }
 
 /* Footer */
