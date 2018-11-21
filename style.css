@@ -1,6 +1,7 @@
-* {
-	margin: 0;
-	padding: 0;
+
+*{ 
+	margin:0px;
+	padding:0px;
 	font-size: 1.0em;
 	font-family: 'Roboto', sans-serif;
 }
@@ -10,8 +11,55 @@ html, body {
 	padding: 0px;
 	vertical-align: baseline;
 }
+body{
+	background: #F5F5F5;
+	font-family: 'Open Sans', sans-serif;
+}
 
-/* Nav-bar */
+/*-----SIDEBAR-----*/
+#sidebar-wrapper{
+	/*Strictly Necessary */
+	z-index: 3;
+	position:fixed; 
+	height: 100%;
+	width:25%;
+	margin: 0px;
+	transition: width 0.5s;
+	/*Aesthetics*/
+	background: #404040;
+}
+#sidebar>li{
+	padding:2em 6% 2em 6%;
+	border-bottom: 1px solid #707070;
+}
+#sidebar>li>a{
+	text-decoration: none;
+	font-size: 1.3em;
+	color:white;
+}
+#sidebar>li>img{
+	height: 1.0em;
+	width: 1.0em;
+	margin-left: 0.2em;
+}
+#sidebar>li>ul{
+	list-style-type: none;
+	padding-left: 1em;
+	overflow-y:hidden;
+	transition: height 0.5s;
+}
+#sidebar>li>ul>li{
+	margin-top: 0.5em;
+}
+#sidebar>li>ul>li>a{
+	text-decoration: none;
+	color:#808080;
+}
+#sidebar>li>ul>li>a:hover{
+	transition: color 0.125s ease-in-out;
+	color:white;
+}
+
 
 #nav-bar {
 	position: fixed;
@@ -51,6 +99,61 @@ html, body {
 .menu {
 	float: right;
 	list-style-type: none;
+}
+
+#mobile-sidebar-mask{
+	position:fixed;
+	z-index:2;
+	display: none;
+	background-color: rgba(0,0,0,0.0);
+	transition:background-color 0.5s;
+	width: 100%;
+	height: 100%;
+}
+
+#rightSideWrapper {
+	/*Strictly Necessary */
+	width:75%; 
+	float: right;
+	transition:width 0.5s;
+}
+
+#nav {
+	/*Strictly Necessary */
+	position: fixed;
+	width: 75%;	
+	height: 7em; /*Adjust the hight to your purposes*/
+	z-index:1;
+	/*Aesthetics*/
+	background: white;
+	transition:width 0.5s, height 0.5s;
+
+}
+#nav>img{
+	float:left;
+	display: none;
+}
+#nav>h1{
+	float:left;
+	font-size:2em;
+	margin:1em;
+}
+#nav>ul{
+	float: right;
+	list-style-type: none;
+	margin:2.5em 2em;
+}
+
+#nav>ul>li{
+	display:inline-block;
+	margin:0px 1em;
+	transition:margin 0.5s;
+}
+
+#main{
+	margin-top: 7em; /*The height of the   header*/
+	transition:height 0.5s;
+	min-height: 1000px
 }
 
 .menu .nav-bar-menu-item {
@@ -132,13 +235,226 @@ html, body {
 .grid{
 	padding:5em 1em;
 }
+
+#upper-footer{
+	text-align: center;
+	background-color: #404040;
+	padding:2.5em 0em 2.5em 0em;
+}
+#upper-footer>p{
+	margin-bottom: 0.5em;
+	color: #919191;
+}
+#upper-footer>h1{
+	color:#919191;
+	font-size: 2em;
+}
+#upper-footer>h1:hover{
+	color:white;
+	transition: color 0.5s;
+}
+#lower-footer{
+	background-color: #333333;
+	overflow: auto;
+	padding:2.5em 0em 2.5em 0em;
+}
+#social{
+	text-align: center;
+	float:left;
+}
+#social{
+	color: #919191;
+	margin-left: 5%;
+}
+#social>h2{
+	font-size: 1.3em;
+	color:white;
+	margin-bottom: 1em;
+}
+
+#social>a{
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #919191;
+	border-radius: 50%;
+	margin-left:1em;
+	width: 4em;
+	height: 4em;
+	background-color:#919191;
+}
+#social>a:hover{
+	border-color: white;
+	background-color: white;
+}
+#social>a>img{
+	margin-top: 1em;
+	height:2em;
+	width: 2em;
+}
+#social>a>img{
+	fill:white;
+}
+#developers{
+	float:right;
+	margin-right:5%;
+}
+#developers>h2{
+	color:white;
+	font-size:1.5em;
+}
+#developers>ul{
+	list-style-type: none;
+}
+#developers>ul>li{
+	margin-top: 1em;
+	color:#919191;
+}
+/*INIZIO STILE DI ROVE
+------------------------------------------------------------------------
+------------------------------------------------------------------------*/
+.article-content > h2 {
+    text-align: center;
+    font-size: 4em;
+}
+.article-content > h3 {
+    text-align: center;
+    font-size: 2em;
+}
+
+/* Gestione di un paragrafo di tutorial, con titolo, sottotitolo e lista */
+.content-paragraph {
+    padding: 4%;
+}
+.content-paragraph p {
+    margin: .2em .2em .2em 0;
+}
+.content-paragraph > h3 {
+    font-size: 1.7em;
+}
+ .content-list-nostyle {
+    list-style-type: none;
+}
+.content-paragraph h4 {
+    font-size: 1em;
+    font-weight: bold;
+    padding-top: 2%;
+    padding-bottom: 0.3%;
+}
+
+/* Test immagine nell'articolo */
+.article-image {
+    border: thin silver solid;
+    font-style: italic;
+    font-size: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.article-image img {
+    max-width: 90%;
+    max-height: 90%;
+}
+.article-image p {
+	text-align: left;
+	display: block;
+}
+
+/* ----------------- */
+
+/* CSS COMMENTI */
+
+#comments-content {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+/* Css input nuovo commento */
+
+.input-comment {
+    margin-top: 2%;
+}
+
+.input-comment-area {
+    margin-top: 1%;
+}
+
+.input-comment-area > textarea {
+    font-size: 1.1em;
+    max-width: 90%;
+    resize: none;
+}
+
+.input-comment-area > textarea::placeholder {
+    font-style: italic;
+}
+
+.input-reply-footer {
+    padding: 1%;
+    font-style: italic;
+}
+
+/* Css commento standard */
+
+.post-comment {
+    margin-top: 2%;
+}
+
+.post-comment-avatar > img, .input-comment-avatar > img {
+    min-width: 15px;
+    min-height: 15px;
+    width: 4%;
+    height: 4%;
+    padding: 1%;
+    float: left;
+}
+
+.post-comment-body-header {
+	white-space: nowrap;
+}
+
+.post-comment-header-info {
+    display: inline-block;
+}
+
+.post-comment-header-info > h4 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.post-comment-header-info > p {
+    display:inline;
+}
+
+.post-comment-body-header-votes{
+    float: right;
+    text-align:right;
+    /*display: inline; - doesn't work with float*/
+}
+
+.post-comment-body-header-votes img {
+    min-width: 15px;
+    min-height: 15px;
+    max-width: 20px;
+    max-height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.post-comment-body-header-votes > .dislike-vote {
+    padding-right: 5%;
+    cursor: pointer;
+}
+
+.post-comment-body-header-votes > .like-vote {
+    padding-left: 5%;
+    cursor: pointer;
+}
 .grid h1{
 	text-align:center;
 	color:rgba(40,40,40,0.87);
 	font-size:2.5em;
 	margin-bottom:0.5em;
-
 }
+
 .row{
 	width:100%;
 	overflow:hidden;
@@ -274,20 +590,6 @@ input[type=submit]:hover {
 
 /* Left navigation bar end */
 
-/* Footer */
-
-#footer {
-	background: #575757;
-	font-size: 1em;
-	padding: 1.5em;
-}
-
-#footer p { 
-	text-align: center;
-	color: #ffffff;
-}
-
-/* Footer end */
 
 @media screen and (max-width:1276px){
 
@@ -383,3 +685,194 @@ input[type=submit]:hover {
 }
 
 /* Media queries end */
+
+.post-comment-body-header-votes > p {
+    font-size: 1.3em;
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.post-comment-body-header-votes > .positive-vote {
+	color: #46e023;
+}
+
+.post-comment-body-header-votes > .negative-vote {
+	color: red;
+}
+
+.post-comment-body-content > p {
+    padding: 1%;
+    margin-left: 5%;
+}
+
+.post-comment-body-footer, .input-comment-footer {
+    padding: 1%;
+    margin-left: 5%;
+    font-style: italic;
+}
+
+/* Stile univoco per il buttone di submit / link di risposta */
+
+.post-comment-body-footer > input {
+    background:none!important;
+    color:inherit; /* Colore di default */
+    color:#D76901; /* Colore di test da cambiare*/
+    border:none; 
+    padding:0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+.input-comment-footer > input, .input-reply-footer > input {
+	position: relative;
+  	vertical-align: top;
+  	width: 25%;
+    height: 30px; /* Troppo grosso su mobile */
+  	padding: 0;
+  	text-align: center;
+  	color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    font-size: 1em;
+  	background: #3498db;
+  	border: 0;
+  	border-bottom: 2px solid #2a8bcc;
+  	cursor: pointer;
+  	box-shadow: inset 0 -2px #2a8bcc;
+}
+
+/* Css risposte ai commenti standard */
+
+.post-comment > .post-comment-childrens {
+    padding-left: 6%;
+}
+
+.post-comment-childrens > .post-comment {
+    border-style: none none none solid;
+    border-width: 2px;
+    border-color: #adadad;
+}
+
+/* ----------------- */
+
+/* CSS SNIPPET CODICE */
+
+/* Impostazioni base snippet di codice */
+.code-snippet {
+    background-color: rgb(238, 238, 238);
+    padding: 1%;
+    max-width: 50%;
+}
+/* Snippet di codice più largo per mostrare più codice */
+.code-snippet-large {
+    max-width: 80%;
+}
+/* Istruzione random per mandare a capo una riga di codice */
+.code-newline {
+    display: block;
+}
+/* Indentazione del codice */
+.code-indent-1 {
+    text-indent: 2em;
+}
+ .code-indent-2 {
+    text-indent: 4em;
+}
+/* Colorazione del codice */
+.java .keyword {
+    color: rgb(0, 0, 136) 
+}
+.java .type {
+    color: rgb(127, 0, 85);
+}
+.java .string {
+    color: rgb(0, 136, 0);
+}
+
+/* ----------------- */
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 768px) {
+	.article-content > h2 {
+		font-size: 1.9em;
+		padding: 1%;
+	}
+	
+	.article-content > h3 {
+    	font-size: 1.6em;
+    	margin-top: 1%;
+    	padding-left: 3%;
+    	padding-right: 5%;
+	}
+	
+	.content-paragraph {
+		padding: 3%;
+	}
+	
+	.content-paragraph > h3 {
+		font-size: 1.5em;
+	}
+	
+	.article-content {
+		text-align: center;
+	}
+	
+	.article-image {
+		margin: 0;
+		padding: 0;
+	    max-width: 90%;
+	    max-height: 90%;
+	    margin: 0 auto;
+    }
+    
+    .post-comment-body-footer > input {
+        /* Mobile css of the "reply" button-link */
+        /* Empty for now */
+    }
+    
+    .input-comment-footer > input, .input-reply-footer > input {
+		min-width: 55%;
+    	min-height: 20%;
+    	font-size: 1em;
+	}
+	
+	.input-comment {
+		margin: 0 auto;
+	}
+	
+	.input-comment-avatar > img {
+		display: none;
+    }
+	
+	.post-comment-avatar > img, .input-comment-avatar > img {
+	    min-width: 20px;
+    	min-height: 20px;
+	    padding: 1%;
+	    float: left;
+	}
+	
+	.post-comment-body-header-votes > .dislike-vote {
+		max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+	}
+
+	.post-comment-body-header-votes > .like-vote {
+	    max-width: 10%;
+	    max-height: 10%;
+	    padding-left: 2%;
+    }
+    
+    .code-snippet {
+		margin: 0 auto;
+		max-width: 70%;
+	}
+	
+	.code-snippet-large {
+		margin: 0 auto;
+		max-width: 70%;
+	}
+	
+}
