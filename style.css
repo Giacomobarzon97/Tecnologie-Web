@@ -682,6 +682,46 @@ input[type=submit]:hover {
 		font-size: 1.5em;
 		padding: 1.5em;
 	}
+
+	/* contenuto mobily-style.css (Barzi) */
+	#sidebar-wrapper{
+		width:0%;
+	}
+	#rightSideWrapper{
+		width:100%;
+	}
+	#nav{
+		width:100%;
+		height: 4em;
+	}
+	#nav>h1{
+		font-size:1.5em;
+		margin:0.5em;
+	}
+	#nav>ul{
+		margin: 1em 0em;
+	}
+	#nav>ul>li{
+		margin:0em 0.5em;
+	}
+	#nav>img{
+		display: block;
+		margin:1em 0px 0px 0.5em;		
+	}
+	#main{
+		margin-top: 4em;
+	}
+	#social{
+		float: none;
+		margin-left: 0em;
+	}
+	#developers{
+		float: none;
+		margin-right: 0%;
+		margin-top: 4em;
+		text-align: center;
+	}
+	/* Fine mobile-style.css */
 }
 
 /* Media queries end */

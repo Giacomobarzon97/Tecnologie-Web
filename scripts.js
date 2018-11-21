@@ -67,3 +67,12 @@ window.addEventListener('resize', function(e) {
 		document.getElementById("sidebar-wrapper").style.width="0%";
 	}
 }, false);
+
+function menuCollapse() {
+    var y = document.getElementById('nav-bar-menu');
+    if (y.className === "menu") {
+      y.className += " responsive";
+    } else {
+      y.className = "menu";
+    }
+}
