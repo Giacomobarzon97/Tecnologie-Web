@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html version="-//W3C//DTD XHTML 1.1//EN"
-      xmlns="http://www.w3.org/1999/xhtml" xml:lang="it"
+	  xmlns="http://www.w3.org/1999/xhtml" xml:lang="it"
+	  lang="it"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/1999/xhtml
                           http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
@@ -18,7 +19,7 @@
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<script type="text/javascript" src="./script.js"></script>
+		<script type="text/javascript" src="./scripts.js"></script>
 		
     </head>
     
@@ -51,31 +52,46 @@
                     <img src="./img/algorithm.jpg" alt="profile picture" />
                     <div id="profile-data">
                         <form action="/action_page.php">
-                            <span class="fname">First Name</span>
-                            <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                            <span class="lname">Last Name</span>
-                            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                            <label for="fname">First Name</label>
+                            <input class="profile-input" type="text" id="fname" name="firstname" placeholder="Your name.." />
+                            <label for="lname">Last Name</label>
+                            <input class="profile-input" type="text" id="lname" name="lastname" placeholder="Your last name.." />
                         
-                            <span class="country">Country</span>
+                            <label for="country">Country</label>
                             <select id="country" name="country">
                                 <option value="australia">Australia</option>
                                 <option value="canada">Canada</option>
                                 <option value="usa">USA</option>
                             </select>
+                        </form>
+                        <form action="/action_page.php">
+                            <label for="newpass">New Password</label>
+                            <input class="profile-input" type="text" id="newpass" name="newpass" placeholder="New passoword.." />
 
-                            <span class="newpass">New Password</span>
-                            <input type="text" id="newpass" name="newpass" placeholder="New passoword..">
-
-                            <span class="newpassconf">Confirm new Password</span>
-                            <input type="text" id="newpassconf" name="newpassconf" placeholder="Confirm new Password">
-                            
-                            <input type="submit" value="Submit">
-                            </form>
+                            <label for="newpassconf">Confirm new Password</label>
+                            <input class="profile-input" type="text" id="newpassconf" name="newpassconf" placeholder="Confirm new Password" />
+                        
+                            <input class="profile-input" type="submit" value="Submit" />
+                        </form>
                     </div>
                 </div>
             </div>
             <div id="footer">
-                <p>Footer bello</p>
-            </div>
+				<div id="upper-footer">
+					<p>powered by</p>
+					<h1>Universita' di Padova</h1>
+				</div>
+				<div id="lower-footer">
+					<div id="developers">
+						<h2>Developed By</h2>
+						<ul>
+							<li>Giacomo Barzon</li>
+							<li>Michele Roverato</li>
+							<li>De Filippis Francesco</li>
+							<li>Giacomo Greggio</li>
+						</ul>
+					</div>
+				</div>
+			</div>
     </body>
 </html>
