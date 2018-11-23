@@ -773,14 +773,14 @@ input[type=submit]:hover {
 	 padding-bottom: 1em;
 }
 
-#content-article-body>dl>dt{
+#content-article-body>ul>li{
 	border-left: solid 6px #4c7ef3;
 	border-bottom: solid 1px #d6d6d6;
 	overflow:hidden;
 	padding:1em 0px;
 }
 
-#content-article-body>dl>dt>p{
+#content-article-body>ul>li>p{
 	display:block;
 	font-size: 2.25em;
     font-weight: bold;
@@ -788,23 +788,23 @@ input[type=submit]:hover {
 	float: left;
 	margin: 0px 3%;
 }
-#content-article-body>dl>dt>div{
+#content-article-body>ul>li>div{
 	clear:right;
 	float:left;
 }
-#content-article-body>dl>dt>div>h2{
+#content-article-body>ul>li>div>h2{
 	font-size: 1.4em;
 	margin-bottom:0.3em;
 }
-#content-article-body>dl>dt>div>h3{
+#content-article-body>ul>li>div>h3{
 	color:#7a7a7a;
 }
-#content-article-body>dl>dd{
+#content-article-body>ul>li>ul>li{
 	padding:0.7em 0 1em 3%;
 	border-left: solid 6px #ffa500;
 	border-bottom: solid 1px #d6d6d6;
 }
-#content-article-body>dl>dd>a{
+#content-article-body>ul>li>ul>li>a{
 	
 }
 
