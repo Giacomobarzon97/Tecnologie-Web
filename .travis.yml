@@ -5,4 +5,4 @@ jdk:
 install:
  - pip install --user html5validator
 
-script: html5validator --root ./
+script: html5validator --root ./ --show-warnings --also-check-css
