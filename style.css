@@ -124,8 +124,8 @@ html, body {
 	/*Aesthetics*/
 	background: white;
 	transition:width 0.5s, height 0.5s;
-
 }
+
 #nav>img{
 	float:left;
 	display: none;
@@ -228,11 +228,11 @@ html, body {
 
 #upper-footer>p{
 	margin-bottom: 0.5em;
-	color: #919191;
+	color: #ffffff;
 }
 
 #upper-footer>h1{
-	color:#919191;
+	color:#ffffff;
 	font-size: 1.5em;
 }
 
@@ -261,7 +261,7 @@ html, body {
 #developers>ul>li{
 	display: inline;
 	margin-right:2em;
-	color:#919191;
+	color:#ffffff;
 }
 /*INIZIO STILE DI ROVE
 ------------------------------------------------------------------------
@@ -404,7 +404,7 @@ html, body {
 }
 .grid h1{
 	text-align:center;
-	color:rgba(40,40,40,0.87);
+	color: rgb(0,0,0);
 	font-size:2.5em;
 	margin-bottom:0.5em;
 }
@@ -420,7 +420,7 @@ html, body {
 	overflow:hidden;
 	margin-top: 1.5em;
 	margin-right:1%;
-	background-color: rgba(202, 202, 202, 0.5);
+	background-color: #ffffff;
 }
 
 .home-card:nth-child(4){
@@ -431,16 +431,10 @@ html, body {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	font-size: 2em;
-	background-color: #FFFFFF;
 }
 
 .home-card h2 a{
 	color:#000000;
-	text-decoration: underline;
-}
-
-.home-card h2 a:hover {
-	color:#2A78B5;
 	text-decoration: underline;
 }
 
@@ -454,12 +448,13 @@ html, body {
 	margin-bottom: 0.5em;
 }
 
+
 .links > li{
 	text-align: center;
 }
 
 .links > li:nth-child(5) > a {
-	color:rgba(00,00,00,0.87);
+	color: #000000;
 	text-align: right;
 	margin-right: 0.5em;
 	margin-bottom: 0.2em;
@@ -467,16 +462,16 @@ html, body {
 	display: block;
 }
 
-.links > li > a{
-	color:rgba(00,00,00,0.87);
+.links > li > a {
+	color:#000000;
 	text-align: center;
 	font-size: 1.5em;
 	display: block;
 	margin-bottom: 1em;
 }
 
-.links > li > a:hover {
-	color: #2A78B5;
+.home-card h2 a:hover, .links > li > a:hover {
+	text-decoration: none;
 }
 
 /* Content and cards end */
@@ -644,7 +639,6 @@ html, body {
 	#footer {
 		background: #363636;
 		font-size: 1.5em;
-		padding: 1.5em;
 	}
 
 	/* contenuto mobily-style.css (Barzi) */
@@ -684,14 +678,12 @@ html, body {
 	/* Fine mobile-style.css */
 
 	#upper-footer>h1{
-		color:#919191;
 		font-size: 2em;
 	}
 
 	#developers>ul>li{
 		display: block;
 		margin: auto;
-		color:#919191;
 	}
 }
 
