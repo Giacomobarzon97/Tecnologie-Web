@@ -76,3 +76,7 @@ function menuCollapse() {
       y.className = "menu";
     }
 }
+
+function jumpto(anchor){
+    window.location.href = "#"+anchor;
+}
