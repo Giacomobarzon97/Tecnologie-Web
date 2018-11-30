@@ -51,7 +51,7 @@ window.addEventListener("load", function(){
 			commentFormDiv.childNodes[0].childNodes[0].childNodes[0].value = "";
 			target.style.display="none";
 			if(previousReplyClick!=null){
-				previousReplyClick.style.display="block"
+				previousReplyClick.style.display="block";
 			}
 			previousReplyClick=target;
 		},false);
@@ -68,14 +68,22 @@ window.addEventListener('resize', function(e) {
 	}
 }, false);
 
+/* nav-bar menu collapse */
+
 function menuCollapse() {
     var y = document.getElementById('nav-bar-menu');
     if (y.className === "menu") {
-      y.className += " responsive";
+    	y.className += " responsive";
     } else {
-      y.className = "menu";
-    }
+    	y.className = "menu";
+	}
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+	//The first argument are the elements to which the plugin shall be initialized
+	//The second argument has to be at least a empty object or a object with your desired options
+	OverlayScrollbars(document.getElementById("sidebar-wrapper"), { });
+});
 
 function jumpto(anchor){
     window.location.href = "#"+anchor;
