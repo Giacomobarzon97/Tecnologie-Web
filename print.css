@@ -1,0 +1,53 @@
+#nav-bar {
+    position: absolute;
+}
+
+.menu {
+	display: none;
+}
+
+#site-title {
+	float: none;
+	text-align: center;
+	font-size: 2em;
+	color: black;
+}
+
+#header {
+	background-color: #FFFFFF;
+}
+
+/* Content and cards */
+
+#upper-footer p{
+	margin-top: 1em;
+	color:#000000;
+}
+
+#developers>h2{
+	color: #000000;
+}
+#developers>ul>li{
+	color:#000000;
+}
+
+.grid h1{
+	color:#000000;
+    font-size:2.5em;
+    margin-top: 1.5em;
+}
+
+.row:nth-child(1) {
+	clear: both;
+}
+
+.home-card{
+	width:49%;
+	background-color: #FFFFFF;
+}
+
+.links > li > a > img{
+	display: none;
+}
+
+

@@ -1,0 +1,12 @@
+
+*.aux
+
+*.idx
+
+*.log
+
+*.gz
+
+relazione/build/
+
+relazione/img/*.pdf
