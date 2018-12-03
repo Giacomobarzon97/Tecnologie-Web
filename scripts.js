@@ -85,6 +85,3 @@ document.addEventListener("DOMContentLoaded", function() {
 	OverlayScrollbars(document.getElementById("sidebar-wrapper"), { });
 });
 
-function jumpto(anchor){
-    window.location.href = "#"+anchor;
-}
