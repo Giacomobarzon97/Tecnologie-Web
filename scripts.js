@@ -1,23 +1,33 @@
-window.addEventListener("load", function(){
-	document.getElementById("nav-hamburger").addEventListener("click", function(){
-			document.getElementById("sidebar-wrapper").style.width="70%";
-			document.getElementById("mobile-sidebar-mask").style.display="block";
-			document.getElementById("mobile-sidebar-mask").style.backgroundColor="rgba(0,0,0,0.5)";
-	}, false);
-	document.getElementById("mobile-sidebar-mask").addEventListener("click", function(){
-		document.getElementById("sidebar-wrapper").style.width="0%";
-		document.getElementById("mobile-sidebar-mask").style.backgroundColor="rgba(0,0,0,0.0)";		
-		document.getElementById("mobile-sidebar-mask").style.display="none";
-	}, false);
-	document.getElementById("nav-menu-icon").addEventListener("click", function(){
-		if(document.getElementById("menu").style.display=="none"){
-			document.getElementById("menu").style.display="block";		
+
+function openMobileSidebar(){
+	var wrapper=document.getElementById("sidebar-wrapper");
+	var mask=document.getElementById("mobile-sidebar-mask");
+	if(wrapper!=null && mask!=null){
+		wrapper.style.width="70%";
+		mask.style.display="block";
+		mask.style.backgroundColor="rgba(0,0,0,0.5)";
+	}
+}
+function closeMobileSidebar(){
+	var wrapper=document.getElementById("sidebar-wrapper");
+	var mask=document.getElementById("mobile-sidebar-mask");
+	if(wrapper!=null && mask!=null){
+		wrapper.style.width="0%";
+		mask.style.backgroundColor="rgba(0,0,0,0.0)";		
+		mask.style.display="none";
+	}
+}
+function toggleMobileNavMenu(){
+	var menu=document.getElementById("menu");
+	if(menu!=null){
+		if(menu.style.display=="none"){
+			menu.style.display="block";		
 		}else{
-			document.getElementById("menu").style.display="none"	;	
+			menu.style.display="none"	;	
 		}
-	}, false);
-	
-	
+	}
+}
+function replyMessageBox(){
 	//Comment Reply, create comment div and form
 	var commentReply = document.getElementsByClassName("comment-reply-start-button");
 	var previousReplyClick = null;
@@ -63,6 +73,19 @@ window.addEventListener("load", function(){
 			previousReplyClick=target;
 		},false);
 	}
+}
+window.addEventListener("load", function(){
+	var hamburger=document.getElementById("nav-hamburger");
+	var mask=document.getElementById("mobile-sidebar-mask");
+	var menuIcon=document.getElementById("nav-menu-icon");
+	if(hamburger!=null && mask!=null){
+		hamburger.addEventListener("click",openMobileSidebar, true);
+		mask.addEventListener("click",closeMobileSidebar, true);
+	}
+	if(menuIcon!=null){
+		menuIcon.addEventListener("click",toggleMobileNavMenu , true);
+	}
+	replyMessageBox();
 });
 
 window.addEventListener('resize', function(e) {
@@ -84,5 +107,8 @@ window.addEventListener('resize', function(e) {
 document.addEventListener("DOMContentLoaded", function() {
 	//The first argument are the elements to which the plugin shall be initialized
 	//The second argument has to be at least a empty object or a object with your desired options
-	OverlayScrollbars(document.getElementById("sidebar-wrapper"), { });
+	var sidebar=document.getElementById("sidebar-wrapper");
+	if(sidebar!=null){
+		OverlayScrollbars(sidebar, { });
+	}
 });
