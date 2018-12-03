@@ -9,6 +9,13 @@ window.addEventListener("load", function(){
 		document.getElementById("mobile-sidebar-mask").style.backgroundColor="rgba(0,0,0,0.0)";		
 		document.getElementById("mobile-sidebar-mask").style.display="none";
 	}, false);
+	document.getElementById("nav-menu-icon").addEventListener("click", function(){
+		if(document.getElementById("menu").style.display=="none"){
+			document.getElementById("menu").style.display="block";		
+		}else{
+			document.getElementById("menu").style.display="none"	;	
+		}
+	}, false);
 	
 	
 	//Comment Reply, create comment div and form
@@ -63,21 +70,16 @@ window.addEventListener('resize', function(e) {
 		document.getElementById("sidebar-wrapper").style.width="25%";
 		document.getElementById("mobile-sidebar-mask").style.backgroundColor="rgba(0,0,0,0.0)";		
 		document.getElementById("mobile-sidebar-mask").style.display="none";
+		document.getElementById("menu").style.display="block";
+
 	}else{
 		document.getElementById("sidebar-wrapper").style.width="0%";
+		document.getElementById("menu").style.display="none";
+
 	}
 }, false);
 
 /* nav-bar menu collapse */
-
-function menuCollapse() {
-    var y = document.getElementById('nav-bar-menu');
-    if (y.className === "menu") {
-    	y.className += " responsive";
-    } else {
-    	y.className = "menu";
-	}
-}
 
 document.addEventListener("DOMContentLoaded", function() {
 	//The first argument are the elements to which the plugin shall be initialized
@@ -85,3 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	OverlayScrollbars(document.getElementById("sidebar-wrapper"), { });
 });
 
+function jumpto(anchor){
+    window.location.href = "#"+anchor;
+}
