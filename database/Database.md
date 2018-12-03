@@ -3,7 +3,7 @@
 * Email (Primary Key)
 * Nickname (UNIQUE)
 * Name
-* Surame
+* Surname
 * ProfilePic
 
 ## USER_ROLES
@@ -39,6 +39,7 @@
 
 * ID (Primary Key - AutoIncrement)
 * Content (LongText)
+* Author -> UTENTI (ExternalKey)
 * ArticleID -> ArticleID (ExternalKey)
 
 ## COMMENTS-VOTES
