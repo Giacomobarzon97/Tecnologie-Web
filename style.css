@@ -118,7 +118,7 @@ html, body {
 #nav>ul, #nav-full>ul{
 	float: right;
 	list-style-type: none;
-	overflow-y:none;
+	overflow-y:hidden; /* Was "none" but is incorrect */
 	margin:2em 0em;
 }
 
