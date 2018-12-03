@@ -89,15 +89,25 @@ window.addEventListener("load", function(){
 });
 
 window.addEventListener('resize', function(e) {
+	var wrapper=document.getElementById("sidebar-wrapper");
+	var mask=document.getElementById("mobile-sidebar-mask");
+	var menu=document.getElementById("menu");
 	if(window.innerWidth>768){
-		document.getElementById("sidebar-wrapper").style.width="25%";
-		document.getElementById("mobile-sidebar-mask").style.backgroundColor="rgba(0,0,0,0.0)";		
-		document.getElementById("mobile-sidebar-mask").style.display="none";
-		document.getElementById("menu").style.display="block";
-
+		if(wrapper!=null && mask!=null){
+			wrapper.style.width="25%";
+			mask.style.backgroundColor="rgba(0,0,0,0.0)";		
+			mask.style.display="none";
+		}
+		if(menu!=null){
+			menu.style.display="block";
+		}
 	}else{
-		document.getElementById("sidebar-wrapper").style.width="0%";
-		document.getElementById("menu").style.display="none";
+		if(wrapper!=null){
+			wrapper.style.width="0%";
+		}
+		if(menu!=null){
+			menu.style.display="none";
+		}
 
 	}
 }, false);
