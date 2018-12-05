@@ -44,6 +44,7 @@ html, body {
 	list-style-type: none;
 	padding-left: 1em;
 	overflow-y:hidden;
+	height:0px;
 	transition: height 0.5s;
 }
 #sidebar>li>ul>li{
