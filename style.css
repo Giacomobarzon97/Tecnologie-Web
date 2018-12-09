@@ -5,7 +5,6 @@
 	font-size: 1.0em;
 	font-family: 'Roboto', sans-serif;
 }
-
 html, body {
 	margin: 0px;
 	padding: 0px;
@@ -52,7 +51,7 @@ html, body {
 }
 #sidebar>li>ul>li>a{
 	text-decoration: none;
-	color:#808080;
+	color:#D6D6D6;
 }
 #sidebar>li>ul>li>a:hover{
 	transition: color 0.125s ease-in-out;
@@ -85,6 +84,7 @@ html, body {
 	/*Aesthetics*/
 	background: white;
 	transition:width 0.5s, height 0.5s;
+	box-shadow: 01px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 #nav{
 	width: 75%;
@@ -123,6 +123,7 @@ html, body {
 	display:inline-block;
 	margin:0em 1.25em;
 	transition:margin 0.5s;
+	color:#0D47A1;
 }
 
 #main{
@@ -145,6 +146,7 @@ html, body {
 	font-size: 2.2em;
 	margin-bottom: 0.5em;
 }
+
 
 #content-article-introduction>p{
 	margin-bottom: 1.5em;
@@ -176,8 +178,9 @@ html, body {
 	margin-right: 1.5em; 
 }
 
-#content-article-introduction>ul>li>a{
-	color: #0091ae;
+#content-article-introduction>ul>li>a, #content-article-body>ul>li>ul>li>a{
+	color: #0D47A1;
+	font-weight: 700;
 }
 
 #content-article-introduction>ul>li{
@@ -234,9 +237,6 @@ html, body {
 	border-bottom: solid 1px #d6d6d6;
 }
 
-#content-article-body>ul>li>ul>li>a{  
-	color: #0091ae;
-}
 /*
 .anchor1 {
     display:block;
@@ -681,7 +681,7 @@ FOOTER
 
 #upper-footer>p{
 	margin-bottom: 0.5em;
-	color: #ffffff;
+	color: white;
 }
 
 #upper-footer>h1{
@@ -714,7 +714,7 @@ FOOTER
 #developers>ul>li{
 	display: inline;
 	margin-right:2em;
-	color:#ffffff;
+	color:#C4C4C4;
 }
 
 /*------------------------------------------
