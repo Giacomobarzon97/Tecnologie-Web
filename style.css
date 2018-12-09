@@ -159,10 +159,25 @@ html, body {
 
 #content-article-introduction>ul{
 	column-count: 2;
-	list-style: none;
+	list-style-type: none;
 	padding-left: 0;
 	max-width: 60em;
 	margin-bottom: 2.5em;
+}
+
+#content-article-introduction>ul li:before {   
+	content: '';   
+	display: inline-block;   
+	height: 10px;   
+	width: 10px;    
+	background-size: 10px;   
+	background-image: url('./img/check-mark.svg');   
+	background-repeat: no-repeat;   
+	margin-right: 1.5em; 
+}
+
+#content-article-introduction>ul>li>a{
+	color: #0091ae;
 }
 
 #content-article-introduction>ul>li{
@@ -217,6 +232,10 @@ html, body {
 	padding:0.7em 0 1em 3%;
 	border-left: solid 6px #ffa500;
 	border-bottom: solid 1px #d6d6d6;
+}
+
+#content-article-body>ul>li>ul>li>a{  
+	color: #0091ae;
 }
 /*
 .anchor1 {
@@ -841,10 +860,15 @@ MEDIA QUERIES
 		margin-bottom: 1.5em;
 	}
 	
+	#content-article-introduction>ul li:before{
+		background-image:none; 
+		content: none;
+	}
+	
 	#content-article-body>h1{
-		 text-align: center;
-		 font-size: 1.5em;
-		 padding-bottom: 1em;
+		text-align: center;
+		font-size: 1.5em;
+		padding-bottom: 1em;
 	}
 	
 	#content-article-body>ul>li>div>p{
