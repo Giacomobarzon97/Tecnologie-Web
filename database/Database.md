@@ -47,3 +47,6 @@
 * CommentID (Primary Key - ExternalKey)
 * UserID (Primary Key - ExternalKey)
 * is_like (boolean)
+
+## Tabella per i token di chi dimentica la password
+Quanto un utente dimentica la password bisogna inviargli tramite email un link con un token temoraneo per cambiare la password.
