@@ -12,6 +12,9 @@ html, body {
 	background: #F5F5F5;
 	font-family: 'Open Sans', sans-serif;
 }
+a{
+	color: #0D47A1;
+}
 
 /*-----SIDEBAR-----*/
 #sidebar-wrapper{
@@ -179,7 +182,6 @@ html, body {
 }
 
 #content-article-introduction>ul>li>a, #content-article-body>ul>li>ul>li>a{
-	color: #0D47A1;
 	font-weight: 700;
 }
 
@@ -568,17 +570,16 @@ HOMEPAGE
 }
 
 .home-card h2 a{
-	color:#000000;
 	text-decoration: underline;
 }
 
 
-.links > li > a > img{
+.home-card img{
 	display: block;
     margin-left: auto;
 	margin-right: auto;
 	width: auto;
-	height: auto;
+	height: 5em;
 	margin-bottom: 0.5em;
 }
 
@@ -587,7 +588,6 @@ HOMEPAGE
 }
 
 .links > li:nth-child(5) > a {
-	color: #000000;
 	text-align: right;
 	margin-right: 0.5em;
 	margin-bottom: 0.2em;
@@ -596,7 +596,6 @@ HOMEPAGE
 }
 
 .links > li > a {
-	color:#000000;
 	text-align: center;
 	font-size: 1.5em;
 	display: block;
@@ -604,7 +603,8 @@ HOMEPAGE
 }
 
 .home-card h2 a:hover, .links > li > a:hover {
-	text-decoration: none;
+	color:black;
+	transition:color 0.5s;
 }
 
 /*------------------------------------------
