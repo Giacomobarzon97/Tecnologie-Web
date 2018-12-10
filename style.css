@@ -29,24 +29,34 @@ a{
 	background: #404040;
 }
 #sidebar>li{
+	overflow:hidden;
 	padding:2em 6% 2em 6%;
 	border-bottom: 1px solid #707070;
+	word-break:break-word;
 }
-#sidebar>li>a{
+#sidebar>li>div{
+	width:100%;
+	overflow:hidden;
+}
+#sidebar>li>div>a{
+	float:left;
+	width:80%;
 	text-decoration: none;
 	font-size: 1.3em;
 	color:white;
 }
-#sidebar>li>img{
+#sidebar>li>div>img{
+	float:right;
+	width:10%;
+	margin: 0px 5%;
 	height: 1.0em;
 	width: 1.0em;
-	margin-left: 0.2em;
 }
 #sidebar>li>ul{
 	list-style-type: none;
 	padding-left: 1em;
 	overflow-y:hidden;
-	height:0px;
+	display:none;
 	transition: height 0.5s;
 }
 #sidebar>li>ul>li{

@@ -80,12 +80,12 @@ function sidebarExpandButtons(){
 		buttons[i].addEventListener("click",function(e){
 			e = e || window.event;
 			var target = e.target || e.srcElement;
-			var sublist= target.parentNode.getElementsByTagName("UL")[0];
-			if(sublist.style.height=="auto"){
+			var sublist= target.parentNode.parentNode.getElementsByTagName("UL")[0];
+			if(sublist.style.display=="block"){
 				target.src="img/expand-button.svg";
-				sublist.style.height="0px";
+				sublist.style.display="none";
 			}else{
-				sublist.style.height="auto";
+				sublist.style.display="block";
 				target.src="img/collapse-button.svg";				
 			}
 		},false);
