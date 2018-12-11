@@ -2,19 +2,19 @@
 
 * Email (Primary Key)
 * Nickname (UNIQUE)
+* Password
 * Name
 * Surname
 * ProfilePic
 
+## ROLES (Normal User/Admin User)
+
+* RoleName (Primary Key)
+
 ## USER_ROLES
 
 * UserID -> UTENTI (ExternalKey)
-* RoleID -> ROLES (ExternalKey)
-
-## ROLES (Normal User/Admin User)
-
-* RoleID
-* RoleName
+* RoleName -> ROLES (ExternalKey)
 
 ## TOPICS
 
@@ -31,6 +31,7 @@
 ## ARTICLE
 
 * ID (Primary Key - AutoIncrement)
+* Title
 * ArticleHTML (LongText)
 * Author -> UTENTI (ExternalKey)
 * SubTopicID -> SUBTOPICS (ExternalKey)
