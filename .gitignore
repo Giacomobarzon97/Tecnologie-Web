@@ -10,3 +10,5 @@
 relazione/build/
 
 relazione/img/*.pdf
+
+\.DS_Store
