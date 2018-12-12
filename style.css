@@ -127,7 +127,7 @@ a:hover{
 #nav>h1,#nav-full>h1{
 	float:left;
 	font-size:2em;
-	margin:0.5em;
+	margin:0.7em 1em;
 }
 #nav>ul, #nav-full>ul{
 	float: right;
@@ -799,7 +799,7 @@ MEDIA QUERIES
 	}
 	#nav>h1,#nav-full>h1{
 		font-size:1.5em;
-		margin:0.5em;
+		margin:0.7em 0.5em;
 	}
 	#nav>ul,#nav-full>ul{
 		margin: 1em 0em;
