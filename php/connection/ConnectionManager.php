@@ -1,16 +1,25 @@
 <?php
     class ConnectionManager {
-        private $hostname='localhost';
-        private $username='testsitotecweb';
-        private $password='SitoTecWeb2018';
-        private $databaseName='my_testsitotecweb';
-        private $charset='utf8mb4';
-
-        private $dsn = 'mysql:host=localhost;dbname=my_testsitotecweb;';
+        private $hostname=NULL;
+        private $username=NULL;
+        private $password=NULL;
+        private $databaseName=NULL;
+        private $charset=NULL;
         
-        static function testConnection() {
+        function readDataFromJSON(){
+            $content = file_get_contents("../loginData.json");
+            $json = json_decode($content, true);
+
+            $this->hostname = $json['hostname'];
+            $this->username = $json['username'];
+            $this->password = $json['password'];
+            $this->databaseName = $json['databaseName'];
+            $this->charset = $json['charset'];
+        }
+
+        function testConnection() {
             try {
-                $dbh = new PDO('mysql:host=localhost;dbname=my_testsitotecweb;', $username, $password);
+                $dbh = new PDO("mysql:host=$this->hostname;dbname=$this->databaseName;", $this->username, $this->password);
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 foreach($dbh->query('SELECT * FROM USERS') as $row) {
                     print_r($row);
@@ -23,8 +32,7 @@
         }
     }
 
-    ConnectionManager::testConnection();
-
-
-
+    $conn = new ConnectionManager();
+    $conn->readDataFromJSON();
+    $conn->testConnection();
 ?>
