@@ -14,6 +14,7 @@ html, body {
 }
 a{
 	color: #0D47A1;
+	transition:color 0.5s;
 }
 a:hover{
 	color:black;
@@ -518,21 +519,22 @@ HOMEPAGE
 --------------------------------------------*/
 
 #header {
+	margin-top:5em;
 	background-color: #404040;
+	text-align: center;
+	padding:15%;
+	background-image: url(./img/channels4_banner.jpg);
 	background-size: cover;
 	background-position: center;
-	margin-top:5em;
-	padding-top: 6em;
-	text-align: center;
-	padding-bottom: 2em;
+	background-attachment: fixed;
+	transition: all 0.2s ease;
+	box-sizing:border-box;
+	min-height:100%;
 }
-
-#header img {
-	width: 40%;
-	margin-left: auto;
-	margin-right: auto;
+#header>h1{
+	color:white;
+	font-size:3em;
 }
-
 /* Content and cards */
 
 #content {
@@ -543,11 +545,13 @@ HOMEPAGE
 	text-align: center;
 	font-size: 1.5em;
 	margin: auto;
-	padding: 20px;
+	padding: 1.5em;
 }
 
 .grid{
-	padding:5em 1em;
+	padding:3em 1em 5em 1em;
+	max-width:1250px;
+	margin:auto;
 }
 
 
@@ -575,17 +579,13 @@ HOMEPAGE
 .home-card:nth-child(4){
 	margin-right: 0;
 }
+
 .home-card h2{
 	text-align: center;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	font-size: 2em;
 }
-
-.home-card h2 a{
-	text-decoration: underline;
-}
-
 
 .home-card img{
 	display: block;
@@ -600,7 +600,7 @@ HOMEPAGE
 	text-align: center;
 }
 
-.links > li:nth-child(5) > a {
+.home-card-more-link{
 	text-align: right;
 	margin-right: 0.5em;
 	margin-bottom: 0.2em;
@@ -615,10 +615,7 @@ HOMEPAGE
 	margin-bottom: 1em;
 }
 
-.home-card h2 a:hover, .links > li > a:hover {
-	color:black;
-	transition:color 0.5s;
-}
+
 
 /*------------------------------------------
 PROFILE
@@ -759,17 +756,15 @@ MEDIA QUERIES
 	#header{
 		margin-top: 4em;
 	}
+
+	#header>h1{
+		color:white;
+		font-size:3em;
+	}
 	#header-title{
 		text-align: center;
 		color: #FFFFFF;
 		font-size: 2em;
-	}
-	#introduction {
-		font-size: 1em;
-	}
-
-	.grid{
-		padding:5em 1em;
 	}
 	
 	.home-card{
