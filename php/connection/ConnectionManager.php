@@ -6,7 +6,10 @@
         private $databaseName = NULL;
         private $charset = NULL;
 
+        //Database connection
         private $dbh = NULL;
+        //Current query being prepared
+        private $currentQuery = NULL;
         
         private function readDataFromJSON(){
             $content = file_get_contents("../loginData.json");
@@ -49,31 +52,53 @@
             $this->dbh = NULL;
         }
 
-        public function executeQuery($query) {
-            //Execute the query
-            $query->execute();
-            //May not be necessary, check if is necessary to delete the prepared query
-            $returnValue = $query->fetchAll();
-            $query = NULL;
-            return $returnValue;
+        //Function that prepare the given query
+        //Remember that may delete a not-executed query, prepared before
+        public function prepareQuery($query){
+            if(!is_null($this->currentQuery)){
+                $this->currentQuery = NULL;
+            }
+            $this->currentQuery = $this->dbh->prepare($query);
         }
 
-        public function getConnection(){
-            return $this->dbh;
+        //Function that bind a parameter in the query
+        //List of data types: http://php.net/manual/en/pdo.constants.php
+        public function bindParameterToQuery($paramName, $paramValue, $data_type){
+            if(!is_null($this->currentQuery)){
+                $this->currentQuery->bindParam($paramName, $paramValue, $data_type);
+            }
+        }
+
+        //Function that execute the query and return the result
+        public function executeQuery() {
+            if(is_null($this->currentQuery)){
+                return NULL;
+            }else{
+                //Execute the query
+                $this->currentQuery->execute();
+                //May not be necessary, check if is necessary to delete the prepared query
+                $returnValue = $this->currentQuery->fetchAll();
+                $currentQuery = NULL;
+                return $returnValue;
+            }
         }
 
     }
 
     //Create the Object
     $conn = new ConnectionManager();
-    //Get the connection
-    $database_conn = $conn->getConnection();
-    //Prepare and execute the query
-    $result = $conn->executeQuery($database_conn->prepare('SELECT * FROM USERS'));
+    //Prepare the query
+    $conn->prepareQuery("SELECT * FROM USERS WHERE Nickname = :nick AND Password = :pw");
+    //Bind the parameters
+    $conn->bindParameterToQuery(":nick", "Admin", PDO::PARAM_STR);
+    $conn->bindParameterToQuery(":pw", "Admin", PDO::PARAM_STR);
+    //Execute the query
+    $result = $conn->executeQuery();
     //Print the test results
+    echo "Results: <br/>";
     foreach ($result as $item) {
         echo $item['Nickname'].'<br/>';
     }
-    //Destroy the objecy
+    //Destroy the object
     $conn = NULL;
 ?>
