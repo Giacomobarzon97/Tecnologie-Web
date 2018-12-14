@@ -43,7 +43,6 @@
 
 //----------------------------------------------------------//
 # Lista file PHP
-* Header
 * Navbar
 * Footer
 * Sidebar

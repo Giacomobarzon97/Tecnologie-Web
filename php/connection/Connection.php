@@ -12,7 +12,7 @@
         private $currentQuery = NULL;
         
         private function readDataFromJSON(){
-            $content = file_get_contents("../loginData.json");
+            $content = file_get_contents("loginData.json");
             $json = json_decode($content, true);
 
             $this->hostname = $json['hostname'];
@@ -24,17 +24,17 @@
 
         //The constructor read the data from the JSON and connect to the database
         function __construct() {
-            echo "constructor start<br/>";
+            //echo "constructor start<br/>";
             $this->readDataFromJSON();
             $this->connect();
-            echo "constructor done<br/>";
+            //echo "constructor done<br/>";
         }
 
         //The destructor disconnect from the database
         function __destruct() {
-            echo "destructor start<br/>";
+            //echo "destructor start<br/>";
             $this->disconnect();
-            echo "destructor done<br/>";
+            //echo "destructor done<br/>";
         }
 
         private function connect() {
@@ -84,21 +84,5 @@
         }
 
     }
-
-    //Create the Object
-    $conn = new Connection();
-    //Prepare the query
-    $conn->prepareQuery("SELECT * FROM USERS WHERE Nickname = :nick AND Password = :pw");
-    //Bind the parameters
-    $conn->bindParameterToQuery(":nick", "Admin", PDO::PARAM_STR);
-    $conn->bindParameterToQuery(":pw", "Admin", PDO::PARAM_STR);
-    //Execute the query
-    $result = $conn->executeQuery();
-    //Print the test results
-    echo "Results: <br/>";
-    foreach ($result as $item) {
-        echo $item['Nickname'].'<br/>';
-    }
-    //Destroy the object
-    $conn = NULL;
+    
 ?>
