@@ -3,7 +3,6 @@
 	margin:0px;
 	padding:0px;
 	font-size: 1.0em;
-	font-family: 'Roboto', sans-serif;
 }
 html, body {
 	margin: 0px;
@@ -58,13 +57,13 @@ a:hover{
 }
 #sidebar>li>ul{
 	list-style-type: none;
-	padding-left: 1em;
+	padding-left: 10%;
 	overflow-y:hidden;
 	display:none;
 	transition: height 0.5s;
 }
 #sidebar>li>ul>li{
-	margin-top: 0.5em;
+	margin-top: 1em;
 }
 #sidebar>li>ul>li>a{
 	text-decoration: none;
