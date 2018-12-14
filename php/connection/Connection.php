@@ -1,5 +1,5 @@
 <?php
-    class ConnectionManager {
+    class Connection {
         private $hostname = NULL;
         private $username = NULL;
         private $password = NULL;
@@ -86,7 +86,7 @@
     }
 
     //Create the Object
-    $conn = new ConnectionManager();
+    $conn = new Connection();
     //Prepare the query
     $conn->prepareQuery("SELECT * FROM USERS WHERE Nickname = :nick AND Password = :pw");
     //Bind the parameters
