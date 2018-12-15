@@ -41,7 +41,8 @@ CREATE TABLE USER_ROLES(
 CREATE TABLE TOPICS(
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Name varchar(100),
-    Image BLOB
+    Description MEDIUMTEXT,
+    ImageLink varchar(255)
 ) ENGINE=InnoDB;
 
 CREATE TABLE SUBTOPICS(
@@ -90,9 +91,9 @@ INSERT INTO USER_ROLES (UserID, RoleName) VALUES
     ('admin@admin.com', 'Admin User');
 
 INSERT INTO TOPICS (Name, Image) VALUES
-    ('Algoritmi', NULL),
-    ('Sistemi Operativi', NULL),
-    ('Architettura degli Elaboratori', NULL);
+    ('Algoritmi', "Descrizione Lunga Topic Algoritmi",  NULL),
+    ('Sistemi Operativi', "Descrizione Lunga Topic Sistemi Operativi", NULL),
+    ('Architettura degli Elaboratori', "Descrizione Lunga Topic Architettura degli Elaboratori", NULL);
 
 INSERT INTO SUBTOPICS (Title, TopicID) VALUES
     ('Algoritmi di Ordinamento', (SELECT Id FROM TOPICS WHERE Name = 'Algoritmi')),

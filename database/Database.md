@@ -20,7 +20,8 @@
 
 * ID (Primary Key - AutoIncrement)
 * Name
-* Image
+* Description
+* ImageLink
 
 ## SUBTOPICS
 
