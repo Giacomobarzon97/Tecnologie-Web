@@ -90,10 +90,10 @@ INSERT INTO USER_ROLES (UserID, RoleName) VALUES
     ('user2@user.com', 'Normal User'),
     ('admin@admin.com', 'Admin User');
 
-INSERT INTO TOPICS (Name, Image) VALUES
-    ('Algoritmi', "Descrizione Lunga Topic Algoritmi",  NULL),
-    ('Sistemi Operativi', "Descrizione Lunga Topic Sistemi Operativi", NULL),
-    ('Architettura degli Elaboratori', "Descrizione Lunga Topic Architettura degli Elaboratori", NULL);
+INSERT INTO TOPICS (Name, Description, ImageLink) VALUES
+    ('Algoritmi', "Descrizione Lunga Topic Algoritmi",  "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg"),
+    ('Sistemi Operativi', "Descrizione Lunga Topic Sistemi Operativi", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg"),
+    ('Architettura degli Elaboratori', "Descrizione Lunga Topic Architettura degli Elaboratori", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg");
 
 INSERT INTO SUBTOPICS (Title, TopicID) VALUES
     ('Algoritmi di Ordinamento', (SELECT Id FROM TOPICS WHERE Name = 'Algoritmi')),
