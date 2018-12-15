@@ -1,5 +1,5 @@
 <?php
-	include_once('classes/Card.php');
+	include_once('Card.php');
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -22,7 +22,7 @@
 	
 	<body>
 		<?php
-			include_once('include/navbar.php');
+			include_once('navbar.php');
 		?>
 		<div id="header">
 			<h1>NOME SITO</h1>
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<?php
-			include_once ('include/footer.php');
+			include_once ('footer.php');
 		?>
 	</body>
 </html>
