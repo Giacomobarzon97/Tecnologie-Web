@@ -83,6 +83,17 @@
             }
         }
 
+        public function executeQueryDML() {
+            if(is_null($this->currentQuery)){
+                return NULL;
+            }else{
+                //Execute the query
+                $returnValue = $this->currentQuery->execute();
+                $currentQuery = NULL;
+                return $returnValue;
+            }
+        }
+
     }
     
 ?>

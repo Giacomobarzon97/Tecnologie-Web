@@ -1,5 +1,5 @@
 <?php
-    include_once ("connection/Connection.php");
+    include_once ("Connection.php");
     class Card {
 
         static function printCard ($topicName){
@@ -62,6 +62,7 @@
             }
             echo "</div>";
             
+            $connection = NULL;
         }
     }
 
