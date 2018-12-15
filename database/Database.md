@@ -27,6 +27,7 @@
 
 * ID (Primary Key - AutoIncrement)
 * Title
+* Description
 * TopicID -> TOPICS (ExternalKey)
 
 ## ARTICLE
