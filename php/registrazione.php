@@ -1,16 +1,3 @@
-<?php 
-    include_once ('User.php');
-
-    if(isset($_POST['submit'])){ //check if form was submitted
-        $email = $_POST['email'];
-        $nickname = $_POST['nickname'];
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $password = $_POST['password'];
-        User::registration($email, $nickname, $password, $name, $surname);
-    } 
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 	<head>
@@ -41,7 +28,20 @@
                     <h1>Pagina di registrazione</h1>
                     <span>Informazioni per la registrazione</span>
                     <div id="profile-data">
-                        <form action="login.php" method="POST">
+                    <?php 
+                        include_once ('User.php');
+
+                        if(isset($_POST['submit'])){ //check if form was submitted
+                            $email = $_POST['email'];
+                            $nickname = $_POST['nickname'];
+                            $name = $_POST['name'];
+                            $surname = $_POST['surname'];
+                            $password = $_POST['password'];
+                            $message = User::registration($email, $nickname, $password, $name, $surname);
+                            echo "<div>".$message."</div>";
+                        } 
+                    ?>
+                        <form action="registrazione.php" method="POST">
                             <label for="lemail">Email</label>
                             <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
                             <label for="lnickname">Nickname</label>

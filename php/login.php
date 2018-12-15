@@ -1,16 +1,9 @@
-<?php 
-    include_once ('User.php');
-
-    if(isset($_POST['submit'])){ //check if form was submitted
-        $email = $_POST['email'];
-        $nickname = $_POST['nickname'];
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $password = $_POST['password'];
-        User::registration($email, $nickname, $password, $name, $surname);
-    } 
-?>
-
+<?php
+    session_start();
+    if(isset($_SESSION['nickname'])) {
+        header("Location: profile.php");
+    }
+?>  
 <!DOCTYPE html>
 <html lang="it">
 	<head>
@@ -40,7 +33,25 @@
                 <div id="profile-content">
                     <h1>Pagina di login</h1>
                     <div id="profile-data">
-                        <form action="index.php" method="POST">
+                    <?php 
+                        session_start();
+                        include_once ('User.php');
+
+                        if(isset($_POST['submit'])){ //check if form was submitted
+                            $email = $_POST['email'];
+                            $password = $_POST['password'];
+                            $result = User::login($email, $password);
+                            if($result) {
+                                $_SESSION['email'] = $email;
+                                $_SESSION['nickname'] = User::getNickname($email);
+                                header("Location: index.php");
+                                die();
+                            } else {
+                                echo "<span>Credenziali errate, riprova!</span>";
+                            }
+                        } 
+                    ?>
+                        <form action="login.php" method="POST">
                             <label for="lemail">Email</label>
                             <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
                             <label for="lpassword">Password</label>
@@ -48,6 +59,10 @@
                         
                             <input class="profile-input" name="submit" type="submit" value="Submit" />
                         </form>
+                    </div>
+                    <div>
+                        Non sei ancora registrato? <br/>
+                        Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.
                     </div>
                 </div>
             </div>
