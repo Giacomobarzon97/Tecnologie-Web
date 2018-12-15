@@ -20,12 +20,14 @@
 
 * ID (Primary Key - AutoIncrement)
 * Name
-* Image
+* Description
+* ImageLink
 
 ## SUBTOPICS
 
 * ID (Primary Key - AutoIncrement)
 * Title
+* Description
 * TopicID -> TOPICS (ExternalKey)
 
 ## ARTICLE

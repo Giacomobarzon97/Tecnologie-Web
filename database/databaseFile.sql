@@ -41,12 +41,14 @@ CREATE TABLE USER_ROLES(
 CREATE TABLE TOPICS(
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Name varchar(100),
-    Image BLOB
+    Description MEDIUMTEXT,
+    ImageLink varchar(255)
 ) ENGINE=InnoDB;
 
 CREATE TABLE SUBTOPICS(
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Title varchar(100),
+    Description MEDIUMTEXT,
     TopicID INT REFERENCES TOPICS(Id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
@@ -89,20 +91,20 @@ INSERT INTO USER_ROLES (UserID, RoleName) VALUES
     ('user2@user.com', 'Normal User'),
     ('admin@admin.com', 'Admin User');
 
-INSERT INTO TOPICS (Name, Image) VALUES
-    ('Algoritmi', NULL),
-    ('Sistemi Operativi', NULL),
-    ('Architettura degli Elaboratori', NULL);
+INSERT INTO TOPICS (Name, Description, ImageLink) VALUES
+    ('Algoritmi', "Descrizione Lunga Topic Algoritmi",  "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg"),
+    ('Sistemi Operativi', "Descrizione Lunga Topic Sistemi Operativi", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg"),
+    ('Architettura degli Elaboratori', "Descrizione Lunga Topic Architettura degli Elaboratori", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg");
 
-INSERT INTO SUBTOPICS (Title, TopicID) VALUES
-    ('Algoritmi di Ordinamento', (SELECT Id FROM TOPICS WHERE Name = 'Algoritmi')),
-    ('Programmazione Dinamica', (SELECT Id FROM TOPICS WHERE Name = 'Algoritmi')),
-    ('Kernel', (SELECT Id FROM TOPICS WHERE Name = 'Sistemi Operativi')),
-    ('File System', (SELECT Id FROM TOPICS WHERE Name = 'Sistemi Operativi')),
-    ('Basi di I/O', (SELECT Id FROM TOPICS WHERE Name = 'Sistemi Operativi')),
-    ('La CPU', (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori')),
-    ('Memoria RAM', (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori')),
-    ('La cache', (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori'));
+INSERT INTO SUBTOPICS (Title, Description, TopicID) VALUES
+    ('Algoritmi di Ordinamento', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Algoritmi')),
+    ('Programmazione Dinamica', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Algoritmi')),
+    ('Kernel',"Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Sistemi Operativi')),
+    ('File System', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Sistemi Operativi')),
+    ('Basi di I/O', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Sistemi Operativi')),
+    ('La CPU', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori')),
+    ('Memoria RAM', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori')),
+    ('La cache', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori'));
 
 INSERT INTO ARTICLES (Title, HTMLCode, AuthorID, SubtopicID) VALUES
     ('Articolo test 1', '<p>Contenuto di esempio articolo<p>', 'admin@admin.com', (SELECT Id FROM SUBTOPICS WHERE Title = 'Algoritmi di Ordinamento')),
