@@ -20,6 +20,26 @@
 		
 	</head>
     <body>
-
+    <?php
+		include_once('navbar.php');
+	?>
+    <div id="main">
+        <div id="content-article-introduction">
+        <?php
+            Subtopics::printTopicIntroduction(1);
+        ?>
+        </div>
+        <div id="content-article-body">
+        <h1>Contenuto del corso</h1>
+            <ul>
+            <?php
+                Subtopics::printSubtopicsList(1);
+            ?>
+            </ul>
+        </div>
+	</div>
+    <?php
+		include_once ('footer.php');
+	?>
     </body>
 </html>
