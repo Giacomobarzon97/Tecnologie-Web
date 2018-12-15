@@ -14,7 +14,7 @@
             echo 
             "<div class='home-card'>
 				<h2><a href='article.html'>".$topicsInfo[0]["Name"]."</a></h2>
-				<a href='article.html'><img src='data:image/jpeg;base64,".base64_encode($topicsInfo[0]['Image'] )."' alt='algorithm topic' /></a>
+				<a href='article.html'><img src='https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg' alt='algorithm topic' /></a>
                 <ul class='links'>";
                 foreach ($argumentsTitle as $item) {
                     echo "<li><a href='#'>".$item["Title"]."</a></li>";

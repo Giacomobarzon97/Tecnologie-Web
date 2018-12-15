@@ -30,14 +30,14 @@
                 <div id="profile-content">
                     <h1><?php 
                         if(isset($_SESSION['nickname'])) {
-                            echo "Bentornato ".$_SESSION['nickname'];
+                            echo "Bentornato, ".$_SESSION['nickname'];
                         } else {
                             include_once ('paginaNonDisponibile.php');
                             include_once ('footer.php');
                             die();
                         }
                     ?></h1>
-                    <img src="./img/algorithm.jpg" alt="profile picture" />
+                    
                     <div id="profile-data">
                         <form action="/action_page.php">
                             <label for="fname">First Name</label>

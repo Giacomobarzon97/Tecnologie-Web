@@ -28,19 +28,19 @@
                     <h1>Pagina di registrazione</h1>
                     <span>Informazioni per la registrazione</span>
                     <div id="profile-data">
-                    <?php 
-                        include_once ('User.php');
+                        <?php 
+                            include_once ('User.php');
 
-                        if(isset($_POST['submit'])){ //check if form was submitted
-                            $email = $_POST['email'];
-                            $nickname = $_POST['nickname'];
-                            $name = $_POST['name'];
-                            $surname = $_POST['surname'];
-                            $password = $_POST['password'];
-                            $message = User::registration($email, $nickname, $password, $name, $surname);
-                            echo "<div>".$message."</div>";
-                        } 
-                    ?>
+                            if(isset($_POST['submit'])){ //check if form was submitted
+                                $email = $_POST['email'];
+                                $nickname = $_POST['nickname'];
+                                $name = $_POST['name'];
+                                $surname = $_POST['surname'];
+                                $password = $_POST['password'];
+                                $message = User::registration($email, $nickname, $password, $name, $surname);
+                                echo "<div>".$message."</div>";
+                            } 
+                        ?>
                         <form action="registrazione.php" method="POST">
                             <label for="lemail">Email</label>
                             <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
@@ -55,6 +55,10 @@
                         
                             <input class="profile-input" name="submit" type="submit" value="Submit" />
                         </form>
+                    </div>
+                    <div>
+                        Hai già un account? <br/>
+                        Clicca <a href='login.php'>qui</a> per accedere.
                     </div>
                 </div>
             </div>

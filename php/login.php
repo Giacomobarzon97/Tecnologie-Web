@@ -33,24 +33,23 @@
                 <div id="profile-content">
                     <h1>Pagina di login</h1>
                     <div id="profile-data">
-                    <?php 
-                        session_start();
-                        include_once ('User.php');
+                        <?php 
+                            include_once ('User.php');
 
-                        if(isset($_POST['submit'])){ //check if form was submitted
-                            $email = $_POST['email'];
-                            $password = $_POST['password'];
-                            $result = User::login($email, $password);
-                            if($result) {
-                                $_SESSION['email'] = $email;
-                                $_SESSION['nickname'] = User::getNickname($email);
-                                header("Location: index.php");
-                                die();
-                            } else {
-                                echo "<span>Credenziali errate, riprova!</span>";
-                            }
-                        } 
-                    ?>
+                            if(isset($_POST['submit'])){ //check if form was submitted
+                                $email = $_POST['email'];
+                                $password = $_POST['password'];
+                                $result = User::login($email, $password);
+                                if($result) {
+                                    $_SESSION['email'] = $email;
+                                    $_SESSION['nickname'] = User::getNickname($email);
+                                    header("Location: index.php");
+                                    die();
+                                } else {
+                                    echo "<span>Credenziali errate, riprova!</span>";
+                                }
+                            } 
+                        ?>
                         <form action="login.php" method="POST">
                             <label for="lemail">Email</label>
                             <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
