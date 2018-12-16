@@ -9,7 +9,7 @@
             $subtopics = $connection -> executeQuery();
             foreach ($subtopics as $subtopic) {
                 echo '<li>
-                    <a href="">'.$subtopic['Title'].'</a>
+                    <a href="ArticleLinks.php?id='.$topicID.'#'.$subtopic['Id'].'">'.$subtopic['Title'].'</a>
                 </li>
                 ';
             }
@@ -26,7 +26,7 @@
             foreach ($topics as $topic) {
                 echo '<li>
                 <div>
-                    <a href="">'.$topic['Name'].'</a>
+                    <a href="ArticleLinks.php?id='.$topic['Id'].'">'.$topic['Name'].'</a>
                     <img src="https://frncscdf.github.io/Tecnologie-Web/img/expand-button.svg" class="expand-button" alt="Expand"/>
                 </div>
                 ';

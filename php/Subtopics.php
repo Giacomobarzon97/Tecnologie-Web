@@ -37,7 +37,7 @@
             $subtopics = $connection -> executeQuery();
             foreach ($subtopics as $subtopic) {
                 //Stampa div pre-argomenti
-                echo '<li class="arg_title" id="LAR">
+                echo '<li class="arg_title" id="'.$subtopic['Id'].'">
                         <div>';
                 echo '<h2>'.$subtopic['Title'].'</h2>';
                 echo '<h3>'.$subtopic['Description'].'</h3>';
@@ -66,7 +66,7 @@
             <ul>';
             //Stampa cosa imparerai
             foreach ($subtopics as $subtopic) {
-                echo '<li><a href="#LAR">'.$subtopic['Title'].'</a></li>';
+                echo '<li><a href="#'.$subtopic['Id'].'">'.$subtopic['Title'].'</a></li>';
             }
             //Stampa form di aggiunta
             echo '</ul>';
