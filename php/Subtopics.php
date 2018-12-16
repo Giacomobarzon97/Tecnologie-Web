@@ -17,6 +17,19 @@
             $connection = NULL;
         }
 
+        static function checkIfTopicExists($topicID){
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT * FROM TOPICS WHERE ".$topicID." = Id");
+            $result = $connection -> executeQuery();
+            //Destroy the object
+            $connection = NULL;
+            if(isset($result[0])) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         static function printSubtopicsList($topicID){
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM SUBTOPICS WHERE ".$topicID." = TopicID");

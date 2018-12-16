@@ -1,5 +1,12 @@
 <?php
-	include_once('Subtopics.php');
+    if(!isset($_GET["id"])){
+        header("location: paginaNonDisponibile.php");
+    }
+    include_once('Subtopics.php');
+    include_once('Sidebar.php');
+    if(!Subtopics::checkIfTopicExists($_GET["id"])){
+        header("location: paginaNonDisponibile.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -20,24 +27,33 @@
 		
 	</head>
     <body>
+    <div id="mobile-sidebar-mask">
+    </div>
+	<div id="sidebar-wrapper">
     <?php
-		include_once('navbar.php');
-	?>
-    <div id="main">
-        <div id="content-article-introduction">
+        Sidebar::printSidebar();
+    ?>
+    </div>
+    <div id="rightSideWrapper">
         <?php
-            Subtopics::printTopicIntroduction(1);
+            Sidebar::printNavbar();
         ?>
-        </div>
-        <div id="content-article-body">
-        <h1>Contenuto del corso</h1>
-            <ul>
+        <div id="main">
+            <div id="content-article-introduction">
             <?php
-                Subtopics::printSubtopicsList(1);
+                Subtopics::printTopicIntroduction($_GET["id"]);
             ?>
-            </ul>
+            </div>
+            <div id="content-article-body">
+            <h1>Contenuto del corso</h1>
+                <ul>
+                <?php
+                    Subtopics::printSubtopicsList($_GET["id"]);
+                ?>
+                </ul>
+            </div>
         </div>
-	</div>
+    </div>
     <?php
 		include_once ('footer.php');
 	?>
