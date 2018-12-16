@@ -1,11 +1,11 @@
 <?php
     if(!isset($_GET["id"])){
-        header("location: paginaNonDisponibile.php");
+        header("Location: errore.php?errorCode=404");
     }
     include_once('Subtopics.php');
     include_once('Sidebar.php');
     if(!Subtopics::checkIfTopicExists($_GET["id"])){
-        header("location: paginaNonDisponibile.php");
+        header("Location: errore.php?errorCode=404");
     }
 ?>
 <!DOCTYPE html>
