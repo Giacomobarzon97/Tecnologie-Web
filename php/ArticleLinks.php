@@ -42,6 +42,7 @@
             <div id="content-article-introduction">
             <?php
                 Subtopics::printTopicIntroduction($_GET["id"]);
+                Subtopics::printInsertSubtopicForm($_SESSION['email']);
             ?>
             </div>
             <div id="content-article-body">

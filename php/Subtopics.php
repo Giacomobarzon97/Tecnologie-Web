@@ -1,5 +1,6 @@
 <?php
     include_once ("Connection.php");
+    include_once ("User.php");
     class Subtopics {
 
         static function printArticlesList($subtopicID){
@@ -68,15 +69,21 @@
                 echo '<li><a href="#LAR">'.$subtopic['Title'].'</a></li>';
             }
             //Stampa form di aggiunta
-            echo '</ul>
-            <form action="index.php">
-                <p>Inserisci un nuovo sotto-argomento</p>
-                <input type="text" name="argomento" /><br />
-                <input type="submit" value="Invia" />
-            </form>';
-
+            echo '</ul>';
             //Destroy the object
             $connection = NULL;
+        }
+
+        static function printInsertSubtopicForm($sessionEmail){
+            if(User::isAdmin($sessionEmail)){
+                echo '<form action="index.php">
+                    <p>Inserisci un nuovo sotto-argomento</p>
+                    <input type="text" name="argomento" /><br />
+                    <input type="submit" value="Invia" />
+                </form>';
+            }else{ //TOREMOVE
+                echo '(Non puoi inserire un nuovo sotto-argomento)';
+            }
         }
     }
 
