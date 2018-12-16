@@ -94,7 +94,10 @@ INSERT INTO USER_ROLES (UserID, RoleName) VALUES
 INSERT INTO TOPICS (Name, Description, ImageLink) VALUES
     ('Algoritmi', "Descrizione Lunga Topic Algoritmi",  "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg"),
     ('Sistemi Operativi', "Descrizione Lunga Topic Sistemi Operativi", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg"),
-    ('Architettura degli Elaboratori', "Descrizione Lunga Topic Architettura degli Elaboratori", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg");
+    ('Architettura degli Elaboratori', "Descrizione Lunga Topic Architettura degli Elaboratori", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg"),
+    ('Topic enorme di test', "Descrizione Lunga Topic di test, yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao 
+    ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ciao ", "https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg");
 
 INSERT INTO SUBTOPICS (Title, Description, TopicID) VALUES
     ('Algoritmi di Ordinamento', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Algoritmi')),
@@ -104,7 +107,31 @@ INSERT INTO SUBTOPICS (Title, Description, TopicID) VALUES
     ('Basi di I/O', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Sistemi Operativi')),
     ('La CPU', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori')),
     ('Memoria RAM', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori')),
-    ('La cache', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori'));
+    ('La cache', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Architettura degli Elaboratori')),
+    ('Subtopic test 1', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 2', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 3', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 4', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 5', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 6', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 7', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 8', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 9', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 10', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 11', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 12', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 13', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 14', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 15', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 16', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 17', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 18', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 19', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 20', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 21', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 22', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 23', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test')),
+    ('Subtopic test 24', "Descrizione Semplice Subtopic", (SELECT Id FROM TOPICS WHERE Name = 'Topic enorme di test'));
 
 INSERT INTO ARTICLES (Title, HTMLCode, AuthorID, SubtopicID) VALUES
     ('Articolo test 1', '<p>Contenuto di esempio articolo<p>', 'admin@admin.com', (SELECT Id FROM SUBTOPICS WHERE Title = 'Algoritmi di Ordinamento')),
