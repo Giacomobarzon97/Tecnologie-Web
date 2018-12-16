@@ -14,7 +14,7 @@
             echo 
             "<div class='home-card'>
 				<h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>
-				<a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>"."<img src='https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg' alt='algorithm topic' /></a>
+				<a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>"."<img src='".$topicsInfo[0]["ImageLink"]."' alt='algorithm topic' /></a>
                 <ul class='links'>";
                 foreach ($argumentsTitle as $item) {
                     echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$item["Title"]."</a></li>";
