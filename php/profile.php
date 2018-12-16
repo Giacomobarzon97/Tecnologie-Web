@@ -13,6 +13,7 @@
 		<meta name="author" content="" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script src="./scripts.js"></script>
 		
@@ -32,8 +33,7 @@
                         if(isset($_SESSION['nickname'])) {
                             echo "Bentornato, ".$_SESSION['nickname'];
                         } else {
-                            include_once ('paginaNonDisponibile.php');
-                            include_once ('footer.php');
+                            header("Location: errore.php?errorCode=paginaNonDisponibile");
                             die();
                         }
                     ?></h1>

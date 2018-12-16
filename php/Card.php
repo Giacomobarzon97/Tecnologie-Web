@@ -13,14 +13,14 @@
             //Print the test results
             echo 
             "<div class='home-card'>
-				<h2><a href='article.html'>".$topicsInfo[0]["Name"]."</a></h2>
-				<a href='article.html'><img src='https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg' alt='algorithm topic' /></a>
+				<h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>
+				<a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>"."<img src='https://frncscdf.github.io/Tecnologie-Web/img/algo.jpg' alt='algorithm topic' /></a>
                 <ul class='links'>";
                 foreach ($argumentsTitle as $item) {
-                    echo "<li><a href='#'>".$item["Title"]."</a></li>";
+                    echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$item["Title"]."</a></li>";
                 }
                 echo "</ul>
-                <a href='article_links.html' class='home-card-more-link'>More &rarr;</a>
+                <a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."' class='home-card-more-link'>More &rarr;</a>
             </div>";
                     
             //Destroy the object

@@ -96,6 +96,22 @@
             $result = $connection -> executeQuery();
             return $result[0]['Nickname'];
         }
+
+        static function isAdmin($email) {
+            if(!isset($email)) {
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery(
+            "SELECT * FROM USERS, USER_ROLES WHERE  
+            USERS.Email = USER_ROLES.UserID AND USER_ROLES.UserID ='".$email."'");
+            $result = $connection -> executeQuery();
+            if(isset($result[0]) == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } 
         
     }
 
