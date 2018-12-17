@@ -60,21 +60,17 @@
                                 $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
                                 $loggedUserVote = $connection -> executeQuery();
 
-                                //THIS QUERY IS BROKEN, TOFIX
-
-                                echo "TEST".isset($loggedUserVote[0]);
-
                                 //Stampo un'immagine differente se ha già votato con un dislike
                                 if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="submit" name="delete-vote" value="" class="dislike-vote-voted" />';
+                                    echo '<input type="submit" name="delete-vote" value="" class="dislike-vote dislike-vote-voted-image" />';
                                     echo '</form>';
                                 }else{
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                                     echo '<input type="hidden" name="isLike" value="0" />';
-                                    echo '<input type="submit" name="vote-comment" value="" class="dislike-vote" />';
+                                    echo '<input type="submit" name="vote-comment" value="" class="dislike-vote dislike-vote-default-image" />';
                                     echo '</form>';
                                 }
 
@@ -106,13 +102,13 @@
                                 if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="submit" name="delete-vote" value="" class="like-vote-voted" />';
+                                    echo '<input type="submit" name="delete-vote" value="" class="like-vote like-vote-voted-image" />';
                                     echo '</form>';
                                 }else{
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                                     echo '<input type="hidden" name="isLike" value="1" />';
-                                    echo '<input type="submit" name="vote-comment" value="" class="like-vote" />';
+                                    echo '<input type="submit" name="vote-comment" value="" class="like-vote like-vote-default-image" />';
                                     echo '</form>';
                                 }
                             echo '</div>
@@ -126,7 +122,10 @@
                         //Se l'utente è admin aggiungi la possibilità di eliminare un commento
                         echo '<div class="post-comment-body-footer">';
                         if(User::isAdmin($loggedUserEmail)){
-                            echo '<input type="submit" value="Elimina il commento" class="comment-reply-start-button" />';
+                            echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
+                            echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                            echo '<input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" />';
+                            echo '</form>';
                         }
                         echo '</div>';
                     echo '</div>

@@ -148,28 +148,27 @@
 
         static function voteComment($commentID, $userVoteID, $isLike) {
             $connection = new Connection();
+            $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE CommentID = $commentID AND AuthorID = '$userVoteID'");
+            //If user has already voted remove his vote
+            if(isset($connection->executeQuery()[0])){
+                User::removeVoteComment($commentID, $userVoteID, false);
+            }
             $connection -> prepareQuery(
                 "INSERT INTO COMMENTS_VOTES (CommentID, AuthorID, is_like)
                 VALUES ('$commentID', '$userVoteID', '$isLike')"
             );
-            try {
-                $result = $connection -> executeQueryDML();
-                header("Location: Article.php?id=$articleID#commentsContent");
-            } catch (PDOException $e){
-                User::removeVoteComment($userVoteID, $commentID);
-            }
+            $result = $connection -> executeQueryDML();
+            header("Location: Article.php?id=$articleID#".$commentID);
         }
 
-        static function removeVoteComment($commentID, $userVoteID) {
+        static function removeVoteComment($commentID, $userVoteID, $shouldRedirect) {
             $connection = new Connection();
             $connection -> prepareQuery(
-                "DELETE FROM COMMENTS_VOTE WHERE CommentID = $commentID AND AuthorID = '$userVoteID'"
+                "DELETE FROM COMMENTS_VOTES WHERE CommentID = $commentID AND AuthorID = '$userVoteID'"
             );
-            try {
-                $result = $connection -> executeQueryDML();
-                header("Location: Article.php?id=$articleID#commentsContent");
-            } catch (PDOException $e){
-                
+            $result = $connection -> executeQueryDML();
+            if($shouldRedirect){ //Inutile da usare quando usato da voteComment() no?
+                header("Location: Article.php?id=$articleID#".$commentID);
             }
         }
 

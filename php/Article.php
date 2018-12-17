@@ -66,7 +66,10 @@
                                 User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike']);
                             }
                             if(isset($_POST['delete-vote'])) {
-                                User::removeVoteComment($_POST['commentID'], $_SESSION['email']);
+                                User::removeVoteComment($_POST['commentID'], $_SESSION['email'], true);
+                            }
+                            if(isset($_POST['delete-comment'])) {
+                                User::deleteComment($_SESSION['email'], $_POST['commentID']);
                             }
                             echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" >';
                             Comments::printCommentInputZone($_SESSION['email']);

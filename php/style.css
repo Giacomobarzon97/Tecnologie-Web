@@ -423,61 +423,45 @@ ARTICLES
     vertical-align: middle;
 }
 
-/*.post-comment-body-header-votes .dislike-vote {
-    padding-right: 5%;
-    cursor: pointer;
-}
-
-.post-comment-body-header-votes .like-vote {
-    padding-left: 5%;
-    cursor: pointer;
-}*/
-
 .vote-form {
 	display: inline-block;
 	vertical-align: middle;
 }
 
 .dislike-vote {
-	background: url("https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg");
+	background-repeat: no-repeat;
 	border: 0;
-	padding-right: 5%;
+	margin-right: 0.5em;
 	background-size: cover;
 	cursor: pointer;
 	height: 2em;
 	width: 2em;
 }
 
-.dislike-vote-voted {
+.dislike-vote-default-image {
 	background: url("https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg");
-	background-color: red;
-	border: 0;
-	padding-right: 5%;
-	background-size: cover;
-	cursor: pointer;
-	height: 2em;
-	width: 2em;
+}
+
+.dislike-vote-voted-image{
+	background: url("dislike-red.svg");
 }
 
 .like-vote {
-	background: url("https://frncscdf.github.io/Tecnologie-Web/img/like.svg");
+	background-repeat: no-repeat;
 	border: 0;
-	padding-left: 5%;
+	margin-left: 0.5em;
 	background-size: cover;
 	cursor: pointer;
 	height: 2em;
 	width: 2em;
 }
 
-.like-vote-voted {
+.like-vote-default-image {
 	background: url("https://frncscdf.github.io/Tecnologie-Web/img/like.svg");
-	background-color: green;
-	border: 0;
-	padding-left: 5%;
-	background-size: cover;
-	cursor: pointer;
-	height: 2em;
-	width: 2em;
+}
+
+.like-vote-voted-image {
+	background: url("like-green.svg");
 }
 
 .post-comment-body-header-votes > p {
@@ -506,7 +490,7 @@ ARTICLES
     font-style: italic;
 }
 
-.post-comment-body-footer > input {
+.delete-comment-link {
     background:none!important;
     color:inherit; /* Colore di default */
     color:#D76901; /* Colore di test da cambiare*/
@@ -1017,7 +1001,7 @@ MEDIA QUERIES
 	.post-comment-body-header-votes > .dislike-vote {
 		max-width: 10%;
 	    max-height: 10%;
-	    padding-left: 2%;
+	    padding-right: 2%;
 	}
 
 	.post-comment-body-header-votes > .like-vote {
