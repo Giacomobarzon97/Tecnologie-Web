@@ -3,7 +3,7 @@
     class User {
 
         static function checkFields($email, $nickname, $password, $name, $surname) {
-            // Remove all illegal characters from email
+            // Rimuove i caratteri che non possono figurare in un indirizzo email
             $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
             // Validate e-mail
@@ -111,7 +111,106 @@
             } else {
                 return false;
             }
-        } 
+        }
+        
+        //ritorna un messaggio se l'inserimento non va a buon fine
+        static function addComment($articleID, $commentText, $authorID) {
+            if(strlen($commentText) > 10000) {
+                return "Impossibile inserire articolo, troppo lungo!";
+            } else if($commentText == "") {
+                return "Impossibile inserire articolo, commento vuoto!";
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "INSERT INTO COMMENTS (Text, Date, AuthorID, ArticleID)
+                VALUES (:commentText, NOW(), '$authorID', '$articleID')");
+                $connection->bindParameterToQuery(":commentText", $commentText, PDO::PARAM_STR);
+                try {
+                    $result = $connection -> executeQueryDML();
+                    header("Location: Article.php?id=$articleID#comments-content");
+                } catch (PDOException $e){
+                    
+                }
+        }
+
+        static function deleteComment($email, $commentID) {
+            if(User::isAdmin($email)) {
+                $connection = new Connection();
+                $connection -> prepareQuery(
+                "DELETE FROM COMMENTS WHERE Id = '$commentID'");
+                try {
+                    $result = $connection -> executeQueryDML();
+                } catch (PDOException $e){
+                    
+                }
+            }
+        }
+
+        static function voteComment($commentID, $userVoteID, $isLike) {
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "INSERT INTO COMMENTS_VOTES (CommentID, AuthorID, is_like)
+                VALUES ('$commentID', '$userVoteID', '$isLike')"
+            );
+            try {
+                $result = $connection -> executeQueryDML();
+                header("Location: Article.php?id=$articleID#commentsContent");
+            } catch (PDOException $e){
+                User::removeVoteComment($userVoteID, $commentID);
+            }
+        }
+
+        static function removeVoteComment($commentID, $userVoteID) {
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "DELETE FROM COMMENTS_VOTE WHERE CommentID = $commentID AND AuthorID = '$userVoteID'"
+            );
+            try {
+                $result = $connection -> executeQueryDML();
+                header("Location: Article.php?id=$articleID#commentsContent");
+            } catch (PDOException $e){
+                
+            }
+        }
+
+        //ritorna un messaggio che notifica la riuscita o meno del cambio della password
+        static function changePassword($email, $oldPassword, $newPassword) {
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "SELECT * FROM USERS WHERE Email = '$email'"
+            );
+
+            $result = $connection -> executeQuery();
+            $oldPasswordHash = password_hash($oldPassword, PASSWORD_DEFAULT);
+            if($result[0]['Password'] != $oldPasswordHash) {
+                return "Attenzione, le due password non coincidono!";
+            }
+
+            $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+            $connection -> prepareQuery(
+                "UPDATE USERS SET Password = '$newPasswordHash' WEHERE Password = '$oldPasswordHash'"
+            );
+
+            try {
+                $result = $connection -> executeQueryDML();
+                return "Password aggiornata con successo!";
+            } catch (PDOException $e){
+                
+            }
+            
+        }
+
+        static function deleteAccount($email) {
+            //controllare che cancelli il suo e non quello di un altro utente
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "DELETE FROM USERS WHERE Email = '$email'");
+                try {
+                    $result = $connection -> executeQueryDML();
+                } catch (PDOException $e){
+                    
+                }
+        }
         
     }
 

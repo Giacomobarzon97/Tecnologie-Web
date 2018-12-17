@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once ("User.php");
 ?>  
 <!DOCTYPE html>
 <html lang="it">
@@ -60,6 +61,17 @@
                             <input class="profile-input" type="text" id="newpassconf" name="newpassconf" placeholder="Confirm new Password" />
                         
                             <input class="profile-input" type="submit" value="Submit" />
+                        </form>
+
+                        <form action="profile.php" method="POST" >
+                            <?php 
+                                if(isset($_POST['delete_account'])) {
+                                    User::deleteAccount($_SESSION['email']);
+                                    session_destroy();
+                                    header("Location: index.php");
+                                }
+                            ?>
+                            <input class="profile-input" name="delete_account" type="submit" value="Elimina il tuo account" />
                         </form>
                     </div>
                 </div>
