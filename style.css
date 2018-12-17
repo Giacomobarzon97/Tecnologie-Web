@@ -232,13 +232,14 @@ html, body {
 	padding: 1.5em 3%;
 }
 
-.arg_title>div>h2{
-	font-size: 1.5em;
-	margin-bottom:0.3em;
+.arg_title>div>div{
+	display:inline-block;
+	float:left;
 }
 
-.arg_title>div>h3{
-	display: inline-block;
+.arg_title>div>div>h2{
+	font-size: 1.5em;
+	margin-bottom:0.3em;
 }
 
 .delete_button_gen{
@@ -250,8 +251,14 @@ html, body {
 	cursor: pointer;
 	font-weight: bold;
 	height: 2em;
-	padding: 0.5em;
+	padding: 1em;
 	width: 5%;
+	margin-top: 1em;
+	float: right;
+}
+
+.arg_link>li>div{
+	display:inline-block;
 	float: right;
 }
 
@@ -298,7 +305,7 @@ html, body {
 	border-bottom: solid 1px #d6d6d6;
 }
 
-.arg_link>li>a{  
+.arg_link>li>a{
 	color: #0091ae;
 }
 /*
@@ -929,23 +936,28 @@ MEDIA QUERIES
 		content: none;
 	}
 	
+	#content-article-introduction>form>input[type=text]{
+		width: 75%;
+	}
+
+	#content-article-introduction>form>input[type=submit]{
+		padding: 1em 10%;
+	}
+	
 	#content-article-body>h1{
 		text-align: center;
 		font-size: 1.5em;
 		padding-bottom: 1em;
 	}
 	
-	#content-article-body>ul>li>div>p{
-		font-size: 2em;
-		font-weight: bold;
-		color: #a3a3a3;
-		float: left;
-		padding: 0.5em 3% 1em;
-	}
-	
-	#content-article-body>ul>li>div>div>h2{
+	.arg_title>div>div>h2{
 		font-size: 1.2em;
 		margin-bottom:0.3em;
+	}
+	
+	.delete_button_link, .add_button_link{
+		height: 1em;
+		padding: 0.7em;
 	}
 	/* Fine mobile-style.css */
 
