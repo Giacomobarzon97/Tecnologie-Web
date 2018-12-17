@@ -7,6 +7,7 @@
     include_once('ArticleClass.php');
     include_once('Sidebar.php');
     include_once('Comments.php');
+    include_once('User.php');
 
     if(!Article::checkIfArticleExist($_GET["id"])){
         header("Location: errore.php?errorCode=404");
@@ -58,7 +59,18 @@
                     <!--Inizio centratura commenti-->
                     <div id="comments-content">
                         <?php
+                            if(isset($_POST['comment'])) {
+                                User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
+                            }
+                            if(isset($_POST['vote-comment'])) {
+                                User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike']);
+                            }
+                            if(isset($_POST['delete-vote'])) {
+                                User::removeVoteComment($_POST['commentID'], $_SESSION['email']);
+                            }
+                            echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" >';
                             Comments::printCommentInputZone($_SESSION['email']);
+                            echo '</form>';
                             Comments::printAllComments($_GET["id"], $_SESSION['email']);
                         ?>
                     </div>

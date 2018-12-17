@@ -4,6 +4,9 @@
     class Article {
 
         static function checkIfArticleExist($articleID){
+            if((!is_numeric($articleID))){
+                return false;
+            }
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM ARTICLES WHERE ".$articleID." = Id");
             $result = $connection -> executeQuery();

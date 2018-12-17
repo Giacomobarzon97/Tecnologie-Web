@@ -18,7 +18,7 @@
                             <textarea rows="4" cols="200" name="comment-input"></textarea>
                     </div>
                     <div class="input-comment-footer">
-                        <input type="submit" value="Invia commento" />
+                        <input name="comment" type="submit" value="Invia commento" />
                     </div>
                 </div>';
             }else{
@@ -41,14 +41,15 @@
                 $connection->bindParameterToQuery(":email", $comment['AuthorID'], PDO::PARAM_STR);
                 $commentAuthor = $connection -> executeQuery();
 
-                echo '<div class="post-comment">';
+                echo '<div class="post-comment"">';
+                echo '<span id="'.$comment['Id'].'"></span>';
                     echo '<div class="post-comment-avatar">
                     <img src="'.$commentAuthor[0]['ProfilePic'].'" alt="Avatar di '.$commentAuthor[0]['Nickname'].'"/>
                     </div>';
                     echo '<div class="post-comment-body">';
                         echo '<div class="post-comment-body-header">';
                             echo '<div class="post-comment-header-info">';
-                                echo '<h4>'.$commentAuthor['Nickname'].'</h4>';
+                                echo '<h4>'.$commentAuthor[0]['Nickname'].'</h4>';
                                 echo '<p>'.date("H:i:s j/n/Y", strtotime($comment['Date'])).'</p>';
                             echo '</div>
                             <div class="post-comment-body-header-votes">';
@@ -59,11 +60,22 @@
                                 $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
                                 $loggedUserVote = $connection -> executeQuery();
 
+                                //THIS QUERY IS BROKEN, TOFIX
+
+                                echo "TEST".isset($loggedUserVote[0]);
+
                                 //Stampo un'immagine differente se ha già votato con un dislike
                                 if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
-                                    echo '<img src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="dislike-vote" alt="dislike comment button" />';
+                                    echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
+                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                                    echo '<input type="submit" name="delete-vote" value="" class="dislike-vote-voted" />';
+                                    echo '</form>';
                                 }else{
-                                    echo '<img src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="dislike-vote" alt="dislike comment button" />';
+                                    echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
+                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                                    echo '<input type="hidden" name="isLike" value="0" />';
+                                    echo '<input type="submit" name="vote-comment" value="" class="dislike-vote" />';
+                                    echo '</form>';
                                 }
 
                                 //-------------
@@ -92,9 +104,16 @@
                                 //-------------
                                 //Stampo un'immagine differente se ha già votato con un like
                                 if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
-                                    echo '<img src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="like-vote" alt="like comment button" />';
+                                    echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
+                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                                    echo '<input type="submit" name="delete-vote" value="" class="like-vote-voted" />';
+                                    echo '</form>';
                                 }else{
-                                    echo '<img src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="like-vote" alt="like comment button" />';
+                                    echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
+                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                                    echo '<input type="hidden" name="isLike" value="1" />';
+                                    echo '<input type="submit" name="vote-comment" value="" class="like-vote" />';
+                                    echo '</form>';
                                 }
                             echo '</div>
                         </div>';
