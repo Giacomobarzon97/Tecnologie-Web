@@ -364,7 +364,13 @@ ARTICLES
 }
 
 .post-comment {
-    margin-top: 2%;
+	margin-top: 2%;
+	position:relative;
+}
+
+.post-comment > span{
+	position:absolute;
+	top:-6em;
 }
 
 .post-comment-avatar > img, .input-comment-avatar > img {
@@ -417,14 +423,61 @@ ARTICLES
     vertical-align: middle;
 }
 
-.post-comment-body-header-votes > .dislike-vote {
+/*.post-comment-body-header-votes .dislike-vote {
     padding-right: 5%;
     cursor: pointer;
 }
 
-.post-comment-body-header-votes > .like-vote {
+.post-comment-body-header-votes .like-vote {
     padding-left: 5%;
     cursor: pointer;
+}*/
+
+.vote-form {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.dislike-vote {
+	background: url("https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg");
+	border: 0;
+	padding-right: 5%;
+	background-size: cover;
+	cursor: pointer;
+	height: 2em;
+	width: 2em;
+}
+
+.dislike-vote-voted {
+	background: url("https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg");
+	background-color: red;
+	border: 0;
+	padding-right: 5%;
+	background-size: cover;
+	cursor: pointer;
+	height: 2em;
+	width: 2em;
+}
+
+.like-vote {
+	background: url("https://frncscdf.github.io/Tecnologie-Web/img/like.svg");
+	border: 0;
+	padding-left: 5%;
+	background-size: cover;
+	cursor: pointer;
+	height: 2em;
+	width: 2em;
+}
+
+.like-vote-voted {
+	background: url("https://frncscdf.github.io/Tecnologie-Web/img/like.svg");
+	background-color: green;
+	border: 0;
+	padding-left: 5%;
+	background-size: cover;
+	cursor: pointer;
+	height: 2em;
+	width: 2em;
 }
 
 .post-comment-body-header-votes > p {
