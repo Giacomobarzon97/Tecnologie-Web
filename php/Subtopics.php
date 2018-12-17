@@ -19,6 +19,9 @@
         }
 
         static function checkIfTopicExists($topicID){
+            if((!is_numeric($topicID))){
+                return false;
+            }
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM TOPICS WHERE ".$topicID." = Id");
             $result = $connection -> executeQuery();
