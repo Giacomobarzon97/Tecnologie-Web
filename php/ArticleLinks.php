@@ -24,7 +24,9 @@
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
 		<script src="./scripts.js"></script>
-		
+		<?php
+        Sidebar::printSidebarIncludeHeader();
+        ?>
 	</head>
     <body>
     <div id="mobile-sidebar-mask">
