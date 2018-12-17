@@ -1,0 +1,6 @@
+<FilesMatch "\.json$">
+    Deny from all
+</FilesMatch>
+
+ErrorDocument 404 /errore.php?errorCode=404
+ErrorDocument 403 /errore.php?errorCode=404
