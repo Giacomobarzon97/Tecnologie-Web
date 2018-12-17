@@ -3,6 +3,14 @@
     session_start();
 
     Class Sidebar{
+
+        static function printSidebarIncludeHeader(){
+            echo '<!-- Plugin CSS -->
+            <link type="text/css" href="OverlayScrollbars/css/OverlayScrollbars.min.css" rel="stylesheet"/>
+            <!-- Plugin JS -->
+            <script src="OverlayScrollbars/js/OverlayScrollbars.min.js"></script>';
+        }
+
         static function printSidebarEntry($topicID){
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM SUBTOPICS WHERE ".$topicID." = TopicID");
