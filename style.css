@@ -241,15 +241,55 @@ html, body {
 	color:#7a7a7a;
 }
 
-.delete_button{
-  background: url("./img/waste-bin.svg") no-repeat scroll 0 0 transparent;
-  background-size: cover;
-  color: #000000;
-  cursor: pointer;
-  font-weight: bold;
-  height: 2em;
-  padding: 0.5em;
-  width: 5%;
+.add_button_gen{
+	background: url("./img/add_red.svg") no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	height: 1.5em;
+	padding: 0.7em;
+	width: 3%;
+	float: right;
+	margin-right: 0.5em;
+}
+
+.delete_button_gen{
+	background: url("./img/cancel_red.svg") no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	height: 1.5em;
+	padding: 0.7em;
+	width: 3%;
+	float: right;
+}
+
+.add_button_link{
+	background: url("./img/add.svg") no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	height: 1em;
+	padding: 0.5em;
+	width: 2%;
+	float: right;
+	margin-right: 0.5em;
+}
+
+.delete_button_link{
+	background: url("./img/cancel.svg") no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	height: 1em;
+	padding: 0.5em;
+	width: 2%;
+	float: right;
+	margin-right: 0.5em;
 }
 
 #content-article-body>ul{
