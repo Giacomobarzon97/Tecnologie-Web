@@ -63,6 +63,7 @@ CREATE TABLE ARTICLES(
 CREATE TABLE COMMENTS(
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Text LONGTEXT NOT NULL,
+    Date DATETIME,
     AuthorID varchar(100) REFERENCES USERS(Email) ON UPDATE CASCADE ON DELETE CASCADE,
     ArticleID INT REFERENCES ARTICLES(Id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
@@ -157,27 +158,27 @@ INSERT INTO ARTICLES (Title, HTMLCode, AuthorID, SubtopicID) VALUES
     ('Articolo test 14', '<p>Contenuto di esempio articolo<p>', 'admin@admin.com', (SELECT Id FROM SUBTOPICS WHERE Title = 'La cache')),
     ('Articolo test 15', '<p>Contenuto di esempio articolo<p>', 'admin@admin.com', (SELECT Id FROM SUBTOPICS WHERE Title = 'La cache'));
 
-INSERT INTO COMMENTS (Text, AuthorID, ArticleID) VALUES
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 1')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 2')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 3')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 4')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 5')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 6')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 7')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 8')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 9')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 9')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 10')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 11')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 12')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 13')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 14')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 15')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 7')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 10')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 4')),
-    ('Bello!', 'user@user.com', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 2'));
+INSERT INTO COMMENTS (Text, AuthorID, Date, ArticleID) VALUES
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 1')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 2')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 3')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 4')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 5')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 6')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 7')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 8')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 9')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 9')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 10')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 11')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 12')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 13')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 14')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 15')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 7')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 10')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 4')),
+    ('Bello!', 'user@user.com', '2018-12-17 10:34:09', (SELECT Id FROM ARTICLES WHERE Title = 'Articolo test 2'));
 
 INSERT INTO COMMENTS_VOTES (CommentID, AuthorID, is_like) VALUES
     ((SELECT Id FROM COMMENTS WHERE ArticleID = '1' LIMIT 1), 'user@user.com', TRUE),

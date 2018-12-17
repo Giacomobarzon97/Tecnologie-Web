@@ -42,6 +42,7 @@
 
 * ID (Primary Key - AutoIncrement)
 * Content (LongText)
+* Date (DATETIME)
 * Author -> UTENTI (ExternalKey)
 * ArticleID -> ArticleID (ExternalKey)
 
