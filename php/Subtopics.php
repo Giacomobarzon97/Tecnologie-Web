@@ -37,7 +37,7 @@
             $subtopics = $connection -> executeQuery();
             foreach ($subtopics as $subtopic) {
                 //Stampa div pre-argomenti
-                echo '<li class="arg_title" id="">
+                echo '<li class="arg_title">
                         <div>';
                 echo '<h2 class="subtopic-title" ><span id="'.$subtopic['Id'].'"></span>'.$subtopic['Title'].'</h2>';
                 echo '<h3>'.$subtopic['Description'].'</h3>';
