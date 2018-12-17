@@ -8,7 +8,7 @@
             $connection -> prepareQuery("SELECT * FROM TOPICS WHERE Name='".$topicName."'");
             $topicsInfo = $connection->executeQuery();
             //Prendo Titolo degli argomenti
-            $connection -> prepareQuery("SELECT Title FROM SUBTOPICS WHERE ".$topicsInfo[0]['Id']." = SUBTOPICS.TopicId");
+            $connection -> prepareQuery("SELECT Title, Id FROM SUBTOPICS WHERE ".$topicsInfo[0]['Id']." = SUBTOPICS.TopicId");
             $argumentsTitle = $connection -> executeQuery();
             //Print the test results
             echo 
@@ -17,7 +17,7 @@
 				<a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>"."<img src='".$topicsInfo[0]["ImageLink"]."' alt='algorithm topic' /></a>
                 <ul class='links'>";
                 foreach ($argumentsTitle as $item) {
-                    echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$item["Title"]."</a></li>";
+                    echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#'.$item['Id']."'>".$item["Title"]."</a></li>";
                 }
                 echo "</ul>
                 <a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."' class='home-card-more-link'>More &rarr;</a>
