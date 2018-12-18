@@ -126,7 +126,7 @@ a:hover{
 #nav>h1,#nav-full>h1{
 	float:left;
 	font-size:2em;
-	margin:0.7em 1em;
+	margin:0.6em 1em;
 }
 #nav>ul, #nav-full>ul{
 	float: right;
@@ -164,14 +164,6 @@ a:hover{
 	margin-bottom: 0.5em;
 }
 
-.subtopic-title{
-	position:relative;
-}
-
-.subtopic-title > span{
-	position:absolute;
-	top:-6em;
-}
 
 #content-article-introduction>p{
 	margin-bottom: 1.5em;
@@ -364,13 +356,7 @@ ARTICLES
 }
 
 .post-comment {
-	margin-top: 2%;
-	position:relative;
-}
-
-.post-comment > span{
-	position:absolute;
-	top:-6em;
+    margin-top: 2%;
 }
 
 .post-comment-avatar > img, .input-comment-avatar > img {
@@ -423,29 +409,14 @@ ARTICLES
     vertical-align: middle;
 }
 
-.vote-form {
-	display: inline-block;
-	vertical-align: middle;
+.post-comment-body-header-votes > .dislike-vote {
+    padding-right: 5%;
+    cursor: pointer;
 }
 
-.dislike-vote {
-	background-repeat: no-repeat;
-	border: 0;
-	margin-right: 0.5em;
-	background-size: cover;
-	cursor: pointer;
-	height: 2em;
-	width: 2em;
-}
-
-.like-vote {
-	background-repeat: no-repeat;
-	border: 0;
-	margin-left: 0.5em;
-	background-size: cover;
-	cursor: pointer;
-	height: 2em;
-	width: 2em;
+.post-comment-body-header-votes > .like-vote {
+    padding-left: 5%;
+    cursor: pointer;
 }
 
 .post-comment-body-header-votes > p {
@@ -474,7 +445,7 @@ ARTICLES
     font-style: italic;
 }
 
-.delete-comment-link {
+.post-comment-body-footer > input {
     background:none!important;
     color:inherit; /* Colore di default */
     color:#D76901; /* Colore di test da cambiare*/
@@ -600,32 +571,32 @@ HOMEPAGE
 	overflow:hidden;
 	margin-top: 1.5em;
 	margin-right:1%;
-	background-color: #ffffff;
 }
 
 .home-card:nth-child(4){
 	margin-right: 0;
 }
-
-.home-card h2{
-	text-align: center;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	font-size: 2em;
+.home-card>div{
+	overflow:hidden;
+	margin:auto;
 }
-
-.home-card img{
+.home-card>div>h2{
+	width:75%;
+	color:black;
+	font-size: 1.5em;
+	float:left;
+	margin-left:5%;
+}
+.home-card>div>h2>a{
+	color:black;
+}
+.home-card>div>a>img{
 	display: block;
-    margin-left: auto;
-	margin-right: auto;
-	width: auto;
-	height: 5em;
-	margin-bottom: 0.5em;
+	width: 20%;
+	height: 20%;
+	float:left;
 }
 
-.links > li{
-	text-align: center;
-}
 
 .home-card-more-link{
 	text-align: right;
@@ -634,11 +605,13 @@ HOMEPAGE
 	font-size: 1.2em;
 	display: block;
 }
-
-.links > li > a {
-	text-align: center;
-	font-size: 1.5em;
-	display: block;
+.links{
+	margin-left:20%;
+	list-style-type:none;
+}
+.links > li{
+	margin-left:5%;
+	font-size:1.2em;
 	margin-bottom: 1em;
 }
 
@@ -759,16 +732,22 @@ MEDIA QUERIES
 --------------------------------------------*/
 
 @media screen and (max-width:1276px){
-
+	.home-card>div{
+		margin-left:30%;
+	}
+	.links{
+		margin-left:40%;
+	}
 	.home-card{
 		width:49%;
 	}
-
-	.home-card img {
-		margin-left: auto;
-		margin-right: auto;
+	.home-card>div>h2{
+		wid
 	}
-
+	.home-card>div>a>img{
+		width:15%;
+		height:15%;
+	}
 	.home-card:nth-child(3){
 		clear:left;
 	}
@@ -793,17 +772,16 @@ MEDIA QUERIES
 		color: #FFFFFF;
 		font-size: 2em;
 	}
-	
+	#introduction{
+		text-align:left;
+		padding:1em;
+		font-size:1.3em;
+	}
 	.home-card{
 		width:100%;
-		text-align: center;
 	}
 
-	.home-card img {
-		margin-left: auto;
-		margin-right: auto;
-		width: 25%;
-	}
+
 	.home-card:nth-child(3){
 		clear:both;
 	}
@@ -919,14 +897,30 @@ MEDIA QUERIES
 		margin-bottom:0.3em;
 	}
 	/* Fine mobile-style.css */
-
-	#upper-footer>h1{
-		font-size: 2em;
+	#upper-footer{
+		padding:1.5em 0px 1.5em 0px; 
 	}
-
+	#upper-footer>h1{
+		font-size: 1.3em;
+	}
+	#upper-footer>p{
+		font-size:0.7em;
+	}
+	#lower-footer{
+		padding:1em 0em 1em 0em;
+	}
 	#developers>ul>li{
 		display: block;
 		margin: auto;
+	}
+	#developers>h2{
+		font-size:1.3em;
+	}
+	#developers>ul{
+		margin-top:1em;
+	}
+	#developers>ul>li{
+		font-size:0.8em;
 	}
 
 	.article-content > h2 {
@@ -985,7 +979,7 @@ MEDIA QUERIES
 	.post-comment-body-header-votes > .dislike-vote {
 		max-width: 10%;
 	    max-height: 10%;
-	    padding-right: 2%;
+	    padding-left: 2%;
 	}
 
 	.post-comment-body-header-votes > .like-vote {

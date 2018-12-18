@@ -7,21 +7,21 @@
             //Prendo nome e id del topic
             $connection -> prepareQuery("SELECT * FROM TOPICS WHERE Name='".$topicName."'");
             $topicsInfo = $connection->executeQuery();
-            //Prendo Titolo degli argomenti
-            $connection -> prepareQuery("SELECT Title, Id FROM SUBTOPICS WHERE ".$topicsInfo[0]['Id']." = SUBTOPICS.TopicId");
+            //Prendo Titolo dei primi 3 argomenti
+            $connection -> prepareQuery("SELECT Title, Id FROM SUBTOPICS WHERE ".$topicsInfo[0]['Id']." = SUBTOPICS.TopicId LIMIT 3");
             $argumentsTitle = $connection -> executeQuery();
             //Print the test results
             echo 
             "<div class='home-card'>
-				<h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>
-				<a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>"."<img src='".$topicsInfo[0]["ImageLink"]."' alt='algorithm topic' /></a>
+                <div>
+                    <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>
+                    <a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>"."<img src='".$topicsInfo[0]["ImageLink"]."' alt='algorithm topic' /></a>
+                </div>
                 <ul class='links'>";
                 foreach ($argumentsTitle as $item) {
                     echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#'.$item['Id']."'>".$item["Title"]."</a></li>";
                 }
-                echo "</ul>
-                <a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."' class='home-card-more-link'>More &rarr;</a>
-            </div>";
+            echo "</div>";
                     
             //Destroy the object
             $connection = NULL;

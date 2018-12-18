@@ -104,7 +104,8 @@
             $connection = new Connection();
             $connection -> prepareQuery(
             "SELECT * FROM USERS, USER_ROLES WHERE  
-            USERS.Email = USER_ROLES.UserID AND USER_ROLES.UserID ='".$email."'");
+            USERS.Email = USER_ROLES.UserID AND USER_ROLES.UserID ='".$email."'
+            AND USER_ROLES.RoleName = 'Admin User'");
             $result = $connection -> executeQuery();
             if(isset($result[0]) == 1) {
                 return true;
