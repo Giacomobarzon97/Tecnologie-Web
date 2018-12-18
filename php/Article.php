@@ -63,10 +63,10 @@
                                 User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
                             }
                             if(isset($_POST['vote-comment'])) {
-                                User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike']);
+                                User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
                             }
                             if(isset($_POST['delete-vote'])) {
-                                User::removeVoteComment($_POST['commentID'], $_SESSION['email'], true);
+                                User::removeVoteComment($_POST['commentID'], $_SESSION['email'], $_GET["id"], true);
                             }
                             if(isset($_POST['delete-comment'])) {
                                 User::deleteComment($_SESSION['email'], $_POST['commentID']);

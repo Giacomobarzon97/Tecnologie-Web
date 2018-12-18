@@ -146,29 +146,35 @@
             }
         }
 
-        static function voteComment($commentID, $userVoteID, $isLike) {
+        static function redirectToComment($articleID, $commentID){
+            echo '<script>';
+            echo 'window.location.replace("Article.php?id='.$articleID.'#'.$commentID.'");';
+            echo '</script>';
+        }
+
+        static function voteComment($commentID, $userVoteID, $isLike, $articleID) {
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE CommentID = $commentID AND AuthorID = '$userVoteID'");
             //If user has already voted remove his vote
             if(isset($connection->executeQuery()[0])){
-                User::removeVoteComment($commentID, $userVoteID, false);
+                User::removeVoteComment($commentID, $userVoteID, $articleID);
             }
             $connection -> prepareQuery(
                 "INSERT INTO COMMENTS_VOTES (CommentID, AuthorID, is_like)
                 VALUES ('$commentID', '$userVoteID', '$isLike')"
             );
             $result = $connection -> executeQueryDML();
-            header("Location: Article.php?id=$articleID#".$commentID);
+            User::redirectToComment($articleID, $commentID);
         }
 
-        static function removeVoteComment($commentID, $userVoteID, $shouldRedirect) {
+        static function removeVoteComment($commentID, $userVoteID, $articleID, $shouldRedirect = true) {
             $connection = new Connection();
             $connection -> prepareQuery(
                 "DELETE FROM COMMENTS_VOTES WHERE CommentID = $commentID AND AuthorID = '$userVoteID'"
             );
             $result = $connection -> executeQueryDML();
             if($shouldRedirect){ //Inutile da usare quando usato da voteComment() no?
-                header("Location: Article.php?id=$articleID#".$commentID);
+                User::redirectToComment($articleID, $commentID);
             }
         }
 

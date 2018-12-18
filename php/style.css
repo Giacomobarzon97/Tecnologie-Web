@@ -438,14 +438,6 @@ ARTICLES
 	width: 2em;
 }
 
-.dislike-vote-default-image {
-	background: url("https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg");
-}
-
-.dislike-vote-voted-image{
-	background: url("dislike-red.svg");
-}
-
 .like-vote {
 	background-repeat: no-repeat;
 	border: 0;
@@ -454,14 +446,6 @@ ARTICLES
 	cursor: pointer;
 	height: 2em;
 	width: 2em;
-}
-
-.like-vote-default-image {
-	background: url("https://frncscdf.github.io/Tecnologie-Web/img/like.svg");
-}
-
-.like-vote-voted-image {
-	background: url("like-green.svg");
 }
 
 .post-comment-body-header-votes > p {

@@ -41,7 +41,7 @@
                 $connection->bindParameterToQuery(":email", $comment['AuthorID'], PDO::PARAM_STR);
                 $commentAuthor = $connection -> executeQuery();
 
-                echo '<div class="post-comment"">';
+                echo '<div class="post-comment">';
                 echo '<span id="'.$comment['Id'].'"></span>';
                     echo '<div class="post-comment-avatar">
                     <img src="'.$commentAuthor[0]['ProfilePic'].'" alt="Avatar di '.$commentAuthor[0]['Nickname'].'"/>
@@ -64,13 +64,15 @@
                                 if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="submit" name="delete-vote" value="" class="dislike-vote dislike-vote-voted-image" />';
+                                    echo '<input type="hidden" name="delete-vote" />';
+                                    echo '<input type="image" alt="" src="dislike-red.svg" class="dislike-vote" />';
                                     echo '</form>';
                                 }else{
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                                     echo '<input type="hidden" name="isLike" value="0" />';
-                                    echo '<input type="submit" name="vote-comment" value="" class="dislike-vote dislike-vote-default-image" />';
+                                    echo '<input type="hidden" name="vote-comment" />';
+                                    echo '<input type="image" alt="" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="dislike-vote" />';
                                     echo '</form>';
                                 }
 
@@ -102,13 +104,15 @@
                                 if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="submit" name="delete-vote" value="" class="like-vote like-vote-voted-image" />';
+                                    echo '<input type="hidden" name="delete-vote" />';
+                                    echo '<input type="image" alt="" src="like-green.svg" class="like-vote" />';
                                     echo '</form>';
                                 }else{
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                                     echo '<input type="hidden" name="isLike" value="1" />';
-                                    echo '<input type="submit" name="vote-comment" value="" class="like-vote like-vote-default-image" />';
+                                    echo '<input type="hidden" name="vote-comment" />';
+                                    echo '<input type="image" alt="" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="like-vote" />';
                                     echo '</form>';
                                 }
                             echo '</div>
