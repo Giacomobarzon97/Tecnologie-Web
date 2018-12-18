@@ -71,7 +71,7 @@
                             if(isset($_POST['delete-comment'])) {
                                 User::deleteComment($_SESSION['email'], $_POST['commentID']);
                             }
-                            echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" >';
+                            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" >';
                             Comments::printCommentInputZone($_SESSION['email']);
                             echo '</form>';
                             Comments::printAllComments($_GET["id"], $_SESSION['email']);
