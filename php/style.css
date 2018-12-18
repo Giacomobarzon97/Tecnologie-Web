@@ -458,11 +458,11 @@ ARTICLES
 }
 
 .post-comment-body-header-votes > .positive-vote {
-	color: #46e023;
+	color: #1E6022;
 }
 
 .post-comment-body-header-votes > .negative-vote {
-	color: red;
+	color: #A31C26;
 }
 
 .post-comment-body-content > p {
