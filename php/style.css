@@ -333,6 +333,11 @@ ARTICLES
 	display: block;
 }
 
+.article-author {
+	margin-top: 3em;
+	font-weight: bold;
+}
+
 /* Commenti articoli */ 
 
 #comments-content {
@@ -984,7 +989,11 @@ MEDIA QUERIES
 	    max-width: 90%;
 	    max-height: 90%;
 	    margin: 0 auto;
-    }
+	}
+	
+	.article-author {
+		margin-top: 1.5em;
+	}
     
     .input-comment-footer > input, .input-reply-footer > input {
 		min-width: 55%;

@@ -32,7 +32,7 @@
             echo '<!--Inizio paragrafo-->
             <div class="content-paragraph">';
             echo $result[0]['HTMLCode'];
-            echo '<p class="article-author">Autore:'.$author[0]['Nickname'].'</p>';
+            echo '<h4 class="article-author">Autore articolo: '.$author[0]['Nickname'].'</h4>';
             echo '</div>';
         }
     }
