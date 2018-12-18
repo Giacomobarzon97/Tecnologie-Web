@@ -232,9 +232,16 @@ html, body {
 	padding: 1.5em 3%;
 }
 
-.arg_title>div>div{
+.details{
 	display:inline-block;
+	width: 70%;
 	float:left;
+}
+
+.buttons{
+	display: inline-block;
+	width: 30%;
+	float: right;
 }
 
 .arg_title>div>div>h2{
@@ -250,30 +257,25 @@ html, body {
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	height: 2em;
-	padding: 1em;
+	padding: 0.75em;
 	width: 5%;
 	margin-top: 1em;
 	float: right;
 }
 
-.arg_link>li>div{
+.add_button_gen{
 	display:inline-block;
-	float: right;
-}
-
-.add_button_link{
 	background: url("./img/edit.svg") no-repeat scroll 0 0 transparent;
 	border: none;
 	background-size: cover;
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	height: 1em;
-	padding: 0.5em;
-	width: 2%;
+	padding: 0.75em;
+	width: 5%;
+	margin-top: 1em;
 	float: right;
-	margin-right: 1em;
+	margin-right: 1.5em;
 }
 
 .delete_button_link{
@@ -283,8 +285,7 @@ html, body {
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	height: 1em;
-	padding: 0.5em;
+	padding: 0.625em;
 	width: 2%;
 	float: right;
 	margin-right: 0.5em;
@@ -305,9 +306,19 @@ html, body {
 	border-bottom: solid 1px #d6d6d6;
 }
 
+.arg_link>li>div{
+	display: inline-block;
+	float: right;
+	width:20%;
+}
+
 .arg_link>li>a{
+	display: inline-block;
+	font-size:  1.25em;
+	width: 80%;
 	color: #0091ae;
 }
+
 /*
 .anchor1 {
     display:block;
@@ -955,9 +966,21 @@ MEDIA QUERIES
 		margin-bottom:0.3em;
 	}
 	
-	.delete_button_link, .add_button_link{
-		height: 1em;
-		padding: 0.7em;
+	.arg_link>li>div{
+		display:inline-block;
+		float: right;
+		width: 20%;
+	}
+	
+	.delete_button_link{
+		padding: 0.5em;
+		margin-top: 0.5em;
+	}
+	
+	.arg_link>li>a{
+		font-size: 1em;
+		display: inline-block;
+		width: 80%;
 	}
 	/* Fine mobile-style.css */
 
