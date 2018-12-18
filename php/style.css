@@ -741,9 +741,9 @@ MEDIA QUERIES
 	.home-card{
 		width:49%;
 	}
-	.home-card>div>h2{
-		wid
-	}
+	/*.home-card>div>h2{
+		
+	}*/
 	.home-card>div>a>img{
 		width:15%;
 		height:15%;
