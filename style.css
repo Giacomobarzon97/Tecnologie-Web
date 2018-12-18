@@ -232,11 +232,13 @@ html, body {
 }
 
 .details{
+	display: inline-block;
 	width: 70%;
 	float: left;
 }
 
 .buttons{
+	display: inline-block;
 	width: 30%;
 	float: right;
 }
@@ -293,12 +295,13 @@ html, body {
 }
 
 .arg_link>li{
+	display: block;
 	padding:0.7em 0 1em 3%;
 	border-left: solid 6px #ffa500;
 	border-bottom: solid 1px #d6d6d6;
 }
 
-.arg_link>li>form{
+.arg_link>li>div{
 	display: inline-block;
 	float: right;
 	width: 20%;
@@ -958,21 +961,38 @@ MEDIA QUERIES
 		margin-bottom:0.3em;
 	}
 	
-	.arg_link>li>div{
-		display:inline-block;
-		float: right;
-		width: 20%;
+	.details{
+		width: 85%;
 	}
 	
-	.delete_button_link{
+	.buttons{
+		width: 10%;
+		float: right;
+	}
+	
+	.add_button_gen{
+		margin-right:auto;
 		padding: 0.5em;
-		margin-top: 0.5em;
+		width: 80%;
+	}
+	
+	.delete_button_gen{
+		padding: 0.5em;
+		width: 80%;
 	}
 	
 	.arg_link>li>a{
 		font-size: 1em;
-		display: inline-block;
 		width: 80%;
+	}
+	
+	.delete_button_link{
+		padding: 0.5em;
+		width: 80%;
+	}
+	
+	.arg_link>li>div{
+		width: 10%;
 	}
 	/* Fine mobile-style.css */
 
