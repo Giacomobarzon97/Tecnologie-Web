@@ -131,7 +131,7 @@
                         //-------------
                         //Se l'utente è admin aggiungi la possibilità di eliminare un commento
                         echo '<div class="post-comment-body-footer">';
-                        if(User::isAdmin($loggedUserEmail)){
+                        if(User::isAdmin($loggedUserEmail) || ($comment['AuthorID'] == $loggedUserEmail)){
                             echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                             echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                             echo '<input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" />';

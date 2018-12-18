@@ -79,7 +79,7 @@
             $connection -> prepareQuery("SELECT * FROM USERS WHERE Email = :email");
             $connection -> bindParameterToQuery(":email", $email, PDO::PARAM_STR);
             $result = $connection -> executeQuery();
-            
+            $connection = NULL;
             if(isset($result[0])) {
                 if(password_verify($password, $result[0]['Password'])) {
                     return true;
@@ -94,6 +94,7 @@
             $connection -> prepareQuery("SELECT Nickname FROM USERS WHERE Email = :email");
             $connection -> bindParameterToQuery(":email", $email, PDO::PARAM_STR);
             $result = $connection -> executeQuery();
+            $connection = NULL;
             return $result[0]['Nickname'];
         }
 
@@ -107,6 +108,7 @@
             USERS.Email = USER_ROLES.UserID AND USER_ROLES.UserID ='".$email."'
             AND USER_ROLES.RoleName = 'Admin User'");
             $result = $connection -> executeQuery();
+            $connection = NULL;
             if(isset($result[0]) == 1) {
                 return true;
             } else {
@@ -125,26 +127,24 @@
             $connection -> prepareQuery(
                 "INSERT INTO COMMENTS (Text, Date, AuthorID, ArticleID)
                 VALUES (:commentText, NOW(), '$authorID', '$articleID')");
-                $connection->bindParameterToQuery(":commentText", $commentText, PDO::PARAM_STR);
-                try {
-                    $result = $connection -> executeQueryDML();
-                    header("Location: Article.php?id=$articleID#comments-content");
-                } catch (PDOException $e){
-                    
-                }
+            $connection->bindParameterToQuery(":commentText", $commentText, PDO::PARAM_STR);
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+            header("Location: Article.php?id=$articleID#comments-content");
         }
 
         static function deleteComment($email, $commentID) {
+            $connection = new Connection();
             if(User::isAdmin($email)) {
-                $connection = new Connection();
                 $connection -> prepareQuery(
                 "DELETE FROM COMMENTS WHERE Id = '$commentID'");
-                try {
-                    $result = $connection -> executeQueryDML();
-                } catch (PDOException $e){
-                    
-                }
+                $result = $connection -> executeQueryDML();
+            }else{
+                $connection -> prepareQuery(
+                "DELETE FROM COMMENTS WHERE Id = '$commentID' AND AuthorID = '$email'");
+                $result = $connection -> executeQueryDML();
             }
+            $connection = NULL;
         }
 
         static function redirectToComment($articleID, $commentID){
