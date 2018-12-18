@@ -225,7 +225,6 @@ html, body {
 }
 
 .arg_title>div{
-	display:block;
 	border-left: solid 6px #4c7ef3;
 	border-bottom: solid 1px #d6d6d6;
 	overflow:hidden;
@@ -233,13 +232,11 @@ html, body {
 }
 
 .details{
-	display:inline-block;
 	width: 70%;
-	float:left;
+	float: left;
 }
 
 .buttons{
-	display: inline-block;
 	width: 30%;
 	float: right;
 }
@@ -250,43 +247,38 @@ html, body {
 }
 
 .delete_button_gen{
-	display:inline-block;
-	background: url("./img/waste-bin.svg") no-repeat scroll 0 0 transparent;
 	border: none;
 	background-size: cover;
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
 	padding: 0.75em;
-	width: 5%;
+	width: 15%;
 	margin-top: 1em;
 	float: right;
 }
 
 .add_button_gen{
-	display:inline-block;
-	background: url("./img/edit.svg") no-repeat scroll 0 0 transparent;
 	border: none;
 	background-size: cover;
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
 	padding: 0.75em;
-	width: 5%;
+	width: 15%;
 	margin-top: 1em;
 	float: right;
 	margin-right: 1.5em;
 }
 
 .delete_button_link{
-	background: url("./img/waste-bin.svg") no-repeat scroll 0 0 transparent;
 	border: none;
 	background-size: cover;
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
 	padding: 0.625em;
-	width: 2%;
+	width: 15%;
 	float: right;
 	margin-right: 0.5em;
 }
@@ -306,10 +298,10 @@ html, body {
 	border-bottom: solid 1px #d6d6d6;
 }
 
-.arg_link>li>div{
+.arg_link>li>form{
 	display: inline-block;
 	float: right;
-	width:20%;
+	width: 20%;
 }
 
 .arg_link>li>a{
