@@ -60,19 +60,22 @@
                                 $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
                                 $loggedUserVote = $connection -> executeQuery();
 
-                                //Stampo un'immagine differente se ha già votato con un dislike
-                                if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
+                                if(isset($loggedUserEmail)){
+                                    //Stampo un'immagine differente se ha già votato con un dislike
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="hidden" name="delete-vote" />';
-                                    echo '<input type="image" alt="" src="dislike-red.svg" class="dislike-vote" />';
+                                    if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
+                                        echo '<input type="hidden" name="delete-vote" />';
+                                        echo '<input type="image" alt="Pulsante non mi piace - già votato" src="dislike-red.svg" class="vote-button vote-button-dislike" />';
+                                    }else{
+                                        echo '<input type="hidden" name="isLike" value="0" />';
+                                        echo '<input type="hidden" name="vote-comment" />';
+                                        echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="vote-button vote-button-dislike" />';
+                                    }
                                     echo '</form>';
-                                }else{
-                                    echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
-                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="hidden" name="isLike" value="0" />';
-                                    echo '<input type="hidden" name="vote-comment" />';
-                                    echo '<input type="image" alt="" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="dislike-vote" />';
+                                }else{ //Form non funzionante per utente non loggato
+                                    echo '<form class="vote-form">';
+                                    echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" disabled class="vote-button-disabled vote-button-dislike" />';
                                     echo '</form>';
                                 }
 
@@ -100,19 +103,22 @@
                                 }
 
                                 //-------------
-                                //Stampo un'immagine differente se ha già votato con un like
-                                if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
+                                if(isset($loggedUserEmail)){
+                                    //Stampo un'immagine differente se ha già votato con un like
                                     echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="hidden" name="delete-vote" />';
-                                    echo '<input type="image" alt="" src="like-green.svg" class="like-vote" />';
+                                    if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
+                                        echo '<input type="hidden" name="delete-vote" />';
+                                        echo '<input type="image" alt="Pulsante mi piace - già votato" src="like-green.svg" class="vote-button vote-button-like" />';
+                                    }else{
+                                        echo '<input type="hidden" name="isLike" value="1" />';
+                                        echo '<input type="hidden" name="vote-comment" />';
+                                        echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="vote-button vote-button-like" />';
+                                    }
                                     echo '</form>';
-                                }else{
-                                    echo '<form action="Article.php?id='.$_GET["id"].'" method="POST" class="vote-form">';
-                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<input type="hidden" name="isLike" value="1" />';
-                                    echo '<input type="hidden" name="vote-comment" />';
-                                    echo '<input type="image" alt="" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="like-vote" />';
+                                }else{ //Form non funzionante per utente non loggato
+                                    echo '<form class="vote-form">';
+                                    echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" disabled class="vote-button-disabled vote-button-like" />';
                                     echo '</form>';
                                 }
                             echo '</div>

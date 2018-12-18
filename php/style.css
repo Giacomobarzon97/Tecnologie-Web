@@ -428,20 +428,26 @@ ARTICLES
 	vertical-align: middle;
 }
 
-.dislike-vote {
+.vote-button {
 	border: 0;
-	margin-right: 0.5em;
 	cursor: pointer;
-	height: 2em;
-	width: 2em;
+	height: 1.5em;
+	height: 1.5em;
 }
 
-.like-vote {
+.vote-button-disabled {
 	border: 0;
+	cursor: default;
+	height: 1.5em;
+	height: 1.5em;
+}
+
+.vote-button-dislike {
+	margin-right: 0.5em;
+}
+
+.vote-button-like {
 	margin-left: 0.5em;
-	cursor: pointer;
-	height: 2em;
-	width: 2em;
 }
 
 .post-comment-body-header-votes > p {
@@ -1001,17 +1007,18 @@ MEDIA QUERIES
 	    float: left;
 	}
 	
-	.post-comment-body-header-votes > .dislike-vote {
-		max-width: 10%;
-	    max-height: 10%;
-	    padding-right: 2%;
+	.vote-button {
+		height: 1em;
+		height: 1em;
 	}
-
-	.post-comment-body-header-votes > .like-vote {
-	    max-width: 10%;
-	    max-height: 10%;
-	    padding-left: 2%;
-    }
+	
+	.vote-button-dislike {
+		margin-right: 0.25em;
+	}
+	
+	.vote-button-like {
+		margin-left: 0.25em;
+	}
     
     .code-snippet {
 		margin: 0 auto;

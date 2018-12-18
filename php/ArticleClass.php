@@ -28,7 +28,7 @@
             $author = $connection -> executeQuery();
             //Destroy the object
             $connection = NULL;
-            echo '<h2>'.$result[0]['HTMLCode'].'</h2>';
+            echo '<h2>'.$result[0]['Title'].'</h2>';
             echo '<!--Inizio paragrafo-->
             <div class="content-paragraph">';
             echo $result[0]['HTMLCode'];
