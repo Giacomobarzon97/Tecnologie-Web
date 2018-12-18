@@ -164,6 +164,14 @@ a:hover{
 	margin-bottom: 0.5em;
 }
 
+.subtopic-title{
+	position:relative;
+}
+
+.subtopic-title > span{
+	position:absolute;
+	top:-6em;
+}
 
 #content-article-introduction>p{
 	margin-bottom: 1.5em;
@@ -356,7 +364,13 @@ ARTICLES
 }
 
 .post-comment {
-    margin-top: 2%;
+	margin-top: 2%;
+	position:relative;
+}
+
+.post-comment > span{
+	position:absolute;
+	top:-6em;
 }
 
 .post-comment-avatar > img, .input-comment-avatar > img {
@@ -409,14 +423,25 @@ ARTICLES
     vertical-align: middle;
 }
 
-.post-comment-body-header-votes > .dislike-vote {
-    padding-right: 5%;
-    cursor: pointer;
+.vote-form {
+	display: inline-block;
+	vertical-align: middle;
 }
 
-.post-comment-body-header-votes > .like-vote {
-    padding-left: 5%;
-    cursor: pointer;
+.dislike-vote {
+	border: 0;
+	margin-right: 0.5em;
+	cursor: pointer;
+	height: 2em;
+	width: 2em;
+}
+
+.like-vote {
+	border: 0;
+	margin-left: 0.5em;
+	cursor: pointer;
+	height: 2em;
+	width: 2em;
 }
 
 .post-comment-body-header-votes > p {
@@ -445,7 +470,7 @@ ARTICLES
     font-style: italic;
 }
 
-.post-comment-body-footer > input {
+.delete-comment-link {
     background:none!important;
     color:inherit; /* Colore di default */
     color:#D76901; /* Colore di test da cambiare*/
@@ -979,7 +1004,7 @@ MEDIA QUERIES
 	.post-comment-body-header-votes > .dislike-vote {
 		max-width: 10%;
 	    max-height: 10%;
-	    padding-left: 2%;
+	    padding-right: 2%;
 	}
 
 	.post-comment-body-header-votes > .like-vote {
