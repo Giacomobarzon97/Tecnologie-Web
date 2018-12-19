@@ -281,8 +281,8 @@ a:hover{
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	padding: 2%;
 	margin-top: 1em;
+	width:20%;
 	float: right;
 }
 
@@ -292,9 +292,9 @@ a:hover{
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	padding: 2%;
 	margin-top: 1em;
 	float: right;
+	width:20%;
 	margin-right: 10%;
 }
 
@@ -304,8 +304,8 @@ a:hover{
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	padding: 2%;
 	float: right;
+	width:20%;
 	margin-right: 10%;
 }
 
@@ -985,20 +985,11 @@ MEDIA QUERIES
 	
 	.add_button_gen{
 		margin-right: 0px;
-		padding: 0.5em;
-	}
-	
-	.delete_button_gen{
-		padding: 0.5em;
 	}
 	
 	.arg_link>li>a{
 		font-size: 1em;
 		width: 80%;
-	}
-	
-	.delete_button_link{
-		padding: 0.5em;
 	}
 	
 	.arg_link>li>div{
@@ -1007,6 +998,18 @@ MEDIA QUERIES
 
 	.links>li{
 		font-size:1.5em;
+	}
+	
+	.delete_button_gen{
+		min-width: 60%;	
+	}
+	
+	.add_button_gen{
+		min-width: 60%;
+	}
+	
+	.delete_button_link{
+		min-width: 60%;
 	}
 }
 
@@ -1156,7 +1159,7 @@ MEDIA QUERIES
 	}
 	
 	.details{
-		width: 85%;
+		width: 90%;
 	}
 	
 	.buttons{
@@ -1166,24 +1169,28 @@ MEDIA QUERIES
 	
 	.add_button_gen{
 		margin-right: 0px;
-		padding: 0.5em;
-	}
-	
-	.delete_button_gen{
-		padding: 0.5em;
 	}
 	
 	.arg_link>li>a{
 		font-size: 1em;
 	}
 	
-	.delete_button_link{
-		padding: 0.5em;
-	}
-	
 	.arg_link>li>div{
 		width: 10%;
 	}
+	
+	.delete_button_gen{
+		min-width: 50%;	
+	}
+	
+	.add_button_gen{
+		min-width: 50%;
+	}
+	
+	.delete_button_link{
+		min-width: 50%;
+	}
+	
 	/* Fine mobile-style.css */
 	#upper-footer{
 		padding:1.5em 0px 1.5em 0px; 
