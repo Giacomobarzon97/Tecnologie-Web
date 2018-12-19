@@ -1,3 +1,4 @@
+/* print-style.css(Francesco) */
 #nav-bar {
     position: absolute;
 }
@@ -49,5 +50,26 @@
 .links > li > a > img{
 	display: none;
 }
+/* End print-style.css(Francesco) */
+
+/* print-style(Giacomo) */
+
+#nav{
+	display: none;
+}
+
+#sidebar-wrapper, #sidebar{
+	width: 0%;
+	display: none;
+}
+
+#main{
+	margin-left: 0;
+	width:100%;
+}
+
+/* End print-style(Giacomo) */
+
+
 
 
