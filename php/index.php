@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	include_once('Card.php');
+	include_once ('pagesManager.php');
+	include_once ('Card.php');
 ?>
 <!DOCTYPE html>
 <html lang="it">

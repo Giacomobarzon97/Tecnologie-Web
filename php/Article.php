@@ -60,16 +60,32 @@
                     <div id="comments-content">
                         <?php
                             if(isset($_POST['comment'])) {
-                                User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
+                                if(!isset($_SESSION['email'])) {
+                                    header("Location: login.php");
+                                } else {
+                                    User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
+                                }
                             }
                             if(isset($_POST['vote-comment'])) {
-                                User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
+                                if(!isset($_SESSION['email'])) {
+                                    header("Location: login.php");
+                                } else {
+                                    User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
+                                }    
                             }
                             if(isset($_POST['delete-vote'])) {
-                                User::removeVoteComment($_POST['commentID'], $_SESSION['email'], $_GET["id"], true);
+                                if(!isset($_SESSION['email'])) {
+                                    header("Location: login.php");
+                                } else {
+                                    User::removeVoteComment($_POST['commentID'], $_SESSION['email'], $_GET["id"], true);
+                                }
                             }
                             if(isset($_POST['delete-comment'])) {
-                                User::deleteComment($_SESSION['email'], $_POST['commentID']);
+                                if(!isset($_SESSION['email'])) {
+                                    header("Location: login.php");
+                                } else {
+                                    User::deleteComment($_SESSION['email'], $_POST['commentID']);
+                                }
                             }
                             echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" >';
                             Comments::printCommentInputZone($_SESSION['email']);

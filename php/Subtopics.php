@@ -1,6 +1,7 @@
 <?php
     include_once ("Connection.php");
     include_once ("User.php");
+    
     class Subtopics {
 
         static function printArticlesList($subtopicID){

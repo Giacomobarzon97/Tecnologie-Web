@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once ("User.php");
+    include_once ('pagesManager.php');
 ?>  
 <!DOCTYPE html>
 <html lang="it">

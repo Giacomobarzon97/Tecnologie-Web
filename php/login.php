@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once ('pagesManager.php');
     if(isset($_SESSION['nickname'])) {
         header("Location: profile.php");
     }
@@ -37,14 +38,14 @@
                         <?php 
                             include_once ('User.php');
 
-                            if(isset($_POST['submit'])){ //check if form was submitted
+                            if(isset($_POST['submit'])){
                                 $email = $_POST['email'];
                                 $password = $_POST['password'];
                                 $result = User::login($email, $password);
                                 if($result) {
                                     $_SESSION['email'] = $email;
                                     $_SESSION['nickname'] = User::getNickname($email);
-                                    header("Location: index.php");
+                                    header("Location: index.php";
                                     die();
                                 } else {
                                     echo "<span>Credenziali errate, riprova!</span>";

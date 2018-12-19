@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once ('pagesManager.php');
     if (isset($_SESSION['nickname'])) {
         header("Location: profile.php");
     }

@@ -1,6 +1,5 @@
 <?php
     include_once ("Connection.php");
-    session_start();
 
     Class Sidebar{
 

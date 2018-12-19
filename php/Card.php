@@ -14,14 +14,18 @@
             echo 
             "<div class='home-card'>
                 <div>
-                    <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>
-                    <a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>"."<img src='".$topicsInfo[0]["ImageLink"]."' alt='algorithm topic' /></a>
+                    <div class='thumbnail'>
+                        <a href='#'><img src='".$topicsInfo[0]['ImageLink']."' alt='img'/></a>
+                    </div>
+                    <div class='home-card-content'>
+                        <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>
+                        <ul class='links'>";
+                        foreach ($argumentsTitle as $item) {
+                            echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#'.$item['Id']."'>".$item["Title"]."</a></li>";
+                        }
+            echo "</div>
                 </div>
-                <ul class='links'>";
-                foreach ($argumentsTitle as $item) {
-                    echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#'.$item['Id']."'>".$item["Title"]."</a></li>";
-                }
-            echo "</div>";
+            </div>";
                     
             //Destroy the object
             $connection = NULL;

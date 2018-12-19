@@ -1,9 +1,11 @@
 <?php
+    session_start();
     if(!isset($_GET["id"])){
         header("Location: errore.php?errorCode=404");
     }
-    include_once('Subtopics.php');
-    include_once('Sidebar.php');
+    include_once ('Subtopics.php');
+    include_once ('Sidebar.php');
+    include_once ('pagesManager.php');
     if(!Subtopics::checkIfTopicExists($_GET["id"])){
         header("Location: errore.php?errorCode=404");
     }
@@ -21,9 +23,10 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
         
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <link rel="stylesheet" type="text/css" href="print.css" media="print"/>
-        <script src="./scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
+		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
+        <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
+        
         <?php
         Sidebar::printSidebarIncludeHeader();
         ?>
