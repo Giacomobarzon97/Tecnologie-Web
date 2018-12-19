@@ -11,4 +11,6 @@ relazione/build/
 
 relazione/img/*.pdf
 
-.DS_Store
+\.DS_Store
+
+php/loginData.json

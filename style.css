@@ -3,7 +3,6 @@
 	margin:0px;
 	padding:0px;
 	font-size: 1.0em;
-	font-family: 'Roboto', sans-serif;
 }
 html, body {
 	margin: 0px;
@@ -14,6 +13,7 @@ html, body {
 }
 a{
 	color: #0D47A1;
+	transition:color 0.5s;
 }
 a:hover{
 	color:black;
@@ -57,13 +57,13 @@ a:hover{
 }
 #sidebar>li>ul{
 	list-style-type: none;
-	padding-left: 1em;
+	padding-left: 10%;
 	overflow-y:hidden;
 	display:none;
 	transition: height 0.5s;
 }
 #sidebar>li>ul>li{
-	margin-top: 0.5em;
+	margin-top: 1em;
 }
 #sidebar>li>ul>li>a{
 	text-decoration: none;
@@ -126,7 +126,7 @@ a:hover{
 #nav>h1,#nav-full>h1{
 	float:left;
 	font-size:2em;
-	margin:0.5em;
+	margin:0.6em 1em;
 }
 #nav>ul, #nav-full>ul{
 	float: right;
@@ -143,9 +143,10 @@ a:hover{
 }
 
 #main{
-	margin-top: 7em; /*The height of the   header*/
+	margin: 7em auto; /*The height of the   header*/
 	transition: height 0.5s;
 	min-height: 1000px;
+	max-width:1250px;
 }
 
 /* Nav-bar end */
@@ -163,6 +164,14 @@ a:hover{
 	margin-bottom: 0.5em;
 }
 
+.subtopic-title{
+	position:relative;
+}
+
+.subtopic-title > span{
+	position:absolute;
+	top:-6em;
+}
 
 #content-article-introduction>p{
 	margin-bottom: 1.5em;
@@ -324,6 +333,11 @@ ARTICLES
 	display: block;
 }
 
+.article-author {
+	margin-top: 3em;
+	font-weight: bold;
+}
+
 /* Commenti articoli */ 
 
 #comments-content {
@@ -355,7 +369,13 @@ ARTICLES
 }
 
 .post-comment {
-    margin-top: 2%;
+	margin-top: 2%;
+	position:relative;
+}
+
+.post-comment > span{
+	position:absolute;
+	top:-6em;
 }
 
 .post-comment-avatar > img, .input-comment-avatar > img {
@@ -408,15 +428,167 @@ ARTICLES
     vertical-align: middle;
 }
 
-.post-comment-body-header-votes > .dislike-vote {
-    padding-right: 5%;
-    cursor: pointer;
+.vote-form {
+	display: inline-block;
+	vertical-align: middle;
 }
 
-.post-comment-body-header-votes > .like-vote {
-    padding-left: 5%;
-    cursor: pointer;
+.vote-button {
+	border: 0;
+	cursor: pointer;
+	height: 1.5em;
+	height: 1.5em;
 }
+
+.vote-button-disabled {
+	border: 0;
+	cursor: default;
+	height: 1.5em;
+	height: 1.5em;
+}
+
+.vote-button-dislike {
+	margin-right: 0.5em;
+}
+
+.vote-button-like {
+	margin-left: 0.5em;
+}
+
+.post-comment-body-header-votes > p {
+    font-size: 1.3em;
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.post-comment-body-header-votes > .positive-vote {
+	color: #1E6022;
+}
+
+.post-comment-body-header-votes > .negative-vote {
+	color: #A31C26;
+}
+
+.post-comment-body-content > p {
+    padding: 1%;
+    margin-left: 5%;
+}
+
+.post-comment-body-footer, .input-comment-footer {
+    padding: 1%;
+    margin-left: 5%;
+    font-style: italic;
+}
+
+.delete-comment-link {
+    background:none!important;
+    color:inherit; /* Colore di default */
+    color:#D76901; /* Colore di test da cambiare*/
+    border:none; 
+    padding:0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+.input-comment-footer > input, .input-reply-footer > input {
+	position: relative;
+  	vertical-align: top;
+  	width: 25%;
+    height: 30px; /* Troppo grosso su mobile */
+  	padding: 0;
+  	text-align: center;
+  	color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    font-size: 1em;
+  	background: #3498db;
+  	border: 0;
+  	border-bottom: 2px solid #2a8bcc;
+  	cursor: pointer;
+  	box-shadow: inset 0 -2px #2a8bcc;
+}
+
+/* CSS SNIPPET CODICE */
+
+/* Impostazioni base snippet di codice */
+.code-snippet {
+    background-color: rgb(238, 238, 238);
+    padding: 1%;
+    max-width: 50%;
+}
+
+/* Snippet di codice più largo per mostrare più codice */
+.code-snippet-large {
+    max-width: 80%;
+}
+
+/* Istruzione random per mandare a capo una riga di codice */
+.code-newline {
+    display: block;
+}
+
+/* Indentazione del codice */
+.code-indent-1 {
+    text-indent: 2em;
+}
+
+.code-indent-2 {
+    text-indent: 4em;
+}
+
+/* Colorazione del codice */
+.java .keyword {
+    color: rgb(0, 0, 136) 
+}
+
+.java .type {
+    color: rgb(127, 0, 85);
+}
+
+.java .string {
+    color: rgb(0, 136, 0);
+}
+
+/*------------------------------------------
+HOMEPAGE 
+--------------------------------------------*/
+
+#header {
+	margin-top:5em;
+	background-color: #404040;
+	text-align: center;
+	padding:15%;
+	background-image: url(./img/channels4_banner.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	transition: all 0.2s ease;
+	box-sizing:border-box;
+	min-height:100%;
+}
+#header>h1{
+	color:white;
+	font-size:3em;
+}
+/* Content and cards */
+
+#content {
+	display: block;
+}
+
+#introduction {
+	text-align: center;
+	font-size: 1.5em;
+	margin: auto;
+	padding: 1.5em;
+}
+
+.grid{
+	padding:3em 1em 5em 1em;
+}
+
+
 
 .post-comment-body-header-votes > p {
     font-size: 1.3em;
@@ -569,56 +741,56 @@ HOMEPAGE
 	overflow:hidden;
 	margin-top: 1.5em;
 	margin-right:1%;
-	background-color: #ffffff;
 }
 
 .home-card:nth-child(4){
 	margin-right: 0;
 }
-.home-card h2{
-	text-align: center;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	font-size: 2em;
+.home-card>div{
+	overflow:hidden;
+	margin:auto;
 }
-
-.home-card h2 a{
-	text-decoration: underline;
+.home-card>div>h2{
+	width:75%;
+	color:black;
+	font-size: 1.5em;
+	float:left;
+	margin-left:5%;
 }
-
-
-.home-card img{
+.home-card>div>h2>a{
+	color:black;
+}
+.home-card>div>a>img{
 	display: block;
-    margin-left: auto;
-	margin-right: auto;
-	width: auto;
-	height: 5em;
-	margin-bottom: 0.5em;
+	width: 20%;
+	height: 20%;
+	float:left;
 }
+
 
 .links > li{
 	text-align: center;
 }
 
 .links > li:nth-child(5) > a {
+	color: #000000;
 	text-align: right;
 	margin-right: 0.5em;
 	margin-bottom: 0.2em;
 	font-size: 1.2em;
 	display: block;
 }
-
-.links > li > a {
-	text-align: center;
-	font-size: 1.5em;
-	display: block;
+.links{
+	margin-left:20%;
+	list-style-type:none;
+}
+.links > li{
+	margin-left:5%;
+	font-size:1.2em;
 	margin-bottom: 1em;
 }
 
-.home-card h2 a:hover, .links > li > a:hover {
-	color:black;
-	transition:color 0.5s;
-}
+
 
 /*------------------------------------------
 PROFILE
@@ -735,16 +907,22 @@ MEDIA QUERIES
 --------------------------------------------*/
 
 @media screen and (max-width:1276px){
-
+	.home-card>div{
+		margin-left:30%;
+	}
+	.links{
+		margin-left:40%;
+	}
 	.home-card{
 		width:49%;
 	}
-
-	.home-card img {
-		margin-left: auto;
-		margin-right: auto;
+	/*.home-card>div>h2{
+		
+	}*/
+	.home-card>div>a>img{
+		width:15%;
+		height:15%;
 	}
-
 	.home-card:nth-child(3){
 		clear:left;
 	}
@@ -759,29 +937,26 @@ MEDIA QUERIES
 	#header{
 		margin-top: 4em;
 	}
+
+	#header>h1{
+		color:white;
+		font-size:3em;
+	}
 	#header-title{
 		text-align: center;
 		color: #FFFFFF;
 		font-size: 2em;
 	}
-	#introduction {
-		font-size: 1em;
+	#introduction{
+		text-align:left;
+		padding:1em;
+		font-size:1.3em;
 	}
-
-	.grid{
-		padding:5em 1em;
-	}
-	
 	.home-card{
 		width:100%;
-		text-align: center;
 	}
 
-	.home-card img {
-		margin-left: auto;
-		margin-right: auto;
-		width: 25%;
-	}
+
 	.home-card:nth-child(3){
 		clear:both;
 	}
@@ -804,7 +979,7 @@ MEDIA QUERIES
 	}
 	#nav>h1,#nav-full>h1{
 		font-size:1.5em;
-		margin:0.5em;
+		margin:0.7em 0.5em;
 	}
 	#nav>ul,#nav-full>ul{
 		margin: 1em 0em;
@@ -832,7 +1007,7 @@ MEDIA QUERIES
 		margin:5% 0px;
 	}
 	#main{
-		margin-top: 4em;
+		margin: 4em auto;
 	}
 
 	#developers{
@@ -900,11 +1075,74 @@ MEDIA QUERIES
 
 	#upper-footer>h1{
 		font-size: 2em;
+		margin-bottom: 0.5em;
 	}
-
+	
+	#content-article-introduction>p{
+		margin-bottom: 1.5em;
+		line-height: 1.2;
+		font-size: 1em;
+	}
+	
+	#content-article-introduction>h2{
+		font-size: 1.4em;
+		margin-bottom: 0.5em;
+	}
+	
+	#content-article-introduction>ul{
+		column-count: 1;
+		list-style-type: none;
+		margin-bottom: 1.5em;
+	}
+	
+	#content-article-introduction>ul li:before{
+		background-image:none; 
+		content: none;
+	}
+	
+	#content-article-body>h1{
+		text-align: center;
+		font-size: 1.5em;
+		padding-bottom: 1em;
+	}
+	
+	#content-article-body>ul>li>div>p{
+		font-size: 2em;
+		font-weight: bold;
+		color: #a3a3a3;
+		float: left;
+		padding: 0.5em 3% 1em;
+	}
+	
+	#content-article-body>ul>li>div>div>h2{
+		font-size: 1.2em;
+		margin-bottom:0.3em;
+	}
+	/* Fine mobile-style.css */
+	#upper-footer{
+		padding:1.5em 0px 1.5em 0px; 
+	}
+	#upper-footer>h1{
+		font-size: 1.3em;
+	}
+	#upper-footer>p{
+		font-size:0.7em;
+	}
+	#lower-footer{
+		padding:1em 0em 1em 0em;
+	}
 	#developers>ul>li{
 		display: block;
 		margin: auto;
+	}
+	#developers>h2{
+		font-size:1.3em;
+	}
+	#developers>ul{
+		margin-top:1em;
+	}
+	#developers>ul>li{
+		font-size:0.8em;
 	}
 
 	.article-content > h2 {
@@ -937,7 +1175,11 @@ MEDIA QUERIES
 	    max-width: 90%;
 	    max-height: 90%;
 	    margin: 0 auto;
-    }
+	}
+	
+	.article-author {
+		margin-top: 1.5em;
+	}
     
     .input-comment-footer > input, .input-reply-footer > input {
 		min-width: 55%;
@@ -960,17 +1202,18 @@ MEDIA QUERIES
 	    float: left;
 	}
 	
-	.post-comment-body-header-votes > .dislike-vote {
-		max-width: 10%;
-	    max-height: 10%;
-	    padding-left: 2%;
+	.vote-button {
+		height: 1em;
+		height: 1em;
 	}
-
-	.post-comment-body-header-votes > .like-vote {
-	    max-width: 10%;
-	    max-height: 10%;
-	    padding-left: 2%;
-    }
+	
+	.vote-button-dislike {
+		margin-right: 0.25em;
+	}
+	
+	.vote-button-like {
+		margin-left: 0.25em;
+	}
     
     .code-snippet {
 		margin: 0 auto;

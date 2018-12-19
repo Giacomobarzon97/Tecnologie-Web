@@ -20,10 +20,10 @@ function closeMobileSidebar(){
 function toggleMobileNavMenu(){
 	var menu=document.getElementById("menu");
 	if(menu!=null){
-		if(menu.style.display=="none"){
-			menu.style.display="block";		
+		if(menu.style.display=="block"){
+			menu.style.display="none";		
 		}else{
-			menu.style.display="none"	;	
+			menu.style.display="block"	;	
 		}
 	}
 }
