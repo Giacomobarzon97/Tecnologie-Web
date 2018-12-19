@@ -15,9 +15,9 @@
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
 		
-		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
 		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
-		<script src="./scripts.js"></script>
+		<script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
 		
 	</head>
 	
