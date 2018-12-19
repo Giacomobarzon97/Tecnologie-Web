@@ -307,6 +307,7 @@ a:hover{
 	float: right;
 	width:20%;
 	margin-right: 10%;
+	margin-top: 1%;
 }
 
 #content-article-body>ul{
@@ -980,7 +981,6 @@ MEDIA QUERIES
 	
 	.buttons{
 		width: 10%;
-		float: right;
 	}
 	
 	.add_button_gen{
@@ -1009,7 +1009,7 @@ MEDIA QUERIES
 	}
 	
 	.delete_button_link{
-		min-width: 60%;
+		min-width: 45%;
 	}
 }
 
@@ -1159,15 +1159,21 @@ MEDIA QUERIES
 	}
 	
 	.details{
-		width: 90%;
+		width: 85%;
 	}
 	
 	.buttons{
 		width: 10%;
-		float: right;
+		display: inline-grid;
+	}
+	
+	.delete_button_gen{
+		margin-top: 0px;
+		min-width: 45%;
 	}
 	
 	.add_button_gen{
+		min-width: 45%;
 		margin-right: 0px;
 	}
 	
@@ -1175,20 +1181,8 @@ MEDIA QUERIES
 		font-size: 1em;
 	}
 	
-	.arg_link>li>div{
-		width: 10%;
-	}
-	
-	.delete_button_gen{
-		min-width: 50%;	
-	}
-	
-	.add_button_gen{
-		min-width: 50%;
-	}
-	
 	.delete_button_link{
-		min-width: 50%;
+		min-width: 45%;
 	}
 	
 	/* Fine mobile-style.css */
