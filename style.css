@@ -961,24 +961,16 @@ MEDIA QUERIES
 --------------------------------------------*/
 
 @media screen and (max-width:1276px){
-	.home-card>div{
-		margin-left:30%;
-	}
-	.links{
-		margin-left:40%;
-	}
 	.home-card{
 		width: 48%;
 	}
-	/*.home-card>div>h2{
-		
-	}*/
-	.home-card>div>a>img{
-		width:15%;
-		height:15%;
-	}
+
 	.home-card:nth-child(3){
 		clear:left;
+	}
+
+	.links>li{
+		font-size:1.5em;
 	}
 	
 		
@@ -1043,10 +1035,11 @@ MEDIA QUERIES
 		font-size:1.3em;
 	}
 	.home-card{
-		width:100%;
+		width: 98%;
 	}
-
-
+	.links>li{
+		font-size:1em;
+	}
 	.home-card:nth-child(3){
 		clear:both;
 	}
