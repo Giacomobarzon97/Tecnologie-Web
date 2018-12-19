@@ -254,7 +254,7 @@ html, body {
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	padding: 0.75em;
+	padding: 2%;
 	width: 15%;
 	margin-top: 1em;
 	float: right;
@@ -266,11 +266,11 @@ html, body {
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	padding: 0.75em;
+	padding: 2%;
 	width: 15%;
 	margin-top: 1em;
 	float: right;
-	margin-right: 1.5em;
+	margin-right: 10%;
 }
 
 .delete_button_link{
@@ -279,10 +279,10 @@ html, body {
 	color: #000000;
 	cursor: pointer;
 	font-weight: bold;
-	padding: 0.625em;
+	padding: 2%;
 	width: 15%;
 	float: right;
-	margin-right: 0.5em;
+	margin-right: 10%;
 }
 
 #content-article-body>ul{
@@ -812,6 +812,41 @@ MEDIA QUERIES
 	.home-card:nth-child(3){
 		clear:left;
 	}
+	
+		
+	.details{
+		width: 85%;
+	}
+	
+	.buttons{
+		width: 10%;
+		float: right;
+	}
+	
+	.add_button_gen{
+		margin-right: 0px;
+		padding: 0.5em;
+		width: 80%;
+	}
+	
+	.delete_button_gen{
+		padding: 0.5em;
+		width: 80%;
+	}
+	
+	.arg_link>li>a{
+		font-size: 1em;
+		width: 80%;
+	}
+	
+	.delete_button_link{
+		padding: 0.5em;
+		width: 60%;
+	}
+	
+	.arg_link>li>div{
+		width: 10%;
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -971,7 +1006,7 @@ MEDIA QUERIES
 	}
 	
 	.add_button_gen{
-		margin-right:auto;
+		margin-right: 0px;
 		padding: 0.5em;
 		width: 80%;
 	}
