@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once ("User.php");
+?>  
 <!DOCTYPE html>
 <html lang="it">
 	<head>
@@ -10,35 +14,31 @@
 		<meta name="author" content="" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script src="./scripts.js"></script>
 		
     </head>
     
-    <body>
-            <div id="nav-full" class="sidebar-nav">
-                <img src="img/hamburger.svg" alt="hamburger-icon" id="nav-hamburger"/>
-                <h1>Nome Sito</h1> 
-                <ul id="menu">
-                    <li><a href="">About</a></li>
-                    <li>ProfileName</li>
-                </ul>
-                <img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
-            </div>    
+    <body> 
+            <?php
+                include_once ('navbar.php');
+            ?>
             <div id="header">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
-                </p>
-                <br/>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
-                </p>
+                <h1>Nome sito</h1>
             </div>
 
             <div id="profile-info">
                 <div id="profile-content">
-                    <h1>Bentornato, utente</h1>
-                    <img src="./img/algorithm.jpg" alt="profile picture" />
+                    <h1><?php 
+                        if(isset($_SESSION['nickname'])) {
+                            echo "Bentornato, ".$_SESSION['nickname'];
+                        } else {
+                            header("Location: errore.php?errorCode=paginaNonDisponibile");
+                            die();
+                        }
+                    ?></h1>
+                    
                     <div id="profile-data">
                         <form action="/action_page.php">
                             <label for="fname">First Name</label>
@@ -56,25 +56,22 @@
                         
                             <input class="profile-input" type="submit" value="Submit" />
                         </form>
+
+                        <form action="profile.php" method="POST" >
+                            <?php 
+                                if(isset($_POST['delete_account'])) {
+                                    User::deleteAccount($_SESSION['email']);
+                                    session_destroy();
+                                    header("Location: index.php");
+                                }
+                            ?>
+                            <input class="profile-input" name="delete_account" type="submit" value="Elimina il tuo account" />
+                        </form>
                     </div>
                 </div>
             </div>
-            <div id="footer">
-				<div id="upper-footer">
-					<p>powered by</p>
-					<h1>Universita' di Padova</h1>
-				</div>
-				<div id="lower-footer">
-					<div id="developers">
-						<h2>Developed By</h2>
-						<ul>
-							<li>Giacomo Barzon</li>
-							<li>Michele Roverato</li>
-							<li>De Filippis Francesco</li>
-							<li>Giacomo Greggio</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+            <?php 
+                include_once ('footer.php');
+            ?>
     </body>
 </html>
