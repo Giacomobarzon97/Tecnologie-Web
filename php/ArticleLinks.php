@@ -5,7 +5,6 @@
     }
     include_once ('Subtopics.php');
     include_once ('Sidebar.php');
-    include_once ('pagesManager.php');
     if(!Subtopics::checkIfTopicExists($_GET["id"])){
         header("Location: errore.php?errorCode=404");
     }

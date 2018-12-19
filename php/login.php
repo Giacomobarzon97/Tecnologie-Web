@@ -1,8 +1,8 @@
 <?php
     session_start();
-    include_once ('pagesManager.php');
+    
     if(isset($_SESSION['nickname'])) {
-        header("Location: profile.php");
+        header("Location: $previous_page");
     }
 ?>  
 <!DOCTYPE html>
@@ -45,7 +45,7 @@
                                 if($result) {
                                     $_SESSION['email'] = $email;
                                     $_SESSION['nickname'] = User::getNickname($email);
-                                    header("Location: index.php";
+                                    //header("Location: $previous_page");
                                     die();
                                 } else {
                                     echo "<span>Credenziali errate, riprova!</span>";
