@@ -151,11 +151,11 @@ a:hover{
 /* Nav-bar end */
 
 #content-article-introduction{
-	padding: 2em 5%;
+	padding: 1em 5%;
 }
 
 #content-article-body{
-	padding: 2em 20%;
+	padding: 1em 20%;
 }
 
 #content-article-introduction>h1{
@@ -211,38 +211,102 @@ a:hover{
 	margin-bottom: 0.25em;
 }
 
+#content-article-introduction>form{
+	text-align:center;
+}
+
+#content-article-introduction>form>p{
+	padding: 0.7em;
+	font-size: 1.5em;
+	font-weight:700;
+}
+
+#content-article-introduction>form>input[type=text]{
+	font-size: 1em;
+	padding: 0.5em;
+	width: 25%;
+}
+
+#content-article-introduction>form>input[type=text]:focus{
+	box-shadow: 0 0 3px #0091ae;
+}
+
+#content-article-introduction>form>input[type=submit]{
+	border: none;
+	background-color: #0091ae;
+	color: #FFFFFF;
+	padding: 1em 3%;
+	text-align: center;
+	border-radius: 10%;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1em;
+	margin: 0.5em 0.5em;
+	cursor: pointer;
+}
+
 #content-article-body>h1{
 	 text-align: center;
 	 font-size: 2em;
 	 padding-bottom: 1em;
 }
 
-#content-article-body>ul>li>div{
-	display:block;
+.arg_title>div{
 	border-left: solid 6px #4c7ef3;
 	border-bottom: solid 1px #d6d6d6;
 	overflow:hidden;
+	padding: 1.5em 3%;
 }
 
-#content-article-body>ul>li>div>p{
-	font-size: 2.25em;
-    font-weight: bold;
-    color: #a3a3a3;
+.details{
+	display: inline-block;
+	width: 70%;
 	float: left;
-	padding:0.5em 3%;
 }
 
-#content-article-body>ul>li>div>div{
-	padding: 0.5em 3%;
+.buttons{
+	display: inline-block;
+	width: 30%;
+	float: right;
 }
 
-#content-article-body>ul>li>div>div>h2{
-	font-size: 1.4em;
+.arg_title>div>div>h2{
+	font-size: 1.5em;
 	margin-bottom:0.3em;
 }
 
-#content-article-body>ul>li>div>div>h3{
-	color:#7a7a7a;
+.delete_button_gen{
+	border: none;
+	background-size: cover;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 2%;
+	margin-top: 1em;
+	float: right;
+}
+
+.add_button_gen{
+	border: none;
+	background-size: cover;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 2%;
+	margin-top: 1em;
+	float: right;
+	margin-right: 10%;
+}
+
+.delete_button_link{
+	border: none;
+	background-size: cover;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 2%;
+	float: right;
+	margin-right: 10%;
 }
 
 #content-article-body>ul{
@@ -250,14 +314,28 @@ a:hover{
 	background: #ffffff;
 }
 
-#content-article-body>ul>li>ul{
+.arg_link{
 	list-style-type: none;
 }
 
-#content-article-body>ul>li>ul>li{
+.arg_link>li{
+	display: block;
 	padding:0.7em 0 1em 3%;
 	border-left: solid 6px #ffa500;
 	border-bottom: solid 1px #d6d6d6;
+}
+
+.arg_link>li>div{
+	display: inline-block;
+	float: right;
+	width: 20%;
+}
+
+.arg_link>li>a{
+	display: inline-block;
+	font-size:  1.25em;
+	width: 80%;
+	color: #0091ae;
 }
 
 /*
@@ -924,6 +1002,38 @@ MEDIA QUERIES
 	.home-card:nth-child(3){
 		clear:left;
 	}
+	
+		
+	.details{
+		width: 85%;
+	}
+	
+	.buttons{
+		width: 10%;
+		float: right;
+	}
+	
+	.add_button_gen{
+		margin-right: 0px;
+		padding: 0.5em;
+	}
+	
+	.delete_button_gen{
+		padding: 0.5em;
+	}
+	
+	.arg_link>li>a{
+		font-size: 1em;
+		width: 80%;
+	}
+	
+	.delete_button_link{
+		padding: 0.5em;
+	}
+	
+	.arg_link>li>div{
+		width: 10%;
+	}
 
 	.links>li{
 		font-size:1.5em;
@@ -1055,23 +1165,53 @@ MEDIA QUERIES
 		content: none;
 	}
 	
+	#content-article-introduction>form>input[type=text]{
+		width: 75%;
+	}
+
+	#content-article-introduction>form>input[type=submit]{
+		padding: 1em 10%;
+	}
+	
 	#content-article-body>h1{
 		text-align: center;
 		font-size: 1.5em;
 		padding-bottom: 1em;
 	}
 	
-	#content-article-body>ul>li>div>p{
-		font-size: 2em;
-		font-weight: bold;
-		color: #a3a3a3;
-		float: left;
-		padding: 0.5em 3% 1em;
-	}
-	
-	#content-article-body>ul>li>div>div>h2{
+	.arg_title>div>div>h2{
 		font-size: 1.2em;
 		margin-bottom:0.3em;
+	}
+	
+	.details{
+		width: 85%;
+	}
+	
+	.buttons{
+		width: 10%;
+		float: right;
+	}
+	
+	.add_button_gen{
+		margin-right: 0px;
+		padding: 0.5em;
+	}
+	
+	.delete_button_gen{
+		padding: 0.5em;
+	}
+	
+	.arg_link>li>a{
+		font-size: 1em;
+	}
+	
+	.delete_button_link{
+		padding: 0.5em;
+	}
+	
+	.arg_link>li>div{
+		width: 10%;
 	}
 	/* Fine mobile-style.css */
 	#upper-footer{

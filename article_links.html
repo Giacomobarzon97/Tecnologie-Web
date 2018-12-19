@@ -174,7 +174,7 @@
 			</div>
 			
 			<div id="main">
-				<div id="content-article-introduction">
+			<div id="content-article-introduction">
 				<h1>Algoritmi</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -196,177 +196,92 @@
 					<li><a href="#GR">Greedy</a></li>
 					<li><a href="#AA">Analisi ammortizzata</a></li>
 				</ul>
+				<form action="index.php">
+					<p>Inserisci un nuovo sotto-argomento</p>
+					<input type="text" name="argomento" /><br />
+					<input type="submit" value="Invia" />
+				</form>
 			</div>
 			<div id="content-article-body">
 				<h1>Contenuto del corso</h1>
 				<ul>
-					<li id="LAR">
+					<li class="arg_title" id="LAR">
 						<div>
-							<p>1</p>
-							<div>
+							<div class="details">
 								<h2>Limiti asintotici e ricorrenze</h2>
 								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
 							</div>
+							<div class="buttons">
+								<form>
+									<input type="hidden" name="delete-subtopic" />
+									<input type="hidden" name="subtopicID" value="0" />
+									<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
+								</form>
+								<form> <!--Will work as a link to add.php?...-->
+									<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
+								</form>
+							</div>
 						</div>
-						<ul>
+						<ul class="arg_link">
 							<li> 
 								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+								<div>
+									<form>
+										<input type="hidden" name="delete-article" />
+										<input type="hidden" name="articleID" value="0" />
+										<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
+									</form>
+								</div>
 							</li>
 							<li>
 								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+								<div>
+									<form>
+										<input type="hidden" name="delete-article" />
+										<input type="hidden" name="articleID" value="0" />
+										<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
+									</form>
+								</div>
 							</li>
 						</ul>
 					</li>
-					<li id="DE">
+					<li class="arg_title" id="DE">
 						<div>
-							<p>2</p>
-							<div>
-								<h2>Divide et impera</h2>
+							<div class="details">
+								<h2>Divide et Impera</h2>
 								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
 							</div>
+							<div class="buttons">
+								<form>
+									<input type="hidden" name="delete-subtopic" />
+									<input type="hidden" name="subtopicID" value="0" />
+									<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
+								</form>
+								<form> <!--Will work as a link to add.php?...-->
+									<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
+								</form>
+							</div>
 						</div>
-						<ul>
+						<ul class="arg_link">
 							<li> 
 								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+								<div>
+									<form>
+										<input type="hidden" name="delete-article" />
+										<input type="hidden" name="articleID" value="0" />
+										<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
+									</form>
+								</div>
 							</li>
 							<li>
 								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="OR">
-						<div>
-							<p>3</p>
-							<div>
-								<h2>Ordinamento</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="HE">
-						<div>
-							<p>4</p>
-							<div>
-								<h2>Heap</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="AR">
-						<div>
-							<p>5</p>
-							<div>
-								<h2>Alberi e Ricorsione</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="TH">
-						<div>
-							<p>6</p>
-							<div>
-								<h2>Tabelle hash</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="ABR">
-						<div>
-							<p>7</p>
-							<div>
-								<h2>Alberi Binari di Ricerca e Red-Black Trees</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="PD">
-						<div>
-							<p>8</p>
-							<div>
-								<h2>Programmazione dinamica</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="GR">
-						<div>
-							<p>9</p>
-							<div>
-								<h2>Greedy</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-						</ul>
-					</li>
-					<li id="AA">
-						<div>
-							<p>10</p>
-							<div>
-								<h2>Analisi Ammortizzata</h2>
-								<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-							</div>
-						</div>
-						<ul>
-							<li> 
-								<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-							</li>
-							<li>
-								<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+								<div>
+									<form>
+										<input type="hidden" name="delete-article" />
+										<input type="hidden" name="articleID" value="0" />
+										<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
+									</form>
+								</div>
 							</li>
 						</ul>
 					</li>
