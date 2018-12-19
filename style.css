@@ -255,7 +255,6 @@ html, body {
 	cursor: pointer;
 	font-weight: bold;
 	padding: 2%;
-	width: 15%;
 	margin-top: 1em;
 	float: right;
 }
@@ -267,7 +266,6 @@ html, body {
 	cursor: pointer;
 	font-weight: bold;
 	padding: 2%;
-	width: 15%;
 	margin-top: 1em;
 	float: right;
 	margin-right: 10%;
@@ -280,7 +278,6 @@ html, body {
 	cursor: pointer;
 	font-weight: bold;
 	padding: 2%;
-	width: 15%;
 	float: right;
 	margin-right: 10%;
 }
@@ -826,12 +823,10 @@ MEDIA QUERIES
 	.add_button_gen{
 		margin-right: 0px;
 		padding: 0.5em;
-		width: 80%;
 	}
 	
 	.delete_button_gen{
 		padding: 0.5em;
-		width: 80%;
 	}
 	
 	.arg_link>li>a{
@@ -841,7 +836,6 @@ MEDIA QUERIES
 	
 	.delete_button_link{
 		padding: 0.5em;
-		width: 60%;
 	}
 	
 	.arg_link>li>div{
@@ -1008,22 +1002,18 @@ MEDIA QUERIES
 	.add_button_gen{
 		margin-right: 0px;
 		padding: 0.5em;
-		width: 80%;
 	}
 	
 	.delete_button_gen{
 		padding: 0.5em;
-		width: 80%;
 	}
 	
 	.arg_link>li>a{
 		font-size: 1em;
-		width: 80%;
 	}
 	
 	.delete_button_link{
 		padding: 0.5em;
-		width: 80%;
 	}
 	
 	.arg_link>li>div{
