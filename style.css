@@ -796,8 +796,6 @@ HOMEPAGE
 	padding: 1.5em;
 }
 
-
-
 .grid{
 	overflow: hidden;
 	margin:auto;
@@ -814,59 +812,39 @@ HOMEPAGE
 .home-card{
 	width:23%;
 	float:left;
-	overflow:hidden;
-	margin-top: 1.5em;
-	margin-right:1%;
+	margin:0px 1%;
 }
 
 .home-card:nth-child(4){
 	margin-right: 0;
 }
-.home-card>div{
-	overflow:hidden;
-	margin:auto;
-}
-.home-card>div>h2{
-	width:75%;
-	color:black;
-	font-size: 1.5em;
-	float:left;
-	margin-left:5%;
-}
-.home-card>div>h2>a{
-	color:black;
-}
-.home-card>div>a>img{
-	display: block;
-	width: 20%;
-	height: 20%;
-	float:left;
+.home-card {
+	margin-bottom: 2em;	
 }
 
-
-.links > li{
-	text-align: center;
+.home-card:hover {
+	box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
 }
 
-.links > li:nth-child(5) > a {
-	color: #000000;
-	text-align: right;
-	margin-right: 0.5em;
-	margin-bottom: 0.2em;
-	font-size: 1.2em;
-	display: block;
+.home-card-content {
+	padding: 0.5em 1em;
+}
+
+.home-card-content h2 {
+	margin-bottom: .5em;
+	font-size:1.5em;
+}
+.home-card img {
+  width: 100%;
+  height: auto;
 }
 .links{
-	margin-left:20%;
 	list-style-type:none;
 }
 .links > li{
-	margin-left:5%;
-	font-size:1.2em;
+	font-size:1em;
 	margin-bottom: 1em;
 }
-
-
 
 /*------------------------------------------
 PROFILE
