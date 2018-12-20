@@ -59,7 +59,6 @@ window.addEventListener("load", function(){
 		menuIcon.addEventListener("click",toggleMobileNavMenu , true);
 	}
 	sidebarExpandButtons();
-	replyMessageBox();
 });
 
 window.addEventListener('resize', function(e) {
