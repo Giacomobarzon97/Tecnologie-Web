@@ -46,21 +46,31 @@
                 Sidebar::printNavbar();
             ?>
             <div id="main">
-                <h1>pell</h1>
-                <div id="editor" class="pell"></div>
-                <h3>Invia l'articolo</h3>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <h1>Inserisci un nuovo articolo</h1>
+                <h2>Titolo dell'articolo</h2>
+                    <label for="title">Titolo dell'articolo:</label>
+                    <input type="text" name="title" id="title" placeholder="Scrivi il titolo dell'articolo..." />
+                    <br />
+                <h2>Contenuto dell'articolo</h2>
+                    <div id="editor" class="pell"></div>
                     <input type="hidden" id="html-generated" name="html-input" value="" />
+                    <script>
+                        var editor = window.pell.init({
+                            element: document.getElementById('editor'),
+                            defaultParagraphSeparator: 'p',
+
+                            onChange: html => document.getElementById('html-generated').value = html,
+                        })
+                    </script>
+                    <noscript> <!--Javascript non attivo-->
+                        <h3>Inserisci il test del tuo articolo (I tag HTML sono supportati)</h3>
+                        <textarea name="no-js-input" rows="10" cols="100"></textarea>
+                    </noscript>
+                <h2>Invia l'articolo</h2>
                     <input type="submit" value="invia" name="submit"/>
                 </form>
-                <script>
-                var editor = window.pell.init({
-                    element: document.getElementById('editor'),
-                    defaultParagraphSeparator: 'p',
-
-                    onChange: html => document.getElementById('html-generated').value = html,
-                })
-                </script>
+            </div>
         </div>
     </body>
 </html>
