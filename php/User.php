@@ -130,7 +130,7 @@
             $connection->bindParameterToQuery(":commentText", $commentText, PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
-            header("Location: Article.php?id=$articleID#comments-content");
+            header("Location: ReadArticle.php?id=$articleID#comments-content");
         }
 
         static function deleteComment($email, $commentID) {
@@ -149,7 +149,7 @@
 
         static function redirectToComment($articleID, $commentID){
             echo '<script>';
-            echo 'window.location.replace("Article.php?id='.$articleID.'#'.$commentID.'");';
+            echo 'window.location.replace("ReadArticle.php?id='.$articleID.'#'.$commentID.'");';
             echo '</script>';
         }
 

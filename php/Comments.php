@@ -30,6 +30,27 @@
             $connection = NULL;
         }
 
+        static function getCommentVoteNumber($commentID){
+            $connection = new Connection();
+            //Conteggio dei voti positivi/negativi del commento corrente
+            $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE :commID = CommentID");
+            $connection->bindParameterToQuery(":commID", $commentID, PDO::PARAM_STR);
+            $commentVotes = $connection -> executeQuery();
+
+            $totalVotes = 0;
+            foreach ($commentVotes as $vote){
+                if($vote['is_like']){
+                    $totalVotes = $totalVotes + 1;
+                }else{
+                    $totalVotes = $totalVotes - 1;
+                }
+            }
+            //Destroy the object
+            $connection = NULL;
+            //return the value
+            return $totalVotes;
+        }
+
         static function printAllComments($articleID, $loggedUserEmail){
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM COMMENTS WHERE ".$articleID." = ArticleID ORDER BY Date DESC");
@@ -66,7 +87,7 @@
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                                     if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
                                         echo '<input type="hidden" name="delete-vote" />';
-                                        echo '<input type="image" alt="Pulsante non mi piace - già votato" src="dislike-red.svg" class="vote-button vote-button-dislike" />';
+                                        echo '<input type="image" alt="Pulsante non mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike-red.svg" class="vote-button vote-button-dislike" />';
                                     }else{
                                         echo '<input type="hidden" name="isLike" value="0" />';
                                         echo '<input type="hidden" name="vote-comment" />';
@@ -80,19 +101,7 @@
                                 }
 
                                 //-------------
-                                //Conteggio dei voti positivi/negativi del commento corrente
-                                $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE :commID = CommentID");
-                                $connection->bindParameterToQuery(":commID", $comment['Id'], PDO::PARAM_STR);
-                                $commentVotes = $connection -> executeQuery();
-
-                                $totalVotes = 0;
-                                foreach ($commentVotes as $vote){
-                                    if($vote['is_like']){
-                                        $totalVotes = $totalVotes + 1;
-                                    }else{
-                                        $totalVotes = $totalVotes - 1;
-                                    }
-                                }
+                                $totalVotes = Comments::getCommentVoteNumber($comment['Id']);
 
                                 //Stampo il conto dei voti in positivo/negativo
                                 if($totalVotes >= 0){
@@ -109,7 +118,7 @@
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                                     if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
                                         echo '<input type="hidden" name="delete-vote" />';
-                                        echo '<input type="image" alt="Pulsante mi piace - già votato" src="like-green.svg" class="vote-button vote-button-like" />';
+                                        echo '<input type="image" alt="Pulsante mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/like-green.svg" class="vote-button vote-button-like" />';
                                     }else{
                                         echo '<input type="hidden" name="isLike" value="1" />';
                                         echo '<input type="hidden" name="vote-comment" />';
