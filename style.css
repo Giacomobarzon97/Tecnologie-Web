@@ -550,7 +550,8 @@ ARTICLES
 
 .post-comment-body-content > p {
     padding: 1%;
-    margin-left: 5%;
+	margin-left: 5%;
+	word-break: break-all;
 }
 
 .post-comment-body-footer, .input-comment-footer {
@@ -665,45 +666,6 @@ HOMEPAGE
 .grid{
 	padding:3em 1em 5em 1em;
 }
-
-
-
-.post-comment-body-header-votes > p {
-    font-size: 1.3em;
-    font-weight: bold;
-    vertical-align: middle;
-    display: inline-block;
-}
-
-.post-comment-body-header-votes > .positive-vote {
-	color: #46e023;
-}
-
-.post-comment-body-header-votes > .negative-vote {
-	color: red;
-}
-
-.post-comment-body-content > p {
-    padding: 1%;
-    margin-left: 5%;
-}
-
-.post-comment-body-footer, .input-comment-footer {
-    padding: 1%;
-    margin-left: 5%;
-    font-style: italic;
-}
-
-.post-comment-body-footer > input {
-    background:none!important;
-    color:inherit; /* Colore di default */
-    color:#D76901; /* Colore di test da cambiare*/
-    border:none; 
-    padding:0;
-    font: inherit;
-    text-decoration: underline;
-    cursor: pointer;
-} 
 
 .input-comment-footer > input, .input-reply-footer > input {
 	position: relative;
