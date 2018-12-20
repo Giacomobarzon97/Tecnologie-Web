@@ -4,21 +4,6 @@
     
     class Subtopics {
 
-        static function printArticlesList($subtopicID){
-            $connection = new Connection();
-            //Prendo Tutti gli articoli
-            $connection -> prepareQuery("SELECT * FROM ARTICLES WHERE ".$subtopicID." = SubtopicID");
-            $articles = $connection -> executeQuery();
-            //Print the test results
-            foreach ($articles as $article) {
-                echo '<li> 
-				    <a href="'.$article['Id'].'">'.$article['Title'].'</a>
-				</li>';
-            }
-            //Destroy the object
-            $connection = NULL;
-        }
-
         static function checkIfTopicExists($topicID){
             if((!is_numeric($topicID))){
                 return false;
@@ -35,21 +20,61 @@
             }
         }
 
-        static function printSubtopicsList($topicID){
+        static function printArticlesList($subtopicID, $loggedUserIsAdmin){
+            $connection = new Connection();
+            //Prendo Tutti gli articoli
+            $connection -> prepareQuery("SELECT * FROM ARTICLES WHERE ".$subtopicID." = SubtopicID");
+            $articles = $connection -> executeQuery();
+            //Print the test results
+            foreach ($articles as $article) {
+                echo '<li>';
+                echo '<a href="ReadArticle.php?id='.$article['Id'].'">'.$article['Title'].'</a>';
+                if($loggedUserIsAdmin){
+                    echo '<div>
+                    <form>
+                        <input type="hidden" name="delete-article" />
+                        <input type="hidden" name="articleID" value="0" />
+                        <input type="image" alt="cestino elimina link" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_link" />
+                    </form>
+                    </div>';
+                }
+				echo '</li>';
+            }
+            //Destroy the object
+            $connection = NULL;
+        }
+
+        static function printSubtopicsList($topicID, $loggedUserEmail){
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM SUBTOPICS WHERE ".$topicID." = TopicID");
             $subtopics = $connection -> executeQuery();
+            $userisAdmin = User::isAdmin($loggedUserEmail);
             foreach ($subtopics as $subtopic) {
                 //Stampa div pre-argomenti
-                echo '<li class="arg_title">
-                        <div>';
+                echo '<li class="arg_title">';
+                echo '<div>'; //--Apertura div titolo--
+                //Stampa dettagli elemento
+                echo '<div class="details">';
                 echo '<h2 class="subtopic-title" ><span id="'.$subtopic['Id'].'"></span>'.$subtopic['Title'].'</h2>';
                 echo '<h3>'.$subtopic['Description'].'</h3>';
-                echo '<button class="add_button"></button>
-                    <button class="delete_button"></button>';
                 echo '</div>';
+                //Stampa bottoni elemento (se l'utente è admin)
+                if($userisAdmin){
+                    echo '<div class="buttons">';
+                    echo '<form>
+                            <input type="hidden" name="delete-subtopic" />
+                            <input type="hidden" name="subtopicID" value="0" />
+                            <input type="image" alt="cestino elimina sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
+                        </form>
+                        <form>
+                            <input type="image" alt="aggiunta sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="add_button_gen" />
+                        </form>';
+                    echo '</div>';
+                }
+                echo '</div>'; //--Chiusura div titolo--
+                //Stampa link sotto-argomento
                 echo '<ul class="arg_link">';
-                Subtopics::printArticlesList($subtopic['Id']);
+                Subtopics::printArticlesList($subtopic['Id'], $userisAdmin);
                 echo '</ul>';
                 echo '</li>';
             }

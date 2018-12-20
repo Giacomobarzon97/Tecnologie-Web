@@ -50,10 +50,10 @@
                 ?>
                 </div>
                 <div id="content-article-body">
-                <h1>Contenuto del corso</h1>
+                    <h1>Contenuto del corso</h1>
                     <ul>
                     <?php
-                        Subtopics::printSubtopicsList($_GET["id"]);
+                        Subtopics::printSubtopicsList($_GET["id"], $_SESSION['email']);
                     ?>
                     </ul>
                 </div>
