@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    
+
     if(!isset($_GET["id"])){
         header("Location: errore.php?errorCode=404");
     }
 
+    include_once('sessionManager.php');
     include_once('Article.php');
     include_once('Sidebar.php');
     include_once('Comments.php');

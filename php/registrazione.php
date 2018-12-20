@@ -1,7 +1,9 @@
 <?php
-    session_start();
+    
+    include_once('sessionManager.php');
+
     if (isset($_SESSION['nickname'])) {
-        header("Location: profile.php");
+        header("Location: ".SessionManager::getPageRedirect());
     }
 ?>
 <!DOCTYPE html>

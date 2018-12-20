@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	include_once ('sessionManager.php');
 	include_once ('Card.php');
 ?>
 <!DOCTYPE html>

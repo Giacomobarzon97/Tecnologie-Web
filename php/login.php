@@ -1,8 +1,9 @@
 <?php
-    session_start();
+
+    include_once('sessionManager.php');
     
     if(isset($_SESSION['nickname'])) {
-        header("Location: $previous_page");
+        header("Location: ".SessionManager::getPageRedirect());
     }
 ?>  
 <!DOCTYPE html>
@@ -45,7 +46,7 @@
                                 if($result) {
                                     $_SESSION['email'] = $email;
                                     $_SESSION['nickname'] = User::getNickname($email);
-                                    //header("Location: $previous_page");
+                                    header("Location: ".SessionManager::getPageRedirect());
                                     die();
                                 } else {
                                     echo "<span>Credenziali errate, riprova!</span>";

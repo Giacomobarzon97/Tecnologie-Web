@@ -158,7 +158,7 @@
             $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE CommentID = $commentID AND AuthorID = '$userVoteID'");
             //If user has already voted remove his vote
             if(isset($connection->executeQuery()[0])){
-                User::removeVoteComment($commentID, $userVoteID, $articleID);
+                User::removeVoteComment($commentID, $userVoteID, $articleID, false);
             }
             $connection -> prepareQuery(
                 "INSERT INTO COMMENTS_VOTES (CommentID, AuthorID, is_like)
