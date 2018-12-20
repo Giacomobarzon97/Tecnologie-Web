@@ -55,6 +55,8 @@
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM COMMENTS WHERE ".$articleID." = ArticleID ORDER BY Date DESC");
             $result = $connection -> executeQuery();
+
+            $loggedUserIsAdmin = User::isAdmin($loggedUserEmail);
             //Print all comments with a foreach
             foreach ($result as $comment){
                 //Per ogni commento prendi l'autore e le sue informazioni
@@ -140,7 +142,7 @@
                         //-------------
                         //Se l'utente è admin aggiungi la possibilità di eliminare un commento
                         echo '<div class="post-comment-body-footer">';
-                        if(User::isAdmin($loggedUserEmail) || ($comment['AuthorID'] == $loggedUserEmail)){
+                        if($loggedUserIsAdmin || ($comment['AuthorID'] == $loggedUserEmail)){
                             echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
                             echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                             echo '<input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" />';
