@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title>WebSite</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="progetto tech-web" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="language" content="italian it" />
+		<meta name="author" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
+		
+		<script src="./scripts.js"></script>
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+		<!-- Plugin CSS -->
+        <link type="text/css" href="OverlayScrollbars/css/OverlayScrollbars.min.css" rel="stylesheet"/>
+        <!-- Plugin JS -->
+        <script src="OverlayScrollbars/js/OverlayScrollbars.min.js"></script>
+	</head>
+  
+	<body>
+		<div id="profile-info">
+			<div id="profile-content">
+				<h1>Nome del sito</h1>
+				<h2>Effettua il login a Nome del sito</h2>
+				<div id="profile-data">
+					<form action="login.php" method="POST">
+						<label for="lemail">Email</label>
+						<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
+						<label for="lpassword">Password</label>
+						<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+					
+						<input class="profile-input" name="submit" type="submit" value="Submit" />
+					</form>
+				</div>
+			</div>
+			<div>
+				Non sei ancora registrato? <br/>
+				Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.
+			</div>
+		</div>	
+	</body>
+</html>

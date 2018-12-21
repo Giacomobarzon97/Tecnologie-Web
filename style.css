@@ -820,33 +820,38 @@ PROFILE
 
 #profile-info {
 	text-align: center;
+	width: 50%;
+	max-width:400px;
+	margin:0px auto;
 }
 
 #profile-content h1 {
 	margin-top: 1em;
-	margin-bottom: 1em;
-	font-size: 2.5em;
+	margin-bottom: 0.5em;
+	font-size: 2em;
 }
-
+#profile-content h2{
+	margin-bottom:1em;
+	font-weight:normal;
+	color:#535359;
+}
 #profile-content img {
 	margin-top: 1em;
 	margin-bottom: 2em;
 }
 
 #profile-data {
+	border:1px solid #ccc;
 	border-radius: 5px;
-	background-color: #f2f2f2;
+	background-color:white;
 	padding: 1em;
 	text-align: center;
-	width: 50%;
-	margin-left:auto;
-	margin-right: auto;
 	margin-bottom: 2em;
 }
 
 .profile-input[type=text], select {
     width: 100%;
-    padding: 12px 12px;
+    padding: 0.5em;
 	margin-top: 1em;
 	margin-bottom: 1em;
     display: block;
@@ -1305,5 +1310,10 @@ MEDIA QUERIES
 	.code-snippet-large {
 		margin: 0 auto;
 		max-width: 70%;
+	}
+	#profile-info {
+	width: 80%;
+	max-width:400px;
+	margin:0px auto;
 	}
 }
