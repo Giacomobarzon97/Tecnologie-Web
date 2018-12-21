@@ -24,25 +24,29 @@
 	</head>
   
 	<body>
-		<div id="profile-info">
-			<div id="profile-content">
-				<h1>Nome del sito</h1>
+		<div id="registration-form">
+			<div id="regform-introduction">
+				<h1><a href="index.html">Nome del sito</a></h1>
 				<h2>Effettua il login a Nome del sito</h2>
-				<div id="profile-data">
-					<form action="login.php" method="POST">
-						<label for="lemail">Email</label>
-						<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
-						<label for="lpassword">Password</label>
-						<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
-					
-						<input class="profile-input" name="submit" type="submit" value="Submit" />
-					</form>
-				</div>
 			</div>
-			<div>
-				Non sei ancora registrato? <br/>
-				Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.
+			<div id="regform-main-section">
+				<form action="login.php" method="POST">
+					<label for="lemail">Email</label>
+					<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
+					<label for="lpassword">Password</label>
+					<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+				
+					<input class="profile-input" name="submit" type="submit" value="Submit" />
+				</form>
 			</div>
+			<div class="regform-side-section">
+				<p>Non sei ancora registrato?
+				<p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
+			</div>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href>About</a></li>
+			</ul>
 		</div>	
 	</body>
 </html>

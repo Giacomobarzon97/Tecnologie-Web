@@ -818,38 +818,52 @@ PROFILE
 
 /* Profile page */
 
-#profile-info {
-	text-align: center;
+#registration-form {
 	width: 50%;
 	max-width:400px;
 	margin:0px auto;
 }
-
-#profile-content h1 {
+#regform-introduction{
+	text-align: center;
+}
+#registration-form h1{
 	margin-top: 1em;
 	margin-bottom: 0.5em;
-	font-size: 2em;
+	font-size: 2.5em;
 }
-#profile-content h2{
+#registration-form h1>a{
+	color:black;
+	text-decoration: none;
+}
+#registration-form h2{
+	font-size:1.5em;
 	margin-bottom:1em;
-	font-weight:normal;
+	font-weight:lighter;
 	color:#535359;
 }
-#profile-content img {
-	margin-top: 1em;
+#registration-form img {
+ì	margin-top: 1em;
 	margin-bottom: 2em;
 }
-
-#profile-data {
+#registration-form ul{
+	margin: 3em 0em;
+	text-align: center;
+	list-style-type: none;
+}
+#registration-form ul>li{
+	margin:0px 5%;
+	display: inline;
+}
+#regform-main-section {
+	text-align: center;
 	border:1px solid #ccc;
-	border-radius: 5px;
+	border-radius: 10px;
 	background-color:white;
 	padding: 1em;
 	text-align: center;
 	margin-bottom: 2em;
 }
-
-.profile-input[type=text], select {
+.profile-input[type=text]{
     width: 100%;
     padding: 0.5em;
 	margin-top: 1em;
@@ -862,23 +876,29 @@ PROFILE
 
 .profile-input[type=submit] {
     width: 100%;
-    background-color: #404040;
+    background-color: #0D47A1;
     color: white;
-    padding: 14px 20px;
+    padding: 1em;
     margin: 8px 0;
     border: none;
+    transition: background-color 0.5s;
     border-radius: 1.5em;
     cursor: pointer;
 }
 
-.profile-input[type=submit]:hover {
+.profile-input[type=submit]:hover{
     background-color: #464646;
 }
 
-.profile-content a {
+.registration-form a {
 	text-align: center;
 }
-
+.regform-side-section {
+	text-align: center;
+	border-radius: 10px;
+	padding:1.5em 5%;
+	border:1px solid #ccc;
+}
 /*------------------------------------------
 FOOTER
 --------------------------------------------*/
@@ -1311,8 +1331,8 @@ MEDIA QUERIES
 		margin: 0 auto;
 		max-width: 70%;
 	}
-	#profile-info {
-	width: 80%;
+	#registration-form {
+	width: 90%;
 	max-width:400px;
 	margin:0px auto;
 	}
