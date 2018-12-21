@@ -823,7 +823,7 @@ PROFILE
 	max-width:400px;
 	margin:0px auto;
 }
-#regform-introduction{
+.regform-introduction{
 	text-align: center;
 }
 #registration-form h1{
@@ -854,7 +854,7 @@ PROFILE
 	margin:0px 5%;
 	display: inline;
 }
-#regform-main-section {
+.regform-main-section {
 	text-align: center;
 	border:1px solid #ccc;
 	border-radius: 10px;

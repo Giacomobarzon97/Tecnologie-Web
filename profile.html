@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title>WebSite</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="progetto tech-web" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="language" content="italian it" />
+		<meta name="author" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
+		
+		<script src="./scripts.js"></script>
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+		<!-- Plugin CSS -->
+        <link type="text/css" href="OverlayScrollbars/css/OverlayScrollbars.min.css" rel="stylesheet"/>
+        <!-- Plugin JS -->
+        <script src="OverlayScrollbars/js/OverlayScrollbars.min.js"></script>
+	</head>
+  
+	<body>
+		<div id="registration-form">
+			<div class="regform-introduction">
+				<h1>Benvenuto, Nome Utente</h1>
+				<h2>Modifica le tue informazioni</h2>
+			</div>
+			<div class="regform-main-section">
+                <form action="registrazione.php" method="POST">
+                    <label for="lnickname">Nickname</label>
+                    <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" />
+                    <label for="lname">Nome</label>
+                    <input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" />
+                    <label for="lsurname">Cognome</label>
+                    <input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" />
+                    <input class="profile-input" name="submit" type="submit" value="Submit" />
+                </form>
+			</div>
+			<div class="regform-introduction">
+				<h2>Modifica la tua password</h2>
+			</div>
+			<div class="regform-main-section">
+                <form action="registrazione.php" method="POST">
+                    <label for="lold-password">Password</label>
+                    <input class="profile-input" type="text" id="lold-password" name="old-password" placeholder="Old Password" />
+                    <label for="lnew-password">Password</label>
+                    <input class="profile-input" type="text" id="lnew-password" name="new-password" placeholder="New Password" />
+
+                    <input class="profile-input" name="submit" type="submit" value="Submit" />
+                </form>
+			</div>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href>About</a></li>
+				<li><a href>Logout</a></li>
+			</ul>
+		</div>	
+	</body>
+</html>

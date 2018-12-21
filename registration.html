@@ -27,21 +27,27 @@
 		<div id="registration-form">
 			<div class="regform-introduction">
 				<h1><a href="index.html">Nome del sito</a></h1>
-				<h2>Effettua il login a Nome del sito</h2>
+				<h2>Effettua la registrazione a Nome del sito</h2>
 			</div>
 			<div class="regform-main-section">
-				<form action="login.php" method="POST">
-					<label for="lemail">Email</label>
-					<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
-					<label for="lpassword">Password</label>
-					<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
-				
-					<input class="profile-input" name="submit" type="submit" value="Submit" />
-				</form>
+                <form action="registrazione.php" method="POST">
+                    <label for="lemail">Email</label>
+                    <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
+                    <label for="lnickname">Nickname</label>
+                    <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" />
+                    <label for="lname">Nome</label>
+                    <input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" />
+                    <label for="lsurname">Cognome</label>
+                    <input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" />
+                    <label for="lpassword">Password</label>
+                    <input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+                
+                    <input class="profile-input" name="submit" type="submit" value="Submit" />
+                </form>
 			</div>
 			<div class="regform-side-section">
-				<p>Non sei ancora registrato?
-				<p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
+				<p>Sei già registrato?
+				<p>Clicca <a href='registrazione.php'>qui</a> per effettuare il login.</p>
 			</div>
 			<ul>
 				<li><a href="index.html">Home</a></li>
