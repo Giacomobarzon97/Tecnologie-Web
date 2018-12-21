@@ -85,6 +85,7 @@ a:hover{
 
 #rightSideWrapper {
 	/*Strictly Necessary */
+	margin-top:5em;
 	width:75%; 
 	float: right;
 	transition:width 0.5s;
@@ -142,7 +143,8 @@ a:hover{
 }
 
 #main{
-	margin: 7em auto; /*The height of the   header*/
+	margin: 0px auto;
+	/*The height of the   header*/
 	transition: height 0.5s;
 	min-height: 1000px;
 	max-width:1250px;
@@ -1020,6 +1022,7 @@ MEDIA QUERIES
 		width:0%;
 	}
 	#rightSideWrapper{
+		margin-top:4em;
 		width:100%;
 	}
 	#nav, #nav-full{
@@ -1056,7 +1059,7 @@ MEDIA QUERIES
 		margin:5% 0px;
 	}
 	#main{
-		margin: 4em auto;
+		margin: 0em auto;
 	}
 
 	#developers{

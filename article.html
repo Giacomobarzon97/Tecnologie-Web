@@ -180,87 +180,87 @@
 						<h3>Impara la sintassi base di Java e le variabili base.</h3>
 						<!--Inizio paragrafo-->
 						<div class="content-paragraph">
-						<h3>Informazioni principali</h3>
-						<ul class="content-list-nostyle">
-							<li>
-								<h4>Java è case-sensitive</h4>
-								<div class="code-snippet">
-									<code class="java">
-										<span class="keyword">int</span> treeCount = <span class="number-value">15</span>;
-									</code>
-								</div>
-								<p>è vista come una variabile diversa da</p>
-								<div class="code-snippet">
-									<code class="java">
-										<span class="keyword">int</span> TreeCount = <span class="number-value">25</span>;
-									</code>
-								</div>
-							</li>
-							<li>
-								<h4>Nomi delle classi e nome del file</h4>
-								<p>In Java, ogni classe deve avere la prima lettera maiuscola. Inoltre, ogni file deve avere il nome della sua classe pubblica, per esempio:</p>
-								<div class="code-snippet">
-									<code class="java">
-										<span class="keyword">public class</span><span class="type"> FirstProgram</span>
-									</code>
-								</div>
-								<p>Andrà salvato in un file chiamato FirstProgram.java</p>
-							</li>
-							<li>
-								<h4>Primo programma in Java - Hello World</h4>
-								<p>Vediamo come si scrive, in Java, il classico programma "Hello World"</p>
-								<div class="code-snippet code-snippet-large">
-									<code class="java">
-										<span class="code-newline">
-											<span class="keyword">public class</span><span class="type"> FirstProgram </span>{
-										</span>
-										<!--Come metto una linea vuota nel codice(?) uso br?-->
-										<span class="code-indent-1">
-											<!--Indentazione del main-->
+							<h3>Informazioni principali</h3>
+							<ul class="content-list-nostyle">
+								<li>
+									<h4>Java è case-sensitive</h4>
+									<div class="code-snippet">
+										<code class="java">
+											<span class="keyword">int</span> treeCount = <span class="number-value">15</span>;
+										</code>
+									</div>
+									<p>è vista come una variabile diversa da</p>
+									<div class="code-snippet">
+										<code class="java">
+											<span class="keyword">int</span> TreeCount = <span class="number-value">25</span>;
+										</code>
+									</div>
+								</li>
+								<li>
+									<h4>Nomi delle classi e nome del file</h4>
+									<p>In Java, ogni classe deve avere la prima lettera maiuscola. Inoltre, ogni file deve avere il nome della sua classe pubblica, per esempio:</p>
+									<div class="code-snippet">
+										<code class="java">
+											<span class="keyword">public class</span><span class="type"> FirstProgram</span>
+										</code>
+									</div>
+									<p>Andrà salvato in un file chiamato FirstProgram.java</p>
+								</li>
+								<li>
+									<h4>Primo programma in Java - Hello World</h4>
+									<p>Vediamo come si scrive, in Java, il classico programma "Hello World"</p>
+									<div class="code-snippet code-snippet-large">
+										<code class="java">
 											<span class="code-newline">
-												<span class="keyword">public static void</span> main (<span class="keyword">String[]</span> args) {
+												<span class="keyword">public class</span><span class="type"> FirstProgram </span>{
 											</span>
-											<span class="code-indent-2 code-newline">
-												<!--Indentazione istruzioni del main(solo una qui)-->
-												<span class="type">System.</span><span class="keyword">out.</span>println(<span class="string">"Hello World"</span>);
+											<!--Come metto una linea vuota nel codice(?) uso br?-->
+											<span class="code-indent-1">
+												<!--Indentazione del main-->
+												<span class="code-newline">
+													<span class="keyword">public static void</span> main (<span class="keyword">String[]</span> args) {
+												</span>
+												<span class="code-indent-2 code-newline">
+													<!--Indentazione istruzioni del main(solo una qui)-->
+													<span class="type">System.</span><span class="keyword">out.</span>println(<span class="string">"Hello World"</span>);
+												</span>
+												<span class="code-newline">
+													}
+												</span>
 											</span>
 											<span class="code-newline">
 												}
 											</span>
-										</span>
-										<span class="code-newline">
-											}
-										</span>
-									</code>
-								</div>
-								<p>Diamo un'occhiata al codice, il main() è la funzione base, chiamata anche "entry-point" del programma, ovvero il punto
-									dal quale il programma inizierà ad eseguire tutte le nostre istruzioni. 
-									<br />
-									In seguito troviamo l'istruzione di output di default, evidenziata da "System.out.println"
-									che stamperà nel terminale una stringa da noi fornita prima di andare a capo.
-								</p>
-							</li>
-						</ul>
+										</code>
+									</div>
+									<p>Diamo un'occhiata al codice, il main() è la funzione base, chiamata anche "entry-point" del programma, ovvero il punto
+										dal quale il programma inizierà ad eseguire tutte le nostre istruzioni. 
+										<br />
+										In seguito troviamo l'istruzione di output di default, evidenziata da "System.out.println"
+										che stamperà nel terminale una stringa da noi fornita prima di andare a capo.
+									</p>
+								</li>
+							</ul>
 						</div>
 						<!--Fine paragrafo-->
 						<!--Inizio paragrafo-->
 						<div class="content-paragraph">
-						<h3>Installare Java</h3>
-						<ol>
-							<li>
-								<h4>Vai nel sito di Java 
-									<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">qui</a> per scaricare il JDK
-								</h4>
-								<p>Prima di utilizzare Java, avrai bisogno del JDK, lo strumento per compilare ed eseguire i programmi Java. 
-									Per scaricare il JDK segui il link qui sopra e bla bla bla bla bla bla bla bla bla bla bla 
-									bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
-								</p>
-								<div class="article-image">
-									<img src="./img/install_guide/img1.png" alt="Screenshot pagina download del JDK"/>
-									<p>Screenshot della pagina di Download del JDK</p>
-								</div>
-							</li>
-						</ol>
+							<h3>Installare Java</h3>
+							<ol>
+								<li>
+									<h4>Vai nel sito di Java 
+										<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">qui</a> per scaricare il JDK
+									</h4>
+									<p>Prima di utilizzare Java, avrai bisogno del JDK, lo strumento per compilare ed eseguire i programmi Java. 
+										Per scaricare il JDK segui il link qui sopra e bla bla bla bla bla bla bla bla bla bla bla 
+										bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+									</p>
+									<div class="article-image">
+										<img src="./img/install_guide/img1.png" alt="Screenshot pagina download del JDK"/>
+										<p>Screenshot della pagina di Download del JDK</p>
+									</div>
+								</li>
+							</ol>
 						</div>
 						<!--Fine paragrafo-->
 					</div>
