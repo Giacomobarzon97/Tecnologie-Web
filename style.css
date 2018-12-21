@@ -790,6 +790,7 @@ HOMEPAGE
 }
 
 .home-card-content {
+	word-break:break-word;
 	padding: 0.5em 1em;
 }
 
