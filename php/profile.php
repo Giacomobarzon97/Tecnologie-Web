@@ -19,59 +19,75 @@
 		<script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
 		
     </head>
-    
-    <body> 
-            <?php
-                include_once ('navbar.php');
-            ?>
-            <div id="header">
-                <h1>Nome sito</h1>
-            </div>
 
-            <div id="profile-info">
-                <div id="profile-content">
-                    <h1><?php 
-                        if(isset($_SESSION['nickname'])) {
-                            echo "Bentornato, ".$_SESSION['nickname'];
-                        } else {
-                            header("Location: errore.php?errorCode=paginaNonDisponibile");
-                            die();
-                        }
-                    ?></h1>
-                    
-                    <div id="profile-data">
-                        <form action="/action_page.php">
-                            <label for="fname">First Name</label>
-                            <input class="profile-input" type="text" id="fname" name="firstname" placeholder="Your name.." />
-                            <label for="lname">Last Name</label>
-                            <input class="profile-input" type="text" id="lname" name="lastname" placeholder="Your last name.." />
-                        
-                        </form>
-                        <form action="/action_page.php">
-                            <label for="newpass">New Password</label>
-                            <input class="profile-input" type="text" id="newpass" name="newpass" placeholder="New passoword.." />
-
-                            <label for="newpassconf">Confirm new Password</label>
-                            <input class="profile-input" type="text" id="newpassconf" name="newpassconf" placeholder="Confirm new Password" />
-                        
-                            <input class="profile-input" type="submit" value="Submit" />
-                        </form>
-
-                        <form action="profile.php" method="POST" >
-                            <?php 
-                                if(isset($_POST['delete_account'])) {
-                                    User::deleteAccount($_SESSION['email']);
-                                    session_destroy();
-                                    header("Location: index.php");
-                                }
-                            ?>
-                            <input class="profile-input" name="delete_account" type="submit" value="Elimina il tuo account" />
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <body>
+		<div id="registration-form">
+			<div class="regform-introduction">
+				<h1>
+                <?php 
+                    if(isset($_SESSION['email'])) {
+                        echo "Bentornato, ".unserialize($_SESSION['userInfo'])->nickname;
+                    } else {
+                        header("Location: errore.php?errorCode=paginaNonDisponibile");
+                        die();
+                    }
+                    ?>
+                </h1>
+				<h2>Modifica le tue informazioni</h2>
+			</div>
+			<div class="regform-main-section">
+                <form action="profile.php" method="POST">
+                    <label for="lnickname">Nickname</label>
+                    <input class="profile-input" type="text" id="lnickname" name="nickname" 
+                    value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->nickname;?>"/>
+                    <label for="lname">Nome</label>
+                    <input class="profile-input" type="text" id="lname" name="name" 
+                    value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->name;?>"/>
+                    <label for="lsurname">Cognome</label>
+                    <input class="profile-input" type="text" id="lsurname" name="surname"
+                    value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->surname;?>"/>
+                    <input class="profile-input" name="submit" type="submit" value="Submit" />
+                </form>
+			</div>
+			<div class="regform-introduction">
+				<h2>Modifica la tua password</h2>
+			</div>
+			<div class="regform-main-section">
             <?php 
-                include_once ('footer.php');
+                if(isset($_POST['submitChangePassword'])) {
+                    $message = User::changePassword($_SESSION['email'], $_POST['old-password'], $_POST['new-password']);
+                    echo "<span>$message</span>";
+                }
             ?>
-    </body>
+                <form action="profile.php" method="POST">
+                    <label for="lold-password">Password</label>
+                    <input class="profile-input" type="text" id="lold-password" name="old-password" placeholder="Old Password" />
+                    <label for="lnew-password">Password</label>
+                    <input class="profile-input" type="text" id="lnew-password" name="new-password" placeholder="New Password" />
+
+                    <input class="profile-input" name="submitChangePassword" type="submit" value="Submit" />
+                </form>
+			</div>
+            <div class="regform-introduction">
+                <h2>Elimina il tuo account</h2>
+            </div>
+            <div class="regoform-main-section">
+            <form action="profile.php" method="POST" >
+                <?php 
+                    if(isset($_POST['delete_account'])) {
+                        User::deleteAccount($_SESSION['email']);
+                        session_destroy();
+                        header("Location: index.php");
+                    }
+                ?>
+                <input class="profile-input" name="delete_account" type="submit" value="Elimina il tuo account" />
+            </form>
+            </div>  
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="index.php">About</a></li>
+				<li><a href="logout.php">Logout</a></li>
+			</ul>
+		</div>	
+	</body>
 </html>

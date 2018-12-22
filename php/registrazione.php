@@ -23,56 +23,50 @@
 		<script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
 		
     </head>
-    
-    <body>
-        <?php
-            include_once ('navbar.php');
-        ?>
-    
-        <div id="header">
-			<h1>NOME SITO</h1>
-		</div>
-            <div id="profile-info">
-                <div id="profile-content">
-                    <h1>Pagina di registrazione</h1>
-                    <span>Informazioni per la registrazione</span>
-                    <div id="profile-data">
-                        <?php 
-                            include_once ('User.php');
 
-                            if(isset($_POST['submit'])){ //check if form was submitted
-                                $email = $_POST['email'];
-                                $nickname = $_POST['nickname'];
-                                $name = $_POST['name'];
-                                $surname = $_POST['surname'];
-                                $password = $_POST['password'];
-                                $message = User::registration($email, $nickname, $password, $name, $surname);
-                                echo "<div>".$message."</div>";
-                            } 
-                        ?>
-                        <form action="registrazione.php" method="POST">
-                            <label for="lemail">Email</label>
-                            <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
-                            <label for="lnickname">Nickname</label>
-                            <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" />
-                            <label for="lname">Nome</label>
-                            <input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" />
-                            <label for="lsurname">Cognome</label>
-                            <input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" />
-                            <label for="lpassword">Password</label>
-                            <input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
-                        
-                            <input class="profile-input" name="submit" type="submit" value="Submit" />
-                        </form>
-                    </div>
-                    <div>
-                        Hai già un account? <br/>
-                        Clicca <a href='login.php'>qui</a> per accedere.
-                    </div>
-                </div>
-            </div>
-            <?php
-			    include_once ('footer.php');
-		    ?>
-    </body>
+    <body>
+		<div id="registration-form">
+			<div class="regform-introduction">
+				<h1><a href="index.html">Nome del sito</a></h1>
+				<h2>Effettua la registrazione a Nome del sito</h2>
+			</div>
+			<div class="regform-main-section">
+            <?php 
+                    include_once ('User.php');
+
+                    if(isset($_POST['submit'])){ //check if form was submitted
+                        $email = $_POST['email'];
+                        $nickname = $_POST['nickname'];
+                        $name = $_POST['name'];
+                        $surname = $_POST['surname'];
+                        $password = $_POST['password'];
+                        $message = User::registration($email, $nickname, $password, $name, $surname);
+                        echo "<div>".$message."</div>";
+                    } 
+                ?>
+                <form action="registrazione.php" method="POST">
+                    <label for="lemail">Email</label>
+                    <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
+                    <label for="lnickname">Nickname</label>
+                    <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" />
+                    <label for="lname">Nome</label>
+                    <input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" />
+                    <label for="lsurname">Cognome</label>
+                    <input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" />
+                    <label for="lpassword">Password</label>
+                    <input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+                
+                    <input class="profile-input" name="submit" type="submit" value="Submit" />
+                </form>
+			</div>
+			<div class="regform-side-section">
+				<p>Sei già registrato?
+				<p>Clicca <a href='login.php'>qui</a> per effettuare il login.</p>
+			</div>
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="index.php">About</a></li>
+			</ul>
+		</div>	
+	</body>
 </html>
