@@ -765,7 +765,7 @@ HOMEPAGE
 	overflow: hidden;
 	margin:auto;
 }
-.grid h1{
+.grid>h1{
 	text-align:center;
 	color: rgb(0,0,0);
 	font-size:2.5em;
@@ -779,15 +779,11 @@ HOMEPAGE
 	float:left;
 	margin:0px 1%;
 }
-
-.home-card:nth-child(4){
-	margin-right: 0;
-}
-.home-card {
+.home-card, .bio-card {
 	margin-bottom: 2em;	
 }
 
-.home-card:hover {
+.home-card:hover{
 	box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
 }
 
@@ -811,7 +807,56 @@ HOMEPAGE
 	font-size:1em;
 	margin-bottom: 1em;
 }
+.bio-card{
+	width:17%;
+	float:left;
+	margin:0px 2%;	
+	text-align:center;
+	padding:2em 2%;
+	background:white;
+	box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+}
+.bio-card h1{
+	text-align:center;
+	font-size:1.5em;
+}
+.bio-card h2{
+	text-align:center;
+	color:#535359;
+	font-weight:lighter;
+}
+.bio-card p{
+	text-align:center;
+	margin-top:1em;
+}
+.bio-card p:after{
+	padding-top:1em;
+	content: "";
+	display:block;
+	margin:0px auto;
+	border-bottom:1px solid #dbdbdb;
+	width:20%;
+}
 
+.bio-card>ul{
+	margin-top:2em;
+	list-style-type:none;
+}
+.bio-card li{
+	display:inline;
+}
+.bio-card li img{
+	width: 10%;
+	margin:0px 2%;
+	height:auto;
+}
+
+.bio-image img {
+	margin-bottom:1.5em;
+	border-radius:50%;
+	width: 35%;
+	height: auto;
+}
 /*------------------------------------------
 PROFILE
 --------------------------------------------*/
@@ -958,8 +1003,12 @@ MEDIA QUERIES
 	.home-card{
 		width: 48%;
 	}
+	.bio-card{
+		width:31%;
+		margin:2em 7.5%;
+	}
 
-	.home-card:nth-child(3){
+	.home-card:nth-child(3),.bio-card:nth-child(3){
 		clear:left;
 	}
 
@@ -1031,12 +1080,18 @@ MEDIA QUERIES
 		font-size:1.3em;
 	}
 	.home-card{
+		margin:2em 1%;
 		width: 98%;
 	}
+	.bio-card{
+		margin:2em 1%;
+		width: 94%;
+	}
+	
 	.links>li{
 		font-size:1em;
 	}
-	.home-card:nth-child(3){
+	.home-card:nth-child(3), .bio-card:nth-child(3){
 		clear:both;
 	}
 
