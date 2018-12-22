@@ -5,7 +5,7 @@
 			<h1>Nome Sito</h1> 
 			<ul id="menu">
 				<?php
-					if(isset($_SESSION['nickname'])) {
+					if(isset($_SESSION['email'])) {
 						echo "<li><a href='index.php'>Home</a></li>
 						"; 
 						echo "<li><a href='profile.php'>Il tuo profilo</a></li>

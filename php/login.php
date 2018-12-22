@@ -1,7 +1,7 @@
 <?php
 
     include_once('sessionManager.php');
-    
+	session_start();
     if(isset($_SESSION['nickname'])) {
         header("Location: ".SessionManager::getPageRedirect());
     }
@@ -25,51 +25,46 @@
     </head>
     
     <body>
-        <?php
-            include_once ('navbar.php');
-        ?>
-    
-        <div id="header">
-			<h1>NOME SITO</h1>
-		</div>
-            <div id="profile-info">
-                <div id="profile-content">
-                    <h1>Pagina di login</h1>
-                    <div id="profile-data">
-                        <?php 
-                            include_once ('User.php');
+		<div id="registration-form">
+			<div class="regform-introduction">
+				<h1><a href="index.html">Nome del sito</a></h1>
+				<h2>Effettua il login a Nome del sito</h2>
+			</div>
+			<div class="regform-main-section">
+            <?php 
+                    include_once ('User.php');
 
-                            if(isset($_POST['submit'])){
-                                $email = $_POST['email'];
-                                $password = $_POST['password'];
-                                $result = User::login($email, $password);
-                                if($result) {
-                                    $_SESSION['email'] = $email;
-                                    $_SESSION['nickname'] = User::getNickname($email);
-                                    header("Location: ".SessionManager::getPageRedirect());
-                                    die();
-                                } else {
-                                    echo "<span>Credenziali errate, riprova!</span>";
-                                }
-                            } 
-                        ?>
-                        <form action="login.php" method="POST">
-                            <label for="lemail">Email</label>
-                            <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
-                            <label for="lpassword">Password</label>
-                            <input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
-                        
-                            <input class="profile-input" name="submit" type="submit" value="Submit" />
-                        </form>
-                    </div>
-                    <div>
-                        Non sei ancora registrato? <br/>
-                        Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.
-                    </div>
-                </div>
-            </div>
-            <?php
-			    include_once ('footer.php');
-		    ?>
-    </body>
+                    if(isset($_POST['submit'])){
+                        $email = $_POST['email'];
+                        $password = $_POST['password'];
+                        $result = User::login($email, $password);
+                        if($result) {
+                            $_SESSION['email'] = $email;
+                            $_SESSION['userInfo'] = serialize(User::getUserInfo($email));
+                            header("Location: ".SessionManager::getPageRedirect());
+                            die();
+                        } else {
+                            echo "<span>Credenziali errate, riprova!</span>";
+                        }
+                    } 
+                ?>
+				<form action="login.php" method="POST">
+					<label for="lemail">Email</label>
+					<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
+					<label for="lpassword">Password</label>
+					<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+				
+					<input class="profile-input" name="submit" type="submit" value="Submit" />
+				</form>
+			</div>
+			<div class="regform-side-section">
+				<p>Non sei ancora registrato?
+				<p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
+			</div>
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="index.php">About</a></li>
+			</ul>
+		</div>	
+	</body>
 </html>

@@ -1,5 +1,20 @@
 <?php
     include_once ("Connection.php");
+
+    class UserInfo {
+        public $email = "";
+        public $nickname = "";
+        public $name = "";
+        public $surname = "";
+
+        function __construct($e, $nick, $na, $s) {
+            $this->email = $e;
+            $this->nickname = $nick;
+            $this->name = $na;
+            $this->surname = $s;
+        }
+    }
+
     class User {
 
         static function checkFields($email, $nickname, $password, $name, $surname) {
@@ -89,13 +104,17 @@
             }
         }
 
-        static function getNickname($email) {
+        static function getUserInfo($email) {
             $connection = new Connection();
-            $connection -> prepareQuery("SELECT Nickname FROM USERS WHERE Email = :email");
+            $connection -> prepareQuery("SELECT * FROM USERS WHERE Email = :email");
             $connection -> bindParameterToQuery(":email", $email, PDO::PARAM_STR);
             $result = $connection -> executeQuery();
-            $connection = NULL;
-            return $result[0]['Nickname'];
+            $nickname = $result[0]['Nickname'];
+            $name = $result[0]['Name'];
+            $surname = $result[0]['Surname'];
+            
+            $userInfo = new UserInfo($email, $nickname, $name, $surname);
+            return $userInfo;
         }
 
         static function isAdmin($email) {
@@ -181,28 +200,28 @@
 
         //ritorna un messaggio che notifica la riuscita o meno del cambio della password
         static function changePassword($email, $oldPassword, $newPassword) {
+            //CONTROLLARE VALIDITA' DELLA PASSWORD
             $connection = new Connection();
             $connection -> prepareQuery(
                 "SELECT * FROM USERS WHERE Email = '$email'"
             );
 
             $result = $connection -> executeQuery();
-            $oldPasswordHash = password_hash($oldPassword, PASSWORD_DEFAULT);
-            if($result[0]['Password'] != $oldPasswordHash) {
-                return "Attenzione, le due password non coincidono!";
+            
+            if(isset($result[0])) {
+                if(!password_verify($oldPassword, $result[0]['Password'])) {
+                    return "Attenzione, le due password non coincidono!";
+                } 
             }
 
             $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+            $oldPasswordHash = $result[0]['Password'];
             $connection -> prepareQuery(
-                "UPDATE USERS SET Password = '$newPasswordHash' WEHERE Password = '$oldPasswordHash'"
+                "UPDATE USERS SET Password = '$newPasswordHash' WHERE Password = '$oldPasswordHash'"
             );
 
-            try {
-                $result = $connection -> executeQueryDML();
-                return "Password aggiornata con successo!";
-            } catch (PDOException $e){
-                
-            }
+            $result = $connection -> executeQueryDML();
+            return "Password aggiornata con successo!";
             
         }
 
