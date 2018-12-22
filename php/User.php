@@ -17,6 +17,14 @@
 
     class User {
 
+        static function checkField($field) {
+            if($field === '' || strlen($field) > 100) {
+                //echo "username non valido";
+                return false;
+            }
+            return true;
+        }
+
         static function checkFields($email, $nickname, $password, $name, $surname) {
             // Rimuove i caratteri che non possono figurare in un indirizzo email
             $email = filter_var($email, FILTER_SANITIZE_EMAIL);
@@ -225,16 +233,77 @@
             
         }
 
+        static function changeNickname($email, $newNickname) {
+            if(!User::checkField($newNickname)) {
+                return false;
+            }
+            $resultState = true;
+            $connection = new Connection();
+            try {
+                $connection -> prepareQuery(
+                    "UPDATE USERS SET Nickname = '$newNickname' WHERE Email = '$email'"
+                );
+                $result = $connection -> executeQueryDML();
+            } catch (PDOException $e) {
+                
+            }
+ 
+            if(!isset($result)) {
+                return false;
+            }
+            return true;
+        }
+
+        static function changeName($email, $newName) {
+            if(!User::checkField($newName)) {
+                return false;
+            }
+            $connection = new Connection();
+            try {
+                $connection -> prepareQuery(
+                    "UPDATE USERS SET Name = '$newName' WHERE Email = '$email'"
+                );
+                $result = $connection -> executeQueryDML();
+            } catch (PDOException $e) {
+                
+            }
+            
+            if(!isset($result)) {
+                return false;
+            }
+            return true;
+        }
+
+        static function changeSurname($email, $newSurname) {
+            if(!User::checkField($newSurname)) {
+                return false;
+            }
+            $connection = new Connection();
+            try {
+                $connection -> prepareQuery(
+                    "UPDATE USERS SET Surname = '$newSurname' WHERE Email = '$email'"
+                );
+                $result = $connection -> executeQueryDML();
+            } catch (PDOException $e) {
+                
+            }
+
+            if(!isset($result)) {
+                return false;
+            }
+            return true;
+        }
+
         static function deleteAccount($email) {
             //controllare che cancelli il suo e non quello di un altro utente
             $connection = new Connection();
             $connection -> prepareQuery(
-                "DELETE FROM USERS WHERE Email = '$email'");
-                try {
-                    $result = $connection -> executeQueryDML();
-                } catch (PDOException $e){
-                    
-                }
+            "DELETE FROM USERS WHERE Email = '$email'");
+            try {
+                $result = $connection -> executeQueryDML();
+            } catch (PDOException $e){
+                
+            }
         }
         
     }

@@ -36,6 +36,43 @@
 				<h2>Modifica le tue informazioni</h2>
 			</div>
 			<div class="regform-main-section">
+                <?php
+                    if(isset($_POST['submitChangeInfo'])) {
+                        if(isset($_POST['nickname'])) {
+                            $result = User::changeNickname($_SESSION['email'], $_POST['nickname']);
+                            if($result) {
+                                echo "<span>Nickname aggiornato con successo!</span><br/>";
+                                $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
+                            } else {
+                                echo "<span>Nuovo nickname non valido!</span><br/>";
+                            }
+                            //header("Location: profile.php");
+                        }
+                        
+                        if(isset($_POST['name'])) {
+                            $result = User::changeName($_SESSION['email'], $_POST['name']);
+                            if($result) {
+                                echo "<span>Nome aggiornato con successo!</span><br/>";
+                                $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
+                            } else {
+                                echo "<span>Nuovo nome non valido!</span><br/>";
+                            }
+                            //header("Location: profile.php");
+                        }
+
+                        if(isset($_POST['surname'])) {
+                            $result = User::changeSurname($_SESSION['email'], $_POST['surname']);
+                            if($result) {
+                                echo "<span>Cognome aggiornato con successo!</span><br/>";
+                                $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
+                            } else {
+                                echo "<span>Nuovo cognome non valido!</span><br/>";
+                            }
+                            //header("Location: profile.php");
+                        }
+                        
+                    }
+                ?>
                 <form action="profile.php" method="POST">
                     <label for="lnickname">Nickname</label>
                     <input class="profile-input" type="text" id="lnickname" name="nickname" 
@@ -46,7 +83,7 @@
                     <label for="lsurname">Cognome</label>
                     <input class="profile-input" type="text" id="lsurname" name="surname"
                     value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->surname;?>"/>
-                    <input class="profile-input" name="submit" type="submit" value="Submit" />
+                    <input class="profile-input" name="submitChangeInfo" type="submit" value="Submit" />
                 </form>
 			</div>
 			<div class="regform-introduction">
