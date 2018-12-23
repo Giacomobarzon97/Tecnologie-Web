@@ -654,19 +654,11 @@ HOMEPAGE
 }
 /* Content and cards */
 
-#content {
-	display: block;
-}
-
 #introduction {
 	text-align: center;
 	font-size: 1.5em;
 	margin: auto;
 	padding: 1.5em;
-}
-
-.grid{
-	padding:3em 1em 5em 1em;
 }
 
 .input-comment-footer > input, .input-reply-footer > input {
@@ -750,10 +742,6 @@ HOMEPAGE
 }
 /* Content and home-cards */
 
-#content {
-	display: block;
-}
-
 #introduction {
 	text-align: center;
 	font-size: 1.5em;
@@ -807,14 +795,16 @@ HOMEPAGE
 	font-size:1em;
 	margin-bottom: 1em;
 }
+/*------------------------------------------
+ABOUT
+--------------------------------------------*/
+
 .bio-card{
 	width:17%;
 	float:left;
 	margin:0px 2%;	
 	text-align:center;
 	padding:2em 2%;
-	background:white;
-	box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
 }
 .bio-card h1{
 	text-align:center;
@@ -854,9 +844,11 @@ HOMEPAGE
 .bio-image img {
 	margin-bottom:1.5em;
 	border-radius:50%;
-	width: 35%;
+	width:80%;
 	height: auto;
 }
+
+
 /*------------------------------------------
 PROFILE
 --------------------------------------------*/
