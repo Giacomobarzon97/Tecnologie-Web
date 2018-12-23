@@ -806,7 +806,7 @@ ABOUT
 	padding:7em 10%;
 }
 .about-section1 p, .about-section2 p, .about-section3 p{
-	max-width: 1250px
+	max-width: 1250px;
 	margin:auto;
 	font-size: 1.5em;
 }
