@@ -17,6 +17,25 @@
 
     class User {
 
+        private static function generateRandomString($length = 10) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+            return $randomString;
+        }
+
+        private static function sendEmail($email, $content, $subject){
+
+            // use wordwrap() if lines are longer than 70 characters
+            $msg = wordwrap($content,70);
+
+            // send email
+            mail($email, $subject, $msg);
+        }
+
         static function checkField($field) {
             if($field === '' || strlen($field) > 100) {
                 //echo "username non valido";
@@ -298,14 +317,97 @@
             //controllare che cancelli il suo e non quello di un altro utente
             $connection = new Connection();
             $connection -> prepareQuery(
-            "DELETE FROM USERS WHERE Email = '$email'");
-            try {
-                $result = $connection -> executeQueryDML();
-            } catch (PDOException $e){
-                
-            }
+                "DELETE FROM USERS WHERE Email = '$email'");
+                try {
+                    $result = $connection -> executeQueryDML();
+                } catch (PDOException $e){
+                    
+                }
         }
+
+        //--------------------------------------------------------
+        //Recupero Password Dimenticata
+        //--------------------------------------------------------
+
+        static function passwordRecover($email){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "SELECT * FROM USERS WHERE Email = '$email'"
+            );
+
+            $result = $connection -> executeQuery();
+            
+            if(isset($result[0])) {
+                //Add the current user with 7 days from expire date
+                $connection -> prepareQuery(
+                    "INSERT INTO FORGOT_PASSWORD_TOKENS (UserID, Token, expireDate)
+                    VALUES (:userid, :token, (SELECT DATE_ADD(NOW(), INTERVAL 7 DAY)))");
+                $recover_token = User::generateRandomString(rand(10, 200));
+                $connection->bindParameterToQuery(":userid", $email, PDO::PARAM_STR);
+                $connection->bindParameterToQuery(":token", $recover_token, PDO::PARAM_STR);
+                $result = $connection -> executeQueryDML();
+
+                $recover_password_link = "http://testsitotecweb.altervista.org/recoverPassword.php?token=".$recover_token;
+                $email_content = "Sembra che tu abbia dimenticato la password :( \n
+                Recuperala! Ricorda che questo link scadrà tra 7 giorni! \n
+                Ti basta fare click in questo link: ".$recover_password_link;
+
+                User::sendEmail($email, $email_content, "Recupera la password");
+
+                $connection = NULL;
+                return true;
+            }else{
+                $connection = NULL;
+                return false;
+            } 
+        }//function passwordRecover
+
+        static function passwordRecoveryChange($token, $newPassword){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "SELECT * FROM FORGOT_PASSWORD_TOKENS WHERE Token = '$token'"
+            );
+
+            $result = $connection -> executeQuery();
+            
+            if(isset($result[0])) { //Controllo che il token esista
+                //Prendo la data di oggi e quella del database
+                $today = date("Y-m-d");
+                $expire = $result[0]['expireDate'];
+
+                $today_time = strtotime($today);
+                $expire_time = strtotime($expire);
+                //Controllo se il token è scaduto
+                if ($expire_time > $today_time) { //Token non scaduto
+                    $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+                    $user_email = $result[0]['UserID'];
+                    $connection -> prepareQuery(
+                    "UPDATE USERS SET Password = '$newPasswordHash' WHERE Email = '$user_email'");
+                    $result = $connection -> executeQueryDML();
+
+                    //cancello il token appena utilizzato
+                    $connection -> prepareQuery("DELETE FROM FORGOT_PASSWORD_TOKENS WHERE Token = '$token'");
+                    $result = $connection -> executeQueryDML();
+                    
+                    //Ritorno true
+                    $connection = NULL;
+                    return true;
+                }else{ //Token scaduto
+                    //cancello il token scaduto
+                    $connection -> prepareQuery("DELETE FROM FORGOT_PASSWORD_TOKENS WHERE Token = '$token'");
+                    $result = $connection -> executeQueryDML();
+                    //E ritorno false
+                    $connection = NULL;
+                    return false;
+                }
+                $connection = NULL;
+                return false;
+            }else{
+                $connection = NULL;
+                return false;
+            }
+        }//function passwordRecoveryChange
         
-    }
+    }//Chiusura classe
 
 ?>

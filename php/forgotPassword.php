@@ -1,11 +1,11 @@
 <?php
 
     include_once('sessionManager.php');
-	session_start();
+
     if(isset($_SESSION['nickname'])) {
         header("Location: ".SessionManager::getPageRedirect());
     }
-?>  
+?> 
 <!DOCTYPE html>
 <html lang="it">
 	<head>
@@ -28,7 +28,7 @@
 		<div id="registration-form">
 			<div class="regform-introduction">
 				<h1><a href="index.html">Nome del sito</a></h1>
-				<h2>Effettua il login a Nome del sito</h2>
+				<h2>Hai dimenticato la password? Recuperala!</h2>
 			</div>
 			<div class="regform-main-section">
             <?php 
@@ -36,34 +36,24 @@
 
                     if(isset($_POST['submit'])){
                         $email = $_POST['email'];
-                        $password = $_POST['password'];
-                        $result = User::login($email, $password);
+                        $result = User::passwordRecover($email);
                         if($result) {
-                            $_SESSION['email'] = $email;
-                            $_SESSION['userInfo'] = serialize(User::getUserInfo($email));
-                            header("Location: ".SessionManager::getPageRedirect());
-                            die();
+                            echo '<span>Email di recupero password inviata!</span><br/>';
                         } else {
-                            echo "<span>Credenziali errate, riprova!</span>";
+                            echo '<span>L\'email che hai inserito non è registrata!</span><br/>';
                         }
                     } 
                 ?>
-				<form action="login.php" method="POST">
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 					<label for="lemail">Email</label>
 					<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
-					<label for="lpassword">Password</label>
-					<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
 				
-					<input class="profile-input" name="submit" type="submit" value="Submit" />
+					<input class="profile-input" name="submit" type="submit" value="Recupera" />
 				</form>
 			</div>
 			<div class="regform-side-section">
 				<p>Non sei ancora registrato?
 				<p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
-			</div>
-			<div class="regform-side-section">
-				<p>Hai dimenticato la password?
-				<p>Clicca <a href='forgotPassword.php'>qui</a> per recuperarla.</p>
 			</div>
 			<ul>
 				<li><a href="index.php">Home</a></li>

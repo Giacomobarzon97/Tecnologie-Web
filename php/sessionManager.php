@@ -2,7 +2,7 @@
 
     session_start();
 
-    $pagesToIgnore = array("login.php", "errore.php", "registrazione.php");
+    $pagesToIgnore = array("login.php", "errore.php", "registrazione.php", "forgotPassword.php", "recoverPassword.php");
 
     $shouldBeIgnored = false;
 

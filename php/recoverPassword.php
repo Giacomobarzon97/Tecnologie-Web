@@ -1,11 +1,15 @@
 <?php
 
     include_once('sessionManager.php');
-	session_start();
+
     if(isset($_SESSION['nickname'])) {
         header("Location: ".SessionManager::getPageRedirect());
     }
-?>  
+    if(!isset($_GET['token']) && !isset($_POST['change_pw_token'])){
+        header("Location: ".SessionManager::getPageRedirect());
+    }
+
+?> 
 <!DOCTYPE html>
 <html lang="it">
 	<head>
@@ -28,42 +32,41 @@
 		<div id="registration-form">
 			<div class="regform-introduction">
 				<h1><a href="index.html">Nome del sito</a></h1>
-				<h2>Effettua il login a Nome del sito</h2>
+				<h2>Reimposta la password</h2>
 			</div>
 			<div class="regform-main-section">
             <?php 
                     include_once ('User.php');
 
                     if(isset($_POST['submit'])){
-                        $email = $_POST['email'];
-                        $password = $_POST['password'];
-                        $result = User::login($email, $password);
+                        $result = User::passwordRecoveryChange($_POST['change_pw_token'], $_POST['password']);
                         if($result) {
-                            $_SESSION['email'] = $email;
-                            $_SESSION['userInfo'] = serialize(User::getUserInfo($email));
-                            header("Location: ".SessionManager::getPageRedirect());
-                            die();
+                            echo '<span>Password cambiata con successo!</span><br/>';
                         } else {
-                            echo "<span>Credenziali errate, riprova!</span>";
+                            echo '<span>C\'è stato un errore nel recuperare la password, controlla che il token sia corretto o che non sia scaduto :(</span><br/>';
                         }
                     } 
                 ?>
-				<form action="login.php" method="POST">
-					<label for="lemail">Email</label>
-					<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
-					<label for="lpassword">Password</label>
-					<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <label for="lpassword">Password</label>
+				<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+
+                <label for="lpassword-confirm">Conferma la Password</label>
+				<input class="profile-input" type="text" id="lpassword-confirm" name="password" placeholder="Conferma la Password" />
 				
-					<input class="profile-input" name="submit" type="submit" value="Submit" />
+                <?php
+                if(isset($_GET['token'])){ //Alla prima apertura stampo il token dal get
+                    echo '<input type="hidden" name="change_pw_token" value="'.$_GET['token'].'" />';
+                }else{ //Nel caso di riapertura della pagina dopo la richiesta lo prendo dal post
+                    echo '<input type="hidden" name="change_pw_token" value="'.$_POST['change_pw_token'].'" />';
+                }
+                ?>
+				<input class="profile-input" name="submit" type="submit" value="Reimposta" />
 				</form>
 			</div>
 			<div class="regform-side-section">
 				<p>Non sei ancora registrato?
 				<p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
-			</div>
-			<div class="regform-side-section">
-				<p>Hai dimenticato la password?
-				<p>Clicca <a href='forgotPassword.php'>qui</a> per recuperarla.</p>
 			</div>
 			<ul>
 				<li><a href="index.php">Home</a></li>
