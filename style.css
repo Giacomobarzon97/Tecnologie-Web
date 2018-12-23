@@ -766,6 +766,7 @@ HOMEPAGE
 	width:23%;
 	float:left;
 	margin:0px 1%;
+	transition: box-shadow 0.5s;
 }
 .home-card, .bio-card {
 	margin-bottom: 2em;	
@@ -798,7 +799,33 @@ HOMEPAGE
 /*------------------------------------------
 ABOUT
 --------------------------------------------*/
-
+.about-section1{
+	color:white;
+	background-color: #3F51B5;
+	text-align: center;
+	padding:7em 10%;
+}
+.about-section1 p, .about-section2 p, .about-section3 p{
+	max-width: 1250px
+	margin:auto;
+	font-size: 1.5em;
+}
+.about-section1 h1, .about-section2 h1, .about-section3 h1{
+	margin-bottom: 0.5em;
+	font-size: 2.5em;
+}
+.about-section2{
+	text-align: center;
+	max-width: 1250px;
+	margin:auto;
+	padding:7em 0px;
+}
+.about-section3{
+	color:white;
+	background-color: #dbbf56;
+	text-align: center;
+	padding:7em 10%;
+}
 .bio-card{
 	width:17%;
 	float:left;
@@ -815,12 +842,9 @@ ABOUT
 	color:#535359;
 	font-weight:lighter;
 }
-.bio-card p{
-	text-align:center;
-	margin-top:1em;
-}
-.bio-card p:after{
-	padding-top:1em;
+
+.bio-card h2:after{
+	padding-top:1.5em;
 	content: "";
 	display:block;
 	margin:0px auto;
@@ -829,7 +853,7 @@ ABOUT
 }
 
 .bio-card>ul{
-	margin-top:2em;
+	margin-top:1.5em;
 	list-style-type:none;
 }
 .bio-card li{
@@ -839,6 +863,7 @@ ABOUT
 	width: 10%;
 	margin:0px 2%;
 	height:auto;
+	cursor: pointer;
 }
 
 .bio-image img {
@@ -1070,6 +1095,18 @@ MEDIA QUERIES
 		text-align:left;
 		padding:1em;
 		font-size:1.3em;
+	}
+	.about-section1, .about-section3 {
+		padding:3em 4%;
+	}
+
+	.about-section1 p, .about-section2 p, .about-section3 p{
+		font-size: 1.5em;
+		text-align: left;
+	}
+	.about-section1 h1, .about-section2 h1, .about-section3 h1{
+		margin-bottom: 0.5em;
+		font-size: 2em;
 	}
 	.home-card{
 		margin:2em 1%;
