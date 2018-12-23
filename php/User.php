@@ -161,6 +161,10 @@
                 return false;
             }
         }
+
+        //--------------------------------------------------------
+        //Funzioni per i commenti
+        //--------------------------------------------------------
         
         //ritorna un messaggio se l'inserimento non va a buon fine
         static function addComment($articleID, $commentText, $authorID) {
@@ -224,6 +228,10 @@
                 User::redirectToComment($articleID, $commentID);
             }
         }
+
+        //--------------------------------------------------------
+        //Funzioni per cambiare dettagli utente
+        //--------------------------------------------------------
 
         //ritorna un messaggio che notifica la riuscita o meno del cambio della password
         static function changePassword($email, $oldPassword, $newPassword) {
