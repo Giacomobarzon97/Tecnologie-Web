@@ -29,11 +29,11 @@
 
         private static function sendEmail($email, $content, $subject){
 
-            // use wordwrap() if lines are longer than 70 characters
-            $msg = wordwrap($content,70);
+            // To send HTML mail, the Content-type header must be set
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=UTF-8';
 
-            // send email
-            mail($email, $subject, $msg);
+            mail($email, $subject, $content, implode("\r\n", $headers));
         }
 
         static function checkField($field) {
@@ -356,9 +356,24 @@
                 $result = $connection -> executeQueryDML();
 
                 $recover_password_link = "http://testsitotecweb.altervista.org/recoverPassword.php?token=".$recover_token;
-                $email_content = "Sembra che tu abbia dimenticato la password :( \n
-                Recuperala! Ricorda che questo link scadrà tra 7 giorni! \n
-                Ti basta fare click in questo link: ".$recover_password_link;
+
+                //Contenuto email in HTML
+                $email_content = '
+                    <html>
+                        <head>
+                            <title>Recupera la password del tuo account</title>
+                        </head>
+                        <body>
+                            <h1>Recupera la password del tuo account</h1>
+                            <p>Sembra che tu abbia dimenticato la password :( <br/>
+                            Recuperala utilizzando questo link, ricorda che <b>scadra\' tra 7 giorni!</b> <br/>
+                            Clicca <a href='.$recover_password_link.'>qui</a> oppure utilizza il link qui sotto:<br/><br/>
+                            <a href='.$recover_password_link.'>'.$recover_password_link.'</a></p>
+
+                            <h4>Cordiali saluti, il team del sito</h4>
+                        </body>
+                    </html>
+                ';
 
                 User::sendEmail($email, $email_content, "Recupera la password");
 
