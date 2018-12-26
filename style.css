@@ -374,7 +374,7 @@ ARTICLES
 	outline: none;
 	background-color: #555;
 	cursor: pointer;
-	padding: 3%;
+	padding: 2%;
 	border-radius: 50%;
 }
 
@@ -1216,6 +1216,10 @@ MEDIA QUERIES
 		text-align: center;
 	}
 	/* Fine mobile-style.css */
+	
+	#retTop{
+		padding: 4%;
+	}
 	
 	/* contenuto mobily-style.css (Giacomo) */
 	#content-article-introduction{
