@@ -362,23 +362,20 @@ ARTICLES
 
 #retTop{
 	display: none;
+	background-image: url(img/collapse-button.svg);
+	background-repeat: no-repeat;
+	background-size: 30%;
+	background-position: center;
 	position: fixed;
 	bottom: 2%;
 	right: 1%;
-	width: 5%;
-	height: 10%;
 	z-index: 99;
 	border: none;
 	outline: none;
 	background-color: #555;
 	cursor: pointer;
-	padding: 1.5%;
+	padding: 3%;
 	border-radius: 50%;
-}
-
-#TopArrow{
-	position: relative;
-	height: 80%;
 }
 
 #retTop:hover {
