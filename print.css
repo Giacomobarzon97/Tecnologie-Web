@@ -63,9 +63,13 @@
 	display: none;
 }
 
-#main{
-	margin-left: 0;
+#rightSideWrapper{
 	width:100%;
+}
+
+#content-article-introduction>ul li:before{
+	background-image: none;
+	margin-right: 0px;
 }
 
 /* End print-style(Giacomo) */
