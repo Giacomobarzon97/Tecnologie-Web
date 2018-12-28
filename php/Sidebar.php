@@ -55,7 +55,7 @@
 				<img src="img/hamburger.svg" alt="hamburger-icon" id="nav-hamburger"/>
                 <h1>Nome Sito</h1>
                 <ul id="menu">';
-            if(isset($_SESSION['nickname'])) {
+            if(isset($_SESSION['email'])) {
                 echo "<li><a href='index.php'>Home</a></li>"; 
                 echo "<li><a href='profile.php'>Il tuo profilo</a></li>";
                 echo "<li><a href='logout.php'>Logout</a></li>";
