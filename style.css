@@ -25,6 +25,7 @@ a:hover{
 	position:fixed; 
 	height: 100%;
 	width:25%;
+	overflow-y:scroll;
 	margin: 0px;
 	transition: width 0.5s;
 	/*Aesthetics*/
@@ -58,7 +59,7 @@ a:hover{
 	list-style-type: none;
 	padding-left: 10%;
 	overflow-y:hidden;
-	display:none;
+	display:block;
 	transition: height 0.5s;
 }
 #sidebar>li>ul>li{

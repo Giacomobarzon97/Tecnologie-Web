@@ -7,7 +7,15 @@ function openMobileSidebar(){
 		mask.style.backgroundColor="rgba(0,0,0,0.5)";
 	}
 }
+function loadCSSstylesheet(){
+	var file = location.pathname.split( "/" ).pop();
 
+	var link = document.createElement( "link" );
+	link.href = "onlyJS.css";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.getElementsByTagName( "head" )[0].appendChild( link );	
+}
 function closeMobileSidebar(){
 	var wrapper=document.getElementById("sidebar-wrapper");
 	var mask=document.getElementById("mobile-sidebar-mask");
@@ -48,6 +56,7 @@ function sidebarExpandButtons(){
 }
 
 window.addEventListener("load", function(){
+	loadCSSstylesheet();
 	var hamburger=document.getElementById("nav-hamburger");
 	var mask=document.getElementById("mobile-sidebar-mask");
 	var menuIcon=document.getElementById("nav-menu-icon");
