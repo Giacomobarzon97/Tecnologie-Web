@@ -961,7 +961,7 @@ PROFILE
 	margin-bottom:0.5em;
 	font-size:0.85em;
 }
-.profile-input[type=text]{
+.profile-input[type=text], .profile-input[type=email], .profile-input[type=password]{
     width: 100%;
     padding: 0.5em;
 	margin-top: 1em;
