@@ -49,10 +49,10 @@
                 ?>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <label for="lpassword">Password</label>
-                <input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+                <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" />
 
                 <label for="lpassword-confirm">Conferma la Password</label>
-                <input class="profile-input" type="text" id="lpassword-confirm" name="password" placeholder="Conferma la Password" />
+                <input class="profile-input" type="password" id="lpassword-confirm" name="password" placeholder="Conferma la Password" />
                 
                 <?php
                 if(isset($_GET['token'])){ //Alla prima apertura stampo il token dal get

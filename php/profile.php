@@ -98,9 +98,9 @@
             ?>
                 <form action="profile.php" method="POST">
                     <label for="lold-password">Password</label>
-                    <input class="profile-input" type="text" id="lold-password" name="old-password" placeholder="Old Password" />
+                    <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Old Password" />
                     <label for="lnew-password">Password</label>
-                    <input class="profile-input" type="text" id="lnew-password" name="new-password" placeholder="New Password" />
+                    <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="New Password" />
 
                     <input class="profile-input" name="submitChangePassword" type="submit" value="Submit" />
                 </form>

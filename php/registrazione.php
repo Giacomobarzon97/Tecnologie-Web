@@ -46,7 +46,7 @@
                 ?>
                 <form action="registrazione.php" method="POST">
                     <label for="lemail">Email</label>
-                    <input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
+                    <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" />
                     <label for="lnickname">Nickname</label>
                     <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" />
                     <label for="lname">Nome</label>
@@ -54,7 +54,7 @@
                     <label for="lsurname">Cognome</label>
                     <input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" />
                     <label for="lpassword">Password</label>
-                    <input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
+                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" />
                 
                     <input class="profile-input" name="submit" type="submit" value="Submit" />
                 </form>
