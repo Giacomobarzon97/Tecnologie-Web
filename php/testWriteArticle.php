@@ -11,9 +11,9 @@
         header("location: ArticleLinks.php?id=".Subtopics::getTopicIDFromSubtopic($_POST['subtopicID']));
     }
 
-    if(!Subtopics::checkIfSubtopicExists($_GET['subtopicID']))
+    if(!Subtopics::checkIfSubtopicExists($_GET['subtopicID']) && !isset($_POST['submit']))
     {
-        //header("location: index.php");
+        header("location: index.php");
     }
 ?>
 
