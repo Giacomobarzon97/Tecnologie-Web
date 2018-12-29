@@ -55,7 +55,7 @@
                 <p>Non sei ancora registrato?
                 <p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
             </div>
-            <ul>
+            <ul id="regform-links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="index.php">About</a></li>
             </ul>
