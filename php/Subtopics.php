@@ -136,7 +136,7 @@
                         </form>
                         <form action="testWriteArticle.php" method="GET">
                             <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
-                            <input type="image" alt="aggiunta sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="add_button_gen" />
+                            <input type="image" alt="aggiunta sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/new-article.svg" class="add_button_gen" />
                         </form>';
                     echo '</div>';
                 }
