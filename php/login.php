@@ -65,7 +65,7 @@
 				<p>Hai dimenticato la password?
 				<p>Clicca <a href='forgotPassword.php'>qui</a> per recuperarla.</p>
 			</div>
-			<ul>
+			<ul id="regform-links">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="index.php">About</a></li>
 			</ul>

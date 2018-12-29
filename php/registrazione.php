@@ -63,7 +63,7 @@
 				<p>Sei già registrato?
 				<p>Clicca <a href='login.php'>qui</a> per effettuare il login.</p>
 			</div>
-			<ul>
+			<ul id="regform-links">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="index.php">About</a></li>
 			</ul>

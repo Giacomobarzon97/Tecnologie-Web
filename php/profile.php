@@ -120,7 +120,7 @@
                 <input class="profile-input" name="delete_account" type="submit" value="Elimina il tuo account" />
             </form>
             </div>  
-			<ul>
+			<ul id="regform-links">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="index.php">About</a></li>
 				<li><a href="logout.php">Logout</a></li>
