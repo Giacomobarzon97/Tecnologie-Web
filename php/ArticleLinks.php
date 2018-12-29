@@ -7,8 +7,21 @@
     include_once ('sessionManager.php');
     include_once ('Subtopics.php');
     include_once ('Sidebar.php');
+    include_once ('Article.php');
     if(!Subtopics::checkIfTopicExists($_GET["id"])){
         header("Location: errore.php?errorCode=404");
+    }
+
+    if(isset($_POST["delete-article"])){
+        Article::deleteArticle($_POST["articleID"]);
+    }
+
+    if(isset($_POST["add-subtopic"])){
+        Subtopics::insertSubtopic($_POST["title"], $_POST["description"], $_POST["topicID"]);
+    }
+
+    if(isset($_POST["delete-subtopic"])){
+        Subtopics::deleteSubtopic($_POST["subtopicID"]);
     }
 ?>
 <!DOCTYPE html>
@@ -48,7 +61,7 @@
                 <div id="content-article-introduction">
                 <?php
                     Subtopics::printTopicIntroduction($_GET["id"]);
-                    Subtopics::printInsertSubtopicForm($_SESSION['email']);
+                    Subtopics::printInsertSubtopicForm($_SESSION['email'], $_GET["id"]);
                 ?>
                 </div>
                 <div id="content-article-body">

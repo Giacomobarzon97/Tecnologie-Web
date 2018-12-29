@@ -2,10 +2,18 @@
 
     include_once('sessionManager.php');
     include_once('Sidebar.php');
+    include_once('Subtopics.php');
+    include_once('Article.php');
 
     if(isset($_POST['submit']))
 	{
-        echo $_POST['html-input'];
+        Article::insertArticleInTable($_POST['title'], $_POST['article-input'], $_SESSION['email'], $_POST['subtopicID']);
+        header("location: ArticleLinks.php?id=".Subtopics::getTopicIDFromSubtopic($_POST['subtopicID']));
+    }
+
+    if(!Subtopics::checkIfSubtopicExists($_GET['subtopicID']))
+    {
+        //header("location: index.php");
     }
 ?>
 
@@ -23,9 +31,6 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
 
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-
-        <link rel="stylesheet" type="text/css" href="pell/pell.min.css">
-        <script src="pell/pell.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
 		<script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
@@ -48,25 +53,15 @@
             <div id="main">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <h1>Inserisci un nuovo articolo</h1>
+                <h2>Stai inserendo un nuovo articolo in: <?php echo Subtopics::getSubtopicTitle($_GET['subtopicID']) ?></h2>
+                <input type="hidden" name="subtopicID" value="<?php echo $_GET['subtopicID'] ?>" />
                 <h2>Titolo dell'articolo</h2>
                     <label for="title">Titolo dell'articolo:</label>
                     <input type="text" name="title" id="title" placeholder="Scrivi il titolo dell'articolo..." />
                     <br />
                 <h2>Contenuto dell'articolo</h2>
-                    <div id="editor" class="pell"></div>
-                    <input type="hidden" id="html-generated" name="html-input" value="" />
-                    <script>
-                        var editor = window.pell.init({
-                            element: document.getElementById('editor'),
-                            defaultParagraphSeparator: 'p',
-
-                            onChange: html => document.getElementById('html-generated').value = html,
-                        })
-                    </script>
-                    <noscript> <!--Javascript non attivo-->
-                        <h3>Inserisci il test del tuo articolo (I tag HTML sono supportati)</h3>
-                        <textarea name="no-js-input" rows="10" cols="100"></textarea>
-                    </noscript>
+                    <h3>Inserisci il test del tuo articolo (I tag HTML sono supportati)</h3>
+                    <textarea name="article-input" rows="10" cols="100"></textarea>
                 <h2>Invia l'articolo</h2>
                     <input type="submit" value="invia" name="submit"/>
                 </form>

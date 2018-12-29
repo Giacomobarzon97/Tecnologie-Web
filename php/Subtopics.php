@@ -5,7 +5,10 @@
     class Subtopics {
 
         static function checkIfTopicExists($topicID){
-            if((!is_numeric($topicID))){
+            if(!isset($topicID)){
+                return false;
+            }
+            if(!is_numeric($topicID)){
                 return false;
             }
             $connection = new Connection();
@@ -15,6 +18,65 @@
             $connection = NULL;
             if(isset($result[0])) {
                 return true;
+            }else{
+                return false;
+            }
+        }
+
+        static function checkIfSubtopicExists($subtopicID){
+            if(!isset($subtopicID)){
+                return false;
+            }
+            if(!is_numeric($subtopicID)){
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT * FROM SUBTOPICS WHERE ".$subtopicID." = Id");
+            $result = $connection -> executeQuery();
+            //Destroy the object
+            $connection = NULL;
+            if(isset($result[0])) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        static function getTopicIDFromSubtopic($subtopicID){
+            if(!isset($subtopicID)){
+                return false;
+            }
+            if(!is_numeric($subtopicID)){
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT TOPICS.Id
+                FROM SUBTOPICS, TOPICS
+                WHERE SUBTOPICS.TopicID = TOPICS.Id AND SUBTOPICS.Id=".$subtopicID);
+            $result = $connection -> executeQuery();
+            //Destroy the object
+            $connection = NULL;
+            if(isset($result[0])) {
+                return $result[0]['Id'];
+            }else{
+                return false;
+            }
+        }
+
+        static function getSubtopicTitle($subtopicID){
+            if(!isset($subtopicID)){
+                return false;
+            }
+            if(!is_numeric($subtopicID)){
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT Title FROM SUBTOPICS WHERE ".$subtopicID." = Id");
+            $result = $connection -> executeQuery();
+            //Destroy the object
+            $connection = NULL;
+            if(isset($result[0])) {
+                return $result[0]['Title'];
             }else{
                 return false;
             }
@@ -31,14 +93,20 @@
                 echo '<a href="ReadArticle.php?id='.$article['Id'].'">'.$article['Title'].'</a>';
                 if($loggedUserIsAdmin){
                     echo '<div>
-                    <form>
+                    <form action='.$_SERVER['REQUEST_URI'].' method="POST">
                         <input type="hidden" name="delete-article" />
-                        <input type="hidden" name="articleID" value="0" />
+                        <input type="hidden" name="articleID" value="'.$article['Id'].'" />
                         <input type="image" alt="cestino elimina link" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_link" />
                     </form>
                     </div>';
                 }
 				echo '</li>';
+            }
+            //Non ci sono articoli
+            if(count($articles)==0){
+                echo '<li>';
+                echo '<p>Non ci sono ancora articoli in questa categoria...</p>';
+                echo '</li>';
             }
             //Destroy the object
             $connection = NULL;
@@ -61,12 +129,13 @@
                 //Stampa bottoni elemento (se l'utente è admin)
                 if($userisAdmin){
                     echo '<div class="buttons">';
-                    echo '<form>
+                    echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                             <input type="hidden" name="delete-subtopic" />
-                            <input type="hidden" name="subtopicID" value="0" />
+                            <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                             <input type="image" alt="cestino elimina sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
                         </form>
-                        <form>
+                        <form action="testWriteArticle.php" method="GET">
+                            <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                             <input type="image" alt="aggiunta sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="add_button_gen" />
                         </form>';
                     echo '</div>';
@@ -103,16 +172,37 @@
             $connection = NULL;
         }
 
-        static function printInsertSubtopicForm($sessionEmail){
+        static function printInsertSubtopicForm($sessionEmail, $topicID){
             if(User::isAdmin($sessionEmail)){
-                echo '<form action="index.php">
+                echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                     <p>Inserisci un nuovo sotto-argomento</p>
-                    <input type="text" name="argomento" /><br />
-                    <input type="submit" value="Invia" />
+                    <input type="hidden" name="topicID" value="'.$topicID.'" />
+                    <input type="text" name="title" placeholder="Titolo del subtopic" /><br />
+                    <input type="text" name="description" placeholder="Descrizione del subtopic" /><br />
+                    <input type="submit" name="add-subtopic" value="Invia" />
                 </form>';
             }else{ //TOREMOVE
-                echo '(Non puoi inserire un nuovo sotto-argomento)';
+                echo '(Non puoi inserire un nuovo sotto-argomento, effettua il login come amministratore)';
             }
+        }
+
+        static function insertSubtopic($title, $description, $topicID){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "INSERT INTO SUBTOPICS (Title, Description, TopicID)
+                VALUES (:title, :desc, :topicid)");
+            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":desc", $description, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":topicid", $topicID, PDO::PARAM_STR);
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+        }
+
+        static function deleteSubtopic($subtopicID){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "DELETE FROM SUBTOPICS WHERE Id = $subtopicID");
+            $result = $connection -> executeQueryDML();
         }
     }
 

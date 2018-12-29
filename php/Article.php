@@ -35,6 +35,25 @@
             echo '<h4 class="article-author">Autore articolo: '.$author[0]['Nickname'].'</h4>';
             echo '</div>';
         }
+
+        static function insertArticleInTable($title, $content, $authorID, $subtopicID){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "INSERT INTO ARTICLES (Title, HTMLCode, AuthorID, SubtopicID)
+                VALUES (:title, :code, :authorID, $subtopicID)");
+            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":code", $content, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":authorID", $authorID, PDO::PARAM_STR);
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+        }
+
+        static function deleteArticle($articleID){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "DELETE FROM ARTICLES WHERE Id = $articleID");
+            $result = $connection -> executeQueryDML();
+        }
     }
 
 ?>
