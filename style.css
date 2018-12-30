@@ -251,10 +251,13 @@ a:hover{
 	font-weight:700;
 }
 
+#content-article-introduction>form>label{
+	font-weight:700;
+}
+
 #content-article-introduction>form>input[type=text]{
 	font-size: 1em;
 	padding: 0.5em;
-	width: 25%;
 }
 
 #content-article-introduction>form>input[type=text]:focus{
