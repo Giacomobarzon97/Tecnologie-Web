@@ -176,48 +176,28 @@
 					<li><a href="index.html">Home</a></li>
 					<li>Article_links</li>
 				</ul>
-
 			</div>			
 			<div id="main">
 				<div id="content-article-introduction">
-					<h1>Algoritmi</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-					Excepteur sint occaecat cupidatat non proident,
-					sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-					<h2>Cosa imparerai:</h2>
-					<ul>
-						<li><a href="#LAR">Limiti asintotici e ricorrenze</a></li>
-						<li><a href="#DE">Divide et Impera</a></li>
-						<li><a href="#OR">Ordinamento</a></li>
-						<li><a href="#HE">Heap</a></li>
-						<li><a href="#AR">Alberi e Ricorsione</a></li>
-						<li><a href="#TH">Tabelle hash</a></li>
-						<li><a href="#ABR">Alberi Binari di Ricerca e Red-Black Trees</a></li>
-						<li><a href="#PD">Programmazione dinamica</a></li>
-						<li><a href="#GR">Greedy</a></li>
-						<li><a href="#AA">Analisi ammortizzata</a></li>
-					</ul>
 					<form action="index.php">
-						<h3>Inserisci un nuovo sotto-argomento</h3>
-						<label for="titolo">Titolo del nuovo subtopic:</label><br />
-						<input type="text" name="titolo" placeholder="Titolo del subtopic" /><br /><br />
-						<label for="descrizione">Descrizione del nuovo subtopic:</label><br />
-						<input type="text" name="descrizione" placeholder="Descrizione del subtopic" /><br />
+						<h1>Crea un nuovo argomento</h1>
+						<label for="titolo">Titolo del nuovo subtopic:</label>
+						<input type="text" name="titolo" placeholder="Titolo del subtopic" />
+						<label for="file-upload">Immagine thumbnail:</label>
+						<label for="file-upload" class="custom-file-upload">
+						    <img src="img/photo-camera.svg" class="file-upload-img" alt="upload file"/>Carica un immagine
+						</label>
+						<input id="file-upload" type="file"/>						
 						<input type="submit" value="Invia" />
 					</form>
 				</div>
 				<div id="content-article-body">
-					<h1>Contenuto del corso</h1>
+					<h1>Oppure gestisci quelli già esistenti</h1>
 					<ul>
-						<li class="arg_title" id="LAR">
+						<li class="arg_title" id="DE">
 							<div>
 								<div class="details">
-									<h2>Limiti asintotici e ricorrenze</h2>
-									<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+									<h2>Divide et Impera</h2>
 								</div>
 								<div class="buttons">
 									<form>
@@ -230,34 +210,11 @@
 									</form>
 								</div>
 							</div>
-							<ul class="arg_link">
-								<li> 
-									<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-									<div>
-										<form>
-											<input type="hidden" name="delete-article" />
-											<input type="hidden" name="articleID" value="0" />
-											<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
-										</form>
-									</div>
-								</li>
-								<li>
-									<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-									<div>
-										<form>
-											<input type="hidden" name="delete-article" />
-											<input type="hidden" name="articleID" value="0" />
-											<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
-										</form>
-									</div>
-								</li>
-							</ul>
 						</li>
 						<li class="arg_title" id="DE">
 							<div>
 								<div class="details">
 									<h2>Divide et Impera</h2>
-									<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
 								</div>
 								<div class="buttons">
 									<form>
@@ -270,28 +227,57 @@
 									</form>
 								</div>
 							</div>
-							<ul class="arg_link">
-								<li> 
-									<a href="#1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-									<div>
-										<form>
-											<input type="hidden" name="delete-article" />
-											<input type="hidden" name="articleID" value="0" />
-											<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
-										</form>
-									</div>
-								</li>
-								<li>
-									<a href="#2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-									<div>
-										<form>
-											<input type="hidden" name="delete-article" />
-											<input type="hidden" name="articleID" value="0" />
-											<input type="image" alt="cestino elimina link" src="./img/waste-bin.svg" class="delete_button_link" />
-										</form>
-									</div>
-								</li>
-							</ul>
+						</li>
+						<li class="arg_title" id="DE">
+							<div>
+								<div class="details">
+									<h2>Divide et Impera</h2>
+								</div>
+								<div class="buttons">
+									<form>
+										<input type="hidden" name="delete-subtopic" />
+										<input type="hidden" name="subtopicID" value="0" />
+										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
+									</form>
+									<form> <!--Will work as a link to add.php?...-->
+										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
+									</form>
+								</div>
+							</div>
+						</li>
+						<li class="arg_title" id="DE">
+							<div>
+								<div class="details">
+									<h2>Divide et Impera</h2>
+								</div>
+								<div class="buttons">
+									<form>
+										<input type="hidden" name="delete-subtopic" />
+										<input type="hidden" name="subtopicID" value="0" />
+										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
+									</form>
+									<form> <!--Will work as a link to add.php?...-->
+										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
+									</form>
+								</div>
+							</div>
+						</li>
+						<li class="arg_title" id="DE">
+							<div>
+								<div class="details">
+									<h2>Divide et Impera</h2>
+								</div>
+								<div class="buttons">
+									<form>
+										<input type="hidden" name="delete-subtopic" />
+										<input type="hidden" name="subtopicID" value="0" />
+										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
+									</form>
+									<form> <!--Will work as a link to add.php?...-->
+										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
+									</form>
+								</div>
+							</div>
 						</li>
 					</ul>
 				</div>

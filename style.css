@@ -188,7 +188,7 @@ a:hover{
 	padding: 1em 20%;
 }
 
-#content-article-introduction>h1{
+#content-article-introduction h1{
 	font-size: 2.2em;
 	margin-bottom: 0.5em;
 }
@@ -208,9 +208,14 @@ a:hover{
 	font-size: 1.25em;
 }
 
-#content-article-introduction>h2{
+#content-article-introduction h2{
 	font-size: 1.6em;
 	margin-bottom: 0.5em;
+}
+#content-article-introduction h3{
+	padding: 0.7em;
+	font-size: 1.5em;
+	font-weight:700;
 }
 
 #content-article-introduction>ul{
@@ -245,17 +250,15 @@ a:hover{
 	text-align:center;
 }
 
-#content-article-introduction>form>p{
-	padding: 0.7em;
-	font-size: 1.5em;
-	font-weight:700;
-}
-
 #content-article-introduction>form>label{
+	display: table;
+	margin:1em auto;
 	font-weight:700;
 }
 
 #content-article-introduction>form>input[type=text]{
+	display: table;
+	margin:1em auto;
 	font-size: 1em;
 	padding: 0.5em;
 }
@@ -264,17 +267,35 @@ a:hover{
 	box-shadow: 0 0 3px #0091ae;
 }
 
+#content-article-introduction>form>input[type=file]{
+	display: none;
+}
+
+.custom-file-upload{
+	color:#0091ae;
+    border: 1px solid #ccc;
+    display:table;
+    margin:1em auto;
+    padding: 1em 5%;
+    cursor: pointer;
+}
+.file-upload-img{
+	height: 1em;
+	margin-right: 1em;
+	width: auto;
+}
+
 #content-article-introduction>form>input[type=submit]{
+	display: table;
+	margin:1em auto;
 	border: none;
 	background-color: #0091ae;
 	color: #FFFFFF;
-	padding: 1em 3%;
+	padding: 1em 10%;
 	text-align: center;
-	border-radius: 10%;
+	border-radius: 15px;
 	text-decoration: none;
-	display: inline-block;
 	font-size: 1em;
-	margin: 0.5em 0.5em;
 	cursor: pointer;
 }
 
