@@ -117,6 +117,16 @@
             $connection -> prepareQuery("SELECT * FROM SUBTOPICS WHERE ".$topicID." = TopicID");
             $subtopics = $connection -> executeQuery();
             $userisAdmin = User::isAdmin($loggedUserEmail);
+            if(count($subtopics) == 0){
+                echo '<li class="arg_title">';
+                echo '<div>'; //--Apertura div titolo--
+                //Stampa dettagli elemento
+                echo '<div class="details">';
+                echo '<h2 class="subtopic-title" >Non ci sono ancora sottoargomenti per questo argomento...</h2>';
+                echo '</div>';
+                echo '</div>'; //--Chiusura div titolo--
+                echo '</li>';
+            }
             foreach ($subtopics as $subtopic) {
                 //Stampa div pre-argomenti
                 echo '<li class="arg_title">';
@@ -177,8 +187,10 @@
                 echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                     <p>Inserisci un nuovo sotto-argomento</p>
                     <input type="hidden" name="topicID" value="'.$topicID.'" />
-                    <input type="text" name="title" placeholder="Titolo del subtopic" /><br />
-                    <input type="text" name="description" placeholder="Descrizione del subtopic" /><br />
+                    <label for="title">Titolo del nuovo subtopic:</label>
+                    <input type="text" name="title" placeholder="Titolo del subtopic" />
+                    <label for="description">Descrizione del nuovo subtopic:</label>
+					<input type="text" name="description" placeholder="Descrizione del subtopic" />
                     <input type="submit" name="add-subtopic" value="Invia" />
                 </form>';
             }else{ //TOREMOVE
