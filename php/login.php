@@ -46,7 +46,7 @@
                         } else {
                             echo "<span>Credenziali errate, riprova!</span>";
                         }
-                    } 
+                    }
                 ?>
 				<form action="login.php" method="POST">
 					<label for="lemail">Email</label>
@@ -58,12 +58,8 @@
 				</form>
 			</div>
 			<div class="regform-side-section">
-				<p>Non sei ancora registrato?
-				<p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
-			</div>
-			<div class="regform-side-section">
-				<p>Hai dimenticato la password?
-				<p>Clicca <a href='forgotPassword.php'>qui</a> per recuperarla.</p>
+				<p>Non sei ancora registrato?<a href='registrazione.php'>Clicca qui</a> per creare un nuovo account.</p>
+				<p>Hai dimenticato la password?<a href='forgotPassword.php'>Clicca qui</a> per recuperarla.</p>
 			</div>
 			<ul id="regform-links">
 				<li><a href="index.php">Home</a></li>
