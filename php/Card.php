@@ -17,10 +17,15 @@
                     <a href='#'><img src='".$topicsInfo[0]['ImageLink']."' alt='img'/></a>
                 </div>
                 <div class='home-card-content'>
-                    <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>
-                    <ul class='links'>";
-                    foreach ($argumentsTitle as $item) {
-                        echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#'.$item['Id']."'>".$item["Title"]."</a></li>";
+                    <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>";
+                    if(count($argumentsTitle) == 0){
+                        echo '<p>Non ci sono ancora articoli per questo argomento...</p>';
+                    }else{
+                        echo "<ul class='links'>";
+                        foreach ($argumentsTitle as $item) {
+                            echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#'.$item['Id']."'>".$item["Title"]."</a></li>";
+                        }
+                        echo '</ul>';
                     }
             echo "</div>
             </div>";
@@ -66,6 +71,78 @@
             
             $connection = NULL;
         }
-    }
+
+        //---------------------------------------------
+        //Pagina gestione degli argomenti
+        //---------------------------------------------
+
+        static function deleteTopic($topicID){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "DELETE FROM TOPICS WHERE Id = $topicID");
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+        }
+
+        static function insertTopic($title, $description, $image){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "INSERT INTO TOPICS (Name, Description, ImageLink)
+                VALUES (:title, :desc, :imageLink)");
+            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":desc", $description, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":imageLink", $image, PDO::PARAM_STR);
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+        }
+
+        static function printInsertNewCardForm(){
+            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+                <h1>Crea un nuovo argomento</h1>
+                <label for="titolo">Titolo del nuovo subtopic:</label>
+                <input type="text" name="titolo" placeholder="Titolo del topic" required />
+                <label for="descrizione">Descrizione del nuovo subtopic:</label>
+                <input type="text" name="descrizione" placeholder="Descrizione del topic" required />
+                <label for="file-upload">Immagine thumbnail:</label>
+                <label for="file-upload" class="custom-file-upload">
+                    <img src="https://frncscdf.github.io/Tecnologie-Web/img/photo-camera.svg" class="file-upload-img" alt="upload file"/>Carica un immagine
+                </label>
+                <input id="file-upload" name="upfile" type="file" required />						
+                <input type="submit" name="add-topic" value="Invia" />
+            </form>';
+        }
+
+        static function printDeleteTopicForm($topicID, $imageUrl){
+            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
+                <input type="hidden" name="delete-topic" />
+                <input type="hidden" name="image-url" value="'.$imageUrl.'" />
+                <input type="hidden" name="topicID" value="'.$topicID.'" />
+                <input type="image" alt="cestino elimina argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
+            </form>';
+        }
+
+        static function printAllCreatedCards(){
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT * FROM TOPICS");
+            $topics = $connection -> executeQuery();
+            echo '<ul>';
+            foreach ($topics as $topic) {
+                echo '<li class="arg_title" id='.$topic['Id'].'>';
+                echo '<div>';
+                echo '<div class="details">
+                    <h2>'.$topic['Name'].'</h2>
+                    <h3>'.$topic['Description'].'</h3>
+                </div>';
+                echo '<div class="buttons">';
+                Card::printDeleteTopicForm($topic['Id'], $topic['ImageLink']);
+                echo '</div>'; //end buttons
+                echo '</div>'; //end div for topic
+                echo '</li>';
+            }
+            echo '</ul>';
+        }
+
+    }//class end
 
 ?>
