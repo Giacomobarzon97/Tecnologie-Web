@@ -42,14 +42,15 @@
             $allTopics = $connection -> executeQuery();
 
             $topicsCount = $numberOfTopics[0]["c"]; //quanti sono i topic totali
-            $numberOfRows4Cards = $topicCount / 4; //quante righe piene devo predisporre
-            $numberOfCardsLastRow = $topicCount % 4;
+            $numberOfRows4Cards = intval($topicsCount / 4); //quante righe piene devo predisporre
+            $numberOfCardsLastRow = $topicsCount % 4;
             $numberOfTopicsPrinted = 0; //quanti argomenti devo stampare per ogni riga (massimo)
-            if($topicsCounts < 4) {
+            if($topicsCount < 4) {
                 $numberOfTopicsPrinted = $topicsCount;
             } else {
                 $numberOfTopicsPrinted = 4;
             }
+
             $index = 0;
             while($numberOfRows4Cards > 0) {
                 echo "<div class='row'>";
@@ -58,7 +59,7 @@
                     $index += 1;
                 }
                 echo "</div>";
-                $numberOfRows -= 1;
+                $numberOfRows4Cards -= 1;
             }
 
             $numberOfTopicsPrinted += $numberOfCardsLastRow;
