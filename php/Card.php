@@ -53,22 +53,28 @@
 
             $index = 0;
             while($numberOfRows4Cards > 0) {
+                $counter = 0;
                 echo "<div class='row'>";
-                while($index < $numberOfTopicsPrinted) {
+                while($counter < $numberOfTopicsPrinted) {
                     Card::printCard($allTopics[$index]["Name"]);
                     $index += 1;
+                    $counter +=1;
                 }
                 echo "</div>";
                 $numberOfRows4Cards -= 1;
             }
 
-            $numberOfTopicsPrinted += $numberOfCardsLastRow;
-            echo "<div class='row'>";
-            while($index < $numberOfTopicsPrinted) {
-                Card::printCard($allTopics[$index]["Name"]);
-                $index += 1;
+            if($numberOfCardsLastRow>0){ //Se non ce ne sono inutile stampare una riga vuota
+                $numberOfTopicsPrinted += $numberOfCardsLastRow;
+                echo "<div class='row'>";
+                $counter = 0;
+                while($counter < $numberOfTopicsPrinted && $index<$topicsCount) {
+                    Card::printCard($allTopics[$index]["Name"]);
+                    $index += 1;
+                    $counter +=1;
+                }
+                echo "</div>";
             }
-            echo "</div>";
             
             $connection = NULL;
         }
