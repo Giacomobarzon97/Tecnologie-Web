@@ -65,7 +65,7 @@ $('#summernote').summernote({
     ['Misc',['undo','redo','codeview']]
   ]
 });
-
+$('#summernote').summernote('justifyLeft');
 }
 
 window.addEventListener("load", function(){
