@@ -54,6 +54,19 @@ function sidebarExpandButtons(){
 		},false);
 	}
 }
+function RicheTextArea(){
+$('#summernote').summernote({
+  toolbar: [
+    // [groupName, [list of button]]
+    ["style", ["style"]],
+    ['style', ['bold', 'italic', 'underline']],
+    ['para', ['ul', 'ol']],
+    ['insert',['picture','link']],
+    ['Misc',['undo','redo','codeview']]
+  ]
+});
+
+}
 
 window.addEventListener("load", function(){
 	loadCSSstylesheet();
@@ -68,6 +81,8 @@ window.addEventListener("load", function(){
 		menuIcon.addEventListener("click",toggleMobileNavMenu , true);
 	}
 	sidebarExpandButtons();
+	RicheTextArea();
+
 });
 
 window.addEventListener('resize', function(e) {
