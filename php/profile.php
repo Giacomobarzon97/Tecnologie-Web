@@ -26,7 +26,7 @@
 				<h1>
                 <?php 
                     if(isset($_SESSION['email'])) {
-                        echo "Bentornato, ".unserialize($_SESSION['userInfo'])->nickname;
+                        echo "Bentornato, ".unserialize($_SESSION['userInfo'])->email;
                     } else {
                         header("Location: errore.php?errorCode=paginaNonDisponibile");
                         die();
@@ -92,15 +92,17 @@
 			<div class="regform-main-section">
             <?php 
                 if(isset($_POST['submitChangePassword'])) {
-                    $message = User::changePassword($_SESSION['email'], $_POST['old-password'], $_POST['new-password']);
+                    $message = User::changePassword($_SESSION['email'], $_POST['old-password'], $_POST['new-password'], $_POST['conf-new-password']);
                     echo "<span>$message</span>";
                 }
             ?>
                 <form action="profile.php" method="POST">
-                    <label for="lold-password">Password</label>
-                    <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Old Password" />
-                    <label for="lnew-password">Password</label>
-                    <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="New Password" />
+                    <label for="lold-password">Password attuale</label>
+                    <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Password attuale" />
+                    <label for="lnew-password">Nuova password</label>
+                    <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="Nuova password" />
+                    <label for="lconf-new-password">Conferma Nuova password</label>
+                    <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" placeholder="Conferma nuova password" />
 
                     <input class="profile-input" name="submitChangePassword" type="submit" value="Submit" />
                 </form>
@@ -110,8 +112,15 @@
             </div>
             <div class="regoform-main-section">
             <form action="profile.php" method="POST" >
-                <?php 
+                <?php
                     if(isset($_POST['delete_account'])) {
+                        echo "<input class='profile-input' name='conf_delete' type='submit' value='Si, sono sicuro' />";
+                        echo "<input class='profile-input' name='dismiss_conf_delete' type='submit' value='Annulla' />";
+                    }
+                    if(isset($_POST['dismiss_conf_delete'])) {
+                        header("Location: profile.php");
+                    }
+                    if(isset($_POST['conf_delete'])) {
                         User::deleteAccount($_SESSION['email']);
                         session_destroy();
                         header("Location: index.php");

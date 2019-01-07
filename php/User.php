@@ -234,8 +234,11 @@
         //--------------------------------------------------------
 
         //ritorna un messaggio che notifica la riuscita o meno del cambio della password
-        static function changePassword($email, $oldPassword, $newPassword) {
+        static function changePassword($email, $oldPassword, $newPassword, $confNewPassword) {
             //CONTROLLARE VALIDITA' DELLA PASSWORD
+            if($newPassword != $confNewPassword) {
+                return "Attenzione, la nuova password e la conferma non coincidono!";
+            }
             $connection = new Connection();
             $connection -> prepareQuery(
                 "SELECT * FROM USERS WHERE Email = '$email'"
@@ -245,7 +248,7 @@
             
             if(isset($result[0])) {
                 if(!password_verify($oldPassword, $result[0]['Password'])) {
-                    return "Attenzione, le due password non coincidono!";
+                    return "Attenzione, la password attuale inserita è errata!";
                 } 
             }
 
