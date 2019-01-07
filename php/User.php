@@ -337,6 +337,29 @@
         //Recupero Password Dimenticata
         //--------------------------------------------------------
 
+        static function checkIfTokenExist($token){
+            if(!isset($token)){
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "SELECT * FROM FORGOT_PASSWORD_TOKENS WHERE Token = :token"
+            );
+            $connection->bindParameterToQuery(":token", $token, PDO::PARAM_STR);
+            
+            $result = $connection -> executeQuery();
+            $connection = NULL;
+            if(isset($result[0])) {
+                if($result[0]['Token'] === $token){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }
+
         static function passwordRecover($email){
             $connection = new Connection();
             $connection -> prepareQuery(
