@@ -119,7 +119,7 @@ function validateLoginData(){
         errorMessage += "<li>La password inserita non è valida!</li>";
     }
     if(errorMessage != ""){
-        ProfilePage_ShowChangeBasicDataError(errorMessage);
+        LoginPage_ShowChangeLoginDataError(errorMessage);
         return false;
     }
     return true;
