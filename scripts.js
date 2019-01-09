@@ -65,6 +65,7 @@ function HideAllErrorBoxes(){
     ProfilePage_HideChangePWError();
     ProfilePage_HideChangeBasicDataPWError();
     LoginPage_HideChangeLoginDataError();
+    RegisterPage_HideChangeLoginDataError();
 }
 
 function checkStringEquals(string1, string2){
