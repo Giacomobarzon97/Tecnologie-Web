@@ -87,6 +87,14 @@ function checkStringIsValid(value){
 }
 
 //---
+//---PAGINA LOGIN.PHP---
+//---
+
+//---
+//---PAGINA REGISTER.PHP---
+//---
+
+//---
 //---PAGINA PROFILE.PHP---
 //---
 
