@@ -115,13 +115,13 @@ function validateChangeBasicData(){
     surname = document.getElementById("lsurname").value;
     var errorMessage = "";
     if(!checkStringIsValid(nickname) || nickname.length > 100){
-        errorMessage += "<li>La passowrd originale non è valida!</li>";
+        errorMessage += "<li>Il nickname inserito non è valido!</li>";
     } 
     if(!checkStringIsValid(name) || name.length > 100){
-        errorMessage += "<li>La nuova password non è valida!</li>";
+        errorMessage += "<li>Il nome inserito non è valido!</li>";
     }
     if(!checkStringIsValid(surname) || surname.length > 100){
-        errorMessage += "<li>La conferma della nuova password non è valida!</li>";
+        errorMessage += "<li>Il cognome inserito non è valido!</li>";
     }
     if(errorMessage != ""){
         ProfilePage_ShowChangeBasicDataError(errorMessage);
