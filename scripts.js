@@ -106,9 +106,9 @@ function ProfilePage_ShowChangePwError(message){
 
 //Valida i dati del cambio password
 function validateChangePassword(){
-    original_password = document.getElementById("password-error-box").value;
-    new_password_1 = document.getElementById("password-error-box").value;
-    new_password_2 = document.getElementById("password-error-box").value;
+    original_password = document.getElementById("lold-password").value;
+    new_password_1 = document.getElementById("lnew-password").value;
+    new_password_2 = document.getElementById("lconf-new-password").value;
     if(!checkStringIsValid(original_password) || !checkStringIsValid(new_password_1) || !checkStringIsValid(new_password_2)){
         ProfilePage_ShowChangePwError("Hai inserito dei dati non validi!");
         return false;
