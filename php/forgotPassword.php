@@ -46,7 +46,7 @@
                 ?>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                     <label for="lemail">Email</label>
-                    <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" />
+                    <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required />
                 
                     <input class="profile-input" name="submit" type="submit" value="Recupera" />
                 </form>

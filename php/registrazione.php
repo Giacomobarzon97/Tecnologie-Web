@@ -46,15 +46,15 @@
                 ?>
                 <form action="registrazione.php" method="POST">
                     <label for="lemail">Email</label>
-                    <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" />
+                    <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" maxlength="100" required />
                     <label for="lnickname">Nickname</label>
-                    <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" />
+                    <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" required />
                     <label for="lname">Nome</label>
-                    <input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" />
+                    <input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" required />
                     <label for="lsurname">Cognome</label>
-                    <input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" />
+                    <input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required />
                     <label for="lpassword">Password</label>
-                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" />
+                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" maxlength="100" required />
                 
                     <input class="profile-input" name="submit" type="submit" value="Submit" />
                 </form>

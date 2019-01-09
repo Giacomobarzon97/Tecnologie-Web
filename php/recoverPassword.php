@@ -59,10 +59,10 @@
             ){ //Il token esiste
                 echo '<form action="'.$_SERVER['PHP_SELF'].'" method="POST">
                     <label for="lpassword">Password</label>
-                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" />
+                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required />
 
                     <label for="lpassword-confirm">Conferma la Password</label>
-                    <input class="profile-input" type="password" id="lpassword-confirm" name="password" placeholder="Conferma la Password" />
+                    <input class="profile-input" type="password" id="lpassword-confirm" name="password" placeholder="Conferma la Password" required />
                     ';
                     if(isset($_GET['token'])){ //Alla prima apertura stampo il token dal get
                         echo '<input type="hidden" name="change_pw_token" value="'.$_GET['token'].'" />';

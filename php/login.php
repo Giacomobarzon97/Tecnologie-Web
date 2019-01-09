@@ -50,9 +50,9 @@
                 ?>
 				<form action="login.php" method="POST">
 					<label for="lemail">Email</label>
-					<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" />
+					<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required />
 					<label for="lpassword">Password</label>
-					<input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" />
+					<input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required />
 				
 					<input class="profile-input" name="submit" type="submit" value="Submit" />
 				</form>
