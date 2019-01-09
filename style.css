@@ -965,7 +965,8 @@ PROFILE
 #registration-form h1{
 	margin-top: 1em;
 	margin-bottom: 0.5em;
-	font-size: 2.5em;
+    font-size: 2.5em;
+    overflow-wrap: break-word;
 }
 #registration-form h1>a{
 	color:black;
