@@ -30,6 +30,7 @@
                 <h1><a href="index.html">Nome del sito</a></h1>
                 <h2>Effettua la registrazione a Nome del sito</h2>
             </div>
+            <ul class="regform-errorbox" id="js-register-input-error"></ul>
             <div class="regform-main-section">
             <?php 
                     include_once ('User.php');
@@ -44,7 +45,7 @@
                         echo "<div>".$message."</div>";
                     }
                 ?>
-                <form action="registrazione.php" method="POST">
+                <form action="registrazione.php" id="register-main-form" method="POST">
                     <label for="lemail">Email</label>
                     <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" maxlength="100" required />
                     <label for="lnickname">Nickname</label>

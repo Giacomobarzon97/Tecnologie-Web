@@ -30,8 +30,9 @@
                 <h1><a href="index.html">Nome del sito</a></h1>
                 <h2>Effettua il login a Nome del sito</h2>
             </div>
+            <ul class="regform-errorbox" id="js-login-input-error"></ul>
             <div class="regform-main-section">
-            <?php 
+                <?php 
                     include_once ('User.php');
 
                     if(isset($_POST['submit'])){
@@ -51,17 +52,17 @@
                         }
                     }
                 ?>
-                <form action="login.php" method="POST">
+                <form action="login.php" id="login-main-form" method="POST">
                     <label for="lemail">Email</label>
                     <?php
                     if(isset($_POST['email'])){
-                        echo '<input class="profile-input" type="email" value="'.$_POST['email'].'" id="lemail" name="email" placeholder="Email@some.boh" required />';
+                        echo '<input class="profile-input" type="email" value="'.$_POST['email'].'" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="LoginPage_HideChangeLoginDataError()" />';
                     }else{
-                        echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required />';
+                        echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="LoginPage_HideChangeLoginDataError()" />';
                     }
                     ?>
                     <label for="lpassword">Password</label>
-                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required />
+                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required onfocus="LoginPage_HideChangeLoginDataError()" />
                 
                     <input class="profile-input" name="submit" type="submit" value="Submit" />
                 </form>

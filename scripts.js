@@ -129,6 +129,52 @@ function validateLoginData(){
 //---PAGINA REGISTER.PHP---
 //---
 
+//Nascondi il box dell'errore
+function RegisterPage_HideChangeLoginDataError(){
+    var changePwErrorBox = document.getElementById("js-register-input-error");
+    if (changePwErrorBox!=null){
+        changePwErrorBox.style.display = "none";
+        changePwErrorBox.innerHTML = "";
+    }
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function RegisterPage_ShowChangeLoginDataError(HTML_message){
+    var errorbox = document.getElementById("js-register-input-error");
+    errorbox.style.display = "block";
+    errorbox.innerHTML = HTML_message;
+}
+
+//Valida i dati del cambio dati base
+function validateRegisterData(){
+    email = document.getElementById("lemail").value;
+    nick = document.getElementById("lnickname").value;
+    name = document.getElementById("lname").value;
+    surname = document.getElementById("lsurname").value;
+    password = document.getElementById("lpassword").value;
+    var errorMessage = "";
+    if(!checkStringIsValid(email) || email.length > 100){
+        errorMessage += "<li>L'email inserita non è valida!</li>";
+    }
+    if(!checkStringIsValid(nick) || nick.length > 100){
+        errorMessage += "<li>Il nickname inserito non è valido!</li>";
+    }
+    if(!checkStringIsValid(name) || name.length > 100){
+        errorMessage += "<li>Il nome inserito non è valido!</li>";
+    }
+    if(!checkStringIsValid(surname) || surname.length > 100){
+        errorMessage += "<li>Il cognome inserito non è valido!</li>";
+    }
+    if(!checkStringIsValid(password) || password.length > 100){
+        errorMessage += "<li>La password inserita non è valida!</li>";
+    }
+    if(errorMessage != ""){
+        RegisterPage_ShowChangeLoginDataError(errorMessage);
+        return false;
+    }
+    return true;
+}
+
 //---
 //---PAGINA PROFILE.PHP---
 //---
@@ -260,6 +306,14 @@ window.addEventListener("load", function(){
         }, false);
     }
     //Register.php
+    var mainRegisterForm=document.getElementById("register-main-form");
+    if(mainRegisterForm != null){
+        mainRegisterForm.addEventListener("submit", function(event) {
+            if(!validateRegisterData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
     //Funzioni di inizializzazione
     sidebarExpandButtons();
     HideAllErrorBoxes();
