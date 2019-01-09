@@ -37,32 +37,6 @@ function toggleMobileNavMenu(){
     }
 }
 
-function checkPasswordsAreEquals(){
-    var pw1 = document.getElementById("lnew-password").value;
-    var pw2 = document.getElementById("lconf-new-password").value;
-
-    if(pw1 == pw2){
-        return true;
-    }else{
-        ProfilePage_ShowChangePwError("salve");
-        return false;
-    }
-}
-
-function ProfilePage_ChangePw_FormSubmit(){
-    return checkPasswordsAreEquals();
-}
-
-function HideProfileErrorBoxes(){
-    document.getElementById("password-error-box").style.display = "none";
-}
-
-function ProfilePage_ShowChangePwError(message){
-    var errorbox = document.getElementById("password-error-box");
-    errorbox.style.display = "display";
-    errorbox.innerHTML = '<li>Errore bello</li>';
-}
-
 function sidebarExpandButtons(){
     var buttons = document.getElementsByClassName("expand-button");
     for(var i=0; i<buttons.length;i++){
@@ -80,20 +54,75 @@ function sidebarExpandButtons(){
         },false);
     }
 }
-/*function RicheTextArea(){
-$('#summernote').summernote({
-  toolbar: [
-    // [groupName, [list of button]]
-    ["style", ["style"]],
-    ['style', ['bold', 'italic', 'underline']],
-    ['para', ['ul', 'ol']],
-    ['insert',['picture','link']],
-    ['Misc',['undo','redo','codeview']]
-  ]
-});
 
-$('#summernote').summernote('justifyLeft');
-}*/
+//----------------------------------------------------
+//Controllo dati input form vari
+//----------------------------------------------------
+
+//---FUNZIONI GENERICHE---
+
+function HideAllErrorBoxes(){
+    ProfilePage_HideChangePWError();
+}
+
+function checkStringEquals(string1, string2){
+    if(string1 == null || string2 == null){
+        return false;
+    }
+    return string1 == string2;
+}
+
+function checkStringIsValid(value){
+    if(value == null){
+        return false;
+    }
+    if(value.trim() == ""){
+        return false;
+    }
+    return true;
+}
+
+//---PROFILE.PHP---
+
+//--->Zona di cambio dei dati base
+
+//--->Zona di cambio password
+
+//Nascondi il box dell'errore
+function ProfilePage_HideChangePWError(){
+    var changePwErrorBox = document.getElementById("password-error-box");
+    if (changePwErrorBox!=null){
+        changePwErrorBox.style.display = "none";
+        changePwErrorBox.innerHTML = "";
+    }
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function ProfilePage_ShowChangePwError(message){
+    var errorbox = document.getElementById("password-error-box");
+    errorbox.style.display = "block";
+    errorbox.innerHTML = '<li>' + message + '</li>';
+}
+
+//Valida i dati del cambio password
+function validateChangePassword(){
+    original_password = document.getElementById("password-error-box").value;
+    new_password_1 = document.getElementById("password-error-box").value;
+    new_password_2 = document.getElementById("password-error-box").value;
+    if(!checkStringIsValid(original_password) || !checkStringIsValid(new_password_1) || !checkStringIsValid(new_password_2)){
+        ProfilePage_ShowChangePwError("Hai inserito dei dati non validi!");
+        return false;
+    }
+    if(!checkStringEquals(new_password_1, new_password_2)){
+        ProfilePage_ShowChangePwError("Le due password non coincidono!");
+        return false;
+    }
+    return true;
+}
+
+//----------------------------------------------------
+//Principali EventListener
+//----------------------------------------------------
 
 window.addEventListener("load", function(){
     loadCSSstylesheet();
@@ -109,11 +138,14 @@ window.addEventListener("load", function(){
         menuIcon.addEventListener("click",toggleMobileNavMenu , true);
     }
     if(changePwForm!=null){
-        changePwForm.addEventListener("submit",ProfilePage_ChangePw_FormSubmit, true);
+        changePwForm.addEventListener("submit", function(event) {
+            if(!validateChangePassword()){
+                event.preventDefault();
+            }
+        }, false);
     }
     sidebarExpandButtons();
-    //RicheTextArea();
-    HideProfileErrorBoxes();
+    HideAllErrorBoxes();
 });
 
 window.addEventListener('resize', function(e) {
@@ -150,6 +182,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+//----------------------------------------------------
+//Gestione scroll verso l'alto
+//----------------------------------------------------
+
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
@@ -163,6 +199,8 @@ function scrollFunction() {
         }
     }
 }
+
+
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
@@ -191,7 +229,7 @@ function scrollTo(element, to, duration) {
 //c = change in value
 //d = duration
 Math.easeInOutQuad = function (t, b, c, d) {
-  t /= d/2;
+    t /= d/2;
     if (t < 1) return c/2*t*t + b;
     t--;
     return -c/2 * (t*(t-2) - 1) + b;
