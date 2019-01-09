@@ -33,6 +33,19 @@
 		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
 		<script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         <?php
+            if(isset($_POST['comment'])) {
+                User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
+            }
+            if(isset($_POST['vote-comment'])) {
+                User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
+            }
+            if(isset($_POST['delete-vote'])) {
+                User::removeVoteComment($_POST['commentID'], $_SESSION['email'], $_GET["id"], true);
+            }
+            if(isset($_POST['delete-comment'])) {
+                User::deleteComment($_SESSION['email'], $_POST['commentID']);
+            }
+
             Sidebar::printSidebarIncludeHeader();
         ?>
     </head>
@@ -60,18 +73,6 @@
                     <!--Inizio centratura commenti-->
                     <div id="comments-content">
                         <?php
-                            if(isset($_POST['comment'])) {
-                                User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
-                            }
-                            if(isset($_POST['vote-comment'])) {
-                                User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
-                            }
-                            if(isset($_POST['delete-vote'])) {
-                                User::removeVoteComment($_POST['commentID'], $_SESSION['email'], $_GET["id"], true);
-                            }
-                            if(isset($_POST['delete-comment'])) {
-                                User::deleteComment($_SESSION['email'], $_POST['commentID']);
-                            }
                             echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" >';
                             Comments::printCommentInputZone($_SESSION['email']);
                             echo '</form>';

@@ -180,7 +180,6 @@
             $connection->bindParameterToQuery(":commentText", $commentText, PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
-            header("Location: ReadArticle.php?id=$articleID#comments-content");
         }
 
         static function deleteComment($email, $commentID) {
