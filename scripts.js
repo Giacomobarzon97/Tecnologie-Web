@@ -64,6 +64,7 @@ function sidebarExpandButtons(){
 function HideAllErrorBoxes(){
     ProfilePage_HideChangePWError();
     ProfilePage_HideChangeBasicDataPWError();
+    LoginPage_HideChangeLoginDataError();
 }
 
 function checkStringEquals(string1, string2){
@@ -89,6 +90,40 @@ function checkStringIsValid(value){
 //---
 //---PAGINA LOGIN.PHP---
 //---
+
+//Nascondi il box dell'errore
+function LoginPage_HideChangeLoginDataError(){
+    var changePwErrorBox = document.getElementById("js-login-input-error");
+    if (changePwErrorBox!=null){
+        changePwErrorBox.style.display = "none";
+        changePwErrorBox.innerHTML = "";
+    }
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function LoginPage_ShowChangeLoginDataError(HTML_message){
+    var errorbox = document.getElementById("js-login-input-error");
+    errorbox.style.display = "block";
+    errorbox.innerHTML = HTML_message;
+}
+
+//Valida i dati del cambio dati base
+function validateLoginData(){
+    email = document.getElementById("lemail").value;
+    password = document.getElementById("lpassword").value;
+    var errorMessage = "";
+    if(!checkStringIsValid(email) || email.length > 100){
+        errorMessage += "<li>L'email inserita non è valida!</li>";
+    } 
+    if(!checkStringIsValid(password) || password.length > 100){
+        errorMessage += "<li>La password inserita non è valida!</li>";
+    }
+    if(errorMessage != ""){
+        ProfilePage_ShowChangeBasicDataError(errorMessage);
+        return false;
+    }
+    return true;
+}
 
 //---
 //---PAGINA REGISTER.PHP---
@@ -215,6 +250,16 @@ window.addEventListener("load", function(){
             }
         }, false);
     }
+    //Login.php
+    var mainLoginForm=document.getElementById("login-main-form");
+    if(mainLoginForm != null){
+        mainLoginForm.addEventListener("submit", function(event) {
+            if(!validateLoginData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //Register.php
     //Funzioni di inizializzazione
     sidebarExpandButtons();
     HideAllErrorBoxes();
