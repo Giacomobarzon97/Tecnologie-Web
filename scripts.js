@@ -63,6 +63,7 @@ function sidebarExpandButtons(){
 
 function HideAllErrorBoxes(){
     ProfilePage_HideChangePWError();
+    ProfilePage_HideChangeBasicDataPWError();
 }
 
 function checkStringEquals(string1, string2){
@@ -79,12 +80,55 @@ function checkStringIsValid(value){
     if(value.trim() == ""){
         return false;
     }
+    if(value.length == 0){
+        return false;
+    }
     return true;
 }
 
-//---PROFILE.PHP---
+//---
+//---PAGINA PROFILE.PHP---
+//---
 
 //--->Zona di cambio dei dati base
+
+//Nascondi il box dell'errore
+function ProfilePage_HideChangeBasicDataPWError(){
+    var changePwErrorBox = document.getElementById("base-data-error-box");
+    if (changePwErrorBox!=null){
+        changePwErrorBox.style.display = "none";
+        changePwErrorBox.innerHTML = "";
+    }
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function ProfilePage_ShowChangeBasicDataError(HTML_message){
+    var errorbox = document.getElementById("base-data-error-box");
+    errorbox.style.display = "block";
+    errorbox.innerHTML = HTML_message;
+}
+
+//Valida i dati del cambio dati base
+function validateChangeBasicData(){
+    nickname = document.getElementById("lnickname").value;
+    name = document.getElementById("lname").value;
+    surname = document.getElementById("lsurname").value;
+    var errorMessage = "";
+    if(!checkStringIsValid(nickname) || nickname.length > 100){
+        errorMessage += "<li>La passowrd originale non è valida!</li>";
+    } 
+    if(!checkStringIsValid(name) || name.length > 100){
+        errorMessage += "<li>La nuova password non è valida!</li>";
+    }
+    if(!checkStringIsValid(surname) || surname.length > 100){
+        errorMessage += "<li>La conferma della nuova password non è valida!</li>";
+    }
+    if(errorMessage != ""){
+        ProfilePage_ShowChangeBasicDataError(errorMessage);
+        return false;
+    }
+    return true;
+}
 
 //--->Zona di cambio password
 
@@ -98,10 +142,10 @@ function ProfilePage_HideChangePWError(){
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function ProfilePage_ShowChangePwError(message){
+function ProfilePage_ShowChangePwError(HTML_message){
     var errorbox = document.getElementById("password-error-box");
     errorbox.style.display = "block";
-    errorbox.innerHTML = '<li>' + message + '</li>';
+    errorbox.innerHTML = HTML_message;
 }
 
 //Valida i dati del cambio password
@@ -109,8 +153,18 @@ function validateChangePassword(){
     original_password = document.getElementById("lold-password").value;
     new_password_1 = document.getElementById("lnew-password").value;
     new_password_2 = document.getElementById("lconf-new-password").value;
-    if(!checkStringIsValid(original_password) || !checkStringIsValid(new_password_1) || !checkStringIsValid(new_password_2)){
-        ProfilePage_ShowChangePwError("Hai inserito dei dati non validi!");
+    var errorMessage = "";
+    if(!checkStringIsValid(original_password) || original_password.length > 100){
+        errorMessage += "<li>La passowrd originale non è valida!</li>";
+    } 
+    if(!checkStringIsValid(new_password_1) || original_password.length > 100){
+        errorMessage += "<li>La nuova password non è valida!</li>";
+    }
+    if(!checkStringIsValid(new_password_2) || original_password.length > 100){
+        errorMessage += "<li>La conferma della nuova password non è valida!</li>";
+    }
+    if(errorMessage != ""){
+        ProfilePage_ShowChangePwError(errorMessage);
         return false;
     }
     if(!checkStringEquals(new_password_1, new_password_2)){
@@ -129,7 +183,6 @@ window.addEventListener("load", function(){
     var hamburger=document.getElementById("nav-hamburger");
     var mask=document.getElementById("mobile-sidebar-mask");
     var menuIcon=document.getElementById("nav-menu-icon");
-    var changePwForm=document.getElementById("change_pw_form");
     if(hamburger!=null && mask!=null){
         hamburger.addEventListener("click",openMobileSidebar, true);
         mask.addEventListener("click",closeMobileSidebar, true);
@@ -137,6 +190,9 @@ window.addEventListener("load", function(){
     if(menuIcon!=null){
         menuIcon.addEventListener("click",toggleMobileNavMenu , true);
     }
+    //Profile.php
+    var changePwForm=document.getElementById("change_pw_form");
+    var changeBasicDataForm=document.getElementById("change_basic_data_form");
     if(changePwForm!=null){
         changePwForm.addEventListener("submit", function(event) {
             if(!validateChangePassword()){
@@ -144,6 +200,14 @@ window.addEventListener("load", function(){
             }
         }, false);
     }
+    if(changeBasicDataForm!=null){
+        changeBasicDataForm.addEventListener("submit", function(event) {
+            if(!validateChangeBasicData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //Funzioni di inizializzazione
     sidebarExpandButtons();
     HideAllErrorBoxes();
 });
