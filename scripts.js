@@ -101,7 +101,7 @@ function checkEmailStringFormat(email){
 }
 
 function checkSimpleStringFormat(value){
-    var re = /[A-Z]{1}[a-z]{1,99}/;
+    var re = /^[A-Za-z]{1,99}$/;
     return re.test(value);
 }
 
@@ -256,10 +256,10 @@ function validateChangeBasicData(){
     if(!checkStringIsValid(nickname) || nickname.length > 100){
         errorMessage += "<li>Il nickname inserito non è valido!</li>";
     } 
-    if(!checkStringIsValid(name) || name.length > 100){
+    if(!checkStringIsValid(name) || name.length > 100 || !checkSimpleStringFormat(name)){
         errorMessage += "<li>Il nome inserito non è valido!</li>";
     }
-    if(!checkStringIsValid(surname) || surname.length > 100){
+    if(!checkStringIsValid(surname) || surname.length > 100 || !checkSimpleStringFormat(surname)){
         errorMessage += "<li>Il cognome inserito non è valido!</li>";
     }
     if(errorMessage != ""){

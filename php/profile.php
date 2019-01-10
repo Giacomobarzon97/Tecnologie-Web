@@ -46,7 +46,7 @@
                 
                 <h2>Modifica le tue informazioni</h2>
             </div>
-            <ul class="regform-errorbox" id="base-data-error-box"></ul>
+            <div id="profile-error-box-base-data"></div>
             <div class="regform-main-section">
                 <?php
                     if(isset($_POST['submitChangeInfo'])) {
@@ -98,7 +98,7 @@
             <div class="regform-introduction">
                 <h2>Modifica la tua password</h2>
             </div>
-            <ul class="regform-errorbox" id="password-error-box"></ul>
+            <div id="profile-error-box-change-pw"></div>
             <div class="regform-main-section">
             <?php 
                 if(isset($_POST['submitChangePassword'])) {

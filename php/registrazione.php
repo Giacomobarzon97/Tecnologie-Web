@@ -30,7 +30,7 @@
                 <h1><a href="index.html">Nome del sito</a></h1>
                 <h2>Effettua la registrazione a Nome del sito</h2>
             </div>
-            <ul class="regform-errorbox" id="js-register-input-error"></ul>
+            <div id="register-error-box-zone"></div>
             <div class="regform-main-section">
             <?php 
                     include_once ('User.php');
