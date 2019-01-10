@@ -107,10 +107,14 @@ function checkSimpleStringFormat(value){
 
 //---FUNZIONI PER MOSTRARE/NASCONDERE BOX ERRORE---
 
-function CreateErrorBox(parentID, boxID){
+function CreateErrorBox(parentID, boxID, hideOnCreate = true){
     var parent = document.getElementById(parentID);
     if(parent != null){
         parentID.innerHTML = "<ul class=\"regform-errorbox\" id=" + boxID + "></ul>";
+        var createdElement = document.getElementById(boxID);
+        if(createdElement != null && hideOnCreate){
+            return true && HideErrorBox(boxID);
+        }
         return true;
     }
     return false;
@@ -360,8 +364,10 @@ window.addEventListener("load", function(){
         }, false);
     }
     //Funzioni di inizializzazione
+    //Sidebar
     sidebarExpandButtons();
-    HideAllErrorBoxes();
+    //Error box
+    CreateAllErrorBoxes();
 });
 
 window.addEventListener('resize', function(e) {
