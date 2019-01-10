@@ -110,7 +110,7 @@ function checkSimpleStringFormat(value){
 function CreateErrorBox(parentID, boxID, hideOnCreate = true){
     var parent = document.getElementById(parentID);
     if(parent != null){
-        parentID.innerHTML = "<ul class=\"regform-errorbox\" id=" + boxID + "></ul>";
+        parent.innerHTML = "<ul class=\"regform-errorbox\" id=" + boxID + "></ul>";
         var createdElement = document.getElementById(boxID);
         if(createdElement != null && hideOnCreate){
             return true && HideErrorBox(boxID);
