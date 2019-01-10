@@ -68,6 +68,15 @@ function HideAllErrorBoxes(){
     RegisterPage_HideChangeLoginDataError();
 }
 
+function CreateAllErrorBoxes(){
+    LoginPage_CreateErrorBox();
+    RegisterPage_CreateErrorBox();
+    ProfilePage_CreateErrorBox_BasicData();
+    ProfilePage_CreateErrorBox_ChangePw();
+}
+
+//---FUNZIONI CONTROLLO VALORI---
+
 function checkStringEquals(string1, string2){
     if(string1 == null || string2 == null){
         return false;
@@ -88,24 +97,62 @@ function checkStringIsValid(value){
     return true;
 }
 
+function checkEmailStringFormat(value){
+
+}
+
+function checkSimpleStringFormat(value){
+
+}
+
+//---FUNZIONI PER MOSTRARE/NASCONDERE BOX ERRORE---
+
+function CreateErrorBox(parentID, boxID){
+    var parent = document.getElementById(parentID);
+    if(parent != null){
+        parentID.innerHTML = "<ul class=\"regform-errorbox\" id=" + boxID + "></ul>";
+        return true;
+    }
+    return false;
+}
+
+function HideErrorBox(boxID){
+    var ErrorBox = document.getElementById(boxID);
+    if (ErrorBox!=null){
+        ErrorBox.style.display = "none";
+        ErrorBox.innerHTML = "";
+        return true;
+    }
+    return false;
+}
+
+function ShowErrorBox(boxID, HTML_message){
+    var ErrorBox = document.getElementById(boxID);
+    if (ErrorBox!=null){
+        ErrorBox.style.display = "block";
+        ErrorBox.innerHTML = HTML_message;
+        return true;
+    }
+    return false;
+}
+
 //---
 //---PAGINA LOGIN.PHP---
 //---
 
+//Crea il box dell'errore nella posizione data
+function LoginPage_CreateErrorBox(){
+    CreateErrorBox("login-error-box-zone", "js-login-input-error");
+}
+
 //Nascondi il box dell'errore
 function LoginPage_HideChangeLoginDataError(){
-    var changePwErrorBox = document.getElementById("js-login-input-error");
-    if (changePwErrorBox!=null){
-        changePwErrorBox.style.display = "none";
-        changePwErrorBox.innerHTML = "";
-    }
+    HideErrorBox("js-login-input-error");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
 function LoginPage_ShowChangeLoginDataError(HTML_message){
-    var errorbox = document.getElementById("js-login-input-error");
-    errorbox.style.display = "block";
-    errorbox.innerHTML = HTML_message;
+    ShowErrorBox("js-login-input-error", HTML_message);
 }
 
 //Valida i dati del cambio dati base
@@ -130,20 +177,19 @@ function validateLoginData(){
 //---PAGINA REGISTER.PHP---
 //---
 
+//Crea il box dell'errore nella posizione data
+function RegisterPage_CreateErrorBox(){
+    CreateErrorBox("register-error-box-zone", "js-register-input-error");
+}
+
 //Nascondi il box dell'errore
 function RegisterPage_HideChangeLoginDataError(){
-    var changePwErrorBox = document.getElementById("js-register-input-error");
-    if (changePwErrorBox!=null){
-        changePwErrorBox.style.display = "none";
-        changePwErrorBox.innerHTML = "";
-    }
+    HideErrorBox("js-register-input-error");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
 function RegisterPage_ShowChangeLoginDataError(HTML_message){
-    var errorbox = document.getElementById("js-register-input-error");
-    errorbox.style.display = "block";
-    errorbox.innerHTML = HTML_message;
+    ShowErrorBox("js-register-input-error", HTML_message);
 }
 
 //Valida i dati del cambio dati base
@@ -182,20 +228,19 @@ function validateRegisterData(){
 
 //--->Zona di cambio dei dati base
 
+//Crea il box dell'errore nella posizione data
+function ProfilePage_CreateErrorBox_BasicData(){
+    CreateErrorBox("profile-error-box-base-data", "base-data-error-box");
+}
+
 //Nascondi il box dell'errore
 function ProfilePage_HideChangeBasicDataPWError(){
-    var changePwErrorBox = document.getElementById("base-data-error-box");
-    if (changePwErrorBox!=null){
-        changePwErrorBox.style.display = "none";
-        changePwErrorBox.innerHTML = "";
-    }
+    HideErrorBox("base-data-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
 function ProfilePage_ShowChangeBasicDataError(HTML_message){
-    var errorbox = document.getElementById("base-data-error-box");
-    errorbox.style.display = "block";
-    errorbox.innerHTML = HTML_message;
+    ShowErrorBox("base-data-error-box", HTML_message);
 }
 
 //Valida i dati del cambio dati base
@@ -222,20 +267,19 @@ function validateChangeBasicData(){
 
 //--->Zona di cambio password
 
+//Crea il box dell'errore nella posizione data
+function ProfilePage_CreateErrorBox_ChangePw(){
+    CreateErrorBox("profile-error-box-change-pw", "password-error-box");
+}
+
 //Nascondi il box dell'errore
 function ProfilePage_HideChangePWError(){
-    var changePwErrorBox = document.getElementById("password-error-box");
-    if (changePwErrorBox!=null){
-        changePwErrorBox.style.display = "none";
-        changePwErrorBox.innerHTML = "";
-    }
+    HideErrorBox("password-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
 function ProfilePage_ShowChangePwError(HTML_message){
-    var errorbox = document.getElementById("password-error-box");
-    errorbox.style.display = "block";
-    errorbox.innerHTML = HTML_message;
+    ShowErrorBox("password-error-box", HTML_message);
 }
 
 //Valida i dati del cambio password
