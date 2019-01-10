@@ -61,13 +61,8 @@ function sidebarExpandButtons(){
 
 //---FUNZIONI GENERICHE---
 
-function HideAllErrorBoxes(){
-    ProfilePage_HideChangePWError();
-    ProfilePage_HideChangeBasicDataPWError();
-    LoginPage_HideChangeLoginDataError();
-    RegisterPage_HideChangeLoginDataError();
-}
-
+//Funzione chiamata al load della pagina
+//Prova a creare l'error box, avrà successo nelle pagine che lo hanno
 function CreateAllErrorBoxes(){
     LoginPage_CreateErrorBox();
     RegisterPage_CreateErrorBox();
@@ -97,12 +92,17 @@ function checkStringIsValid(value){
     return true;
 }
 
-function checkEmailStringFormat(value){
+//Validazione con espressioni regolari
 
+function checkEmailStringFormat(email){
+    //RE presa da http://jsfiddle.net/ghvj4gy9/embedded/result,js/
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
 
 function checkSimpleStringFormat(value){
-
+    var re = /[A-Z]{1}[a-z]{1,99}/;
+    return re.test(value);
 }
 
 //---FUNZIONI PER MOSTRARE/NASCONDERE BOX ERRORE---
@@ -204,16 +204,16 @@ function validateRegisterData(){
     surname = document.getElementById("lsurname").value;
     password = document.getElementById("lpassword").value;
     var errorMessage = "";
-    if(!checkStringIsValid(email) || email.length > 100){
+    if(!checkStringIsValid(email) || email.length > 100 || !checkEmailStringFormat(email)){
         errorMessage += "<li>L'email inserita non è valida!</li>";
     }
     if(!checkStringIsValid(nick) || nick.length > 100){
         errorMessage += "<li>Il nickname inserito non è valido!</li>";
     }
-    if(!checkStringIsValid(name) || name.length > 100){
+    if(!checkStringIsValid(name) || name.length > 100 || !checkSimpleStringFormat(name)){
         errorMessage += "<li>Il nome inserito non è valido!</li>";
     }
-    if(!checkStringIsValid(surname) || surname.length > 100){
+    if(!checkStringIsValid(surname) || surname.length > 100 || !checkSimpleStringFormat(surname)){
         errorMessage += "<li>Il cognome inserito non è valido!</li>";
     }
     if(!checkStringIsValid(password) || password.length > 100){
