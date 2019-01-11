@@ -185,13 +185,19 @@
         static function printInsertSubtopicForm($sessionEmail, $topicID){
             if(User::isAdmin($sessionEmail)){
                 echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
-                    <p>Inserisci un nuovo sotto-argomento</p>
-                    <input type="hidden" name="topicID" value="'.$topicID.'" />
-                    <label for="title">Titolo del nuovo subtopic:</label>
-                    <input type="text" name="title" placeholder="Titolo del subtopic" />
-                    <label for="description">Descrizione del nuovo subtopic:</label>
-					<input type="text" name="description" placeholder="Descrizione del subtopic" />
-                    <input type="submit" name="add-subtopic" value="Invia" />
+                    <fieldset>
+                        <p>Inserisci un nuovo sotto-argomento</p>
+                        <input type="hidden" name="topicID" value="'.$topicID.'" />
+                            <p>
+                                <label for="title">Titolo del nuovo subtopic:</label>
+                                <input type="text" name="title" placeholder="Titolo del subtopic" />
+                            </p>
+                            <p>
+                                <label for="description">Descrizione del nuovo subtopic:</label>
+                                <input type="text" name="description" placeholder="Descrizione del subtopic" />
+                            </p>
+                            <p><input type="submit" name="add-subtopic" value="Invia" /></p>
+                    </fieldset>
                 </form>';
             }else{ //TOREMOVE
                 echo '(Non puoi inserire un nuovo sotto-argomento, effettua il login come amministratore)';

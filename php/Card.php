@@ -105,18 +105,26 @@
 
         static function printInsertNewCardForm(){
             echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
-                <h1>Crea un nuovo argomento</h1>
-                <label for="titolo">Titolo del nuovo subtopic:</label>
-                <input type="text" name="titolo" placeholder="Titolo del topic" required />
-                <label for="descrizione">Descrizione del nuovo subtopic:</label>
-                <input type="text" name="descrizione" placeholder="Descrizione del topic" required />
-                <label for="file-upload">Immagine thumbnail:</label>
-                <label for="file-upload" class="custom-file-upload">
-                    <img src="https://frncscdf.github.io/Tecnologie-Web/img/photo-camera.svg" class="file-upload-img" alt="upload file"/>Carica un immagine
-                </label>
-                <input id="file-upload" name="upfile" type="file" required />						
-                <input type="submit" name="add-topic" value="Invia" />
+                <fieldset>
+                    <p><input type="hidden" name="MAX_FILE_SIZE" value="512000" /><p>
+                    <h1>Crea un nuovo argomento</h1>
+                    <p>
+                        <label for="titolo">Titolo del nuovo subtopic:</label>
+                        <input type="text" name="titolo" placeholder="Titolo del topic" required />
+                    </p>
+                    <p>
+                        <label for="descrizione">Descrizione del nuovo subtopic:</label>
+                        <input type="text" name="descrizione" placeholder="Descrizione del topic" required />
+                    </p>
+                    <p>
+                        <label for="file-upload">Immagine thumbnail:</label>
+                        <label for="file-upload" class="custom-file-upload">
+                            <img src="https://frncscdf.github.io/Tecnologie-Web/img/photo-camera.svg" class="file-upload-img" alt="upload file"/>Carica un immagine
+                        </label>
+                        <input id="file-upload" name="upfile" type="file" required />
+                    </p>				
+                    <p><input type="submit" name="add-topic" value="Invia" /></p>
+                </fieldset>
             </form>';
         }
 
