@@ -250,24 +250,24 @@ a:hover{
 	text-align:center;
 }
 
-#content-article-introduction>form>label{
+#content-article-introduction>form>fieldset>p>label{
 	display: table;
 	margin:1em auto;
 	font-weight:700;
 }
 
-#content-article-introduction>form>input[type=text]{
+#content-article-introduction>form>fieldset>p>input[type=text]{
 	display: table;
 	margin:1em auto;
 	font-size: 1em;
 	padding: 0.5em;
 }
 
-#content-article-introduction>form>input[type=text]:focus{
+#content-article-introduction>form>fieldset>p>input[type=text]:focus{
 	box-shadow: 0 0 3px #0091ae;
 }
 
-#content-article-introduction>form>input[type=file]{
+#content-article-introduction>form>fieldset>p>input[type=file]{
 	display: none;
 }
 
@@ -285,7 +285,7 @@ a:hover{
 	width: auto;
 }
 
-#content-article-introduction>form>input[type=submit]{
+#content-article-introduction>form>fieldset>p>input[type=submit]{
 	display: table;
 	margin:1em auto;
 	border: none;
@@ -1337,11 +1337,11 @@ MEDIA QUERIES
 		content: none;
 	}
 	
-	#content-article-introduction>form>input[type=text]{
+	#content-article-introduction>form>fieldset>p>input[type=text]{
 		width: 75%;
 	}
 
-	#content-article-introduction>form>input[type=submit]{
+	#content-article-introduction>form>fieldset>p>input[type=submit]{
 		padding: 1em 10%;
 	}
 	
