@@ -32,7 +32,7 @@ function upload($name, $size, $type, $tmp_name) {
                         }
                         $name = $name.$extension;
                     }
-
+                    
                     if(move_uploaded_file($tmp_name, $dirToSave.$name)) {
                         //echo 'File caricato nella cartella /uploads';
                         
@@ -52,32 +52,50 @@ function upload($name, $size, $type, $tmp_name) {
         }
 }//function upload
 
-function resizeImage($file, $w, $h, $crop=FALSE) {
-    list($width, $height) = getimagesize($file);
-    $r = $width / $height;
-    if ($crop) {
-        if ($width > $height) {
-            $width = ceil($width-($width*abs($r-$w/$h)));
-        } else {
-            $height = ceil($height-($height*abs($r-$w/$h)));
-        }
-        $newwidth = $w;
-        $newheight = $h;
-    } else {
-        if ($w/$h > $r) {
-            $newwidth = $h*$r;
-            $newheight = $h;
-        } else {
-            $newheight = $w/$r;
-            $newwidth = $w;
-        }
+function resizeImage($image, $sizeWidth, $sizeHeight, $fileExtension) {
+    $error[0] = 0;
+    $resourceImage = false;
+    switch($estensioneFile) {
+        case 'jpeg':
+            $resourceImage = imagecreatefromjpeg($image["tmp_name"]);
+            break;
+        case 'png':
+            $resourceImage = imagecreatefrompng($image["tmp_name"]);
+            break;
+        case 'gif':
+            $resourceImage = imagecreatefromgif($image["tmp_name"]);
+            break;
+        default:
+            $error[0] = 1;
+            break;
     }
-    $src = imagecreatefromjpeg($file);
-    $dst = imagecreatetruecolor($newwidth, $newheight);
-    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-
-    return $dst;
+    if ($resourceImage !== false) {
+        $scaledImage = imagescale($resourceImage, $sizeWidth, $sizeHeight);
+        if ($scaledImage !== false) {
+            $ok = false;
+            //delImage($immagine["tmp_name"]);
+            switch ($estensioneFile) {
+                case 'jpeg':
+                    $ok = imagejpeg($scaledImage, $immagine["tmp_name"]);
+                    break;
+                case 'png':
+                    $ok = imagepng($scaledImage, $immagine["tmp_name"]);
+                    break;
+                case 'gif':
+                    $ok = imagegif($scaledImage, $immagine["tmp_name"]);
+                    break;
+            }
+            if ($ok === false)
+                $error[0] = 1;
+        }
+        else
+            $error[0] =1;
+    }
+    else
+        $error[0] = 1;
+    return $error;
 }
+
 
 //Cancella un file
 //Il nome è tutto il path cartella/nomefile
