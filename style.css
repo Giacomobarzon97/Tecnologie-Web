@@ -382,7 +382,7 @@ a:hover{
 
 .arg_link>li>div{
 	display: inline-block;
-	float: right;
+	/*float: right;*/
 	width: 20%;
 }
 
@@ -1075,6 +1075,11 @@ PROFILE
 .regform-side-section a{
 	margin:0 0.2em;
 }
+
+fieldset {
+	border: 0;
+}
+
 /*------------------------------------------
 FOOTER
 --------------------------------------------*/
