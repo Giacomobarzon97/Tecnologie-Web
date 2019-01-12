@@ -1,5 +1,6 @@
 <?php
     include_once ("Connection.php");
+    include_once ("validateData.php");
 
     class UserInfo {
         public $email = "";
@@ -35,47 +36,6 @@
 
             mail($email, $subject, $content, implode("\r\n", $headers));
         }
-
-        static function checkField($field) {
-            if($field === '' || strlen($field) > 100) {
-                //echo "username non valido";
-                return false;
-            }
-            return true;
-        }
-
-        static function checkFields($email, $nickname, $password, $name, $surname) {
-            // Rimuove i caratteri che non possono figurare in un indirizzo email
-            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
-            // Validate e-mail
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 100) {
-                //echo "email non valida";
-                return false;
-            }
-
-            if($nickname === '' || strlen($nickname) > 100) {
-                //echo "username non valido";
-                return false;
-            }
-
-            if($password === '' || strlen($nickname) > 100) {
-                //echo "password non valido";
-                return false;
-            }
-
-            if($name === '' || strlen($name > 100)) {
-                //echo "nome non valido";
-                return false;
-            }
-
-            if($surname === '' || strlen($surname) > 100) {
-                //echo "cognome non valido";
-                return false;
-            }
-
-            return true;
-        }
         
         /*
             Viene ritornato un messagio che specifica lo stato dopo aver tentato la registrazione
@@ -94,18 +54,30 @@
             $connection->bindParameterToQuery(":Surname", $surname, PDO::PARAM_STR);
             $connection->bindParameterToQuery(":ProfilePic", $profilePic, PDO::PARAM_STR);
 
-            $messagge = NULL;
+            $messagge = "";
 
-            $fieldValidity = User::checkFields($email, $nickname, $password, $name, $surname);
-            if(!$fieldValidity) {
-                $messagge = "Campi non validi!";
-            } else {
+            if(!ValidateData::validateEmail($email)) {
+                $messagge = "<p>E-mail non valida!</p>";
+            }
+            if(!ValidateData::checkStringIsEmpty($nickname)) {
+                $messagge = "<p>Nickname non valido!</p>";
+            }
+            if(!ValidateData::validatePassword($password)) {
+                $messagge = "<p>Password non valida! Deve essere lunga tra 3 e 100 caratteri</p>";
+            }
+            if(!ValidateData::validateName($name)) {
+                $messagge = "<p>Nome non valido!</p>";
+            }
+            if(!ValidateData::validateName($surname)) {
+                $messagge = "<p>Cognome non valido!</p>";
+            }
+            if ($messagge == "") {
                 try {
                     $result = $connection -> executeQueryDML();
                     $messagge = "Registrazione avvenuta con successo! <br/>
                                 Clicca <a href='login.php'>qui</a> per eseguire il login.";
                 } catch (PDOException $e){
-                    $messagge = "Impossibile registrarsi, utente già esistente!";
+                    $messagge = "Impossibile registrarsi, utente già esistente o nickname già presente!";
                 }
             }
             
@@ -263,7 +235,7 @@
         }
 
         static function changeNickname($email, $newNickname) {
-            if(!User::checkField($newNickname)) {
+            if(!ValidateData::checkStringIsEmpty($newNickname)) {
                 return false;
             }
             $resultState = true;
@@ -284,7 +256,7 @@
         }
 
         static function changeName($email, $newName) {
-            if(!User::checkField($newName)) {
+            if(!ValidateData::validateName($newName)) {
                 return false;
             }
             $connection = new Connection();
@@ -304,7 +276,7 @@
         }
 
         static function changeSurname($email, $newSurname) {
-            if(!User::checkField($newSurname)) {
+            if(!ValidateData::validateName($newSurname)) {
                 return false;
             }
             $connection = new Connection();
