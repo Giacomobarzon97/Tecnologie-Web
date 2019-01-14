@@ -485,7 +485,7 @@ function validateRecoverPasswordData(){
 
 //Crea il box dell'errore nella posizione data
 function InsertArticle_CreateErrorBox_InsertArticle(){
-    CreateErrorBox("forgot-pw-error-box-change-password", "recover-password-error-box");
+    CreateErrorBox("insert-article-error-box", "recover-password-error-box");
 }
 
 //Nascondi il box dell'errore
