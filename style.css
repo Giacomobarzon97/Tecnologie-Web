@@ -96,7 +96,7 @@ a:hover{
 	/*Strictly Necessary */
 	position: fixed;
 	top: 0px;
-	height: 6em; /*Adjust the hight to your purposes*/
+	height: 5em; /*Adjust the hight to your purposes*/
 	z-index:1;
 	/*Aesthetics*/
 	background: white;
@@ -127,47 +127,24 @@ a:hover{
 #nav>h1,#nav-full>h1{
 	float:left;
 	font-size:2em;
-	margin:0.3em 1em;
+	margin:0.6em 1em;
 }
 #menu, #nav-full>ul{
 	float: right;
 	list-style-type: none;
 	overflow-y:hidden; /* Was "none" but is incorrect */
-	margin:1.6em 0em;
+	margin:2em 0em;
 }
 
 #menu>li, #nav-full>ul>li{
 	display:inline-block;
-	margin: 0em 2em;
+	margin: 0em 1.25em;
 	transition:margin 0.5s;
 	color:#0D47A1;
 }
 
 .breadcrumb {
-	width: 100%;
-	margin: 0px 2em;
-	list-style: none;
-	float: left;
-}
-
-.breadcrumb li {
-	display: inline;
-}
-
-.breadcrumb li+li:before {
-	padding: 2%;
-	color: #000000;
-	content: ">";
-}
-
-.breadcrumb li a {
-	color: #0D47A1;
-	text-decoration: none;
-}
-
-.breadcrumb li a:hover {
-	color: #01447e;
-	text-decoration: underline;
+	
 }
 
 #main{
