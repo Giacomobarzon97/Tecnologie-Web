@@ -328,7 +328,7 @@ function validateChangePassword(){
 
 //Crea il box dell'errore nella posizione data
 function ManageArguments_CreateErrorBox_InsertCard(){
-    CreateErrorBox("arguments-error-box-insert-card", "base-data-error-box");
+    CreateErrorBox("arguments-error-box-insert-card", "card-error-box");
 }
 
 //Nascondi il box dell'errore
