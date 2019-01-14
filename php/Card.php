@@ -106,7 +106,6 @@
         static function printInsertNewCardForm(){
             echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data">
                 <fieldset>
-                    <p><input type="hidden" name="MAX_FILE_SIZE" value="512000" /><p>
                     <h1>Crea un nuovo argomento</h1>
                     <p>
                         <label for="titolo">Titolo del nuovo subtopic:</label>
