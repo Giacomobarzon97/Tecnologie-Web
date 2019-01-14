@@ -647,7 +647,7 @@ ARTICLES
     cursor: pointer;
 } 
 
-.input-comment-footer > input, .input-reply-footer > input {
+.input-comment-footer > p > input, .input-reply-footer > p > input {
 	position: relative;
   	vertical-align: top;
   	width: 25%;
@@ -735,7 +735,7 @@ HOMEPAGE
 	padding: 1.5em;
 }
 
-.input-comment-footer > input, .input-reply-footer > input {
+.input-comment-footer > p > input, .input-reply-footer > p > input {
 	position: relative;
   	vertical-align: top;
   	width: 25%;
@@ -1495,7 +1495,7 @@ MEDIA QUERIES
 		margin-top: 1.5em;
 	}
     
-    .input-comment-footer > input, .input-reply-footer > input {
+    .input-comment-footer > p > input, .input-reply-footer > p > input {
 		min-width: 55%;
     	min-height: 20%;
     	font-size: 1em;
