@@ -184,17 +184,18 @@
 
         static function printInsertSubtopicForm($sessionEmail, $topicID){
             if(User::isAdmin($sessionEmail)){
-                echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
+                echo '<div id="subtopics-error-box-insert-subtopic"></div>
+                <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" id="insert-new-subtopic-form">
                     <fieldset>
                         <p>Inserisci un nuovo sotto-argomento</p>
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
                             <p>
                                 <label for="title">Titolo del nuovo subtopic:</label>
-                                <input type="text" name="title" placeholder="Titolo del subtopic" />
+                                <input type="text" name="title" id="new-subtopic-title" placeholder="Titolo del subtopic" required maxlength="100" />
                             </p>
                             <p>
                                 <label for="description">Descrizione del nuovo subtopic:</label>
-                                <input type="text" name="description" placeholder="Descrizione del subtopic" />
+                                <input type="text" name="description" id="new-subtopic-description" placeholder="Descrizione del subtopic" required maxlength="10000" />
                             </p>
                             <p><input type="submit" name="add-subtopic" value="Invia" /></p>
                     </fieldset>

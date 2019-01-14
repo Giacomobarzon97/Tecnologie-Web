@@ -73,9 +73,7 @@
                     <!--Inizio centratura commenti-->
                     <div id="comments-content">
                         <?php
-                            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" >';
                             Comments::printCommentInputZone($_SESSION['email']);
-                            echo '</form>';
                             Comments::printAllComments($_GET["id"], $_SESSION['email']);
                         ?>
                     </div>

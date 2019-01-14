@@ -104,16 +104,17 @@
         }
 
         static function printInsertNewCardForm(){
-            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data">
+            echo '<div id="arguments-error-box-insert-card"></div>
+            <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data" id="insert-new-card-form">
                 <fieldset>
                     <h1>Crea un nuovo argomento</h1>
                     <p>
                         <label for="titolo">Titolo del nuovo subtopic:</label>
-                        <input type="text" name="titolo" placeholder="Titolo del topic" required />
+                        <input type="text" name="titolo" id="title-input-box" placeholder="Titolo del topic" required maxlength="100" />
                     </p>
                     <p>
                         <label for="descrizione">Descrizione del nuovo subtopic:</label>
-                        <input type="text" name="descrizione" placeholder="Descrizione del topic" required />
+                        <input type="text" name="descrizione" id="description-input-box" placeholder="Descrizione del topic" required maxlength="10000" />
                     </p>
                     <p>
                         <label for="file-upload">Immagine thumbnail:</label>

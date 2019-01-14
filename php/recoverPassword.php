@@ -57,12 +57,16 @@
                 ||
                 (User::checkIfTokenExist($_POST['change_pw_token']))
             ){ //Il token esiste
-                echo '<form action="'.$_SERVER['PHP_SELF'].'" method="POST">
-                    <label for="lpassword">Password</label>
-                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required />
+                echo '<div id="forgot-pw-error-box-change-password"></div>
+                <form action="'.$_SERVER['PHP_SELF'].'" method="POST" id="change-password-forgot-token">
+                    <fielset>
+                    <p><label for="lpassword">Password</label>
+                    <input class="profile-input" type="password" id="lpassword" name="password" 
+                    placeholder="Password" required onfocus="RecoverPassword_HideChangePwError()" /></p>
 
-                    <label for="lpassword-confirm">Conferma la Password</label>
-                    <input class="profile-input" type="password" id="lpassword-confirm" name="password" placeholder="Conferma la Password" required />
+                    <p><label for="lpassword-confirm">Conferma la Password</label>
+                    <input class="profile-input" type="password" id="lpassword-confirm" name="password" 
+                    placeholder="Conferma la Password" required onfocus="RecoverPassword_HideChangePwError()" /></p>
                     ';
                     if(isset($_GET['token'])){ //Alla prima apertura stampo il token dal get
                         echo '<input type="hidden" name="change_pw_token" value="'.$_GET['token'].'" />';
@@ -70,8 +74,8 @@
                         echo '<input type="hidden" name="change_pw_token" value="'.$_POST['change_pw_token'].'" />';
                     }
                     
-                    echo '<input class="profile-input" name="submit" type="submit" value="Reimposta" />
-                </form>';
+                    echo '<p><input class="profile-input" name="submit" type="submit" value="Reimposta" /></p>
+                    </fielset></form>';
             }else{ //Il token non esiste
                 echo 'Purtroppo il token fornito per il cambio della password non è valido... Controlla o richiedine uno nuovo...';
             }

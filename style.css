@@ -507,13 +507,13 @@ ARTICLES
     margin-top: 1%;
 }
 
-.input-comment-area > textarea {
+.input-comment-area > p > textarea {
     font-size: 1.1em;
     max-width: 90%;
     resize: none;
 }
 
-.input-comment-area > textarea::placeholder {
+.input-comment-area > p > textarea::placeholder {
     font-style: italic;
 }
 

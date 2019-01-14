@@ -10,17 +10,22 @@
                 $connection -> prepareQuery("SELECT * FROM USERS WHERE :email = Email");
                 $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
                 $result = $connection -> executeQuery();
+                echo '<div id="comments-error-box-insert-comment"></div>
+                <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" id="insert-new-comment-form">
+                <fieldset>';
                 echo '<div class="input-comment">
                     <div class="input-comment-avatar">
                         <img src="'.$result[0]['ProfilePic'].'" alt="Avatar di '.$result[0]['Nickname'].'"/>
                     </div>
                     <div class="input-comment-area">
-                            <textarea rows="4" cols="200" name="comment-input"></textarea>
+                            <p><textarea rows="4" cols="200" name="comment-input" id="comment-text-area-input" required
+                            onfocus="ReadArticle_HideInsertCommentError()"></textarea></p>
                     </div>
                     <div class="input-comment-footer">
-                        <input name="comment" type="submit" value="Invia commento" />
+                        <p><input name="comment" type="submit" value="Invia commento" /></p>
                     </div>
                 </div>';
+                echo '</fieldset></form>';
             }else{
                 echo '<div class="input-comment">
                 <h4>Per favore esegui il login o registrati per commentare</h4>
@@ -144,8 +149,10 @@
                         echo '<div class="post-comment-body-footer">';
                         if($loggedUserIsAdmin || ($comment['AuthorID'] == $loggedUserEmail)){
                             echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
+                            echo '<fieldset>';
                             echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                            echo '<input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" />';
+                            echo '<p><input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" /></p>';
+                            echo '</fieldset>';
                             echo '</form>';
                         }
                         echo '</div>';
