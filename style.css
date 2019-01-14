@@ -144,7 +144,8 @@ a:hover{
 }
 
 .breadcrumb {
-	
+	padding: 1em;
+	background: #03434F;
 }
 
 #main{
