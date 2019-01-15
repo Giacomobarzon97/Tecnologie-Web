@@ -12,11 +12,10 @@
 
 		
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
 		
 		<script src="./scripts.js"></script>
 
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
 		<!-- Plugin CSS -->
         <link type="text/css" href="OverlayScrollbars/css/OverlayScrollbars.min.css" rel="stylesheet"/>
         <!-- Plugin JS -->
@@ -24,6 +23,7 @@
 	</head>
   
 	<body>
+		<button onclick="topFunction()" id="retTop" title="Torna su"></button>
     	<div id="mobile-sidebar-mask"></div>
 		<div id="sidebar-wrapper">
 			<ul id="sidebar">
@@ -171,112 +171,16 @@
 					<li>ProfileName</li>
 				</ul>
 				<img src="img/more-button.svg" alt="nav menu icon" id="nav-menu-icon"/>
-			</div>			
-			<div id="main">
-				<div id="content-article-introduction">
-					<form action="index.php">
-						<h1>Crea un nuovo argomento</h1>
-						<label for="titolo">Titolo del nuovo subtopic:</label>
-						<input type="text" id="titolo" name="titolo" placeholder="Titolo del subtopic" />
-						<label for="file-upload">Immagine thumbnail:</label>
-						<label for="file-upload" class="custom-file-upload">
-						    <img src="img/photo-camera.svg" class="file-upload-img" alt="upload file"/>Carica un immagine
-						</label>
-						<input id="file-upload" type="file"/>						
-						<input type="submit" value="Invia" />
-					</form>
-				</div>
-				<div id="content-article-body">
-					<h1>Oppure gestisci quelli già esistenti</h1>
-					<ul>
-						<li class="arg_title" id="DE">
-							<div>
-								<div class="details">
-									<h2>Divide et Impera</h2>
-								</div>
-								<div class="buttons">
-									<form>
-										<input type="hidden" name="delete-subtopic" />
-										<input type="hidden" name="subtopicID" value="0" />
-										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
-									</form>
-									<form> <!--Will work as a link to add.php?...-->
-										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
-									</form>
-								</div>
-							</div>
-						</li>
-						<li class="arg_title">
-							<div>
-								<div class="details">
-									<h2>Divide et Impera</h2>
-								</div>
-								<div class="buttons">
-									<form>
-										<input type="hidden" name="delete-subtopic" />
-										<input type="hidden" name="subtopicID" value="0" />
-										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
-									</form>
-									<form> <!--Will work as a link to add.php?...-->
-										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
-									</form>
-								</div>
-							</div>
-						</li>
-						<li class="arg_title">
-							<div>
-								<div class="details">
-									<h2>Divide et Impera</h2>
-								</div>
-								<div class="buttons">
-									<form>
-										<input type="hidden" name="delete-subtopic" />
-										<input type="hidden" name="subtopicID" value="0" />
-										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
-									</form>
-									<form> <!--Will work as a link to add.php?...-->
-										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
-									</form>
-								</div>
-							</div>
-						</li>
-						<li class="arg_title">
-							<div>
-								<div class="details">
-									<h2>Divide et Impera</h2>
-								</div>
-								<div class="buttons">
-									<form>
-										<input type="hidden" name="delete-subtopic" />
-										<input type="hidden" name="subtopicID" value="0" />
-										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
-									</form>
-									<form> <!--Will work as a link to add.php?...-->
-										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
-									</form>
-								</div>
-							</div>
-						</li>
-						<li class="arg_title">
-							<div>
-								<div class="details">
-									<h2>Divide et Impera</h2>
-								</div>
-								<div class="buttons">
-									<form>
-										<input type="hidden" name="delete-subtopic" />
-										<input type="hidden" name="subtopicID" value="0" />
-										<input type="image" alt="cestino elimina sotto-argomento" src="./img/waste-bin.svg" class="delete_button_gen" />
-									</form>
-									<form> <!--Will work as a link to add.php?...-->
-										<input type="image" alt="aggiunta sotto-argomento" src="./img/edit.svg" class="add_button_gen" />
-									</form>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div> <!--Chiusura div main-->
+			</div>
+            <div id="main">
+	            <form action="" method="POST" id="write-article-form">
+	                <h1>Scrivi un nuovo articolo</h1>
+	                <h2>Inserisci il titolo per il tuo articolo</h2>
+	                <input type="text" name="articleTitle" placeholder="Titolo dell'articolo">
+	                <h2>Scrivi il testo del tuo articolo</h2>
+                    <textarea name="article-input" rows="10" cols="100"></textarea>
+	            </form>
+            </div>			
 			<div id="footer">
 				<div id="upper-footer">
 					<p>powered by</p>
@@ -294,10 +198,6 @@
 					</div>
 				</div>
 			</div>
-		</div> <!--Chiusura div RightSidewrapper-->
+		</div>
 	</body>
-	
-
-	
-
 </html>

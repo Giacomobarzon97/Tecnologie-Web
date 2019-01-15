@@ -96,7 +96,7 @@ a:hover{
 	/*Strictly Necessary */
 	position: fixed;
 	top: 0px;
-	height: 6em; /*Adjust the hight to your purposes*/
+	height: 5em; /*Adjust the hight to your purposes*/
 	z-index:1;
 	/*Aesthetics*/
 	background: white;
@@ -143,33 +143,6 @@ a:hover{
 	color:#0D47A1;
 }
 
-.breadcrumb {
-	width: 100%;
-	margin: 0px 2em;
-	list-style: none;
-	float: left;
-}
-
-.breadcrumb li {
-	display: inline;
-}
-
-.breadcrumb li+li:before {
-	padding: 2%;
-	color: #000000;
-	content: ">";
-}
-
-.breadcrumb li a {
-	color: #0D47A1;
-	text-decoration: none;
-}
-
-.breadcrumb li a:hover {
-	color: #01447e;
-	text-decoration: underline;
-}
-
 #main{
 	margin: 0px auto;
 	/*The height of the   header*/
@@ -177,7 +150,32 @@ a:hover{
 	min-height: 1000px;
 	max-width:1250px;
 }
-
+/*write-article-form*/
+#write-article-form{
+	padding:1em 5%;
+}
+#write-article-form h1{
+	font-size: 2.5em;
+	margin-bottom:0.5em;
+}
+#write-article-form h2{
+	font-weight: 400;
+	font-size: 1.5em;
+	margin-bottom:0.5em;
+}
+#write-article-form [type=text]{
+	margin:0.5em 0em;
+	display: block;
+	width: 60%;
+	padding: 0.5em 1%;
+}
+#write-article-form textarea{
+	resize: vertical;
+	display: block;
+	width: 90%;
+	padding: 0.5em 1%;
+	font-size: 1.2em;
+}
 /* Nav-bar end */
 
 #content-article-introduction{
@@ -246,28 +244,28 @@ a:hover{
 	margin-bottom: 0.25em;
 }
 
-#content-article-introduction>form{
+#content-article-introduction form{
 	text-align:center;
 }
 
-#content-article-introduction>form>fieldset>p>label{
+#content-article-introduction label{
 	display: table;
 	margin:1em auto;
 	font-weight:700;
 }
 
-#content-article-introduction>form>fieldset>p>input[type=text]{
+#content-article-introduction [type=text]{
 	display: table;
 	margin:1em auto;
 	font-size: 1em;
 	padding: 0.5em;
 }
 
-#content-article-introduction>form>fieldset>p>input[type=text]:focus{
+#content-article-introduction [type=text]:focus{
 	box-shadow: 0 0 3px #0091ae;
 }
 
-#content-article-introduction>form>fieldset>p>input[type=file]{
+#content-article-introduction input[type=file]{
 	display: none;
 }
 
@@ -285,7 +283,7 @@ a:hover{
 	width: auto;
 }
 
-#content-article-introduction>form>fieldset>p>input[type=submit]{
+#content-article-introduction input[type=submit]{
 	display: table;
 	margin:1em auto;
 	border: none;
