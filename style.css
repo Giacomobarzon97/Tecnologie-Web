@@ -33,7 +33,7 @@ a:hover{
 }
 #sidebar>li{
 	overflow:hidden;
-	padding:2em 6% 2em 6%;
+	padding:2em 0em;
 	border-bottom: 1px solid #707070;
 	word-break:break-word;
 }
@@ -47,6 +47,7 @@ a:hover{
 	text-decoration: none;
 	font-size: 1.3em;
 	color:white;
+	padding-left: 3%;
 }
 #sidebar>li>div>img{
 	float:right;
@@ -57,7 +58,6 @@ a:hover{
 }
 #sidebar>li>ul{
 	list-style-type: none;
-	padding-left: 10%;
 	overflow-y:hidden;
 	display:block;
 	transition: height 0.5s;
@@ -68,6 +68,7 @@ a:hover{
 #sidebar>li>ul>li>a{
 	text-decoration: none;
 	color:#D6D6D6;
+	padding: 1em;
 }
 #sidebar>li>ul>li>a:hover{
 	transition: color 0.125s ease-in-out;
@@ -145,7 +146,7 @@ a:hover{
 
 .breadcrumb {
 	padding: 1em;
-	background: #03434F;
+	background: #000000;
 }
 
 #main{
