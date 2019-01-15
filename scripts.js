@@ -55,6 +55,16 @@ function sidebarExpandButtons(){
     }
 }
 
+function sidebarExtensTopic(topicID){
+    var topic = document.getElementById(topicID);
+    if(topic != null){
+        alert("Test alert");
+        var topic = target.parentNode.parentNode.getElementsByTagName("UL")[0];
+        topic.src="img/collapse-button.svg";
+        sublist.style.display="block";
+    }
+}
+
 //----------------------------------------------------
 //Controllo dati input form vari
 //----------------------------------------------------
