@@ -613,7 +613,7 @@ window.addEventListener("load", function(){
         }, false);
     }
     //InsertArticle
-    var insertNewArticleForm=document.getElementById("insert-new-article-form");
+    var insertNewArticleForm=document.getElementById("write-article-form");
     if(insertNewArticleForm != null){
         InsertArticle_CreateErrorBox_InsertArticle();
         insertNewArticleForm.addEventListener("submit", function(event) {

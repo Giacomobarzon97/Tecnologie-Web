@@ -82,6 +82,25 @@
             }
         }
 
+        static function getTopicTitle($topicID){
+            if(!isset($topicID)){
+                return false;
+            }
+            if(!is_numeric($topicID)){
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT Name FROM TOPICS WHERE ".$topicID." = Id");
+            $result = $connection -> executeQuery();
+            //Destroy the object
+            $connection = NULL;
+            if(isset($result[0])) {
+                return $result[0]['Name'];
+            }else{
+                return false;
+            }
+        }
+
         static function printArticlesList($subtopicID, $loggedUserIsAdmin){
             $connection = new Connection();
             //Prendo Tutti gli articoli
@@ -144,8 +163,9 @@
                             <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                             <input type="image" alt="cestino elimina sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
                         </form>
-                        <form action="testWriteArticle.php" method="GET">
+                        <form action="writeArticle.php" method="GET">
                             <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
+                            <input type="hidden" name="topicID" value="'.$topicID.'" />
                             <input type="image" alt="aggiunta sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/new-article.svg" class="add_button_gen" />
                         </form>';
                     echo '</div>';

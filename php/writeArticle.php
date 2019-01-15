@@ -15,6 +15,7 @@
     {
         header("location: index.php");
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +44,7 @@
         </div>
         <div id="sidebar-wrapper">
         <?php
-            Sidebar::printSidebar();
+            Sidebar::printSidebar($_GET['topicID'], $_GET['subtopicID'], true);
         ?>
         </div>
         <div id="rightSideWrapper">
@@ -52,22 +53,33 @@
             ?>
             <div id="main">
                 <div id="insert-article-error-box"></div>
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="insert-new-article-form">
-                <h1>Inserisci un nuovo articolo</h1>
-                <h2>Stai inserendo un nuovo articolo in: <?php echo Subtopics::getSubtopicTitle($_GET['subtopicID']) ?></h2>
-                <fieldset>
-                    <input type="hidden" name="subtopicID" value="<?php echo $_GET['subtopicID'] ?>" />
-                    <h2>Titolo dell'articolo</h2>
-                        <p><label for="title">Titolo dell'articolo:</label>
-                        <input type="text" name="title" id="title" required placeholder="Scrivi il titolo dell'articolo..." maxlength="100"/></p>
-                    <h2>Contenuto dell'articolo</h2>
-                        <p><h3>Inserisci il test del tuo articolo (I tag HTML sono supportati)</h3>
-                        <textarea name="article-input" rows="10" cols="100" id="new-article-content" required></textarea></p>
-                    <h2>Invia l'articolo</h2>
-                        <input type="submit" value="invia" name="submit"/>
-                </fieldset>
-                </form>
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="write-article-form">
+	                <h1>Scrivi un nuovo articolo</h1>
+	                <ul id="article-info">
+                        <?php
+	                	    echo '<li>Argomento: '.Subtopics::getTopicTitle($_GET['topicID']).'</li>';
+                            echo '<li>Sottoargomento: '.Subtopics::getSubtopicTitle($_GET['subtopicID']).'</li>';
+                        ?>
+	                </ul>
+                    <fieldset>
+                        <input type="hidden" name="subtopicID" value="<?php echo $_GET['subtopicID'] ?>" />
+                        <p>
+                            <h2>Inserisci il titolo per il tuo articolo</h2>
+                            <input type="text" name="title" required id="title" placeholder="Titolo dell'articolo">
+                        </p>
+                        <p>
+                            <h2>Scrivi il testo del tuo articolo</h2>
+                            <textarea name="article-input" required rows="10" cols="100" id="new-article-content"></textarea>
+                        </p>
+                        <p>Tag HTML supportati</p>
+                        <input type="submit" value="Invia" name="submit"/> 
+                    </fieldset>                 	
+	            </form>
             </div>
+            <?php
+                include_once ('footer.php');
+                Sidebar::openSidebarEntry($_GET["topicID"]);
+            ?>
         </div>
     </body>
 </html>
