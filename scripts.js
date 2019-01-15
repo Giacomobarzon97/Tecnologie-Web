@@ -62,7 +62,7 @@ function sidebarExtensTopic(topicID){
     var topic = document.getElementById(topicID);
     if(topic != null){
         alert("Test alert");
-        var sublist = target.parentNode.parentNode.getElementsByTagName("UL")[0];
+        var sublist = topic.parentNode.parentNode.getElementsByTagName("UL")[0];
         topic.src="img/collapse-button.svg";
         topic.setAttribute("name", "auto-opened");
         sublist.style.display="block";
