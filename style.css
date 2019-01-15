@@ -152,7 +152,8 @@ a:hover{
 }
 #article-info{
 	list-style-type: none;
-	margin-bottom:1em;
+	margin:0.5em 0em;
+	font-size: 1.2em;
 }
 #article-info li{
 	display: inline-block;
@@ -167,15 +168,11 @@ a:hover{
 }
 #write-article-form h2{
 	font-weight: 400;
-	font-size: 1.5em;
-	margin-bottom:0.5em;
+	font-size: 2em;
+	margin:0.5em 0em;
 }
 #write-article-form p{
 	margin:1em 0em;
-}
-
-#write-article-form ul{
-	list-style-type: none;
 }
 #write-article-form [type=text]{
 	margin:0.5em 0px;
