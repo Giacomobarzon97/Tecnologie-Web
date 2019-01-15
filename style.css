@@ -150,31 +150,61 @@ a:hover{
 	min-height: 1000px;
 	max-width:1250px;
 }
+#article-info{
+	list-style-type: none;
+	margin-bottom:1em;
+}
+#article-info li{
+	display: inline-block;
+	margin-right: 2%;
+}
 /*write-article-form*/
 #write-article-form{
 	padding:1em 5%;
 }
 #write-article-form h1{
 	font-size: 2.5em;
-	margin-bottom:0.5em;
 }
 #write-article-form h2{
 	font-weight: 400;
 	font-size: 1.5em;
 	margin-bottom:0.5em;
 }
+#write-article-form p{
+	margin:1em 0em;
+}
+
+#write-article-form ul{
+	list-style-type: none;
+}
 #write-article-form [type=text]{
-	margin:0.5em 0em;
+	margin:0.5em 0px;
 	display: block;
-	width: 60%;
+	width: 97%;
 	padding: 0.5em 1%;
 }
 #write-article-form textarea{
 	resize: vertical;
 	display: block;
-	width: 90%;
+	width: 97%;
 	padding: 0.5em 1%;
 	font-size: 1.2em;
+}
+#write-article-form [type=submit] {
+	display: block;
+    width: 50%;
+    margin:0em auto;
+    background-color: #0D47A1;
+    color: white;
+    padding: 1em;
+    border: none;
+    transition: background-color 0.5s;
+    border-radius: 1.5em;
+    cursor: pointer;
+}
+
+#write-article-form [type=submit]:hover{
+    background-color: #464646;
 }
 /* Nav-bar end */
 
