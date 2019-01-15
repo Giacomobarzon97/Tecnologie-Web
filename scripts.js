@@ -64,7 +64,7 @@ function sidebarExtensTopic(topicID){
         alert("Test alert");
         var sublist = target.parentNode.parentNode.getElementsByTagName("UL")[0];
         topic.src="img/collapse-button.svg";
-        topic.name="auto-opened";
+        topic.setAttribute("name", "auto-opened");
         sublist.style.display="block";
     }
 }
