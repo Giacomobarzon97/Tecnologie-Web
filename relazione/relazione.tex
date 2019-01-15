@@ -10,24 +10,31 @@
 \begin{document}
 
 	\include{header}
+	
 	\section*{Informazioni logistiche}
 	
 	Il sito è accessibile al seguente link:
 	\begin{center}
 		\url{http://testsitotecweb.altervista.org/}
 	\end{center}
-
+	
 	Account non amministratore utilizzabile:
 	\begin{itemize}
 		\item \textbf{Username}: linus@torvalds.com
 		\item \textbf{Password}: git
 	\end{itemize}
-
+	
 	Account amministratore utilizzabile:
 	\begin{itemize}
 		\item \textbf{Username}: admin@admin.it
 		\item \textbf{Password}: admin
 	\end{itemize}
+
+	\newpage
+	
+	\tableofcontents
+	
+	\newpage
 
 	\section{Analisi dei requisiti}
 		\subsection{Requisiti}
@@ -50,10 +57,21 @@
 				\item \textbf{Homepage (index.php)}: si tratta della pagina principale del sito in cui l'utente trova le seguenti informazioni:
 				\begin{itemize}
 						\item \textbf{Navbar}: parte superiore della pagina in cui viene mostrato il logo del sito e una lista orizzontale di link utili alla navigazione;
-						\item \textbf{Header}: immagine si sfondo della parte sottostante alla navbar e nome del sito;
+						\item \textbf{Header}: immagine di sfondo della parte sottostante alla navbar e nome del sito;
 						\item \textbf{Descrizione e Contenuto}: nella parte inferiore all'header è presente una descrizione del sito, seguita dalla lista dei macroargomenti visualizzati sottoforma di Card;
 						\item \textbf{Footer}: parte inferiore del sito contenente ulteriori le informazioni sulla piattaforma.
 				\end{itemize}
+			\item \textbf{About (about.php)}: è una pagina che fornisce tutte le informazioni sul sito, ovvero lo scopo e gli sviluppatori che lo hanno realizzato. Anche in questa pagina è presente la navbar per la navigabilità, l'header e il footer;
+			\item \textbf{Registrazione {registrazione.php}}: pagina che offre la possibilità di creare un account agli utenti non registrati al blog;
+			\item \textbf{Login {login.php}}: pagina che offre la possibilità di effettuare il login agli utenti che sono registrati alla piattaforma;
+			\item \textbf{Link agli articoli (ArticleLinks.php)}: questa pagina contiene tutti i sottoargomenti relativi ad un macroargomento, ed elenca per ciascuno i link riferiti ai singoli articoli appartenenti al ciascun sottoargomento. La pagina è strutturata nel seguente modo:
+				\begin{itemize}
+					\item Sulla sinistra è presente una sidebar che elenca tutti i macroargomenti;
+					\item Per ciascun macroargomento, vengono elencate le ancore ai link dei sottoargomenti presenti nel contenuto della pagina situato al centro;
+					\item Per ciascun sottoargomento, vengono elencati i link degli articoli relativi;
+					\item Nella parte superiore è presente la navabr già descritta e nella parte inferiorie è presente il footer, anch'esso già descritto.
+				\end{itemize}
+			\item \textbf{Articolo (ReadArticle.php)}:  questa pagina è strutturata nello stesso modo di quella descritta al punto precedente, ma nel contenuto (quindi la parte centrale) vi è il corpo di un articolo che l'utente ha raggiunto utilizzando uno dei link elencati sotto ciascun sottoargomento.
 		\end{itemize}
 	\subsubsection{Struttura pagine privata}
 	Bla bla bla
@@ -140,7 +158,7 @@
 	dsad
 	
 	\section{Suddivisione dei ruoli}
-	
+	dsfsdf
 	\begin{itemize}
 		\item \textbf{Francesco De Filippis}: 
 		\item \textbf{Giacomo Barzon}:
