@@ -33,7 +33,7 @@ a:hover{
 }
 #sidebar>li{
 	overflow:hidden;
-	padding:2em 6% 2em 6%;
+	padding:2em 0em;
 	border-bottom: 1px solid #707070;
 	word-break:break-word;
 }
@@ -47,6 +47,7 @@ a:hover{
 	text-decoration: none;
 	font-size: 1.3em;
 	color:white;
+	padding-left: 3%;
 }
 #sidebar>li>div>img{
 	float:right;
@@ -57,7 +58,6 @@ a:hover{
 }
 #sidebar>li>ul{
 	list-style-type: none;
-	padding-left: 10%;
 	overflow-y:hidden;
 	display:block;
 	transition: height 0.5s;
@@ -68,6 +68,7 @@ a:hover{
 #sidebar>li>ul>li>a{
 	text-decoration: none;
 	color:#D6D6D6;
+	padding: 1em;
 }
 #sidebar>li>ul>li>a:hover{
 	transition: color 0.125s ease-in-out;
@@ -127,22 +128,21 @@ a:hover{
 #nav>h1,#nav-full>h1{
 	float:left;
 	font-size:2em;
-	margin:0.3em 1em;
+	margin:0.6em 1em;
 }
 #menu, #nav-full>ul{
 	float: right;
 	list-style-type: none;
 	overflow-y:hidden; /* Was "none" but is incorrect */
-	margin:1.6em 0em;
+	margin:2em 0em;
 }
 
 #menu>li, #nav-full>ul>li{
 	display:inline-block;
-	margin: 0em 2em;
+	margin: 0em 1.25em;
 	transition:margin 0.5s;
 	color:#0D47A1;
 }
-
 #main{
 	margin: 0px auto;
 	/*The height of the   header*/
@@ -505,13 +505,13 @@ ARTICLES
     margin-top: 1%;
 }
 
-.input-comment-area > textarea {
+.input-comment-area > p > textarea {
     font-size: 1.1em;
-    max-width: 90%;
+    max-width: 45%;
     resize: none;
 }
 
-.input-comment-area > textarea::placeholder {
+.input-comment-area > p > textarea::placeholder {
     font-style: italic;
 }
 
@@ -533,8 +533,8 @@ ARTICLES
 .post-comment-avatar > img, .input-comment-avatar > img {
     min-width: 15px;
     min-height: 15px;
-    width: 4%;
-    height: 4%;
+    width: 3%;
+    height: 3%;
     padding: 1%;
     float: left;
 }
@@ -645,10 +645,10 @@ ARTICLES
     cursor: pointer;
 } 
 
-.input-comment-footer > input, .input-reply-footer > input {
+.input-comment-footer > p > input, .input-reply-footer > p > input {
 	position: relative;
   	vertical-align: top;
-  	width: 25%;
+  	width: 15%;
     height: 30px; /* Troppo grosso su mobile */
   	padding: 0;
   	text-align: center;
@@ -733,7 +733,7 @@ HOMEPAGE
 	padding: 1.5em;
 }
 
-.input-comment-footer > input, .input-reply-footer > input {
+.input-comment-footer > p > input, .input-reply-footer > p > input {
 	position: relative;
   	vertical-align: top;
   	width: 25%;
@@ -1493,7 +1493,7 @@ MEDIA QUERIES
 		margin-top: 1.5em;
 	}
     
-    .input-comment-footer > input, .input-reply-footer > input {
+    .input-comment-footer > p > input, .input-reply-footer > p > input {
 		min-width: 55%;
     	min-height: 20%;
     	font-size: 1em;

@@ -68,6 +68,11 @@ function CreateAllErrorBoxes(){
     RegisterPage_CreateErrorBox();
     ProfilePage_CreateErrorBox_BasicData();
     ProfilePage_CreateErrorBox_ChangePw();
+    ManageArguments_CreateErrorBox_InsertCard();
+    ReadArticle_CreateErrorBox_InsertComment();
+    ArticleLinks_CreateErrorBox_InsertNewSubtopic();
+    RecoverPassword_CreateErrorBox_ChangePw();
+    InsertArticle_CreateErrorBox_InsertArticle();
 }
 
 //---FUNZIONI CONTROLLO VALORI---
@@ -103,6 +108,11 @@ function checkEmailStringFormat(email){
 function checkSimpleStringFormat(value){
     var re = /^[A-Za-z]{1,99}$/;
     return re.test(value);
+}
+
+function checkFileUpload(value){
+    //TODO
+    return true;
 }
 
 //---FUNZIONI PER MOSTRARE/NASCONDERE BOX ERRORE---
@@ -295,10 +305,10 @@ function validateChangePassword(){
     if(!checkStringIsValid(original_password) || original_password.length > 100){
         errorMessage += "<li>La passowrd originale non è valida!</li>";
     } 
-    if(!checkStringIsValid(new_password_1) || original_password.length > 100){
+    if(!checkStringIsValid(new_password_1) || new_password_1.length > 100){
         errorMessage += "<li>La nuova password non è valida!</li>";
     }
-    if(!checkStringIsValid(new_password_2) || original_password.length > 100){
+    if(!checkStringIsValid(new_password_2) || new_password_2.length > 100){
         errorMessage += "<li>La conferma della nuova password non è valida!</li>";
     }
     if(errorMessage != ""){
@@ -306,7 +316,203 @@ function validateChangePassword(){
         return false;
     }
     if(!checkStringEquals(new_password_1, new_password_2)){
-        ProfilePage_ShowChangePwError("Le due password non coincidono!");
+        ProfilePage_ShowChangePwError("<li>Le due password non coincidono!</li>");
+        return false;
+    }
+    return true;
+}
+
+//---
+//---PAGINA manageArguments.PHP---
+//---
+
+//Crea il box dell'errore nella posizione data
+function ManageArguments_CreateErrorBox_InsertCard(){
+    CreateErrorBox("arguments-error-box-insert-card", "card-error-box");
+}
+
+//Nascondi il box dell'errore
+function ManageArguments_HideInsertCardError(){
+    HideErrorBox("card-error-box");
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function ManageArguments_ShowInsertCardError(HTML_message){
+    ShowErrorBox("card-error-box", HTML_message);
+}
+
+//Valida i dati del cambio dati base
+function validateInsertCardData(){
+    title = document.getElementById("title-input-box").value;
+    description = document.getElementById("description-input-box").value;
+    image = document.getElementById("file-upload").value;
+
+    var errorMessage = "";
+    if(!checkStringIsValid(title) || title.length > 100){
+        errorMessage += "<li>Il titolo non è valido!</li>";
+    }
+    if(!checkStringIsValid(description) || description.length > 10000){
+        errorMessage += "<li>La descrizione non è valida!</li>";
+    }
+    if(!checkFileUpload(image)){
+        errorMessage += "<li>L'immagine di copertina non è valida!</li>";
+    }
+    if(errorMessage != ""){
+        ManageArguments_ShowInsertCardError(errorMessage);
+        return false;
+    }
+    return true;
+}
+
+//---
+//---PAGINA ReadArticle.PHP INSERIMENTO NUOVO COMMENTO---
+//---
+
+//Crea il box dell'errore nella posizione data
+function ReadArticle_CreateErrorBox_InsertComment(){
+    CreateErrorBox("comments-error-box-insert-comment", "insert-comment-error-box");
+}
+
+//Nascondi il box dell'errore
+function ReadArticle_HideInsertCommentError(){
+    HideErrorBox("insert-comment-error-box");
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function ReadArticle_ShowInsertCommentError(HTML_message){
+    ShowErrorBox("insert-comment-error-box", HTML_message);
+}
+
+//Valida i dati del cambio dati base
+function validateInsertCommentData(){
+    var commentTextArea = document.getElementById("comment-text-area-input").value;
+
+    var errorMessage = "";
+    if(!checkStringIsValid(commentTextArea) || commentTextArea.length > 10000){
+        errorMessage += "<li>Il commento non è valido!</li>";
+    }
+
+    if(errorMessage != ""){
+        ReadArticle_ShowInsertCommentError(errorMessage);
+        return false;
+    }
+    return true;
+}
+
+//---
+//---PAGINA ArticleLinks.PHP INSERIMENTO NUOVO SUBTOPIC---
+//---
+
+//Crea il box dell'errore nella posizione data
+function ArticleLinks_CreateErrorBox_InsertNewSubtopic(){
+    CreateErrorBox("subtopics-error-box-insert-subtopic", "insert-new-subtopic-error-box");
+}
+
+//Nascondi il box dell'errore
+function ArticleLinks_HideInsertNewSubtopicError(){
+    HideErrorBox("insert-new-subtopic-error-box");
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function ArticleLinks_ShowInsertNewSubtopicError(HTML_message){
+    ShowErrorBox("insert-new-subtopic-error-box", HTML_message);
+}
+
+//Valida i dati del cambio dati base
+function validateInsertNewSubtopicData(){
+    var subtopic_title = document.getElementById("new-subtopic-title").value;
+    var subtopic_description = document.getElementById("new-subtopic-description").value;
+
+    var errorMessage = "";
+    if(!checkStringIsValid(subtopic_title) || subtopic_title.length > 100){
+        errorMessage += "<li>Il titolo non è valido!</li>";
+    }
+    if(!checkStringIsValid(subtopic_description) || subtopic_description.length > 10000){
+        errorMessage += "<li>La descrizione non è valida!</li>";
+    }
+
+    if(errorMessage != ""){
+        ArticleLinks_ShowInsertNewSubtopicError(errorMessage);
+        return false;
+    }
+    return true;
+}
+
+//---
+//---PAGINA recoverPassword.PHP---
+//---
+
+//Crea il box dell'errore nella posizione data
+function RecoverPassword_CreateErrorBox_ChangePw(){
+    CreateErrorBox("forgot-pw-error-box-change-password", "recover-password-error-box");
+}
+
+//Nascondi il box dell'errore
+function RecoverPassword_HideChangePwError(){
+    HideErrorBox("recover-password-error-box");
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function RecoverPassword_ShowChangePwError(HTML_message){
+    ShowErrorBox("recover-password-error-box", HTML_message);
+}
+
+//Valida i dati del cambio dati base
+function validateRecoverPasswordData(){
+    new_password_1 = document.getElementById("lpassword").value;
+    new_password_2 = document.getElementById("lpassword-confirm").value;
+    var errorMessage = "";
+    if(!checkStringIsValid(new_password_1) || new_password_1.length > 100){
+        errorMessage += "<li>La nuova password non è valida!</li>";
+    }
+    if(!checkStringIsValid(new_password_2) || new_password_2.length > 100){
+        errorMessage += "<li>La conferma della nuova password non è valida!</li>";
+    }
+    if(errorMessage != ""){
+        RecoverPassword_ShowChangePwError(errorMessage);
+        return false;
+    }
+    if(!checkStringEquals(new_password_1, new_password_2)){
+        RecoverPassword_ShowChangePwError("<li>Le due password non coincidono!</li>");
+        return false;
+    }
+    return true;
+}
+
+//---
+//---PAGINA insertArticle.PHP---
+//---
+
+//Crea il box dell'errore nella posizione data
+function InsertArticle_CreateErrorBox_InsertArticle(){
+    CreateErrorBox("insert-article-error-box", "recover-password-error-box");
+}
+
+//Nascondi il box dell'errore
+function InsertArticle_HideInsertArticleError(){
+    HideErrorBox("recover-password-error-box");
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function InsertArticle_ShowInsertArticleError(HTML_message){
+    ShowErrorBox("recover-password-error-box", HTML_message);
+}
+
+//Valida i dati del cambio dati base
+function validateInsertNewArticleData(){
+    var article_title = document.getElementById("title").value;
+    var article_content = document.getElementById("new-article-content").value;
+
+    var errorMessage = "";
+    if(!checkStringIsValid(article_title) || article_title.length > 100){
+        errorMessage += "<li>Il titolo non è valido!</li>";
+    }
+    if(!checkStringIsValid(article_content) || article_content.length > 100000){
+        errorMessage += "<li>Il contenuto dell'articolo non è valido!</li>";
+    }
+
+    if(errorMessage != ""){
+        InsertArticle_ShowInsertArticleError(errorMessage);
         return false;
     }
     return true;
@@ -359,6 +565,51 @@ window.addEventListener("load", function(){
     if(mainRegisterForm != null){
         mainRegisterForm.addEventListener("submit", function(event) {
             if(!validateRegisterData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //Manage Argument.php
+    var insertCardForm=document.getElementById("insert-new-card-form");
+    if(insertCardForm != null){
+        insertCardForm.addEventListener("submit", function(event) {
+            if(!validateInsertCardData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //Comments.php
+    var insertCommentForm=document.getElementById("insert-new-comment-form");
+    if(insertCommentForm != null){
+        insertCommentForm.addEventListener("submit", function(event) {
+            if(!validateInsertCommentData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //ArticleLinks
+    var insertSubtopicForm=document.getElementById("insert-new-subtopic-form");
+    if(insertSubtopicForm != null){
+        insertSubtopicForm.addEventListener("submit", function(event) {
+            if(!validateInsertNewSubtopicData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //RecoverPassword
+    var recoverPasswordChangeForm=document.getElementById("change-password-forgot-token");
+    if(recoverPasswordChangeForm != null){
+        recoverPasswordChangeForm.addEventListener("submit", function(event) {
+            if(!validateRecoverPasswordData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //InsertArticle
+    var insertNewArticleForm=document.getElementById("insert-new-article-form");
+    if(insertNewArticleForm != null){
+        insertNewArticleForm.addEventListener("submit", function(event) {
+            if(!validateInsertNewArticleData()){
                 event.preventDefault();
             }
         }, false);

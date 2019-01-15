@@ -41,7 +41,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
         
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
+        <link rel="stylesheet" type="text/css" href="print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         
         <?php
@@ -66,13 +66,13 @@
                     Card::printInsertNewCardForm();
                 ?>
                 </div>
-				<div id="content-article-body">
-					<h1>Oppure gestisci quelli già esistenti</h1>
+                <div id="content-article-body">
+                    <h1>Oppure gestisci quelli già esistenti</h1>
                     <?php
                         Card::printAllCreatedCards();
                     ?>
                 </div>
-			</div> <!--Chiusura div main-->
+            </div> <!--Chiusura div main-->
             <?php
                 include_once ('footer.php');
             ?>

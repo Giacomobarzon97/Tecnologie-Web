@@ -319,17 +319,35 @@
             $connection -> prepareQuery(
                 "SELECT * FROM FORGOT_PASSWORD_TOKENS WHERE Token = :token"
             );
+            //Controllo se il token esiste
             $connection->bindParameterToQuery(":token", $token, PDO::PARAM_STR);
-            
             $result = $connection -> executeQuery();
-            $connection = NULL;
-            if(isset($result[0])) {
-                if($result[0]['Token'] === $token){
-                    return true;
-                }else{
+            
+            if(isset($result[0])) { //Se esiste il token
+                //Controllo se il token è scaduto confrontando le date
+                $today = date("Y-m-d");
+                $expire = $result[0]['expireDate'];
+
+                $today_time = strtotime($today);
+                $expire_time = strtotime($expire);
+                
+                if ($expire_time < $today_time) { //Token scaduto
+                    //cancello il token scaduto
+                    $connection -> prepareQuery("DELETE FROM FORGOT_PASSWORD_TOKENS WHERE Token = '$token'");
+                    $result = $connection -> executeQueryDML();
+                    //E ritorno false
+                    $connection = NULL;
                     return false;
+                }else{ //Token non scaduto
+                    $connection = NULL;
+                    //Controllo che siano uguali
+                    if($result[0]['Token'] === $token){
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }
-            }else{
+            }else{ //Token non trovato
                 return false;
             }
         }
@@ -397,6 +415,11 @@
 
                 $today_time = strtotime($today);
                 $expire_time = strtotime($expire);
+
+                //cancello il token che sto utilizzando
+                $connection -> prepareQuery("DELETE FROM FORGOT_PASSWORD_TOKENS WHERE Token = '$token'");
+                $result = $connection -> executeQueryDML();
+
                 //Controllo se il token è scaduto
                 if ($expire_time > $today_time) { //Token non scaduto
                     $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
@@ -404,24 +427,14 @@
                     $connection -> prepareQuery(
                     "UPDATE USERS SET Password = '$newPasswordHash' WHERE Email = '$user_email'");
                     $result = $connection -> executeQueryDML();
-
-                    //cancello il token appena utilizzato
-                    $connection -> prepareQuery("DELETE FROM FORGOT_PASSWORD_TOKENS WHERE Token = '$token'");
-                    $result = $connection -> executeQueryDML();
-                    
                     //Ritorno true
                     $connection = NULL;
                     return true;
                 }else{ //Token scaduto
-                    //cancello il token scaduto
-                    $connection -> prepareQuery("DELETE FROM FORGOT_PASSWORD_TOKENS WHERE Token = '$token'");
-                    $result = $connection -> executeQueryDML();
-                    //E ritorno false
+                    //Ritorno false
                     $connection = NULL;
                     return false;
                 }
-                $connection = NULL;
-                return false;
             }else{
                 $connection = NULL;
                 return false;

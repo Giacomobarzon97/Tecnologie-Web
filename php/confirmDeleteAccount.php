@@ -32,8 +32,10 @@
             </div>
             <div class="regform-main-section">
                 <form action="profile.php" method="POST" >
-                    <input class='profile-input' name='conf_delete' type='submit' value='Si, sono sicuro' />
-                    <input class='profile-input' name='dismiss_conf_delete' type='submit' value='Annulla' />
+                    <fieldset>
+                        <p><input class='profile-input' name='conf_delete' type='submit' value='Si, sono sicuro' /></p>
+                        <p><input class='profile-input' name='dismiss_conf_delete' type='submit' value='Annulla' /></p>
+                    </fieldset>
                 </form>
             </div>
             <ul id="regform-links">

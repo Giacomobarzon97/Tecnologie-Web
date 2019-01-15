@@ -5,10 +5,19 @@ include_once ("User.php");
 function upload($name, $size, $type, $tmp_name) {
         $dirToSave = 'uploads/';
         $allow = array("jpg", "jpeg", "png");
-        /*$name = $_FILES['upfile']['name'];
-        $size = $_FILES['upfile']['size'];
-        $type = $_FILES['upfile']['type'];
-        $tmp_name = $_FILES['upfile']['tmp_name'];*/
+
+        //Sopra 3MB non accetto
+        if($size > 3000000){
+            return NULL;
+        }
+
+        //Prendo l'estensione del file
+        $extension = "";
+        if(strpos($name, 'jpeg') !== false){
+            $extension = substr($name, -5);
+        }else{
+            $extension = substr($name, -4);
+        }
     
         if (isset($name)) {
             if (!empty($name)) {
@@ -17,12 +26,9 @@ function upload($name, $size, $type, $tmp_name) {
                     //Controllo se il file esiste
                     if(file_exists($dirToSave.$name)){
                         //Se sì separo nome ed estensione
-                        $extension = "";
                         if(strpos($name, 'jpeg') !== false){
-                            $extension = substr($name, -5);
                             $name = substr($name, 0, -5);
                         }else{
-                            $extension = substr($name, -4);
                             $name = substr($name, 0, -4);
                         }
                         //E ci attacco una stringa random finchè non trovo un file inesistente
@@ -32,75 +38,67 @@ function upload($name, $size, $type, $tmp_name) {
                         }
                         $name = $name.$extension;
                     }
-                    
+                    if(!resizeImage($tmp_name, 300, 150, $extension)){
+                        return NULL;
+                    }
                     if(move_uploaded_file($tmp_name, $dirToSave.$name)) {
-                        //echo 'File caricato nella cartella /uploads';
-                        
                         return $dirToSave.$name;
                     } else {
-                        //echo "File non caricato! Errore GENERICO, AHIA!";
                         return NULL;
                     }
                 } else {
-                    //echo "Il file non è un'immagine, pertanto non può essere caricato.";
                     return NULL;
                 }
             } else {
-                //echo 'Scegli un file da caricare!';
                 return NULL;
             }
         }
 }//function upload
 
-function resizeImage($image, $sizeWidth, $sizeHeight, $fileExtension) {
-    $error[0] = 0;
+function resizeImage($image, $sizeWidth, $sizeHeight, $estensioneFile) {
     $resourceImage = false;
     switch($estensioneFile) {
-        case 'jpeg':
-            $resourceImage = imagecreatefromjpeg($image["tmp_name"]);
+        case '.jpg':
+        case '.jpeg':
+            $resourceImage = imagecreatefromjpeg($image);
             break;
-        case 'png':
-            $resourceImage = imagecreatefrompng($image["tmp_name"]);
-            break;
-        case 'gif':
-            $resourceImage = imagecreatefromgif($image["tmp_name"]);
+        case '.png':
+            $resourceImage = imagecreatefrompng($image);
             break;
         default:
-            $error[0] = 1;
-            break;
+            return false;
     }
     if ($resourceImage !== false) {
         $scaledImage = imagescale($resourceImage, $sizeWidth, $sizeHeight);
         if ($scaledImage !== false) {
             $ok = false;
-            //delImage($immagine["tmp_name"]);
             switch ($estensioneFile) {
-                case 'jpeg':
-                    $ok = imagejpeg($scaledImage, $immagine["tmp_name"]);
+                case '.jpg':
+                case '.jpeg':
+                    $ok = imagejpeg($scaledImage, $image);
                     break;
-                case 'png':
-                    $ok = imagepng($scaledImage, $immagine["tmp_name"]);
-                    break;
-                case 'gif':
-                    $ok = imagegif($scaledImage, $immagine["tmp_name"]);
+                case '.png':
+                    $ok = imagepng($scaledImage, $image);
                     break;
             }
             if ($ok === false)
-                $error[0] = 1;
+                return false;
         }
         else
-            $error[0] =1;
+            return false;
     }
     else
-        $error[0] = 1;
-    return $error;
+        return false;
+    return true;
 }
 
 
 //Cancella un file
 //Il nome è tutto il path cartella/nomefile
 function deleteFile($name){
-    unlink($name);
+    if(file_exists($name)){
+        unlink($name);
+    }
 }
 
 ?>
