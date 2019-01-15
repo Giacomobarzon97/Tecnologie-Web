@@ -57,6 +57,7 @@ function sidebarExpandButtons(){
     }
 }
 
+//apre automaticamente la sezione del topic nella sidebar
 function sidebarExtendTopic(topicID){
     var topic = document.getElementById(topicID);
     if(topic != null){

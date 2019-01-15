@@ -50,7 +50,7 @@
         </div>
         <div id="sidebar-wrapper">
         <?php
-            Sidebar::printSidebar();
+            Sidebar::printSidebar($_GET["id"]);
         ?>
         </div>
         <div id="rightSideWrapper">
@@ -75,6 +75,7 @@
             </div>
             <?php
                 include_once ('footer.php');
+                Sidebar::openSidebarEntry($_GET["id"]);
             ?>
         </div>
     </body>
