@@ -74,20 +74,6 @@ function sidebarExtendTopic(topicID){
 
 //---FUNZIONI GENERICHE---
 
-//Funzione chiamata al load della pagina
-//Prova a creare l'error box, avrà successo nelle pagine che lo hanno
-function CreateAllErrorBoxes(){
-    LoginPage_CreateErrorBox();
-    RegisterPage_CreateErrorBox();
-    ProfilePage_CreateErrorBox_BasicData();
-    ProfilePage_CreateErrorBox_ChangePw();
-    ManageArguments_CreateErrorBox_InsertCard();
-    ReadArticle_CreateErrorBox_InsertComment();
-    ArticleLinks_CreateErrorBox_InsertNewSubtopic();
-    RecoverPassword_CreateErrorBox_ChangePw();
-    InsertArticle_CreateErrorBox_InsertArticle();
-}
-
 //---FUNZIONI CONTROLLO VALORI---
 
 function checkStringEquals(string1, string2){
@@ -551,6 +537,7 @@ window.addEventListener("load", function(){
     var changePwForm=document.getElementById("change_pw_form");
     var changeBasicDataForm=document.getElementById("change_basic_data_form");
     if(changePwForm!=null){
+        ProfilePage_CreateErrorBox_ChangePw();
         changePwForm.addEventListener("submit", function(event) {
             if(!validateChangePassword()){
                 event.preventDefault();
@@ -558,6 +545,7 @@ window.addEventListener("load", function(){
         }, false);
     }
     if(changeBasicDataForm!=null){
+        ProfilePage_CreateErrorBox_BasicData();
         changeBasicDataForm.addEventListener("submit", function(event) {
             if(!validateChangeBasicData()){
                 event.preventDefault();
@@ -567,6 +555,7 @@ window.addEventListener("load", function(){
     //Login.php
     var mainLoginForm=document.getElementById("login-main-form");
     if(mainLoginForm != null){
+        LoginPage_CreateErrorBox();
         mainLoginForm.addEventListener("submit", function(event) {
             if(!validateLoginData()){
                 event.preventDefault();
@@ -576,6 +565,7 @@ window.addEventListener("load", function(){
     //Register.php
     var mainRegisterForm=document.getElementById("register-main-form");
     if(mainRegisterForm != null){
+        RegisterPage_CreateErrorBox();
         mainRegisterForm.addEventListener("submit", function(event) {
             if(!validateRegisterData()){
                 event.preventDefault();
@@ -585,6 +575,7 @@ window.addEventListener("load", function(){
     //Manage Argument.php
     var insertCardForm=document.getElementById("insert-new-card-form");
     if(insertCardForm != null){
+        ManageArguments_CreateErrorBox_InsertCard();
         insertCardForm.addEventListener("submit", function(event) {
             if(!validateInsertCardData()){
                 event.preventDefault();
@@ -594,6 +585,7 @@ window.addEventListener("load", function(){
     //Comments.php
     var insertCommentForm=document.getElementById("insert-new-comment-form");
     if(insertCommentForm != null){
+        ReadArticle_CreateErrorBox_InsertComment();
         insertCommentForm.addEventListener("submit", function(event) {
             if(!validateInsertCommentData()){
                 event.preventDefault();
@@ -603,6 +595,7 @@ window.addEventListener("load", function(){
     //ArticleLinks
     var insertSubtopicForm=document.getElementById("insert-new-subtopic-form");
     if(insertSubtopicForm != null){
+        ArticleLinks_CreateErrorBox_InsertNewSubtopic();
         insertSubtopicForm.addEventListener("submit", function(event) {
             if(!validateInsertNewSubtopicData()){
                 event.preventDefault();
@@ -612,6 +605,7 @@ window.addEventListener("load", function(){
     //RecoverPassword
     var recoverPasswordChangeForm=document.getElementById("change-password-forgot-token");
     if(recoverPasswordChangeForm != null){
+        RecoverPassword_CreateErrorBox_ChangePw();
         recoverPasswordChangeForm.addEventListener("submit", function(event) {
             if(!validateRecoverPasswordData()){
                 event.preventDefault();
@@ -621,6 +615,7 @@ window.addEventListener("load", function(){
     //InsertArticle
     var insertNewArticleForm=document.getElementById("insert-new-article-form");
     if(insertNewArticleForm != null){
+        InsertArticle_CreateErrorBox_InsertArticle();
         insertNewArticleForm.addEventListener("submit", function(event) {
             if(!validateInsertNewArticleData()){
                 event.preventDefault();
@@ -630,8 +625,6 @@ window.addEventListener("load", function(){
     //Funzioni di inizializzazione
     //Sidebar
     sidebarExpandButtons();
-    //Error box
-    CreateAllErrorBoxes();
 });
 
 window.addEventListener('resize', function(e) {
