@@ -44,6 +44,9 @@ function sidebarExpandButtons(){
             e = e || window.event;
             var target = e.target || e.srcElement;
             var sublist= target.parentNode.parentNode.getElementsByTagName("UL")[0];
+            if(target.name == "auto-opened"){
+                alert("Found");
+            }
             if(sublist.style.display=="block"){
                 target.src="img/expand-button.svg";
                 sublist.style.display="none";
@@ -52,6 +55,17 @@ function sidebarExpandButtons(){
                 target.src="img/collapse-button.svg";				
             }
         },false);
+    }
+}
+
+function sidebarExtensTopic(topicID){
+    var topic = document.getElementById(topicID);
+    if(topic != null){
+        alert("Test alert");
+        var sublist = target.parentNode.parentNode.getElementsByTagName("UL")[0];
+        topic.src="img/collapse-button.svg";
+        topic.name="auto-opened";
+        sublist.style.display="block";
     }
 }
 
