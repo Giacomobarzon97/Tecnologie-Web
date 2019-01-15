@@ -45,7 +45,7 @@ function sidebarExpandButtons(){
             var target = e.target || e.srcElement;
             var sublist= target.parentNode.parentNode.getElementsByTagName("UL")[0];
             if(target.name == "auto-opened"){
-                alert("Found");
+                continue;
             }
             if(sublist.style.display=="block"){
                 target.src="img/expand-button.svg";
@@ -58,10 +58,9 @@ function sidebarExpandButtons(){
     }
 }
 
-function sidebarExtensTopic(topicID){
+function sidebarExtendTopic(topicID){
     var topic = document.getElementById(topicID);
     if(topic != null){
-        alert("Test alert");
         var sublist = topic.parentNode.parentNode.getElementsByTagName("UL")[0];
         topic.src="img/collapse-button.svg";
         topic.setAttribute("name", "auto-opened");
