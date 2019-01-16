@@ -13,7 +13,12 @@
 
     if(!Subtopics::checkIfSubtopicExists($_GET['subtopicID']) && !isset($_POST['submit']))
     {
-        header("location: index.php");
+        //header("Location: errore.php?errorCode=404");
+        echo 'error1';
+    }
+    if(!isset($_GET['articleID']) || !Article::checkIfArticleExist($_GET['articleID'])){
+        //header("Location: errore.php?errorCode=404");
+        echo 'error2';
     }
 
 ?>
@@ -53,26 +58,55 @@
             ?>
             <div id="main">
                 <div id="insert-article-error-box"></div>
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="write-article-form">
-	                <h1>Scrivi un nuovo articolo</h1>
+                <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST" id="write-article-form">
+                    <?php
+                        if(isset($_GET['articleID'])){
+                            echo '<h1>Modifica un articolo</h1>';
+                        }else{
+                            echo '<h1>Scrivi un nuovo articolo</h1>';
+                        }
+                    ?>
 	                <ul id="article-info">
                         <?php
-	                	    echo '<li>Argomento: '.Subtopics::getTopicTitle($_GET['topicID']).'</li>';
-                            echo '<li>Sottoargomento: '.Subtopics::getSubtopicTitle($_GET['subtopicID']).'</li>';
+	                	    echo '<li>Argomento: "'.Subtopics::getTopicTitle($_GET['topicID']).'"</li>';
+                            echo '<li>Sottoargomento: "'.Subtopics::getSubtopicTitle($_GET['subtopicID']).'"</li>';
+                            if(isset($_GET['articleID'])){
+                                $articleInfo = Article::getArticleRowFromId($_GET['articleID']);
+                                echo '<li>Stai modificando l\'articolo:"'.$articleInfo['Title'].'"</li>';
+                            }
                         ?>
 	                </ul>
                     <fieldset>
                         <input type="hidden" name="subtopicID" value="<?php echo $_GET['subtopicID'] ?>" />
                         <p>
                             <h2>Inserisci il titolo per il tuo articolo</h2>
-                            <input type="text" name="title" required id="title" placeholder="Titolo dell'articolo">
+                            <?php
+                                if(isset($_GET['articleID'])){
+                                    echo '<input type="text" name="title" required id="title" placeholder="Titolo dell\'articolo" value="'.$articleInfo['Title'].'">';
+                                }else{
+                                    echo '<input type="text" name="title" required id="title" placeholder="Titolo dell\'articolo">';
+                                }
+                            ?>
                         </p>
                         <p>
                             <h2>Scrivi il testo del tuo articolo</h2>
-                            <textarea name="article-input" required rows="10" cols="100" id="new-article-content"></textarea>
+                            <?php
+                                if(isset($_GET['articleID'])){
+                                    echo '<textarea name="article-input" required rows="10" cols="100" id="new-article-content">'.$articleInfo['HTMLCode'].'</textarea>';
+                                }else{
+                                    echo '<textarea name="article-input" required rows="10" cols="100" id="new-article-content"></textarea>';
+                                }
+                            ?>
                         </p>
                         <p>Tag HTML supportati</p>
-                        <input type="submit" value="Invia" name="submit"/> 
+                        <?php
+                            if(isset($_GET['articleID'])){
+                                echo '<input type="submit" value="Modifica articolo" name="submit"/>';
+                                echo '<a href="ArticleLinks.php?id='.$_GET['topicID'].'">Annulla modifica</a>';
+                            }else{
+                                echo '<input type="submit" value="Invia" name="submit"/>';
+                            }
+                        ?>
                     </fieldset>                 	
 	            </form>
             </div>

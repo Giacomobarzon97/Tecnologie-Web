@@ -7,15 +7,24 @@
             if((!is_numeric($articleID))){
                 return false;
             }
+            $value = Article::getArticleRowFromId($articleID);
+            if(isset($value) && $value != NULL){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        static function getArticleRowFromId($articleID){
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM ARTICLES WHERE ".$articleID." = Id");
             $result = $connection -> executeQuery();
             //Destroy the object
             $connection = NULL;
             if(isset($result[0])) {
-                return true;
+                return $result[0];
             }else{
-                return false;
+                return NULL;
             }
         }
 
