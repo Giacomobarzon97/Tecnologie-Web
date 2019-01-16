@@ -13,12 +13,10 @@
 
     if(!Subtopics::checkIfSubtopicExists($_GET['subtopicID']) && !isset($_POST['submit']))
     {
-        //header("Location: errore.php?errorCode=404");
-        echo 'error1';
+        header("Location: errore.php?errorCode=404");
     }
     if(!isset($_GET['articleID']) || !Article::checkIfArticleExist($_GET['articleID'])){
-        //header("Location: errore.php?errorCode=404");
-        echo 'error2';
+        header("Location: errore.php?errorCode=404");
     }
 
 ?>
