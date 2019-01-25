@@ -127,8 +127,13 @@ a:hover{
 }
 #nav>h1,#nav-full>h1{
 	float:left;
+	font-weight: lighter;
 	font-size:2em;
 	margin:0.6em 1em;
+}
+#nav>h1>img,#nav-full>h1>img{
+	height: 0.7em;
+	width: 0.7em;
 }
 #menu, #nav-full>ul{
 	float: right;
