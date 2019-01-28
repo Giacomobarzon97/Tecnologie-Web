@@ -138,6 +138,11 @@ a:hover{
 	margin:2em 0em;
 }
 
+#current-menu-entry{
+    color:#000000;
+	font-weight: bold;
+}
+
 #menu>li, #nav-full>ul>li{
 	display:inline-block;
 	margin: 0em 1.25em;
