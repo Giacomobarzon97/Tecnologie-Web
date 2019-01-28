@@ -139,7 +139,7 @@ a:hover{
 }
 
 #current-menu-entry{
-    color:#000000;
+    color:#000000 !important;
 	font-weight: bold;
 }
 

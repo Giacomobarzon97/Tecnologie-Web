@@ -703,6 +703,10 @@ function scrollTo(element, to, duration) {
     animateScroll();
 }
 
+function commentRedirect(articleID, commentID){
+    window.location.replace("ReadArticle.php?id=" + articleID + '#' + commentID);
+}
+
 //t = current time
 //b = start value
 //c = change in value

@@ -14,7 +14,15 @@
     }
     //Se non va ignorata aggiorno l'ultima pagina visitata
     if(!$shouldBeIgnored){
-        $_SESSION["lastVisitedPage"] = $_SERVER['REQUEST_URI'];
+        if($_SERVER['REQUEST_URI'] == "/"){
+            $_SESSION["lastVisitedPage"] = substr($_SERVER['PHP_SELF'], 1);
+        }else{
+            if(substr($_SERVER['REQUEST_URI'], 0, 1) == "/"){
+                $_SESSION["lastVisitedPage"] = substr($_SERVER['REQUEST_URI'], 1);
+            }else{
+                $_SESSION["lastVisitedPage"] = $_SERVER['REQUEST_URI'];
+            }
+        }
     }
 
     class SessionManager {

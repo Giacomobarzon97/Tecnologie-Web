@@ -170,7 +170,7 @@
 
         static function redirectToComment($articleID, $commentID){
             echo '<script>';
-            echo 'window.location.replace("ReadArticle.php?id='.$articleID.'#'.$commentID.'");';
+            echo 'commentRedirect('.$articleID.', '.$commentID.')';
             echo '</script>';
         }
 
