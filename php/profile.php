@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include_once ('sessionManager.php');
     include_once ("User.php");
 
     if(isset($_POST['dismiss_conf_delete'])) {
@@ -32,14 +32,9 @@
     </head>
 
     <body>
+        <?php include_once ('navbar.php'); ?>
         <div id="registration-form">
-
             <div class="regform-introduction">
-                <ul id="regform-links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="logout.php">Logout</a></li>
-                </ul>
                 <h1>Bentornato utente!</h1>
                 <?php 
                     if(isset($_SESSION['email'])) {
