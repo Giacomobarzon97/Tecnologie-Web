@@ -1335,6 +1335,11 @@ MEDIA QUERIES
 		text-align:center;
 		margin:5% 0px;
 	}
+
+	.logo-img {
+		margin: 2%;
+	}
+
 	#main{
 		margin: 0em auto;
 	}
