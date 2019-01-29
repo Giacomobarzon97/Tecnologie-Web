@@ -1594,8 +1594,9 @@ MEDIA QUERIES
 		max-width: 70%;
 	}
 	#registration-form {
-	width: 90%;
-	max-width:400px;
-	margin:0px auto;
+		padding-top: 10%;
+		width: 90%;
+		max-width:400px;
+		margin:0px auto;
 	}
 }
