@@ -131,6 +131,11 @@ a:hover{
 	width:auto;
 	margin:1.25em 2%;
 }
+
+.logo-img {
+	margin: 2%;
+}
+
 #menu, #nav-full>ul{
 	float: right;
 	list-style-type: none;
@@ -1334,10 +1339,6 @@ MEDIA QUERIES
 		display:block;
 		text-align:center;
 		margin:5% 0px;
-	}
-
-	.logo-img {
-		margin: 2%;
 	}
 
 	#main{
