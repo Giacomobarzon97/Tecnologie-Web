@@ -989,7 +989,7 @@ PROFILE
 /* Profile page */
 
 #registration-form {
-	margin-top: 12.5%;
+	padding-top: 12.5%;
 	width: 50%;
 	max-width:400px;
 	margin:0px auto;
