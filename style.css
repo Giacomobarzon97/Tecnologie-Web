@@ -1116,12 +1116,16 @@ fieldset {
 }
 
 /*------------------------------------------
-ERROR PAGE
+GENERAL 
 --------------------------------------------*/
 
 #errorMsg {
 	margin-top:10%;
 	text-align: center;
+}
+
+.simple-list {
+	list-style-type: none;
 }
 
 /*------------------------------------------

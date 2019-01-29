@@ -2,6 +2,7 @@
             <img src="img/logo.png" alt="Dev Space" id="nav-logo">
             <ul id="menu">
                 <?php
+                    include_once("User.php");
                     if(isset($_SESSION['email'])) {
                         if($_SESSION["lastVisitedPage"] == "index.php"){
                             echo "<li id='current-menu-entry'>Home</li>
@@ -12,6 +13,10 @@
                         }
                         echo "<li><a href='profile.php'>Il tuo profilo</a></li>
                         ";
+                        if(User::isAdmin($_SESSION['email'])) {
+                            echo "<li><a href='adminTools.php'>Strumenti</a></li>
+                        ";
+                        }
                         echo "<li><a href='logout.php'>Logout</a></li>
                         ";
                     } else {

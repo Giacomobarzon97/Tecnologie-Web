@@ -134,6 +134,19 @@
             }
         }
 
+        static function addAdmin($email) {
+            if(!isset($email)) {
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "INSERT INTO USER_ROLES (UserID, RoleName)
+                VALUES ('$email', 'Admin User')");
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+            return result;
+        }
+
         //--------------------------------------------------------
         //Funzioni per i commenti
         //--------------------------------------------------------
