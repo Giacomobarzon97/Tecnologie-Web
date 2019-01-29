@@ -2,8 +2,8 @@
     
     include_once('sessionManager.php');
 
-    if (isset($_SESSION['nickname'])) {
-        header("Location: ".SessionManager::getPageRedirect());
+    if (isset($_SESSION['email'])) {
+        header("Location: index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -26,12 +26,9 @@
     </head>
 
     <body>
+        <?php include_once ('navbar.php'); ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <ul id="regform-links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                </ul>
                 <h2>Effettua la registrazione a <strong>DevSpace</strong></h2>
             </div>
             <div id="register-error-box-zone"></div>

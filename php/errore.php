@@ -30,11 +30,7 @@
             } else{
                 echo $errors['404'];
 			}
-			echo "<img src='img/404.jpg' alt='Immagine errore' style='display: block;
-			margin-left: auto;
-			margin-right: auto;
-			padding-top:10%;
-			width: 50%;' />";
+			echo "<img src='img/404.jpg' alt='Immagine errore' />";
 		?>
 		
 	</body>

@@ -1,5 +1,9 @@
 <?php
-    include_once('sessionManager.php');
+    include_once ('sessionManager.php');
+    include_once ('User.php');
+    if(!User::isAdmin($_SESSION['email'])){
+        header("Location: index.php");
+    }
 ?>  
 <!DOCTYPE html>
 <html lang="it">
@@ -21,19 +25,15 @@
     </head>
     
     <body>
+    <?php include_once ('navbar.php'); ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <ul id="regform-links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                </ul>
                 
                 <h2>Aggiungi un nuovo amministratore</h2>
             </div>
             <div id="login-error-box-zone"></div>
             <div class="regform-main-section">
                 <?php 
-                    include_once ('User.php');
 
                     if(isset($_POST['submit'])){
                         $email = $_POST['email'];
@@ -43,7 +43,7 @@
                             echo "<div>Operazione avvenuta con successo</div>";
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
-                            <li>Utente già amministratore!</li>
+                            <li>Utente già amministratore oppure inesistente!</li>
                             </ul>
                             ';
                         }
@@ -59,6 +59,10 @@
                         </p>
                     </fieldset>
                 </form>
+            </div>
+            <div style="text-aling:center;">
+                    <h3>Amministratori attuali</h3>
+                    <?php User::printAllAdmin(); ?>
             </div>
         </div>	
     </body>

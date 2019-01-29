@@ -1,3 +1,4 @@
+<?php include_once ('sessionManager.php'); ?>
 <!DOCTYPE html>
 <html xml:lang="it-IT" lang="it-IT">
 	<head>

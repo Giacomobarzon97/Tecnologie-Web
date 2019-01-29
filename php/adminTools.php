@@ -1,5 +1,9 @@
 <?php
-    include_once('sessionManager.php');
+    include_once ('sessionManager.php');
+    include_once ('User.php');
+    if(!User::isAdmin($_SESSION['email'])){
+        header("Location: index.php");
+    }
 ?>  
 <!DOCTYPE html>
 <html lang="it">
@@ -21,12 +25,9 @@
     </head>
     
     <body>
+        <?php include_once ('navbar.php'); ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <ul id="regform-links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                </ul>
                 
                 <h2>Strumenti amministratore</h2>
             </div>

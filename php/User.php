@@ -135,16 +135,33 @@
         }
 
         static function addAdmin($email) {
-            if(!isset($email)) {
+            if(!isset($email) || User::isAdmin($email)) {
                 return false;
             }
+            
             $connection = new Connection();
             $connection -> prepareQuery(
                 "INSERT INTO USER_ROLES (UserID, RoleName)
                 VALUES ('$email', 'Admin User')");
             $result = $connection -> executeQueryDML();
             $connection = NULL;
-            return result;
+            return true;
+        }
+
+        static function printAllAdmin() {
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "SELECT * FROM USERS, USER_ROLES WHERE  
+                USERS.Email = USER_ROLES.UserID AND USER_ROLES.RoleName = 'Admin User'");
+            $result = $connection -> executeQuery();
+            echo "<ul class='simple-list'>";
+            foreach ($result as $admin) {
+                echo "<li>";
+                echo $admin['Email'];
+                echo "</li>";
+            }
+            echo "</ul>";
+            $connection = NULL;
         }
 
         //--------------------------------------------------------
