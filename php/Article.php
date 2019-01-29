@@ -57,6 +57,14 @@
             $connection = NULL;
         }
 
+        static function getArticleTitle($articleID) {
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT * FROM ARTICLES WHERE ".$articleID." = Id");
+            $result = $connection -> executeQuery();
+            $connection = NULL;
+            return $result[0]['Title'];
+        }
+
         static function deleteArticle($articleID){
             $connection = new Connection();
             $connection -> prepareQuery(

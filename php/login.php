@@ -9,17 +9,18 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>WebSite-Profile</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="title" content="progetto tec-web" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+    <title>Login &#124; DevSpace</title>
+		<meta charset="UTF-8">
+        <meta name="description" content="Pagina di login" />
+        <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-        <meta name="author" content="" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="theme-color" content="#F5F5F5" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
         
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-        <link rel="stylesheet" type="text/css" href="print.css" media="print"/>
+        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         
     </head>
@@ -27,8 +28,12 @@
     <body>
         <div id="registration-form">
             <div class="regform-introduction">
-                <h1><a href="index.html">Nome del sito</a></h1>
-                <h2>Effettua il login a Nome del sito</h2>
+                <ul id="regform-links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About</a></li>
+                </ul>
+                
+                <h2>Effettua il login a <strong>DevSpace</strong></h2>
             </div>
             <div id="login-error-box-zone"></div>
             <div class="regform-main-section">
@@ -78,10 +83,6 @@
                 <p>Non sei ancora registrato?<a href='registrazione.php'>Clicca qui</a> per creare un nuovo account.</p>
                 <p>Hai dimenticato la password?<a href='forgotPassword.php'>Clicca qui</a> per recuperarla.</p>
             </div>
-            <ul id="regform-links">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="index.php">About</a></li>
-            </ul>
         </div>	
     </body>
 </html>

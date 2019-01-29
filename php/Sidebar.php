@@ -98,7 +98,7 @@
 				echo "<li><a href='registrazione.php'>Registrati</a></li>";
 				echo "<li><a href='login.php'>Accedi</a></li>";
             }
-            echo '<li><a href="">About</a></li>';
+            echo '<li><a href="about.php">About</a></li>';
             echo '</ul>
             <img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
 			</div>';

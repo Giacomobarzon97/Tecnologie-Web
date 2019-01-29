@@ -5,18 +5,19 @@
 <!DOCTYPE html>
 <html lang="it">
 	<head>
-		<title>WebSite-Home</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="title" content="progetto tecc-web" />
-        <meta name="description" content="computer science topics" />
-        <meta name="keywords" content="computer science" />
+		<title>Homepage &#124; DevSpace</title>
+		<meta charset="UTF-8">
+        <meta name="description" content="DevSpace è una piattaforma che offre articoli 
+		per conoscere il mondo dell'informatica." />
+        <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-		<meta name="author" content="" />
+		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="theme-color" content="#F5F5F5" />
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
 		
 		<link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
+		<link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
 		<script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
 		
 	</head>

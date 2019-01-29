@@ -24,20 +24,20 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>WebSite-Home</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="title" content="progetto tecc-web" />
-        <meta name="description" content="computer science topics" />
-        <meta name="keywords" content="computer science" />
+        <title>Scrittura Articolo &#124; DevSpace</title>
+		<meta charset="UTF-8">
+        <meta name="description" content="Pagina scrittura di un nuovo articolo" />
+        <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-        <meta name="author" content="" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
+		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+        <meta name="theme-color" content="#F5F5F5" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>			
 
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-
-		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
-		<script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
+		
+        <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         <?php
             Sidebar::printSidebarIncludeHeader();
         ?>
