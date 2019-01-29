@@ -12,18 +12,24 @@
             $shouldBeIgnored = true;
         }
     }
-    //Se non va ignorata aggiorno l'ultima pagina visitata
-    if(!$shouldBeIgnored){
-        if($_SERVER['REQUEST_URI'] == "/"){
-            $_SESSION["lastVisitedPage"] = substr($_SERVER['PHP_SELF'], 1);
+
+    if($_SERVER['REQUEST_URI'] == "/"){
+        $page_string = substr($_SERVER['PHP_SELF'], 1);
+    }else{
+        if(substr($_SERVER['REQUEST_URI'], 0, 1) == "/"){
+            $page_string = substr($_SERVER['REQUEST_URI'], 1);
         }else{
-            if(substr($_SERVER['REQUEST_URI'], 0, 1) == "/"){
-                $_SESSION["lastVisitedPage"] = substr($_SERVER['REQUEST_URI'], 1);
-            }else{
-                $_SESSION["lastVisitedPage"] = $_SERVER['REQUEST_URI'];
-            }
+            $page_string = $_SERVER['REQUEST_URI'];
         }
     }
+    //Mi salvo la pagina attuale
+    $_SESSION["breadcrumb"] = $page_string;
+
+    //Se non va ignorata aggiorno l'ultima pagina visitata
+    if(!$shouldBeIgnored){
+        $_SESSION["lastVisitedPage"] = $page_string;
+    }
+
 
     class SessionManager {
 
