@@ -132,10 +132,6 @@ a:hover{
 	margin:1.25em 2%;
 }
 
-.logo-img {
-	margin: 2%;
-}
-
 #menu, #nav-full>ul{
 	float: right;
 	list-style-type: none;
