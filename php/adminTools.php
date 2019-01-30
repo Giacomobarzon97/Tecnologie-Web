@@ -25,19 +25,29 @@
     </head>
     
     <body>
-        <?php include_once ('navbar.php'); ?>
-        <div id="registration-form">
-            <div class="regform-introduction">
+        <?php include_once ('navbar.php'); 
+        
+        $nickname = unserialize($_SESSION['userInfo'])->nickname;
+        if(User::isBanned($nickname)) {
+            echo "<span>Il tuo account è stato sospeso, pertanto non potrai più utilizzare gli strumenti 
+            di amministratore.</span>";
+        } else {
+            echo "<div id='registration-form'>
+            <div class='regform-introduction'>
                 
                 <h2>Strumenti amministratore</h2>
             </div>
-            <div class="regform-main-section">
-                <ul class="simple-list">
-                    <li><a href="manageArguments.php">Crea un nuovo argomento</a></li>
-                    <li><a href="addAdmin.php">Aggiungi un nuovo amministratore</a></li>
-                    <li><a href="manageUsers.php">Gestisci utenti bannati</a></li>
+            <div class='regform-main-section'>
+                <ul class='simple-list'>
+                    <li><a href='manageArguments.php'>Crea un nuovo argomento</a></li>
+                    <li><a href='addAdmin.php'>Aggiungi un nuovo amministratore</a></li>
+                    <li><a href='manageUsers.php'>Gestisci utenti bannati</a></li>
                 </ul>
             </div>
-        </div>	
+        </div>	";
+        }
+        
+        ?>
+        
     </body>
 </html>

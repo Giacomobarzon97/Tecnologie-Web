@@ -6,6 +6,22 @@
         //Function that print the input box to add a comment if the user is logged
         static function printCommentInputZone($loggedUserEmail){
             if(isset($loggedUserEmail)) { //L'utente è loggato
+                if(isset($_SESSION['userInfo'])) {
+                    $nickname = unserialize($_SESSION['userInfo'])->nickname;
+                    if(User::isBanned($nickname)) {
+                        if(User::isAdmin($loggedUserEmail)) {
+                            echo '<div class="input-comment">
+                            <h4>Il tuo account è stato sospeso, pertanto non puoi lasciare nessun commento.<br/>
+                            Inoltre in qualità di admin, non puoi più eliminare i commenti degli altri utenti.</h4>
+                            </div>';
+                        } else {
+                            echo '<div class="input-comment">
+                            <h4>Il tuo account è stato sospeso, pertanto non puoi lasciare nessun commento.</h4>
+                            </div>';
+                        }
+                        return;
+                    }
+                } 
                 $connection = new Connection();
                 $connection -> prepareQuery("SELECT * FROM USERS WHERE :email = Email");
                 $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
@@ -148,12 +164,18 @@
                         //Se l'utente è admin aggiungi la possibilità di eliminare un commento
                         echo '<div class="post-comment-body-footer">';
                         if($loggedUserIsAdmin || ($comment['AuthorID'] == $loggedUserEmail)){
-                            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
-                            echo '<fieldset>';
-                            echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                            echo '<p><input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" /></p>';
-                            echo '</fieldset>';
-                            echo '</form>';
+                            if(isset($_SESSION['userInfo'])) {
+                                $nickname = unserialize($_SESSION['userInfo'])->nickname;
+                                if(!User::isBanned($nickname)) {
+                                    echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
+                                    echo '<fieldset>';
+                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                                    echo '<p><input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" /></p>';
+                                    echo '</fieldset>';
+                                    echo '</form>';
+                                }
+                            }
+                            
                         }
                         echo '</div>';
                     echo '</div>

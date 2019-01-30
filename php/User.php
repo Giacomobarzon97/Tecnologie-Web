@@ -164,6 +164,76 @@
             $connection = NULL;
         }
 
+        static function isBanned($nickname) {
+            if(!isset($nickname)) {
+                return false;
+            }
+            $connection = new Connection();
+            $connection -> prepareQuery(
+            "SELECT * FROM USERS WHERE Nickname = '".$nickname."' AND Banned = '1'");
+            $result = $connection -> executeQuery();
+            $connection = NULL;
+            if(isset($result[0]) == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        
+        // $ban true se va bannato, false se va tolto il ban
+        static function userSuspend($nickname) {
+            if(!isset($nickname) || User::isBanned($nickname)
+            || unserialize($_SESSION['userInfo'])->nickname == $nickname) {
+                return false;
+            }
+
+            $connection = new Connection();
+            $connection -> prepareQuery(
+            "UPDATE USERS SET Banned = '1' WHERE Nickname = '".$nickname."'");
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+            return User::isBanned($nickname);
+        }
+
+        static function removeSuspension($nickname) {
+            if(!isset($nickname) || !User::isBanned($nickname)) {
+                return false;
+            }
+
+            $connection = new Connection();
+            $connection -> prepareQuery(
+            "UPDATE USERS SET Banned = '0' WHERE Nickname = '".$nickname."'");
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+            return true;
+            
+        }
+
+        static function printAllBannedUsers() {
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "SELECT * FROM USERS WHERE Banned = '1'");
+            $result = $connection -> executeQuery();
+            if(!isset($result[0])) {
+                echo "<span>Nessun utente sospeso!</span>";
+            }
+            echo "<ul class='simple-list'>";
+            foreach ($result as $banned) {
+                echo "<li>";
+                echo $banned['Nickname'];
+                echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
+                    <p>        
+                        <input type="hidden" name="nicknameDel" value="'.$banned['Nickname'].'" />
+                        <input class="profile-input" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
+                    </p>
+                    </form>';
+                echo "</li>";
+            }
+            echo "</ul>";
+            $connection = NULL;
+        }
+
         //--------------------------------------------------------
         //Funzioni per i commenti
         //--------------------------------------------------------

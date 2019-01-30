@@ -8,9 +8,9 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-    <title>Aggiunta amministratore &#124; DevSpace</title>
+    <title>Sospensione account &#124; DevSpace</title>
 		<meta charset="UTF-8">
-        <meta name="description" content="Pagina aggiunta admin" />
+        <meta name="description" content="Pagina di sospensione account utente" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
 		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
@@ -29,31 +29,44 @@
         <div id="registration-form">
             <div class="regform-introduction">
                 
-                <h2>Aggiungi un nuovo amministratore</h2>
+                <h2>Sospendi l'account di un utente</h2>
             </div>
             <div id="login-error-box-zone"></div>
             <div class="regform-main-section">
                 <?php 
 
                     if(isset($_POST['submit'])){
-                        $email = $_POST['email'];
+                        $nickname = $_POST['nickname'];
                         
-                        $result = User::addAdmin($email);
+                        $result = User::userSuspend($nickname);
                         if($result) {
-                            echo "<div>Operazione avvenuta con successo</div>";
+                            echo "<span>Operazione avvenuta con successo</span>";
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
-                            <li>Utente già amministratore oppure inesistente!</li>
+                            <li>Utente già sospeso oppure inesistente!</li>
+                            </ul>
+                            ';
+                        }
+                    }
+
+                    if(isset($_POST['submitNicknameDel'])) {
+                        $nick = $_POST['nicknameDel'];
+                        $result = User::removeSuspension($nick);
+                        if($result) {
+                            echo "<span>Operazione avvenuta con successo</span>";
+                        } else { //Stampa dell'errore
+                            echo '<ul class="regform-errorbox">
+                            <li>Sospensone già rimossa o utente inesistente!</li>
                             </ul>
                             ';
                         }
                     }
                 ?>
-                <form action="addAdmin.php" id="login-main-form" method="POST">
+                <form action="manageUsers.php" id="login-main-form" method="POST">
                     <fieldset>
                         <p>
-                            <label for="lemail">Email</label>
-                            <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="LoginPage_HideChangeLoginDataError()" />
+                            <label for="lnickname">Nickname</label>
+                            <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onfocus="LoginPage_HideChangeLoginDataError()" />
                         </p>
                         <p>
                             <input class="profile-input" name="submit" type="submit" value="Esegui" />
@@ -61,9 +74,9 @@
                     </fieldset>
                 </form>
             </div>
-            <div style="text-aling:center;">
-                    <h3>Amministratori attuali</h3>
-                    <?php User::printAllAdmin(); ?>
+            <div>
+                    <h3>Utenti sospesi</h3>
+                    <?php User::printAllBannedUsers(); ?>
             </div>
         </div>	
     </body>

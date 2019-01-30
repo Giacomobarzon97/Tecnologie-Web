@@ -100,7 +100,7 @@
                             <input class="profile-input" type="text" id="lsurname" name="surname" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required onfocus="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->surname;?>"/>
                         </p>
-                        <p><input class="profile-input" name="submitChangeInfo" type="submit" value="Submit" /></p>
+                        <p><input class="profile-input" name="submitChangeInfo" type="submit" value="Aggiorna informazioni" /></p>
                     </fieldset>
                 </form>
             </div>
@@ -129,7 +129,7 @@
                             <label for="lconf-new-password">Conferma Nuova password</label>
                             <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" placeholder="Conferma nuova password" maxlength="100" required onfocus="ProfilePage_HideChangePWError()" />
                         </p>
-                        <p><input class="profile-input" name="submitChangePassword" type="submit" value="Submit" /></p>
+                        <p><input class="profile-input" name="submitChangePassword" type="submit" value="Cambia password" /></p>
                     </fieldset>
                 </form>
             </div>
