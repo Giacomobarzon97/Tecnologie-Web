@@ -31,6 +31,48 @@ a:hover{
     /*Aesthetics*/
     background: #404040;
 }
+#sidebar-header{
+    border-bottom: 1px solid #707070;
+}
+#sidebar-header>img{
+    display: block;
+    width:30%;
+    height: auto;
+    margin:1em auto;
+}
+#side-search-bar{
+    padding:0em 5%;
+}
+#side-search-bar input[type="text"]{
+    display: block;
+    padding:0.5em 8% 0.5em 2%;
+    width: 90%;
+    border:none;
+    border-radius: 50px;
+    outline: none;
+
+    background-image: url(img/search.svg);
+    background-repeat: no-repeat;
+    background-size: 5%;
+    background-position: 98% 
+}
+#side-search-bar input[type="button"]{
+    display: block;
+    width: 30%;
+    margin:1em auto;
+    cursor: pointer;
+    padding:0.5em 5%;
+    font-size: 1.2em;
+    color:white;
+    border:none;
+    border-radius: 50px;
+    background: #0091ae;
+    transition:background 0.5s, color 0.5s;
+}
+#side-search-bar input[type="button"]:hover{
+    background:white;
+    color:black;
+}
 #sidebar>li{
     overflow:hidden;
     padding:2em 0em;
