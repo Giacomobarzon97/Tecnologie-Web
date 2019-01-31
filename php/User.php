@@ -1,6 +1,7 @@
 <?php
     include_once ("Connection.php");
     include_once ("validateData.php");
+    include_once ("ResultManager.php");
 
     class UserInfo {
         public $email = "";
@@ -54,21 +55,22 @@
             $connection->bindParameterToQuery(":ProfilePic", $profilePic, PDO::PARAM_STR);
 
             $messagge = "";
+            $error = false;
 
             if(!ValidateData::validateEmail($email)) {
-                $messagge = "<p>E-mail non valida!</p>";
+                $messagge += "<p>E-mail non valida!</p>";
             }
             if(!ValidateData::checkStringIsEmpty($nickname)) {
-                $messagge = "<p>Nickname non valido!</p>";
+                $messagge += "<p>Nickname non valido!</p>";
             }
             if(!ValidateData::validatePassword($password)) {
-                $messagge = "<p>Password non valida! Deve essere lunga tra 3 e 100 caratteri</p>";
+                $messagge += "<p>Password non valida! Deve essere lunga tra 3 e 100 caratteri</p>";
             }
             if(!ValidateData::validateName($name)) {
-                $messagge = "<p>Nome non valido!</p>";
+                $messagge += "<p>Nome non valido!</p>";
             }
             if(!ValidateData::validateName($surname)) {
-                $messagge = "<p>Cognome non valido!</p>";
+                $messagge += "<p>Cognome non valido!</p>";
             }
             if ($messagge == "") {
                 try {
@@ -77,11 +79,14 @@
                                 Clicca <a href='login.php'>qui</a> per eseguire il login.";
                 } catch (PDOException $e){
                     $messagge = "Impossibile registrarsi, utente già esistente o nickname già presente!";
+                    $error = true;
                 }
+            }else{
+                $error = true;
             }
             
             $connection = NULL;
-            return $messagge;
+            return new ResultManager($messagge, $error);
         }
 
         /*

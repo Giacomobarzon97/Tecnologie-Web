@@ -42,8 +42,8 @@
                         $name = $_POST['name'];
                         $surname = $_POST['surname'];
                         $password = $_POST['password'];
-                        $message = User::registration($email, $nickname, $password, $name, $surname);
-                        echo "<div>".$message."</div>";
+                        $result = User::registration($email, $nickname, $password, $name, $surname);
+                        echo "<div>".$result->getMessage()."</div>";
                     }
                 ?>
                 <form action="registrazione.php" id="register-main-form" method="POST">
