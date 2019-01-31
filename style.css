@@ -671,7 +671,7 @@ ARTICLES
 }
 
 .delete-comment-link {
-    background:none!important;
+    background:none;
     color:inherit; /* Colore di default */
     color:#D76901; /* Colore di test da cambiare*/
     border:none; 
