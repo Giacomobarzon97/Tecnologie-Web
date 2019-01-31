@@ -14,7 +14,7 @@
             echo 
             "<div class='home-card'>
                 <div class='thumbnail'>
-                    <a href='#'><img src='".$topicsInfo[0]['ImageLink']."' alt='img'/></a>
+                    <a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'><img src='".$topicsInfo[0]['ImageLink']."' alt='img'/></a>
                 </div>
                 <div class='home-card-content'>
                     <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>";
