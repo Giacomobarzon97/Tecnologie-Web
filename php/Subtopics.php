@@ -158,7 +158,7 @@
                 echo '<div>'; //--Apertura div titolo--
                 //Stampa dettagli elemento
                 echo '<div class="details">';
-                echo '<h2 class="subtopic-title" ><span id="'.$subtopic['Id'].'"></span>'.$subtopic['Title'].'</h2>';
+                echo '<h2 class="subtopic-title" ><span id="subtopic_'.$subtopic['Id'].'"></span>'.$subtopic['Title'].'</h2>';
                 if(strlen($subtopic['Description']) > 0){
                     echo '<h3>'.$subtopic['Description'].'</h3>';
                 }
@@ -202,7 +202,7 @@
             <ul>';
             //Stampa cosa imparerai
             foreach ($subtopics as $subtopic) {
-                echo '<li><a href="#'.$subtopic['Id'].'">'.$subtopic['Title'].'</a></li>';
+                echo '<li><a href="#subtopic_'.$subtopic['Id'].'">'.$subtopic['Title'].'</a></li>';
             }
             //Stampa form di aggiunta
             echo '</ul>';

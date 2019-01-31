@@ -21,7 +21,7 @@
                 }else{
                     echo '<li>';
                 }
-                echo '<a href="ArticleLinks.php?id='.$topicID.'#'.$subtopic['Id'].'">'.$subtopic['Title'].'</a>
+                echo '<a href="ArticleLinks.php?id='.$topicID.'#subtopic_'.$subtopic['Id'].'">'.$subtopic['Title'].'</a>
                 </li>';
             }
             //Destroy the object

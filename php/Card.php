@@ -23,7 +23,7 @@
                     }else{
                         echo "<ul class='links'>";
                         foreach ($argumentsTitle as $item) {
-                            echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#'.$item['Id']."'>".$item["Title"]."</a></li>";
+                            echo "<li><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id'].'#subtopic_'.$item['Id']."'>".$item["Title"]."</a></li>";
                         }
                         echo '</ul>';
                     }
