@@ -1036,20 +1036,26 @@ PROFILE
     text-align: center;
     margin-bottom: 2em;
 }
-.regform-errorbox{
+.regform-errorbox, .regform-successbox{
     max-width: 400px;
     margin:1em auto;
     list-style-type:none;
     padding:1em 5%;
-    background-color:#ffdce0;
-    color:#86181d;
     border-radius:10px;
     border:1px solid #ccc;
 }
-.regform-errorbox li{
+.regform-errorbox li, .regform-successbox li{
     display:block;
     margin-bottom:0.5em;
     font-size:0.85em;
+}
+.regform-errorbox{
+    background-color:#ffdce0;
+    color:#4CAF50;
+}
+.regform-successbox{
+    background-color:#dff0d8;
+    color:#3c763d;
 }
 .profile-input[type=text]{
     width: 100%;
