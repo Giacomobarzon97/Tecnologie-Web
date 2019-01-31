@@ -58,7 +58,7 @@ a:hover{
 }
 #side-search-bar input[type="button"]{
     display: block;
-    width: 30%;
+    width: 40%;
     margin:1em auto;
     cursor: pointer;
     padding:0.5em 5%;
@@ -67,6 +67,7 @@ a:hover{
     border:none;
     border-radius: 50px;
     background: #0091ae;
+    outline:none;
     transition:background 0.5s, color 0.5s;
 }
 #side-search-bar input[type="button"]:hover{
