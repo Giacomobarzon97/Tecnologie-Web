@@ -159,7 +159,9 @@
                 //Stampa dettagli elemento
                 echo '<div class="details">';
                 echo '<h2 class="subtopic-title" ><span id="'.$subtopic['Id'].'"></span>'.$subtopic['Title'].'</h2>';
-                echo '<h3>'.$subtopic['Description'].'</h3>';
+                if(strlen($subtopic['Description']) > 0){
+                    echo '<h3>'.$subtopic['Description'].'</h3>';
+                }
                 echo '</div>';
                 //Stampa bottoni elemento (se l'utente è admin)
                 if($userisAdmin){
