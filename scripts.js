@@ -704,7 +704,7 @@ function scrollTo(element, to, duration) {
 }
 
 function commentRedirect(articleID, commentID){
-    window.location.replace("ReadArticle.php?id=" + articleID + '#' + commentID);
+    window.location.replace("ReadArticle.php?id=" + articleID + '#comment_' + commentID);
 }
 
 //t = current time
