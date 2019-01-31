@@ -9,14 +9,14 @@
 <html lang="it">
     <head>
     <title>Strumenti Admin &#124; DevSpace</title>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="description" content="Pagina strumenti amministratore" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
-		<meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
         
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>

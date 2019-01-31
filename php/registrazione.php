@@ -10,14 +10,14 @@
 <html lang="it">
     <head>
         <title>Registrazione &#124; DevSpace</title>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="description" content="Pagina di registrazione a DevSpace" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
-		<meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
         
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
@@ -33,7 +33,7 @@
             </div>
             <div id="register-error-box-zone"></div>
             <div class="regform-main-section">
-            <?php 
+                <?php 
                     include_once ('User.php');
 
                     if(isset($_POST['submit'])){ //check if form was submitted

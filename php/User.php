@@ -29,7 +29,6 @@
         }
 
         private static function sendEmail($email, $content, $subject){
-
             // To send HTML mail, the Content-type header must be set
             $headers[] = 'MIME-Version: 1.0';
             $headers[] = 'Content-type: text/html; charset=UTF-8';

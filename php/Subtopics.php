@@ -125,7 +125,7 @@
                     </form>
                     </div>';
                 }
-				echo '</li>';
+                echo '</li>';
             }
             //Non ci sono articoli
             if(count($articles)==0){

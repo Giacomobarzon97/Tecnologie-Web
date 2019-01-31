@@ -156,6 +156,7 @@
                 echo '</li>';
             }
             echo '</ul>';
+            $connection = NULL;
         }
 
     }//class end

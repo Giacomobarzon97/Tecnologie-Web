@@ -16,14 +16,14 @@
 <html lang="it">
     <head>
         <title>Il tuo profilo &#124; DevSpace</title>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="description" content="Pagina profilo personale" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
-		<meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
         
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
@@ -109,12 +109,12 @@
             </div>
             <div id="profile-error-box-change-pw"></div>
             <div class="regform-main-section">
-            <?php 
-                if(isset($_POST['submitChangePassword'])) {
-                    $message = User::changePassword($_SESSION['email'], $_POST['old-password'], $_POST['new-password'], $_POST['conf-new-password']);
-                    echo "<span>$message</span>";
-                }
-            ?>
+                <?php 
+                    if(isset($_POST['submitChangePassword'])) {
+                        $message = User::changePassword($_SESSION['email'], $_POST['old-password'], $_POST['new-password'], $_POST['conf-new-password']);
+                        echo "<span>$message</span>";
+                    }
+                ?>
                 <form action="profile.php" id="change_pw_form" method="POST">
                     <fieldset>
                         <p>

@@ -6,7 +6,7 @@
     include_once('Article.php');
 
     if(isset($_POST['submit']))
-	{
+    {
         Article::insertArticleInTable($_POST['title'], $_POST['article-input'], $_SESSION['email'], $_POST['subtopicID']);
         header("location: ArticleLinks.php?id=".Subtopics::getTopicIDFromSubtopic($_POST['subtopicID']));
     }
@@ -25,18 +25,18 @@
 <html lang="it">
     <head>
         <title>Scrittura Articolo &#124; DevSpace</title>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="description" content="Pagina scrittura di un nuovo articolo" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+        <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />
-		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>			
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>			
 
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-		<link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
-		
+        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
+        
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         <?php
             Sidebar::printSidebarIncludeHeader();
@@ -64,16 +64,16 @@
                             echo '<h1>Scrivi un nuovo articolo</h1>';
                         }
                     ?>
-	                <ul id="article-info">
+                    <ul id="article-info">
                         <?php
-	                	    echo '<li>Argomento: "'.Subtopics::getTopicTitle($_GET['topicID']).'"</li>';
+                            echo '<li>Argomento: "'.Subtopics::getTopicTitle($_GET['topicID']).'"</li>';
                             echo '<li>Sottoargomento: "'.Subtopics::getSubtopicTitle($_GET['subtopicID']).'"</li>';
                             if(isset($_GET['articleID'])){
                                 $articleInfo = Article::getArticleRowFromId($_GET['articleID']);
                                 echo '<li>Stai modificando l\'articolo:"'.$articleInfo['Title'].'"</li>';
                             }
                         ?>
-	                </ul>
+                    </ul>
                     <fieldset>
                         <input type="hidden" name="subtopicID" value="<?php echo $_GET['subtopicID'] ?>" />
                         <p>
@@ -106,7 +106,7 @@
                             }
                         ?>
                     </fieldset>                 	
-	            </form>
+                </form>
             </div>
             <?php
                 include_once ('footer.php');

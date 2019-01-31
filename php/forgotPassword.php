@@ -14,7 +14,7 @@
         <meta name="description" content="Password dimenticata nella piattaforma DevSpace" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
-		<meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+        <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         

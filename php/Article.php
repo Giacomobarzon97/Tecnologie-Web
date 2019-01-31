@@ -70,6 +70,7 @@
             $connection -> prepareQuery(
                 "DELETE FROM ARTICLES WHERE Id = $articleID");
             $result = $connection -> executeQueryDML();
+            $connection = NULL;
         }
     }
 

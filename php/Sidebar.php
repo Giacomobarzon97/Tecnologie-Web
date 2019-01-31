@@ -87,7 +87,7 @@
 
         static function printNavbar(){
             echo '<div id="nav" class="sidebar-nav">
-				<img src="img/hamburger.svg" alt="hamburger-icon" id="nav-hamburger"/>
+                <img src="img/hamburger.svg" alt="hamburger-icon" id="nav-hamburger"/>
                 <img src="img/logo.png" alt="DevSpace-Logo" class="logo-img"/>
                 <ul id="menu">';
             if(isset($_SESSION['email'])) {
@@ -100,13 +100,13 @@
                 echo "<li><a href='logout.php'>Logout</a></li>";
             }else{
                 echo "<li><a href='index.php'>Home</a></li>";
-				echo "<li><a href='registrazione.php'>Registrati</a></li>";
-				echo "<li><a href='login.php'>Accedi</a></li>";
+                echo "<li><a href='registrazione.php'>Registrati</a></li>";
+                echo "<li><a href='login.php'>Accedi</a></li>";
             }
             echo '<li><a href="about.php">About</a></li>';
             echo '</ul>
             <img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
-			</div>';
+            </div>';
         }
 
         static function openSidebarEntry($topicID){
