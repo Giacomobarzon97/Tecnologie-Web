@@ -540,6 +540,9 @@ ARTICLES
 .input-comment-area {
     margin-top: 1%;
 }
+.input-comment-area textarea{
+    width: 100%;
+}
 
 .input-comment-area > p > textarea {
     font-size: 1.1em;
