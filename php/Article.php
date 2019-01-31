@@ -72,6 +72,16 @@
             $result = $connection -> executeQueryDML();
             $connection = NULL;
         }
+
+        static function editArticle($articleID, $title, $content){
+            $connection = new Connection();
+            $connection -> prepareQuery(
+                "UPDATE ARTICLES SET Title = :title , HTMLCode = :code WHERE Id = $articleID");
+            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":code", $content, PDO::PARAM_STR);
+            $result = $connection -> executeQueryDML();
+            $connection = NULL;
+        }
     }
 
 ?>

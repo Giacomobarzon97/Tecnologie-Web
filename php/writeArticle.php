@@ -5,9 +5,14 @@
     include_once('Subtopics.php');
     include_once('Article.php');
 
-    if(isset($_POST['submit']))
+    if(isset($_POST['create-article']))
     {
         Article::insertArticleInTable($_POST['title'], $_POST['article-input'], $_SESSION['email'], $_POST['subtopicID']);
+        header("location: ArticleLinks.php?id=".Subtopics::getTopicIDFromSubtopic($_POST['subtopicID']));
+    }
+    if(isset($_POST['edit-article']))
+    {
+        Article::editArticle($_GET['articleID'], $_POST['title'], $_POST['article-input']);
         header("location: ArticleLinks.php?id=".Subtopics::getTopicIDFromSubtopic($_POST['subtopicID']));
     }
 
@@ -15,7 +20,7 @@
     {
         header("Location: errore.php?errorCode=404");
     }
-    if(!isset($_GET['articleID']) || !Article::checkIfArticleExist($_GET['articleID'])){
+    if(isset($_GET['articleID']) && !Article::checkIfArticleExist($_GET['articleID'])){
         header("Location: errore.php?errorCode=404");
     }
 
@@ -99,10 +104,10 @@
                         <p>Tag HTML supportati</p>
                         <?php
                             if(isset($_GET['articleID'])){
-                                echo '<input type="submit" value="Modifica articolo" name="submit"/>';
+                                echo '<input type="submit" value="Modifica articolo" name="edit-article"/>';
                                 echo '<a href="ArticleLinks.php?id='.$_GET['topicID'].'">Annulla modifica</a>';
                             }else{
-                                echo '<input type="submit" value="Invia" name="submit"/>';
+                                echo '<input type="submit" value="Invia" name="create-article"/>';
                             }
                         ?>
                     </fieldset>                 	
