@@ -6,6 +6,7 @@
 * Name
 * Surname
 * ProfilePic
+* Banned
 
 ## ROLES (Normal User/Admin User)
 
@@ -53,6 +54,7 @@
 * is_like (boolean)
 
 ## Tabella per i token di chi dimentica la password
+
 Quanto un utente dimentica la password bisogna inviargli tramite email un link con un token temoraneo per cambiare la password.
 
 ## FORGOT_PASSWORD_TOKENS
