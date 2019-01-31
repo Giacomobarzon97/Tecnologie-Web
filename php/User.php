@@ -112,6 +112,7 @@
             $surname = $result[0]['Surname'];
             
             $userInfo = new UserInfo($email, $nickname, $name, $surname);
+            $connection = NULL;
             return $userInfo;
         }
 
@@ -286,6 +287,7 @@
             );
             $result = $connection -> executeQueryDML();
             User::redirectToComment($articleID, $commentID);
+            $connection = NULL;
         }
 
         static function removeVoteComment($commentID, $userVoteID, $articleID, $shouldRedirect = true) {
@@ -297,6 +299,7 @@
             if($shouldRedirect){ //Inutile da usare quando usato da voteComment() no?
                 User::redirectToComment($articleID, $commentID);
             }
+            $connection = NULL;
         }
 
         //--------------------------------------------------------
@@ -329,6 +332,7 @@
             );
 
             $result = $connection -> executeQueryDML();
+            $connection = NULL;
             return "Password aggiornata con successo!";
             
         }
@@ -339,15 +343,12 @@
             }
             $resultState = true;
             $connection = new Connection();
-            try {
-                $connection -> prepareQuery(
-                    "UPDATE USERS SET Nickname = '$newNickname' WHERE Email = '$email'"
-                );
-                $result = $connection -> executeQueryDML();
-            } catch (PDOException $e) {
-                
-            }
- 
+            $connection -> prepareQuery(
+                "UPDATE USERS SET Nickname = '$newNickname' WHERE Email = '$email'"
+            );
+            $result = $connection -> executeQueryDML();
+
+            $connection = NULL;
             if(!isset($result)) {
                 return false;
             }
@@ -359,15 +360,12 @@
                 return false;
             }
             $connection = new Connection();
-            try {
-                $connection -> prepareQuery(
-                    "UPDATE USERS SET Name = '$newName' WHERE Email = '$email'"
-                );
-                $result = $connection -> executeQueryDML();
-            } catch (PDOException $e) {
-                
-            }
-            
+            $connection -> prepareQuery(
+                "UPDATE USERS SET Name = '$newName' WHERE Email = '$email'"
+            );
+            $result = $connection -> executeQueryDML();
+
+            $connection = NULL;
             if(!isset($result)) {
                 return false;
             }
@@ -379,15 +377,12 @@
                 return false;
             }
             $connection = new Connection();
-            try {
-                $connection -> prepareQuery(
-                    "UPDATE USERS SET Surname = '$newSurname' WHERE Email = '$email'"
-                );
-                $result = $connection -> executeQueryDML();
-            } catch (PDOException $e) {
-                
-            }
+            $connection -> prepareQuery(
+                "UPDATE USERS SET Surname = '$newSurname' WHERE Email = '$email'"
+            );
+            $result = $connection -> executeQueryDML();
 
+            $connection = NULL;
             if(!isset($result)) {
                 return false;
             }
@@ -399,11 +394,9 @@
             $connection = new Connection();
             $connection -> prepareQuery(
                 "DELETE FROM USERS WHERE Email = '$email'");
-                try {
-                    $result = $connection -> executeQueryDML();
-                } catch (PDOException $e){
-                    
-                }
+            $result = $connection -> executeQueryDML();
+            
+            $connection = NULL;
         }
 
         //--------------------------------------------------------
@@ -473,6 +466,7 @@
 
                 //Contenuto email in HTML
                 $email_content = '
+                    <!DOCTYPE html>
                     <html>
                         <head>
                             <title>Recupera la password del tuo account</title>
