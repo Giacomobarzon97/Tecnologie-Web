@@ -37,7 +37,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
-        
+        <?php include_once ('favicon.php'); ?>
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
