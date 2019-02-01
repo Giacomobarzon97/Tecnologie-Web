@@ -33,18 +33,17 @@ a:hover{
 }
 #sidebar-header{
     border-bottom: 1px solid #707070;
-}
-#sidebar-header>img{
-    display: block;
-    width:30%;
-    height: auto;
-    margin:1em auto;
-}
-#side-search-bar{
-    padding:0em 5%;
+    padding:1em 5%;
 }
 #search-bar{
     border:none;
+}
+#search-bar h1{
+    color:white;
+    font-size: 1.5em;
+    margin:1em 2%;
+    text-align: center;
+    font-weight: 400;
 }
 #search-bar input[type="text"]{
     display: block;
