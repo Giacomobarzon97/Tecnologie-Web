@@ -1231,10 +1231,15 @@ GENERAL
 --------------------------------------------*/
 
 #errorMsg {
-    margin-top:10%;
+    padding: 5%;
     text-align: center;
 }
 
+#error_404_image{
+    display: block;
+    width: 100%;
+    margin: auto;
+}
 
 
 /*------------------------------------------
@@ -1283,12 +1288,6 @@ FOOTER
     display: inline;
     margin-right:2em;
     color:#C4C4C4;
-}
-
-#error_404_image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /*------------------------------------------
