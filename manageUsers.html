@@ -1,0 +1,93 @@
+
+  
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+	<title>Sospensione account &#124; DevSpace</title>
+	    <meta charset="UTF-8">
+	    <meta name="description" content="Pagina di sospensione account utente" />
+	    <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
+	    <meta name="language" content="italian it" />
+	    <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+	    <meta content="width=device-width, initial-scale=1" name="viewport" />
+	    <meta name="theme-color" content="#F5F5F5" />
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
+		<link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+		<link rel="manifest" href="img/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+	    <link rel="stylesheet" type="text/css" href="style.css" />
+	    <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
+	    <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
+	</head>
+    
+    <body>
+		<div id="nav-full">
+			<img src="img/logo.png" alt="Dev Space" id="nav-logo">
+			<ul id="menu">
+				<li><a href='index.php'>Home</a></li>
+				<li><a href='profile.php'>Il tuo profilo</a></li>
+				<li><a href='adminTools.php'>Strumenti</a></li>
+				<li><a href='logout.php'>Logout</a></li>
+				<li><a href='about.php'>About</a></li>
+			</ul>
+			<img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
+		</div>        
+		<div id="registration-form">
+			<h1>Devspace</h1>
+			<h2>Sospendi l'account di un utente</h2>
+
+			<div id="login-error-box-zone">
+			</div>
+
+			<div class="regform-main-section">
+				<form action="manageUsers.php" id="login-main-form" method="POST">
+					<fieldset>
+						<p>
+							<label for="lnickname">Nickname</label>
+							<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onfocus="LoginPage_HideChangeLoginDataError()" />
+						</p>
+						<p>
+							<input class="profile-input" name="submit" type="submit" value="Esegui" />
+						</p>
+					</fieldset>
+				</form>
+			</div>
+			<h2>Sospendi l'account di un utente</h2>
+			<div class="regform-main-section">
+				<ul>
+					<li>
+						<h3>b</h3>
+						<form action="/manageUsers.php" method="POST">
+							<p>        
+								<input type="hidden" name="nicknameDel" value="b" />
+								<input class="profile-input" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
+							</p>
+						</form>
+					</li>
+					<li>
+						<h3>c</h3>
+						<form action="/manageUsers.php" method="POST">
+							<p>        
+								<input type="hidden" name="nicknameDel" value="c" />
+								<input class="profile-input" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
+							</p>
+						</form>
+					</li>
+				</ul>
+			</div>            
+		</div>	
+    </body>
+</html>
