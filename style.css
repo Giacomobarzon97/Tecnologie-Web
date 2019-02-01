@@ -46,6 +46,7 @@ a:hover{
     font-weight: 400;
 }
 #search-bar input[type="text"]{
+    outline: none;
     display: block;
     padding:0.5em 8% 0.5em 2%;
     width: 90%;
@@ -226,6 +227,7 @@ a:hover{
     margin:1em 0em;
 }
 #write-article-form [type=text]{
+    outline: none;
     margin:0.5em 0px;
     display: block;
     width: 97%;
@@ -239,6 +241,7 @@ a:hover{
     font-size: 1.2em;
 }
 #write-article-form [type=submit] {
+    outline: none;
     display: block;
     width: 50%;
     margin:0em auto;
@@ -333,6 +336,7 @@ a:hover{
 }
 
 #content-article-introduction [type=text]{
+    outline: none;
     display: table;
     margin:1em auto;
     font-size: 1em;
@@ -362,6 +366,7 @@ a:hover{
 }
 
 #content-article-introduction input[type=submit]{
+    outline: none;
     display: table;
     margin:1em auto;
     border: none;
@@ -1077,13 +1082,11 @@ PROFILE
 /* Profile page */
 
 #registration-form {
+    text-align: center;
     padding-top: 10%;
     width: 50%;
     max-width:400px;
     margin:0px auto;
-}
-.regform-introduction{
-    text-align: center;
 }
 #registration-form h1{
     margin-top: 1em;
@@ -1101,13 +1104,17 @@ PROFILE
     font-weight:lighter;
     color:#535359;
 }
+#registration-form h3{
+    font-size:1.2em;
+    font-weight:700;
+    color:black;
+}
 #registration-form img {
     margin-top: 1em;
     margin-bottom: 2em;
 }
 #regform-links{
     margin: 3em 0em;
-    text-align: center;
     list-style-type: none;
 }
 #regform-links>li{
@@ -1115,14 +1122,20 @@ PROFILE
     display: inline;
 }
 .regform-main-section {
-    text-align: center;
     border:1px solid #ccc;
     border-radius: 10px;
     background-color:white;
     padding: 1em;
-    text-align: center;
     margin-bottom: 2em;
 }
+.regform-main-section ul{
+    list-style-type: none;
+}
+.regform-main-section li{
+    font-size:1.2em;
+    margin:1em 0em;
+}
+
 .regform-errorbox, .regform-successbox{
     max-width: 400px;
     margin:1em auto;
@@ -1145,6 +1158,7 @@ PROFILE
     color:#2E562E;
 }
 .profile-input[type=text]{
+    outline: none;
     width: 100%;
     padding: 0.5em;
     margin-top: 1em;
@@ -1156,6 +1170,7 @@ PROFILE
 }
 
 .profile-input[type=email]{
+    outline:none;
     width: 100%;
     padding: 0.5em;
     margin-top: 1em;
@@ -1167,6 +1182,7 @@ PROFILE
 }
 
 .profile-input[type=password]{
+    outline: none;
     width: 100%;
     padding: 0.5em;
     margin-top: 1em;
@@ -1178,6 +1194,7 @@ PROFILE
 }
 
 .profile-input[type=submit] {
+    outline: none;
     width: 100%;
     background-color: #0D47A1;
     color: white;
@@ -1219,9 +1236,7 @@ GENERAL
     text-align: center;
 }
 
-.simple-list {
-    list-style-type: none;
-}
+
 
 /*------------------------------------------
 FOOTER
