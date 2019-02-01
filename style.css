@@ -178,8 +178,7 @@ a:hover{
     margin:1.25em 2%;
 }
 
-#menu, #nav-full>ul{
-    float: right;
+#menu{
     list-style-type: none;
     overflow-y:hidden; /* Was "none" but is incorrect */
     margin:2em 0em;
@@ -190,9 +189,9 @@ a:hover{
     font-weight: bold;
 }
 
-#menu>li, #nav-full>ul>li{
-    display:inline-block;
-    margin: 0em 1.25em;
+#menu>li{
+    display:inline;
+    margin: 0em 2%;
     transition:margin 0.5s;
 }
 #main{
