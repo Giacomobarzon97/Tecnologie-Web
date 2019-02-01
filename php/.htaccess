@@ -1,6 +1,11 @@
-<FilesMatch "\.json$">
+<Files "loginData.json">  
+    Order Allow,Deny
     Deny from all
-</FilesMatch>
+</Files>
+<Files "loginDataExample.json">  
+    Order Allow,Deny
+    Deny from all
+</Files>
 
 ErrorDocument 404 /errore.php?errorCode=404
 ErrorDocument 403 /errore.php?errorCode=404
