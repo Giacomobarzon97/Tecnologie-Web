@@ -74,7 +74,6 @@
                 </form>
             </div>
             <div>
-                <h3>Utenti sospesi</h3>
                 <?php User::printAllBannedUsers(); ?>
             </div>
         </div>	

@@ -61,7 +61,6 @@
                 </form>
             </div>
             <div style="text-aling:center;">
-                    <h3>Amministratori attuali</h3>
                     <?php User::printAllAdmin(); ?>
             </div>
         </div>	
