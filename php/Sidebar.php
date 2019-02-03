@@ -53,10 +53,25 @@
             Sidebar::printSidebar($info['TopicID'], $info['SubtopicID'], true);
         }
 
+        static function printSidebarSearchBox(){
+            echo '<div id="sidebar-header">
+				<form method="get" action="search.php">
+					<fieldset id="search-bar">
+                        <p>
+                            <h1><label for="search-bar-textarea">Cerca articoli ed argomenti</label></h1>
+                            <input type="text" id="search-bar-textarea" name="search-term" required>
+                        </p>
+	                	<p><input type="submit" value="Cerca"></p>
+					</fieldset>
+				</form>
+			</div>';
+        }
+
         static function printSidebar($topicID, $subtopicID = NULL, $isarticle = false){
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM TOPICS");
             $topics = $connection -> executeQuery();
+            Sidebar::printSidebarSearchBox();
             echo '<ul id="sidebar">
             ';
             foreach ($topics as $topic) {

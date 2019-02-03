@@ -59,7 +59,7 @@ a:hover{
     background-size: 5%;
     background-position: 98% 
 }
-#search-bar input[type="button"]{
+#search-bar input[type="submit"]{
     display: block;
     width: 40%;
     margin:1em auto;
@@ -73,7 +73,7 @@ a:hover{
     outline:none;
     transition:background 0.5s, color 0.5s;
 }
-#search-bar input[type="button"]:hover{
+#search-bar input[type="submit"]:hover{
     background:white;
     color:black;
 }
