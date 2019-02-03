@@ -47,7 +47,7 @@
 				<div id="home-search-bar">
 					<form form method="get" action="search.php">
 						<fieldset id="search-bar">
-							<p><input type="text" id="search-bar-textarea" name="search-term" required></p>
+							<p><input type="text" id="search-bar-textarea" name="search-term" pattern="[A-Za-z]+" required></p>
 	                    	<p><input type="submit" value="Search"></p>
 						</fieldset>
 					</form>
