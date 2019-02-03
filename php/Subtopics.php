@@ -121,7 +121,7 @@
                         <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
                         <input type="hidden" name="articleID" value="'.$article['Id'].'" />
-                        <input type="image" alt="pulsante modifica articolo" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="delete_button_link" />
+                        <input type="image" alt="pulsante modifica articolo" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="add_button_link" />
                     </form>
                     </div>';
                 }
@@ -197,15 +197,16 @@
             $subtopics = $connection -> executeQuery();
             //Stampa parte iniziale
             echo '<h1>'.$topic[0]['Name'].'</h1>
-            <p>'.$topic[0]['Description'].'</p>
-            <h2>Cosa imparerai:</h2>
-            <ul>';
-            //Stampa cosa imparerai
-            foreach ($subtopics as $subtopic) {
-                echo '<li><a href="#subtopic_'.$subtopic['Id'].'">'.$subtopic['Title'].'</a></li>';
+            <p>'.$topic[0]['Description'].'</p>';
+            if(count($subtopics) > 0){
+                echo '<h2>Cosa imparerai:</h2>
+                <ul>';
+                //Stampa cosa imparerai
+                foreach ($subtopics as $subtopic) {
+                    echo '<li><a href="#subtopic_'.$subtopic['Id'].'">'.$subtopic['Title'].'</a></li>';
+                }
+                echo '</ul>';
             }
-            //Stampa form di aggiunta
-            echo '</ul>';
             //Destroy the object
             $connection = NULL;
         }

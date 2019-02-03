@@ -146,7 +146,7 @@
                 echo '<li class="arg_title" id='.$topic['Id'].'>';
                 echo '<div>';
                 echo '<div class="details">
-                    <h2>'.$topic['Name'].'</h2>
+                    <h2><a href="ArticleLinks.php?id='.$topic['Id'].'">'.$topic['Name'].'</a></h2>
                     <h3>'.$topic['Description'].'</h3>
                 </div>';
                 echo '<div class="buttons">';
