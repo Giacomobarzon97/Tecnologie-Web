@@ -62,23 +62,21 @@
                 Sidebar::printNavbar();
             ?>
             <div id="main">
-                <div id="content">
-                    <!--Inizio centratura articolo-->
-                    <div class="article-content">
+                <!--Inizio centratura articolo-->
+                <div class="article-content">
+                <?php
+                    Article::printArticleHTML($_GET["id"]);
+                ?>
+                </div>
+                <hr />
+                <!--Inizio centratura commenti-->
+                <div id="comments-content">
                     <?php
-                        Article::printArticleHTML($_GET["id"]);
+                        Comments::printCommentInputZone($_SESSION['email']);
+                        Comments::printAllComments($_GET["id"], $_SESSION['email']);
                     ?>
-                    </div>
-                    <hr />
-                    <!--Inizio centratura commenti-->
-                    <div id="comments-content">
-                        <?php
-                            Comments::printCommentInputZone($_SESSION['email']);
-                            Comments::printAllComments($_GET["id"], $_SESSION['email']);
-                        ?>
-                    </div>
-                    <!--Fine centratura commenti-->
-                </div> <!--Chiusura div content-->
+                </div>
+                <!--Fine centratura commenti-->
             </div> <!--Chiusura div main-->
             <?php
                 include_once ('footer.php');
