@@ -1,3 +1,8 @@
+/* General */
+
+#retTop{
+	background-color: #FFFFFF;
+}
 /* Index & about */
 #nav, #nav-full {
     position: absolute;
@@ -83,6 +88,19 @@
 
 /* End addAdmin */
 
+/* article */
+
+.article-image img{
+	width: 100%;
+	max-height: 2em;
+}
+
+/* create_argument */
+
+.arg_title>div{
+    padding: 1.7em 3%;
+}
+
 /* article_links */
 
 #nav{
@@ -103,8 +121,12 @@
 	margin-right: 0px;
 }
 
-/* End print-style(Giacomo) */
+/* End article_links */
 
+/* Footer */
 
+#developers>ul>li{
+	margin-right:1.5em;
+}
 
 
