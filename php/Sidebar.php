@@ -58,9 +58,13 @@
 				<form method="get" action="search.php">
 					<fieldset id="search-bar">
                         <p>
-                            <h1><label for="search-bar-textarea">Cerca articoli ed argomenti</label></h1>
-                            <input type="text" id="search-bar-textarea" name="search-term" required>
-                        </p>
+                            <h1><label for="search-bar-textarea">Cerca articoli ed argomenti</label></h1>';
+                            if(isset($_GET["search-term"])){
+                                echo '<input type="text" id="search-bar-textarea" name="search-term" required value='.$_GET["search-term"].'>';
+                            }else{
+                                echo '<input type="text" id="search-bar-textarea" name="search-term" required>';
+                            }
+                        echo '</p>
 	                	<p><input type="submit" value="Cerca"></p>
 					</fieldset>
 				</form>
