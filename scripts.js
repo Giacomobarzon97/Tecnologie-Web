@@ -521,7 +521,6 @@ function validateInsertNewArticleData(){
 //Principali EventListener
 //----------------------------------------------------
 function resize(lastWidth) {
-    console.log(window.innerWidth+" "+lastWidth)
     if(window.innerWidth!=lastWidth){
         var wrapper=document.getElementById("sidebar-wrapper");
         var mask=document.getElementById("mobile-sidebar-mask");
