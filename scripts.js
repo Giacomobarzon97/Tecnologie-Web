@@ -520,6 +520,37 @@ function validateInsertNewArticleData(){
 //----------------------------------------------------
 //Principali EventListener
 //----------------------------------------------------
+function resize(lastWidth) {
+    console.log(window.innerWidth+" "+lastWidth)
+    if(window.innerWidth!=lastWidth){
+        var wrapper=document.getElementById("sidebar-wrapper");
+        var mask=document.getElementById("mobile-sidebar-mask");
+        var menu=document.getElementById("menu");
+        if(window.innerWidth>768){
+            if(wrapper!=null && mask!=null){
+                wrapper.style.width="25%";
+                mask.style.backgroundColor="rgba(0,0,0,0.0)";       
+                mask.style.display="none";
+            }
+            if(menu!=null){
+                menu.style.display="block";
+            }
+        }else{
+            if(wrapper!=null){
+                wrapper.style.width="0%";
+            }
+            if(menu!=null){
+                menu.style.display="none";
+            }
+
+        }
+    }
+    return window.innerWidth;
+}
+function manageResize(){
+    var l=window.innerWidth;
+    window.addEventListener('resize',function(){l=resize(l)}, false);
+}
 
 window.addEventListener("load", function(){
     loadCSSstylesheet();
@@ -625,31 +656,9 @@ window.addEventListener("load", function(){
     //Funzioni di inizializzazione
     //Sidebar
     sidebarExpandButtons();
+    manageResize()
 });
 
-window.addEventListener('resize', function(e) {
-    var wrapper=document.getElementById("sidebar-wrapper");
-    var mask=document.getElementById("mobile-sidebar-mask");
-    var menu=document.getElementById("menu");
-    if(window.innerWidth>768){
-        if(wrapper!=null && mask!=null){
-            wrapper.style.width="25%";
-            mask.style.backgroundColor="rgba(0,0,0,0.0)";		
-            mask.style.display="none";
-        }
-        if(menu!=null){
-            menu.style.display="block";
-        }
-    }else{
-        if(wrapper!=null){
-            wrapper.style.width="0%";
-        }
-        if(menu!=null){
-            menu.style.display="none";
-        }
-
-    }
-}, false);
 
 /* nav-bar menu collapse */
 document.addEventListener("DOMContentLoaded", function() {
