@@ -1364,6 +1364,10 @@ MEDIA QUERIES
         margin-right: 15%;
         min-width: 30%;
     }
+
+    #errorMsg {
+        font-size: 2em;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -1732,5 +1736,9 @@ MEDIA QUERIES
         width: 90%;
         max-width:400px;
         margin:0px auto;
+    }
+
+    #errorMsg {
+        font-size: 2em;
     }
 }
