@@ -101,6 +101,7 @@ a:hover{
     margin: 0px 5%;
     height: 1.0em;
     width: 1.0em;
+    cursor: pointer;
 }
 #sidebar>li>ul{
     list-style-type: none;
