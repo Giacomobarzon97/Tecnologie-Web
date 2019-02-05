@@ -1156,6 +1156,8 @@ PROFILE
     background-color:#dff0d8;
     color:#2E562E;
 }
+
+/*unificare i prossimi 4 set di regole css*/
 .profile-input[type=text]{
     outline: none;
     width: 100%;
@@ -1198,6 +1200,19 @@ PROFILE
     background-color: #0D47A1;
     color: white;
     padding: 1em;
+    margin: 8px 0;
+    border: none;
+    transition: background-color 0.5s;
+    border-radius: 1.5em;
+    cursor: pointer;
+}
+
+.remove-suspension[type=submit] {
+    outline: none;
+    width: 60%;
+    background-color: #0D47A1;
+    color: white;
+    padding: 0.25em;
     margin: 8px 0;
     border: none;
     transition: background-color 0.5s;

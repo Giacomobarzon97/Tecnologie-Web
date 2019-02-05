@@ -159,8 +159,8 @@
                 "SELECT * FROM USERS, USER_ROLES WHERE  
                 USERS.Email = USER_ROLES.UserID AND USER_ROLES.RoleName = 'Admin User'");
             $result = $connection -> executeQuery();
+            echo "<h2>Utenti amministratori</h2>";
             echo '<div class="regform-main-section">';
-            echo "<h2>Amministratori attuali</h2>";
             echo "<ul>";
             foreach ($result as $admin) {
                 echo "<li>";
@@ -226,6 +226,7 @@
             if(!isset($result[0])) {
                 echo "<span>Nessun utente sospeso!</span>";
             }
+            echo "<h2>Utenti sospesi</h2>";
             echo '<div class="regform-main-section">';
             echo "<ul>";
             foreach ($result as $banned) {
@@ -234,7 +235,7 @@
                 echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                     <p>        
                         <input type="hidden" name="nicknameDel" value="'.$banned['Nickname'].'" />
-                        <input class="profile-input" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
+                        <input class="remove-suspension" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
                     </p>
                     </form>';
                 echo "</li>";
