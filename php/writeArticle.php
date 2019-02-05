@@ -75,7 +75,7 @@
                             echo '<li>Sottoargomento: <a href="ArticleLinks.php?id='.$_GET['topicID'].'#subtopic_'.$_GET['subtopicID'].'">'.Subtopics::getSubtopicTitle($_GET['subtopicID']).'</a></li>';
                             if(isset($_GET['articleID'])){
                                 $articleInfo = Article::getArticleRowFromId($_GET['articleID']);
-                                echo '<li>Stai modificando l\'articolo:"'.$articleInfo['Title'].'"</li>';
+                                echo '<li>Stai modificando l\'articolo: <a href="ReadArticle.php?id='.$articleInfo['Id'].'" target="_blank">'.$articleInfo['Title'].'</a></li>';
                             }
                         ?>
                     </ul>
