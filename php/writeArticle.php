@@ -71,8 +71,8 @@
                     ?>
                     <ul id="article-info">
                         <?php
-                            echo '<li>Argomento: "'.Subtopics::getTopicTitle($_GET['topicID']).'"</li>';
-                            echo '<li>Sottoargomento: "'.Subtopics::getSubtopicTitle($_GET['subtopicID']).'"</li>';
+                            echo '<li>Argomento: <a href="ArticleLinks.php?id='.$_GET['topicID'].'">'.Subtopics::getTopicTitle($_GET['topicID']).'</a></li>';
+                            echo '<li>Sottoargomento: <a href="ArticleLinks.php?id='.$_GET['topicID'].'#subtopic_'.$_GET['subtopicID'].'">'.Subtopics::getSubtopicTitle($_GET['subtopicID']).'</a></li>';
                             if(isset($_GET['articleID'])){
                                 $articleInfo = Article::getArticleRowFromId($_GET['articleID']);
                                 echo '<li>Stai modificando l\'articolo:"'.$articleInfo['Title'].'"</li>';
