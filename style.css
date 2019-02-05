@@ -1220,6 +1220,10 @@ PROFILE
     cursor: pointer;
 }
 
+.remove-suspension[type=submit]:hover{
+    background-color: #464646;
+}
+
 .profile-input[type=submit]:hover{
     background-color: #464646;
 }
