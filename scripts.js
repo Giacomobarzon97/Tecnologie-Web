@@ -44,7 +44,7 @@ function sidebarExpandButtons(){
             e = e || window.event;
             var target = e.target || e.srcElement;
             var sublist= target.parentNode.parentNode.getElementsByTagName("UL")[0];
-            if(target.name != "auto-opened"){ //apertura automatica della sezione
+            //if(target.name != "auto-opened"){ //apertura automatica della sezione
                 if(sublist.style.display=="block"){
                     target.src="img/expand-button.svg";
                     sublist.style.display="none";
@@ -52,7 +52,7 @@ function sidebarExpandButtons(){
                     sublist.style.display="block";
                     target.src="img/collapse-button.svg";				
                 }
-            }
+            //}
         },false);
     }
 }
