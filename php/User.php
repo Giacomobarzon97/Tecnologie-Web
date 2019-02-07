@@ -281,7 +281,7 @@
 
         static function deleteComment($email, $commentID) {
             $connection = new Connection();
-            if(User::isAdmin($email) && !User::isBanned(User::getUserInfo($email)->nickname)) {
+            if(User::isAdmin($email) && !User::isBanned($email, true)) {
                 $connection -> prepareQuery(
                 "DELETE FROM COMMENTS WHERE Id = '$commentID'");
                 $result = $connection -> executeQueryDML();
