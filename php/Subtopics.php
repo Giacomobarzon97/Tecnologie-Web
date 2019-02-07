@@ -112,12 +112,12 @@
                 echo '<a href="ReadArticle.php?id='.$article['Id'].'">'.$article['Title'].'</a>';
                 if($loggedUserIsAdmin){
                     echo '<div>
-                    <form action='.$_SERVER['REQUEST_URI'].' method="POST">
+                    <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                         <input type="hidden" name="delete-article" />
                         <input type="hidden" name="articleID" value="'.$article['Id'].'" />
                         <input type="image" alt="pulsante elimina articolo" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_link" />
                     </form>
-                    <form action=writeArticle.php method="GET">
+                    <form action="writeArticle.php" method="GET">
                         <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
                         <input type="hidden" name="articleID" value="'.$article['Id'].'" />
