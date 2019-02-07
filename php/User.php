@@ -112,6 +112,7 @@
             $connection -> prepareQuery("SELECT * FROM USERS WHERE Email = :email");
             $connection -> bindParameterToQuery(":email", $email, PDO::PARAM_STR);
             $result = $connection -> executeQuery();
+            if(!isset($result)) return NULL;
             $nickname = $result[0]['Nickname'];
             $name = $result[0]['Name'];
             $surname = $result[0]['Surname'];
@@ -145,6 +146,10 @@
             }
             if(User::isAdmin($email)){
                 return new ResultManager("<li>Non puoi aggiungere un utente che è già amministratore!</li>", true);
+            }
+            $userInfo = User::getUserInfo($email);
+            if(!isset($userInfo)) {
+                return new ResultManager("<li>Utente non esistente!</li>", true);
             }
             $connection = new Connection();
             $connection -> prepareQuery(
