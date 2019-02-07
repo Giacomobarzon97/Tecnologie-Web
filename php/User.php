@@ -112,7 +112,7 @@
             $connection -> prepareQuery("SELECT * FROM USERS WHERE Email = :email");
             $connection -> bindParameterToQuery(":email", $email, PDO::PARAM_STR);
             $result = $connection -> executeQuery();
-            if(!isset($result)) return NULL;
+            if(!isset($result[0])) return NULL;
             $nickname = $result[0]['Nickname'];
             $name = $result[0]['Name'];
             $surname = $result[0]['Surname'];
