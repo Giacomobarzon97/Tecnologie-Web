@@ -106,7 +106,7 @@
 
         static function printNavbar(){
             echo '<div id="nav" class="sidebar-nav">
-                <img src="img/hamburger.svg" alt="hamburger-icon" id="nav-hamburger"/>
+                <img src="img/list.svg" alt="hamburger-icon" id="nav-hamburger"/>
                 <img src="img/logo.png" alt="DevSpace-Logo" id="nav-logo"/>
                 <ul id="menu">';
             if(isset($_SESSION['email'])) {
@@ -124,7 +124,7 @@
             }
             echo '<li><a href="about.php">About</a></li>';
             echo '</ul>
-            <img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
+            <img src="img/hamburger.svg" alt="nav menu icon" id="nav-menu-icon"/>
             </div>';
         }
 
