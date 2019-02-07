@@ -5,7 +5,6 @@
 * Password
 * Name
 * Surname
-* ProfilePic
 * Banned
 
 ## ROLES (Normal User/Admin User)

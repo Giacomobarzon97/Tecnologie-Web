@@ -42,17 +42,15 @@
         */
         static function registration($email, $nickname, $password, $name, $surname) {
             $connection = new Connection();
-            $profilePic = "https://frncscdf.github.io/Tecnologie-Web/img/coding.svg";
             $hashPassword = password_hash($password, PASSWORD_DEFAULT);
             $connection -> prepareQuery
-            ("INSERT INTO USERS(Email, Nickname, Password, Name, Surname, ProfilePic) 
-            VALUES (:Email, :Nickname, :Password, :Name, :Surname, :ProfilePic)");
+            ("INSERT INTO USERS(Email, Nickname, Password, Name, Surname) 
+            VALUES (:Email, :Nickname, :Password, :Name, :Surname)");
             $connection->bindParameterToQuery(":Email", $email, PDO::PARAM_STR);
             $connection->bindParameterToQuery(":Nickname", $nickname, PDO::PARAM_STR);
             $connection->bindParameterToQuery(":Password", $hashPassword, PDO::PARAM_STR);
             $connection->bindParameterToQuery(":Name", $name, PDO::PARAM_STR);
             $connection->bindParameterToQuery(":Surname", $surname, PDO::PARAM_STR);
-            $connection->bindParameterToQuery(":ProfilePic", $profilePic, PDO::PARAM_STR);
 
             $messagge = "";
             $error = false;

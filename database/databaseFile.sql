@@ -26,7 +26,6 @@ CREATE TABLE USERS(
     Password varchar(255),
     Name varchar(100) NOT NULL,
     Surname varchar(100) NOT NULL,
-    ProfilePic varchar(255),
     Banned BOOLEAN
 ) ENGINE=InnoDB;
 
@@ -88,10 +87,10 @@ CREATE TABLE FORGOT_PASSWORD_TOKENS(
 -- Inserimento dati di test nel database
 -- ------------------------------------------
 
-INSERT INTO USERS (Email, Nickname, Password, Name, Surname, ProfilePic, Banned) VALUES
-    ('user@user.com', 'User', 'User', 'User Test', '1', 'https://frncscdf.github.io/Tecnologie-Web/img/coding.svg', 0),
-    ('user2@user.com', 'User2', 'User', 'User Test', '2', 'https://frncscdf.github.io/Tecnologie-Web/img/coding.svg', 0),
-    ('admin@admin.com', 'Admin', 'Admin', 'Admin Test', '1', 'https://frncscdf.github.io/Tecnologie-Web/img/coding.svg', 0);
+INSERT INTO USERS (Email, Nickname, Password, Name, Surname, Banned) VALUES
+    ('user@user.com', 'User', 'User', 'User Test', '1', 0),
+    ('user2@user.com', 'User2', 'User', 'User Test', '2', 0),
+    ('admin@admin.com', 'Admin', 'Admin', 'Admin Test', '1', 0);
 
 INSERT INTO ROLES (RoleName) VALUES
     ('Normal User'), ('Admin User');

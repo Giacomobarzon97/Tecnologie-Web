@@ -30,9 +30,6 @@
                 <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" id="insert-new-comment-form">
                 <fieldset>';
                 echo '<div class="input-comment">
-                    <div class="input-comment-avatar">
-                        <img src="'.$result[0]['ProfilePic'].'" alt="Avatar di '.$result[0]['Nickname'].'"/>
-                    </div>
                     <div class="input-comment-area">
                             <p><textarea rows="4" cols="200" name="comment-input" id="comment-text-area-input" required
                             onfocus="ReadArticle_HideInsertCommentError()"></textarea></p>
@@ -87,9 +84,6 @@
 
                 echo '<div class="post-comment">';
                 echo '<span id="comment_'.$comment['Id'].'"></span>';
-                    echo '<div class="post-comment-avatar">
-                    <img src="'.$commentAuthor[0]['ProfilePic'].'" alt="Avatar di '.$commentAuthor[0]['Nickname'].'"/>
-                    </div>';
                     echo '<div class="post-comment-body">';
                         echo '<div class="post-comment-body-header">';
                             echo '<div class="post-comment-header-info">';
