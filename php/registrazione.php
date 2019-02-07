@@ -43,63 +43,63 @@
                         $surname = $_POST['surname'];
                         $password = $_POST['password'];
                         $result = User::registration($email, $nickname, $password, $name, $surname);
-                        echo "<div>".$result->getMessage()."</div>";
+                        if($result->getIsError()){
+                            echo '<ul class="regform-errorbox">';
+                        }else{
+                            echo '<ul class="regform-successbox">';
+                        }
+                        echo $result->getMessage();
+                        echo "</ul>";
+                    }
+                    if(!isset($_POST['submit']) || $result->getIsError()){
+                        echo '<form action="registrazione.php" id="register-main-form" method="POST">
+                            <fieldset>
+                                <p>
+                                <label for="lemail">Email</label>';
+                                    if(isset($_POST['submit'])){
+                                        echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" maxlength="100" required value="'.$email.'"/>';
+                                    }else{
+                                        echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" maxlength="100" required />';
+                                    }
+                                echo '</p>
+                                <p>
+                                    <label for="lnickname">Nickname</label>';
+                                    if(isset($_POST['submit'])){
+                                        echo '<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" 
+                                        required pattern=".{1,}" title="Il nickname deve essere almeno di un carattere" value="'.$nickname.'"/>';
+                                    }else{
+                                        echo '<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" 
+                                        required pattern=".{1,}" title="Il nickname deve essere almeno di un carattere" />';
+                                    }
+                                echo '</p>
+                                <p>
+                                    <label for="lname">Nome</label>';
+                                    if(isset($_POST['submit'])){
+                                        echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" 
+                                        required value="'.$name.'"/>';
+                                    }else{
+                                        echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" required />';
+                                    }
+                                echo '</p>
+                                <p>
+                                    <label for="lsurname">Cognome</label>';
+                                    if(isset($_POST['submit'])){
+                                        echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" 
+                                        required value="'.$surname.'"/>';
+                                    }else{
+                                        echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required />';
+                                    }
+                                echo '</p>
+                                <p>
+                                    <label for="lpassword">Password</label>
+                                    <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" maxlength="100" 
+                                    required pattern=".{3,100}" title="La password deve avere tra 3 e 100 caratteri"/>
+                                </p>
+                                <p><input class="profile-input" name="submit" type="submit" value="Submit" /></p>
+                            </fieldset>
+                        </form>';
                     }
                 ?>
-                <form action="registrazione.php" id="register-main-form" method="POST">
-                    <fieldset>
-                        <p>
-                        <label for="lemail">Email</label>
-                            <?php
-                            if(isset($_POST['submit'])){
-                                echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" maxlength="100" required value="'.$email.'"/>';
-                            }else{
-                                echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" maxlength="100" required />';
-                            }
-                            ?>
-                        </p>
-                        <p>
-                            <label for="lnickname">Nickname</label>
-                            <?php
-                            if(isset($_POST['submit'])){
-                                echo '<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" 
-                                required pattern=".{1,}" title="Il nickname deve essere almeno di un carattere" value="'.$nickname.'"/>';
-                            }else{
-                                echo '<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" 
-                                required pattern=".{1,}" title="Il nickname deve essere almeno di un carattere" />';
-                            }
-                            ?>
-                        </p>
-                        <p>
-                            <label for="lname">Nome</label>
-                            <?php
-                            if(isset($_POST['submit'])){
-                                echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" 
-                                required value="'.$name.'"/>';
-                            }else{
-                                echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" required />';
-                            }
-                            ?>
-                        </p>
-                        <p>
-                            <label for="lsurname">Cognome</label>
-                            <?php
-                            if(isset($_POST['submit'])){
-                                echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" 
-                                required value="'.$surname.'"/>';
-                            }else{
-                                echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required />';
-                            }
-                            ?>
-                        </p>
-                        <p>
-                            <label for="lpassword">Password</label>
-                            <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" maxlength="100" 
-                            required pattern=".{3,100}" title="La password deve avere tra 3 e 100 caratteri"/>
-                        </p>
-                        <p><input class="profile-input" name="submit" type="submit" value="Submit" /></p>
-                    </fieldset>
-                </form>
             </div>
             <div class="regform-side-section">
                 <p>Sei già registrato?

@@ -58,27 +58,27 @@
             $error = false;
 
             if(!ValidateData::validateEmail($email)) {
-                $messagge += "<p>E-mail non valida!</p>";
+                $messagge += "<li>E-mail non valida!</li>";
             }
             if(!ValidateData::checkStringIsEmpty($nickname)) {
-                $messagge += "<p>Nickname non valido!</p>";
+                $messagge += "<li>Nickname non valido!</li>";
             }
             if(!ValidateData::validatePassword($password)) {
-                $messagge += "<p>Password non valida! Deve essere lunga tra 3 e 100 caratteri</p>";
+                $messagge += "<li>Password non valida! Deve essere lunga tra 3 e 100 caratteri</li>";
             }
             if(!ValidateData::validateName($name)) {
-                $messagge += "<p>Nome non valido!</p>";
+                $messagge += "<li>Nome non valido!</li>";
             }
             if(!ValidateData::validateName($surname)) {
-                $messagge += "<p>Cognome non valido!</p>";
+                $messagge += "<li>Cognome non valido!</li>";
             }
             if ($messagge == "") {
                 try {
                     $result = $connection -> executeQueryDML();
-                    $messagge = "Registrazione avvenuta con successo! <br/>
-                                Clicca <a href='login.php'>qui</a> per eseguire il login.";
+                    $messagge = "<li>Registrazione avvenuta con successo! <br/>
+                                Clicca <a href='login.php'>qui</a> per eseguire il login.</li>";
                 } catch (PDOException $e){
-                    $messagge = "Impossibile registrarsi, utente già esistente o nickname già presente!";
+                    $messagge = "<li>Impossibile registrarsi, utente già esistente o nickname già presente!</li>";
                     $error = true;
                 }
             }else{
@@ -321,7 +321,7 @@
         static function changePassword($email, $oldPassword, $newPassword, $confNewPassword) {
             //CONTROLLARE VALIDITA' DELLA PASSWORD
             if($newPassword != $confNewPassword) {
-                return "Attenzione, la nuova password e la conferma non coincidono!";
+                return new ResultManager("Attenzione, la nuova password e la conferma non coincidono!", true);
             }
             $connection = new Connection();
             $connection -> prepareQuery(
@@ -332,7 +332,7 @@
             
             if(isset($result[0])) {
                 if(!password_verify($oldPassword, $result[0]['Password'])) {
-                    return "Attenzione, la password attuale inserita è errata!";
+                    return new ResultManager("Attenzione, la password attuale inserita è errata!", true);
                 } 
             }
 
@@ -344,7 +344,7 @@
 
             $result = $connection -> executeQueryDML();
             $connection = NULL;
-            return "Password aggiornata con successo!";
+            return new ResultManager("Password aggiornata con successo!");
             
         }
 

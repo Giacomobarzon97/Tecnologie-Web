@@ -4,6 +4,15 @@
     include_once('Sidebar.php');
     include_once('Subtopics.php');
     include_once('Article.php');
+    include_once('User.php');
+
+    if(!isset($_SESSION['email'])) {
+        header("Location: errore.php?errorCode=paginaNonDisponibile");
+    }
+
+    if(!User::isAdmin($_SESSION['email'])){
+        header("Location: errore.php?errorCode=nonAdmin");
+    }
 
     if(isset($_POST['create-article']))
     {

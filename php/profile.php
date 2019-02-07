@@ -54,30 +54,30 @@
                         if(isset($_POST['nickname'])) {
                             $result = User::changeNickname($_SESSION['email'], $_POST['nickname']);
                             if($result) {
-                                echo "<span>Nickname aggiornato con successo!</span><br/>";
+                                echo '<ul class="regform-successbox"><li>Nickname aggiornato con successo!</li></ul>';
                                 $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
                             } else {
-                                echo "<span>Nuovo nickname non valido!</span><br/>";
+                                echo '<ul class="regform-errorbox"><li>Nuovo nickname non valido!</li></ul>';
                             }
                         }
                         
                         if(isset($_POST['name'])) {
                             $result = User::changeName($_SESSION['email'], $_POST['name']);
                             if($result) {
-                                echo "<span>Nome aggiornato con successo!</span><br/>";
+                                echo '<ul class="regform-successbox"><li>Nome aggiornato con successo!</li></ul>';
                                 $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
                             } else {
-                                echo "<span>Nuovo nome non valido!</span><br/>";
+                                echo '<ul class="regform-errorbox"><li>Nuovo nome non valido!</li></ul>';
                             }
                         }
 
                         if(isset($_POST['surname'])) {
                             $result = User::changeSurname($_SESSION['email'], $_POST['surname']);
                             if($result) {
-                                echo "<span>Cognome aggiornato con successo!</span><br/>";
+                                echo '<ul class="regform-successbox"><li>Cognome aggiornato con successo!</li></ul>';
                                 $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
                             } else {
-                                echo "<span>Nuovo cognome non valido!</span><br/>";
+                                echo '<ul class="regform-errorbox"><li>Nuovo cognome non valido!</li></ul>';
                             }
                         }
                         
@@ -111,8 +111,13 @@
             <div class="regform-main-section">
                 <?php 
                     if(isset($_POST['submitChangePassword'])) {
-                        $message = User::changePassword($_SESSION['email'], $_POST['old-password'], $_POST['new-password'], $_POST['conf-new-password']);
-                        echo "<span>$message</span>";
+                        $result = User::changePassword($_SESSION['email'], $_POST['old-password'], $_POST['new-password'], $_POST['conf-new-password']);
+                        if($result->getIsError()){
+                            echo '<ul class="regform-errorbox"><li>'.$result->getMessage().'</li></ul>';
+                        }else{
+                            echo '<ul class="regform-successbox"><li>'.$result->getMessage().'</li></ul>';
+                        }
+                        
                     }
                 ?>
                 <form action="profile.php" id="change_pw_form" method="POST">
