@@ -199,7 +199,7 @@
             echo '<h1>'.$topic[0]['Name'].'</h1>
             <p>'.$topic[0]['Description'].'</p>';
             if(count($subtopics) > 0){
-                echo '<h2>Cosa imparerai:</h2>
+                echo '<h2>What you will learn:</h2>
                 <ul>';
                 //Stampa cosa imparerai
                 foreach ($subtopics as $subtopic) {

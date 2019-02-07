@@ -58,11 +58,11 @@
 				<form method="get" action="search.php">
 					<fieldset id="search-bar">
                         <p>
-                            <h1><label for="search-bar-textarea">Cerca articoli ed argomenti</label></h1>';
+                            <label for="search-bar-textarea">Cerca articoli ed argomenti</label>';
                             if(isset($_GET["search-term"])){
-                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="'.$_GET["search-term"].'">';
+                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="'.$_GET["search-term"].'" />';
                             }else{
-                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required>';
+                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />';
                             }
                         echo '</p>
 	                	<p><input type="submit" value="Cerca"></p>

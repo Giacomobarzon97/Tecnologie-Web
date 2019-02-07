@@ -28,7 +28,7 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>Link Articoli &#124; DevSpace</title>
+        <title><?php echo Subtopics::getTopicTitle($_GET["id"]) ?>: list of articles &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina link agli articoli" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -67,7 +67,7 @@
                 ?>
                 </div>
                 <div id="content-article-body">
-                    <h1>Contenuto del corso</h1>
+                    <h1>Course content</h1>
                     <ul>
                     <?php
                         Subtopics::printSubtopicsList($_GET["id"], $_SESSION['email']);
