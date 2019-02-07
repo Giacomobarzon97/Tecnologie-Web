@@ -25,7 +25,8 @@
     </head>
     
     <body>
-    <?php include_once ('navbar.php'); ?>
+        <button onclick="topFunction()" id="retTop" title="Torna su"></button>
+        <?php include_once ('navbar.php'); ?>
         <div id="registration-form">
             <div class="regform-introduction">
                 <h2>Aggiungi un nuovo amministratore</h2>

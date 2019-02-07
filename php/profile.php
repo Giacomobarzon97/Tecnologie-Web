@@ -32,6 +32,7 @@
     </head>
 
     <body>
+        <button onclick="topFunction()" id="retTop" title="Torna su"></button>
         <?php include_once ('navbar.php'); ?>
         <div id="registration-form">
             <div class="regform-introduction">

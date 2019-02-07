@@ -50,6 +50,7 @@
         ?>
     </head>
     <body>
+        <button onclick="topFunction()" id="retTop" title="Torna su"></button>
         <div id="mobile-sidebar-mask">
         </div>
         <div id="sidebar-wrapper">
