@@ -21,7 +21,7 @@
                         }
                         return;
                     }
-                } 
+                }
                 $connection = new Connection();
                 $connection -> prepareQuery("SELECT * FROM USERS WHERE :email = Email");
                 $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
@@ -82,6 +82,9 @@
                 $connection->bindParameterToQuery(":email", $comment['AuthorID'], PDO::PARAM_STR);
                 $commentAuthor = $connection -> executeQuery();
 
+                $nickname = unserialize($_SESSION['userInfo'])->nickname;
+                $is_banned = User::isBanned($nickname);
+
                 echo '<div class="post-comment">';
                 echo '<span id="comment_'.$comment['Id'].'"></span>';
                     echo '<div class="post-comment-body">';
@@ -98,7 +101,7 @@
                                 $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
                                 $loggedUserVote = $connection -> executeQuery();
 
-                                if(isset($loggedUserEmail)){
+                                if(isset($loggedUserEmail) && !$is_banned){
                                     //Stampo un'immagine differente se ha già votato con un dislike
                                     echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
@@ -129,7 +132,7 @@
                                 }
 
                                 //-------------
-                                if(isset($loggedUserEmail)){
+                                if(isset($loggedUserEmail) && !$is_banned){
                                     //Stampo un'immagine differente se ha già votato con un like
                                     echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
@@ -159,8 +162,7 @@
                         echo '<div class="post-comment-body-footer">';
                         if($loggedUserIsAdmin || ($comment['AuthorID'] == $loggedUserEmail)){
                             if(isset($_SESSION['userInfo'])) {
-                                $nickname = unserialize($_SESSION['userInfo'])->nickname;
-                                if(!User::isBanned($nickname)) {
+                                if(!$is_banned) {
                                     echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
                                     echo '<fieldset>';
                                     echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';

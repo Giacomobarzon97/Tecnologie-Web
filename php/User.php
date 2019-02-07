@@ -177,13 +177,18 @@
             $connection = NULL;
         }
 
-        static function isBanned($nickname) {
+        static function isBanned($nickname, $is_email = false) {
             if(!isset($nickname)) {
                 return false;
             }
             $connection = new Connection();
-            $connection -> prepareQuery(
-            "SELECT * FROM USERS WHERE Nickname = '".$nickname."' AND Banned = '1'");
+            if($is_email){
+                $connection -> prepareQuery(
+                    "SELECT * FROM USERS WHERE Email = '".$nickname."' AND Banned = '1'");
+            }else{
+                $connection -> prepareQuery(
+                "SELECT * FROM USERS WHERE Nickname = '".$nickname."' AND Banned = '1'");
+            }
             $result = $connection -> executeQuery();
             $connection = NULL;
             if(isset($result[0]) == 1) {
@@ -256,10 +261,13 @@
         
         //ritorna un messaggio se l'inserimento non va a buon fine
         static function addComment($articleID, $commentText, $authorID) {
+            if(User::isBanned($authorID, true)){
+                return;
+            }
             if(strlen($commentText) > 10000) {
-                return "Impossibile inserire articolo, troppo lungo!";
+                return new ResultManager("Impossibile inserire articolo, troppo lungo!", true);
             } else if($commentText == "") {
-                return "Impossibile inserire articolo, commento vuoto!";
+                return new ResultManager("Impossibile inserire articolo, commento vuoto!", true);
             }
             $connection = new Connection();
             $connection -> prepareQuery(
@@ -268,11 +276,12 @@
             $connection->bindParameterToQuery(":commentText", strip_tags($commentText), PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
+            return new ResultManager(NULL);
         }
 
         static function deleteComment($email, $commentID) {
             $connection = new Connection();
-            if(User::isAdmin($email)) {
+            if(User::isAdmin($email) && !User::isBanned(User::getUserInfo($email)->nickname)) {
                 $connection -> prepareQuery(
                 "DELETE FROM COMMENTS WHERE Id = '$commentID'");
                 $result = $connection -> executeQueryDML();
@@ -291,6 +300,9 @@
         }
 
         static function voteComment($commentID, $userVoteID, $isLike, $articleID) {
+            if(User::isBanned($userVoteID, true)){
+                return;
+            }
             $connection = new Connection();
             $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE CommentID = $commentID AND AuthorID = '$userVoteID'");
             //If user has already voted remove his vote
@@ -307,6 +319,9 @@
         }
 
         static function removeVoteComment($commentID, $userVoteID, $articleID, $shouldRedirect = true) {
+            if(User::isBanned($userVoteID, true)){
+                return;
+            }
             $connection = new Connection();
             $connection -> prepareQuery(
                 "DELETE FROM COMMENTS_VOTES WHERE CommentID = $commentID AND AuthorID = '$userVoteID'"
