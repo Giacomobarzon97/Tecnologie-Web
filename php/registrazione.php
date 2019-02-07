@@ -76,19 +76,19 @@
                                 <p>
                                     <label for="lname">Nome</label>';
                                     if(isset($_POST['submit'])){
-                                        echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" 
+                                        echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo nome" maxlength="100" 
                                         required value="'.$name.'"/>';
                                     }else{
-                                        echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" required />';
+                                        echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo nome" maxlength="100" required />';
                                     }
                                 echo '</p>
                                 <p>
                                     <label for="lsurname">Cognome</label>';
                                     if(isset($_POST['submit'])){
-                                        echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" 
+                                        echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo cognome" maxlength="100" 
                                         required value="'.$surname.'"/>';
                                     }else{
-                                        echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required />';
+                                        echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo cognome" maxlength="100" required />';
                                     }
                                 echo '</p>
                                 <p>

@@ -60,9 +60,9 @@
                         <p>
                             <h1><label for="search-bar-textarea">Cerca articoli ed argomenti</label></h1>';
                             if(isset($_GET["search-term"])){
-                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="[A-Za-z]+" required value='.$_GET["search-term"].'>';
+                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="'.$_GET["search-term"].'">';
                             }else{
-                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="[A-Za-z]+" required>';
+                                echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required>';
                             }
                         echo '</p>
 	                	<p><input type="submit" value="Cerca"></p>
