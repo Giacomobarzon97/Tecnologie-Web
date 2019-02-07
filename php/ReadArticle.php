@@ -33,9 +33,6 @@
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         <?php
-            if(isset($_POST['comment'])) {
-                User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
-            }
             if(isset($_POST['vote-comment'])) {
                 User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
             }
@@ -73,6 +70,14 @@
                 <!--Inizio centratura commenti-->
                 <div id="comments-content">
                     <?php
+                        if(isset($_POST['comment'])) {
+                            $result = User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
+                            if($result->getIsError()){
+                                echo '<ul class="regform-errorbox">';
+                                echo $result->getMessage();
+                                echo "</ul>";
+                            }
+                        }
                         Comments::printCommentInputZone($_SESSION['email']);
                         Comments::printAllComments($_GET["id"], $_SESSION['email']);
                     ?>

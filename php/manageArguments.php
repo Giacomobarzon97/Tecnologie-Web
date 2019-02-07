@@ -7,8 +7,16 @@
     include_once ("upload.php");
 
     //L'utente non è autorizzato
+    if(!isset($_SESSION['email'])) {
+        header("Location: errore.php?errorCode=paginaNonDisponibile");
+    }
+
     if(!User::isAdmin($_SESSION['email'])){
-        header("Location: index.php");
+        header("Location: errore.php?errorCode=nonAdmin");
+    }
+
+    if(User::isBanned($_SESSION['email'])){
+        header("Location: errore.php?errorCode=bannanto");
     }
 
     //aggiungi card
@@ -68,7 +76,7 @@
                 ?>
                 </div>
                 <div id="content-article-body">
-                    <h1>Oppure gestisci quelli già esistenti</h1>
+                    <h1>Or manage existing ones</h1>
                     <?php
                         Card::printAllCreatedCards();
                     ?>

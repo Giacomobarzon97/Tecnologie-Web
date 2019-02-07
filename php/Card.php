@@ -107,23 +107,23 @@
             echo '<div id="arguments-error-box-insert-card"></div>
             <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data" id="insert-new-card-form">
                 <fieldset>
-                    <h1>Crea un nuovo argomento</h1>
+                    <h1>Create a new topic</h1>
                     <p>
-                        <label for="titolo">Titolo del nuovo subtopic:</label>
-                        <input type="text" name="titolo" id="title-input-box" placeholder="Titolo del topic" required maxlength="100" />
+                        <label for="titolo">Title of the new topic:</label>
+                        <input type="text" name="titolo" id="title-input-box" placeholder="Write the topic title" required maxlength="100" />
                     </p>
                     <p>
-                        <label for="descrizione">Descrizione del nuovo subtopic:</label>
-                        <input type="text" name="descrizione" id="description-input-box" placeholder="Descrizione del topic" required maxlength="10000" />
+                        <label for="description">Description of the new topic:</label>
+                        <textarea id="descrizione" rows="10" cols="40" name="descrizione" placeholder="Write a description for the new topic"></textarea>
                     </p>
                     <p>
-                        <label for="file-upload">Immagine thumbnail:</label>
+                        <label for="file-upload">Thumbnail image:</label>
                         <label for="file-upload" class="custom-file-upload">
                             <img src="https://frncscdf.github.io/Tecnologie-Web/img/photo-camera.svg" class="file-upload-img" alt="upload file"/>Carica un immagine
                         </label>
                         <input id="file-upload" name="upfile" type="file" required />
                     </p>				
-                    <p><input type="submit" name="add-topic" value="Invia" /></p>
+                    <p><input type="submit" name="add-topic" value="Create" /></p>
                 </fieldset>
             </form>';
         }

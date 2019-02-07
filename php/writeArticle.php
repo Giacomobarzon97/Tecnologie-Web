@@ -14,6 +14,10 @@
         header("Location: errore.php?errorCode=nonAdmin");
     }
 
+    if(User::isBanned($_SESSION['email'])){
+        header("Location: errore.php?errorCode=bannanto");
+    }
+
     if(isset($_POST['create-article']))
     {
         Article::insertArticleInTable($_POST['title'], $_POST['article-input'], $_SESSION['email'], $_POST['subtopicID']);

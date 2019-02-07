@@ -9,6 +9,10 @@
     if(!User::isAdmin($_SESSION['email'])){
         header("Location: errore.php?errorCode=nonAdmin");
     }
+
+    if(User::isBanned($_SESSION['email'])){
+        header("Location: errore.php?errorCode=bannanto");
+    }
 ?>  
 <!DOCTYPE html>
 <html lang="it">
