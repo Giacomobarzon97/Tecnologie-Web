@@ -110,11 +110,11 @@
                     <h1>Create a new topic</h1>
                     <p>
                         <label for="titolo">Title of the new topic:</label>
-                        <input type="text" name="titolo" id="title-input-box" placeholder="Titolo del topic" required maxlength="100" />
+                        <input type="text" name="titolo" id="title-input-box" placeholder="Write the topic title" required maxlength="100" />
                     </p>
                     <p>
                         <label for="description">Description of the new topic:</label>
-                        <textarea id="descrizione" rows="10" cols="40" name="descrizione" placeholder="Write a description for the new sub-topic"></textarea>
+                        <textarea id="descrizione" rows="10" cols="40" name="descrizione" placeholder="Write a description for the new topic"></textarea>
                     </p>
                     <p>
                         <label for="file-upload">Thumbnail image:</label>

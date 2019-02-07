@@ -29,6 +29,14 @@ class SearchElement{
 class SearchManager{
     static $min_similarity = 55;
 
+    static function shortDescription($text){
+        if(strlen($text)>150){
+            return substr($text, 0, 150)."[...]";
+        }else{
+            return $text;
+        }
+    }
+
     static function getTopicsResults($search_term){
         $search_term = strtolower($search_term);
         $connection = new Connection();
@@ -40,7 +48,7 @@ class SearchManager{
         foreach ($cards as $card) {
             similar_text(strtolower($card['Name']),$search_term,$percent);
             if($percent >= SearchManager::$min_similarity){
-                array_push($results, new SearchElement($card['Name'], $card['Description'], "ArticleLinks.php?id=".$card['Id']));
+                array_push($results, new SearchElement($card['Name'], SearchManager::shortDescription($card['Description']), "ArticleLinks.php?id=".$card['Id']));
             }
         }
         $connection = NULL;
@@ -58,7 +66,7 @@ class SearchManager{
         foreach ($subtopics as $subtopic) {
             similar_text(strtolower($subtopic['Title']),$search_term,$percent);
             if($percent >= SearchManager::$min_similarity){
-                array_push($results, new SearchElement($subtopic['Title'], $subtopic['Description'], "ArticleLinks.php?id=".Subtopics::getTopicIDFromSubtopic($subtopic['Id'])."#subtopic_".$subtopic['Id']));
+                array_push($results, new SearchElement($subtopic['Title'], SearchManager::shortDescription($subtopic['Description']), "ArticleLinks.php?id=".Subtopics::getTopicIDFromSubtopic($subtopic['Id'])."#subtopic_".$subtopic['Id']));
             }
         }
         $connection = NULL;
