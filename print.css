@@ -3,20 +3,24 @@
 #retTop{
 	background-color: #FFFFFF;
 }
-/* Index & about */
+
+#sidebar-wrapper, #sidebar{
+	width: 0%;
+	display: none;
+}
+
+#rightSideWrapper{
+	width:100%;
+}
+
 #nav, #nav-full {
-    position: absolute;
+    display: none;
 }
 
 .menu {
 	display: none;
 }
-
-#site-title {
-	float: none;
-	text-align: center;
-	font-size: 2em;
-}
+/* Index & about */
 
 #header {
 	background: none;
@@ -26,24 +30,22 @@
 	color: #000000;
 }
 
+#home-search-bar, #search-bar input[type="text"] {
+	margin-top: 0.5em;
+}
+
+#search-bar input[type="submit"] {
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
 .about-section1, .about-section2, .about-section3{
 	padding-top: 1.5em;
 	color: #000000;
 }
 
 /* Content and cards */
-
-#upper-footer p{
-	margin-top: 1em;
-	color:#000000;
-}
-
-#developers>h2{
-	color: #000000;
-}
-#developers>ul>li{
-	color:#000000;
-}
 
 .grid h1{
 	margin-top: 1.5em;
@@ -63,27 +65,21 @@
 }
 /* End Index & About */
 
-/* addAdmin */
+/* addAdmin & profile & ecc.*/
+
+.profile-input[type=submit] {
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	color: #000000;
+}
 
 #registration-form{
 	padding-top: 0px;
 }
 
-#registration-form h1{
-    margin-top: 0em;
-}
-
-#registration-form h2{
-	margin-bottom: 0em;
-}
-
-.regform-main-section {
-	margin: 0em;
-	padding: 0em;
-}
-
-.profile-input[type=submit] {
-	background-color: #FFFFFF;
+#registration-form h1 {
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 /* End addAdmin */
@@ -98,35 +94,62 @@
 /* create_argument */
 
 .arg_title>div{
-    padding: 1.7em 3%;
+	padding: 1.7em 3%;
+	width:100%
+}
+
+.arg_link>li{
+	width:100%;
 }
 
 /* article_links */
-
-#nav{
-	display: none;
-}
-
-#sidebar-wrapper, #sidebar{
-	width: 0%;
-	display: none;
-}
-
-#rightSideWrapper{
-	width:100%;
-}
 
 #content-article-introduction>ul li:before{
 	background-image: none;
 	margin-right: 0px;
 }
 
+#content-article-introduction [type="text"]{
+	border: 1px solid #000000;
+}
+
+#content-article-introduction input[type="submit"]{
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.arg_title > div{
+	padding: 1em 3%;
+}
+
+.arg_link > li{
+	padding: 2em 3%;
+}
 /* End article_links */
+
+/* Write article */
+#write-article-form [type="submit"] {
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	color: #000000;
+}
 
 /* Footer */
 
 #developers>ul>li{
 	margin-right:1.5em;
+	color:#000000;
+
+}
+
+#upper-footer p{
+	margin-top: 1em;
+	color:#000000;
+}
+
+#developers>h2{
+	color: #000000;
 }
 
 
