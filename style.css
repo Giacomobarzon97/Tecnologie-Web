@@ -416,8 +416,8 @@ a:hover{
 }
 
 .delete_button_gen{
-    border: none;
-    background-color: #F5F5F5;
+    border: 0.5px solid black;
+    background-color: #FFFFFF;
     border-radius: 8%;
     padding: 5%;
     background-size: cover;
@@ -430,8 +430,8 @@ a:hover{
 }
 
 .add_button_gen{
-    border: none;
-    background-color: #F5F5F5;
+    border: 0.5px solid black;
+    background-color: #FFFFFF;
     border-radius:  8%;
     padding: 5%;
     background-size: cover;
@@ -445,8 +445,8 @@ a:hover{
 }
 
 .delete_button_link{
-    border: none;
-    background-color: #F5F5F5;
+    border: 0.5px solid black;
+    background-color: #FFFFFF;
     border-radius: 8%;
     padding: 5%;
     background-size: cover;
@@ -454,13 +454,13 @@ a:hover{
     cursor: pointer;
     font-weight: bold;
     float: right;
-    width:25%;
+    width:20%;
     margin-top: 1em;
 }
 
 .add_button_link{
-    border: none;
-    background-color: #F5F5F5;
+    border: 0.5px solid black;
+    background-color: #FFFFFF;
     border-radius: 8%;
     padding: 5%;
     background-size: cover;
@@ -468,7 +468,7 @@ a:hover{
     cursor: pointer;
     font-weight: bold;
     float: right;
-    width:25%;
+    width:20%;
     margin-top: 1em;
     margin-right: 10%;
 }
@@ -491,13 +491,14 @@ a:hover{
 
 .arg_link>li>div{
     display: inline-block;
-    width: 15%;
+    width: 20%;
+    margin-left:5%;
 }
 
 .arg_link>li>a{
     display: inline-block;
     font-size:  1.25em;
-    width: 80%;
+    width: 70%;
 }
 
 /*
@@ -1341,7 +1342,7 @@ MEDIA QUERIES
     
     .arg_link>li>a{
         font-size: 1em;
-        width: 80%;
+        width: 70%;
     }
 
     .links>li{
@@ -1349,12 +1350,12 @@ MEDIA QUERIES
     }
     
     .delete_button_gen{
-        min-width: 60%;	
+        min-width: 80%;	
     }
     
     .add_button_gen{
         margin-right: 0px;
-        min-width: 60%;
+        min-width: 80%;
     }
     
     .delete_button_link{
@@ -1557,11 +1558,11 @@ MEDIA QUERIES
     
     .delete_button_gen{
         margin-top: 0px;
-        min-width: 50%;
+        min-width: 70%;
     }
     
     .add_button_gen{
-        min-width: 50%;
+        min-width: 70%;
         margin-right: 0px;
     }
     
