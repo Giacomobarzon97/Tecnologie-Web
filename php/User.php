@@ -140,17 +140,19 @@
         }
 
         static function addAdmin($email) {
-            if(!isset($email) || User::isAdmin($email)) {
-                return false;
+            if(!isset($email) || (strlen(trim($email)) < 3)) {
+                return new ResultManager("<li>Hai inserito una mail non valida!</li>", true);
             }
-            
+            if(User::isAdmin($email)){
+                return new ResultManager("<li>Non puoi aggiungere un utente che è già amministratore!</li>", true);
+            }
             $connection = new Connection();
             $connection -> prepareQuery(
                 "INSERT INTO USER_ROLES (UserID, RoleName)
                 VALUES ('$email', 'Admin User')");
             $result = $connection -> executeQueryDML();
             $connection = NULL;
-            return true;
+            return new ResultManager("<li>Operazione avvenuta con successo</li>");
         }
 
         static function printAllAdmin() {

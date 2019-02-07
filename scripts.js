@@ -515,6 +515,72 @@ function validateInsertNewArticleData(){
     return true;
 }
 
+//---
+//---PAGINA ADDADMIN.PHP---
+//---
+
+//Crea il box dell'errore nella posizione data
+function AddAdmin_CreateErrorBox(){
+    CreateErrorBox("add-admin-error-box-zone", "js-add-admin-input-error");
+}
+
+//Nascondi il box dell'errore
+function AddAdmin_HideAddAdminEmailError(){
+    HideErrorBox("js-add-admin-input-error");
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function AddAdmin_ShowAddAdminEmailError(HTML_message){
+    ShowErrorBox("js-add-admin-input-error", HTML_message);
+}
+
+//Valida se l'email dell'utente è valida
+function validateAddAdminData(){
+    email = document.getElementById("lemail").value;
+    var errorMessage = "";
+    if(!checkStringIsValid(email) || email.length > 100){
+        errorMessage += "<li>L'email inserita non è valida!</li>";
+    } 
+    if(errorMessage != ""){
+        AddAdmin_ShowAddAdminEmailError(errorMessage);
+        return false;
+    }
+    return true;
+}
+
+//---
+//---PAGINA MANAGEUSERS.PHP---
+//---
+
+//Crea il box dell'errore nella posizione data
+function BanUser_CreateErrorBox(){
+    CreateErrorBox("ban-user-error-box-zone", "js-ban-user-input-error");
+}
+
+//Nascondi il box dell'errore
+function BanUser_HideBanUserError(){
+    HideErrorBox("js-ban-user-input-error");
+}
+
+//Mostra il box dell'errore con un messaggio specifico
+function BanUser_ShowBanUserNicknameError(HTML_message){
+    ShowErrorBox("js-ban-user-input-error", HTML_message);
+}
+
+//Valida se il nickname dato è valido
+function validateBanUserData(){
+    nick = document.getElementById("lnickname").value;
+    var errorMessage = "";
+    if(!checkStringIsValid(nick) || nick.length > 100){
+        errorMessage += "<li>Il nickname inserito non è valido!</li>";
+    }
+    if(errorMessage != ""){
+        BanUser_ShowBanUserNicknameError(errorMessage);
+        return false;
+    }
+    return true;
+}
+
 //----------------------------------------------------
 //Principali EventListener
 //----------------------------------------------------
@@ -646,6 +712,26 @@ window.addEventListener("load", function(){
         InsertArticle_CreateErrorBox_InsertArticle();
         insertNewArticleForm.addEventListener("submit", function(event) {
             if(!validateInsertNewArticleData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //AddAdmin
+    var addAdminForm=document.getElementById("add-admin-form");
+    if(addAdminForm != null){
+        AddAdmin_CreateErrorBox();
+        addAdminForm.addEventListener("submit", function(event) {
+            if(!validateAddAdminData()){
+                event.preventDefault();
+            }
+        }, false);
+    }
+    //BanUser
+    var banUserForm=document.getElementById("ban-user-form");
+    if(banUserForm != null){
+        BanUser_CreateErrorBox();
+        banUserForm.addEventListener("submit", function(event) {
+            if(!validateBanUserData()){
                 event.preventDefault();
             }
         }, false);

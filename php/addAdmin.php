@@ -1,8 +1,13 @@
 <?php
     include_once ('sessionManager.php');
     include_once ('User.php');
+    
+    if(!isset($_SESSION['email'])) {
+        header("Location: errore.php?errorCode=paginaNonDisponibile");
+    }
+
     if(!User::isAdmin($_SESSION['email'])){
-        header("Location: index.php");
+        header("Location: errore.php?errorCode=nonAdmin");
     }
 ?>  
 <!DOCTYPE html>
@@ -31,7 +36,7 @@
             <div class="regform-introduction">
                 <h2>Aggiungi un nuovo amministratore</h2>
             </div>
-            <div id="login-error-box-zone"></div>
+            <div id="add-admin-error-box-zone"></div>
             <div class="regform-main-section">
                 <?php 
 
@@ -39,21 +44,20 @@
                         $email = $_POST['email'];
                         
                         $result = User::addAdmin($email);
-                        if($result) {
-                            echo "<div>Operazione avvenuta con successo</div>";
-                        } else { //Stampa dell'errore
-                            echo '<ul class="regform-errorbox">
-                            <li>Utente già amministratore oppure inesistente!</li>
-                            </ul>
-                            ';
+                        if($result->getIsError()){
+                            echo '<ul class="regform-errorbox">';
+                        }else{
+                            echo '<ul class="regform-successbox">';
                         }
+                        echo $result->getMessage();
+                        echo "</ul>";
                     }
                 ?>
-                <form action="addAdmin.php" id="login-main-form" method="POST">
+                <form action="addAdmin.php" id="add-admin-form" method="POST">
                     <fieldset>
                         <p>
                             <label for="lemail">Email</label>
-                            <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="LoginPage_HideChangeLoginDataError()" />
+                            <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="AddAdmin_HideAddAdminEmailError()" />
                         </p>
                         <p>
                             <input class="profile-input" name="submit" type="submit" value="Esegui" />

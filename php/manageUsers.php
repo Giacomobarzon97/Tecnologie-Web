@@ -1,8 +1,13 @@
 <?php
     include_once ('sessionManager.php');
     include_once ('User.php');
+    
+    if(!isset($_SESSION['email'])) {
+        header("Location: errore.php?errorCode=paginaNonDisponibile");
+    }
+
     if(!User::isAdmin($_SESSION['email'])){
-        header("Location: index.php");
+        header("Location: errore.php?errorCode=nonAdmin");
     }
 ?>  
 <!DOCTYPE html>
@@ -31,7 +36,7 @@
             <div class="regform-introduction">
                 <h2>Sospendi l'account di un utente</h2>
             </div>
-            <div id="login-error-box-zone"></div>
+            <div id="ban-user-error-box-zone"></div>
             <div class="regform-main-section">
                 <?php 
 
@@ -40,7 +45,7 @@
                         
                         $result = User::userSuspend($nickname);
                         if($result) {
-                            echo "<span>Operazione avvenuta con successo</span>";
+                            echo '<ul class="regform-successbox"><li>Operazione avvenuta con successo</li></ul>';
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
                             <li>Utente già sospeso oppure inesistente!</li>
@@ -53,7 +58,7 @@
                         $nick = $_POST['nicknameDel'];
                         $result = User::removeSuspension($nick);
                         if($result) {
-                            echo "<span>Operazione avvenuta con successo</span>";
+                            echo '<ul class="regform-successbox"><li>Operazione avvenuta con successo</li></ul>';
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
                             <li>Sospensone già rimossa o utente inesistente!</li>
@@ -62,11 +67,11 @@
                         }
                     }
                 ?>
-                <form action="manageUsers.php" id="login-main-form" method="POST">
+                <form action="manageUsers.php" id="ban-user-form" method="POST">
                     <fieldset>
                         <p>
                             <label for="lnickname">Nickname</label>
-                            <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onfocus="LoginPage_HideChangeLoginDataError()" />
+                            <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onfocus="BanUser_HideBanUserError()" />
                         </p>
                         <p>
                             <input class="profile-input" name="submit" type="submit" value="Esegui" />
