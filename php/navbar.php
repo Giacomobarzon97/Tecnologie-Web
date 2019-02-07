@@ -65,5 +65,5 @@
         ?>
         
     </ul>
-    <img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
+    <img src="img/more-button.svg" alt="nav menu icon" id="nav-menu-icon"/>
 </div>
