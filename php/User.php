@@ -242,7 +242,7 @@
                 echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                     <p>        
                         <input type="hidden" name="nicknameDel" value="'.$banned['Nickname'].'" />
-                        <input class="remove-suspension" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
+                        <input class="profile-input" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
                     </p>
                     </form>';
                 echo "</li>";
