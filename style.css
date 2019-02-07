@@ -1647,7 +1647,7 @@ MEDIA QUERIES
         font-size:0.8em;
     }
 
-    .article-content > h2 {
+    .article-content > h1 {
         font-size: 1.9em;
         padding: 1%;
     }
