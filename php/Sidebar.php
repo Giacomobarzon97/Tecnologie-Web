@@ -107,7 +107,7 @@
         static function printNavbar(){
             echo '<div id="nav" class="sidebar-nav">
                 <img src="img/list.svg" alt="hamburger-icon" id="nav-hamburger"/>
-                <img src="img/logo.png" alt="DevSpace-Logo" id="nav-logo"/>
+                <a href="index.php"><img src="img/logo.png" alt="Dev Space" id="nav-logo"></a>
                 <ul id="menu">';
             if(isset($_SESSION['email'])) {
                 echo "<li><a href='index.php'>Home</a></li>"; 

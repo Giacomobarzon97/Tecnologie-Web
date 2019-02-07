@@ -1,5 +1,11 @@
 <div id="nav-full">
-    <img src="img/logo.png" alt="Dev Space" id="nav-logo">
+    <?php 
+        if($_SESSION["breadcrumb"] !== "index.php"){
+            echo '<a href="index.php"><img src="img/logo.png" alt="Dev Space" id="nav-logo"></a>';
+        } else {
+            echo '<img src="img/logo.png" alt="Dev Space" id="nav-logo">';
+        }
+    ?>
     <ul id="menu">
         <?php
             include_once ("User.php");
