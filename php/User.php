@@ -265,7 +265,7 @@
             $connection -> prepareQuery(
                 "INSERT INTO COMMENTS (Text, Date, AuthorID, ArticleID)
                 VALUES (:commentText, NOW(), '$authorID', '$articleID')");
-            $connection->bindParameterToQuery(":commentText", $commentText, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":commentText", strip_tags($commentText), PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
         }

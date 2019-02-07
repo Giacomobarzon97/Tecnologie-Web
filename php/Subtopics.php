@@ -237,8 +237,8 @@
             $connection -> prepareQuery(
                 "INSERT INTO SUBTOPICS (Title, Description, TopicID)
                 VALUES (:title, :desc, :topicid)");
-            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
-            $connection->bindParameterToQuery(":desc", $description, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":title", strip_tags($title), PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":desc", strip_tags($description), PDO::PARAM_STR);
             $connection->bindParameterToQuery(":topicid", $topicID, PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;

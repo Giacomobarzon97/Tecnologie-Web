@@ -96,8 +96,8 @@
             $connection -> prepareQuery(
                 "INSERT INTO TOPICS (Name, Description, ImageLink)
                 VALUES (:title, :desc, :imageLink)");
-            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
-            $connection->bindParameterToQuery(":desc", $description, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":title", strip_tags($title), PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":desc", strip_tags($description), PDO::PARAM_STR);
             $connection->bindParameterToQuery(":imageLink", $image, PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;

@@ -3,6 +3,8 @@
 
     class Article {
 
+        static $allowed_content_tags = '<strong><em>';
+
         static function checkIfArticleExist($articleID){
             if((!is_numeric($articleID))){
                 return false;
@@ -50,8 +52,8 @@
             $connection -> prepareQuery(
                 "INSERT INTO ARTICLES (Title, HTMLCode, AuthorID, SubtopicID)
                 VALUES (:title, :code, :authorID, $subtopicID)");
-            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
-            $connection->bindParameterToQuery(":code", $content, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":title", strip_tags($title), PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":code", strip_tags($content, Article::$allowed_content_tags), PDO::PARAM_STR);
             $connection->bindParameterToQuery(":authorID", $authorID, PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
@@ -77,8 +79,8 @@
             $connection = new Connection();
             $connection -> prepareQuery(
                 "UPDATE ARTICLES SET Title = :title , HTMLCode = :code WHERE Id = $articleID");
-            $connection->bindParameterToQuery(":title", $title, PDO::PARAM_STR);
-            $connection->bindParameterToQuery(":code", $content, PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":title", strip_tags($title), PDO::PARAM_STR);
+            $connection->bindParameterToQuery(":code", strip_tags($content, Article::$allowed_content_tags), PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
         }
