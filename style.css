@@ -416,7 +416,7 @@ a:hover{
 }
 
 .delete_button_gen{
-    border: 0.5px solid black;
+    border: none;
     background-color: #F5F5F5;
     border-radius: 8%;
     padding: 5%;
@@ -430,9 +430,9 @@ a:hover{
 }
 
 .add_button_gen{
-    border: 0.5px solid black;
+    border: none;
     background-color: #F5F5F5;
-    border-radius: 8%;
+    border-radius:  8%;
     padding: 5%;
     background-size: cover;
     color: #000000;
@@ -445,7 +445,7 @@ a:hover{
 }
 
 .delete_button_link{
-    border: 0.5px solid black;
+    border: none;
     background-color: #F5F5F5;
     border-radius: 8%;
     padding: 5%;
@@ -459,7 +459,7 @@ a:hover{
 }
 
 .add_button_link{
-    border: 0.5px solid black;
+    border: none;
     background-color: #F5F5F5;
     border-radius: 8%;
     padding: 5%;
