@@ -229,8 +229,6 @@
                             <p><input type="submit" name="add-subtopic" value="Invia" /></p>
                     </fieldset>
                 </form>';
-            }else{ //TOREMOVE
-                echo '(Non puoi inserire un nuovo sotto-argomento, effettua il login come amministratore)';
             }
         }
 
