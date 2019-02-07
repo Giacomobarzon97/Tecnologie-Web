@@ -45,42 +45,88 @@
 		\end{itemize}
 		 L'utente ha inoltre la possibilità di commentare e votare i singoli articoli, interagendo così con gli altri utenti registrati al blog. Gli amministratori dispongono di un pannello amministratore in cui vengono elencate le operazioni che possono compiere, tra cui aggiornare la piattaforma con nuovi contenuti ed eventualmente migliorare contenuti già esistenti.
 		IDevono inoltre occuparsi di moderare l'ambiente sfruttando la possibilità di eliminare eventuali commenti inopportuni.
-	\subsection{Target utenza}
+	\subsection{Target di utenza}
 		Il sito è rivolto ad un pubblico che ha dimestichezza con la tecnologia e certamente con la ricerca e l'utilizzo di Internet per trovare informazioni. Inoltre può essere consultato da persone che desiderano acquisire delle nozioni sui principali argomenti riguardanti l'informatica, perciò si prevede che la piattaforma verrà raggiunta da utenti con età superiore ai 14 anni (e.g. dagli studi superiori in poi).
 		
 	\section{Architettura delle informazioni}
 	\subsection{Descrizione}
-		In questa sezione verrà descritto il modo in cui è stato scelto di gestire le informazioni presentate nel sito. Poichè si tratta di un blog in cui la quantità di contenuti è destinata a crescere nel tempo è stata adottata un'interfaccia a tre pannelli, navbar, sidebar e contenuto. La spiegazione dettagliata verrà fornita nella \textbf{Sezione \ref{Usabilità} (Usabilità)}.
+		In questa sezione verrà descritto il modo in cui è stato scelto di gestire le informazioni presentate nel sito. Poichè si tratta di un blog in cui la quantità di contenuti è destinata a crescere nel tempo è stata adottata un'interfaccia a tre pannelli, navbar, sidebar e contenuto. La spiegazione dettagliata verrà fornita nella \textbf{Sezione \textbf{Usabilità}}.
 	\subsection{Struttura pagine pubblica}
-		La parte pubblica del sito è accessibile a tutti gli utenti e di seguito verranno descritte le pagine visitabili con le relative funzionalità che queste offrono.
+		La parte pubblica del sito è accessibile a tutti gli utenti e di seguito verranno descritte le pagine visitabili con le relative funzionalità offerte.
 		\begin{itemize}
 				\item \textbf{Homepage (index.php)}: si tratta della pagina principale del sito in cui l'utente trova le seguenti informazioni:
 				\begin{itemize}
 						\item \textbf{Navbar}: parte superiore della pagina in cui viene mostrato il logo del sito e una lista orizzontale di link utili alla navigazione;
 						\item \textbf{Header}: immagine di sfondo della parte sottostante alla navbar e nome del sito;
+						\item \textbf{Barra di ricerca}: permette la ricerca di contenuti specifici che riguardano macroargomenti, sottoargomenti e articoli;
 						\item \textbf{Descrizione e Contenuto}: nella parte inferiore all'header è presente una descrizione del sito, seguita dalla lista dei macroargomenti visualizzati sottoforma di Card;
 						\item \textbf{Footer}: parte inferiore del sito contenente ulteriori le informazioni sulla piattaforma.
 				\end{itemize}
 			\item \textbf{About (about.php)}: è una pagina che fornisce tutte le informazioni sul sito, ovvero lo scopo e gli sviluppatori che lo hanno realizzato. Anche in questa pagina è presente la navbar per la navigabilità, l'header e il footer;
+			\item \textbf{Ricerca (search.php)}: in questa pagina vengono visualizzati i risultati di una ricerca avvenuta tramite la casella di ricerca, utile per trovare in modo specifico determinati argomenti e/o articoli;
 			\item \textbf{Registrazione {registrazione.php}}: pagina che offre la possibilità di creare un account agli utenti non registrati al blog;
 			\item \textbf{Login {login.php}}: pagina che offre la possibilità di effettuare il login agli utenti che sono registrati alla piattaforma;
-			\item \textbf{Link agli articoli (ArticleLinks.php)}: questa pagina contiene tutti i sottoargomenti relativi ad un macroargomento, ed elenca per ciascuno i link riferiti ai singoli articoli appartenenti al ciascun sottoargomento. La pagina è strutturata nel seguente modo:
+			\item \textbf{Link Articoli (ArticleLinks.php)}: questa pagina contiene tutti i sottoargomenti relativi ad un macroargomento, ed elenca per ciascuno i link riferiti ai singoli articoli appartenenti al ciascun sottoargomento. La pagina è strutturata nel seguente modo:
 				\begin{itemize}
 					\item Sulla sinistra è presente una sidebar che elenca tutti i macroargomenti;
 					\item Per ciascun macroargomento, vengono elencate le ancore ai link dei sottoargomenti presenti nel contenuto della pagina situato al centro;
 					\item Per ciascun sottoargomento, vengono elencati i link degli articoli relativi;
-					\item Nella parte superiore è presente la navabr già descritta e nella parte inferiorie è presente il footer, anch'esso già descritto.
+					\item Nella parte superiore è presente la navabr già descritta e nella parte inferiorie il footer, anch'esso già descritto.
 				\end{itemize}
-			\item \textbf{Articolo (ReadArticle.php)}:  questa pagina è strutturata nello stesso modo di quella descritta al punto precedente, ma nel contenuto (quindi la parte centrale) vi è il corpo di un articolo che l'utente ha raggiunto utilizzando uno dei link elencati sotto ciascun sottoargomento.
+			\item \textbf{Articolo (ReadArticle.php)}: questa pagina è strutturata nello stesso modo di quella descritta al punto precedente, ma nel contenuto (quindi la parte centrale) vi è il corpo di un articolo che l'utente ha raggiunto utilizzando uno dei link elencati sotto ciascun sottoargomento;
+			\item \textbf{Account (profile.php)}: in questa pagina l'utente può visualizzare le sue informazioni personali, ed eventualmente le può modificare;
 		\end{itemize}
+	
 	\subsubsection{Struttura pagine privata}
-	Bla bla bla
+	La parte privata del sito è accessibile ai soli account amministratori della piattaforma. Di seguito verranno descritte le pagine di interesse con le relative funzionalità offerte.
+	\begin{itemize}
+		\item \textbf{Link Articoli (ArticleLinks.php)}: questa pagina, già descritta, presenta un aspetto diverso per l'utente amministrare, il quale può:
+		\begin{itemize}
+			\item Aggiungere un nuovo sottoargomento;
+			\item Eliminare un sottoargomento esistente;
+			\item Scrivere un nuovo articolo;
+			\item Modificare un articolo esistente;
+			\item Elinimare un articolo esistente.
+		\end{itemize}
+		\item \textbf{Articolo (ReadArticle.php)}: la pagina, già descritta nella sezione precedente, permette ad un amministratore di eliminare i commenti degli utenti, nel caso in cui non siano pertinenti;
+		\item \textbf{Scrivi Articolo (writeArticle.php)}: questa pagina è dedicata alla gestione di un singolo articolo, in particolare l'amministrare può modificare il contenuto di un articolo già esistente, oppure scriverne uno nuovo;
+		\item \textbf{Strumenti (adminTools.php)}: in questa pagina l'utente amministratore visualizza una lista delle oprezioni che può compiere, ovvero:
+			\begin{itemize}
+				\item Crea un nuovo argomento;
+				\item Aggiungi un nuovo amministratore;
+				\item Gestisci utenti sospesi.
+			\end{itemize}
+		\item \textbf{Gestione argomenti (manageArguments.php)}: questa pagina permette all'amministratore di creare un nuovo macroargomento e di eliminare quelli esistenti;
+		\item \textbf{Aggiunta amministratore (addAdmin.php)}: in questa pagina un utente amministratore può aggiungere un nuovo utente al gruppo dei moderatori del sito fornendo il suo indirizzo mail;
+		\item \textbf{Sospensione account (manageUsers.php)}: in questa pagina un utente amministratore può sospendere un utente, restringendo così le sue attività sulla piattaforma, oppure revocare la sospensione ad utenti attualmente sospesi.
+	\end{itemize}
 
 	\section{Usabilità}
-	\label{Usabilità}
-	\subsection{Descrizione}
-	asds
-	\section{Layout e design}
+	\subsection{Introduzione}
+	Essendo il sito rivolto ad un pubblico potenzialmente molto differenziato, è stato adottato lo schema a tre pannelli il quale, a nostro parere, permette una buona navigabilità data la natura del sito.
+	\subsection{Layout e design}
+	Tutte la pagine che presentano i contenuti, quindi presumibilmente le più visitate, sono dotate di una sidebar che offre un modo intuitivo e veloce per navigare attraverso argomenti e articoli, una navbar che permette di spostarsi in altree aree del sito con un solo click e un footer che fornisce informazioni sul sito.
+	\subsubsection{Scroll verticale}
+	Poiché il sito è destinato alla raccolta di contenuti, è possibile che nel tempo questi crescano, generando così delle pagine o sezioni potenzialmente lunghe (soprattutto la sidebar e la pagina con i link agli articolo). Su mobile inoltre, questo tipo di situazione è sentita maggiormente date le dimensioni degli schermi dei dispositivi mobili. L'unico accorgimento per ovviare, non tanto allo scroll necessario per la discesa della pagina quanto alla risalita, è stato l'introduzione di un pulsante che permette di tornare all'inizio della pagina che si sta scorrendo. Tuttavia esistono oggigiorno moltissimi siti e piattaforme che fanno uso di strutture simili per la presentazione di una grande mole di contenuti, perciò riteniamo che l'utente medio giunto sul nostro sito trovi familiare e semplice questo tipo di layout e navigabilità.
+	
+	\subsection{Favicon}
+	Tutte le pagine sono dotate di favicon che permettono la facile individuazione del sito tra le schede del browser o nei preferiti. Per generare le favicon in diversi formati è stato utilizzato il tool offerto al seguente link:
+	\begin{center} 
+		\url{https://www.favicon-generator.org/} 
+	\end{center}
+	
+	\subsection{Gestione dell'errore 404}
+	dfs
+
+	\subsection{Sidebar}
+	La sidebar come già accennato è pensata per offrire un modo semplice ed intuitivo per navigare tra i contenuti del sito, pertanto costituisce un elemento cruciale all'interno della nostra piattaforma. Nella sidebar è presente per prima cosa una casella di ricerca, la quale permette di cercare immediatamente dei contenuti specifici invece di navigare per le varie voci presenti più in basso. Sotto alla casella di ricerca vi è una lista di voci che rappresentano i macroargomenti, e ciascuna di queste voci si può espandere per visualizzare i rispettivi sottoargomenti, i quali sono link ancora verso la parte centrale della pagina che mostra i sottoargomenti con relativi articoli. Per facilitare l'orientamento dell'utente abbiamo fatto uso dei \emph{breadcrumb} che si occupano di evidenziare il macroargomento (e la lista dei sottoargomenti) che si sta visualizzando oppure nel caso di un articolo, viene evidenziato il sottoargomento a cui appartiene l'articolo che si sta leggendo.
+		
+	\subsection{Minificazioni}
+	I file .css e .js generalmente vengono minificati al fine di ridurre il loro peso complessivo e quindi velocizzare la richiesta della risorsa al server. Per questioni di leggibilità non è stato fatto, eccetto per le librerie JavaScript che abbiamo utilizzato per gestire lo stile della scrollbar situata nella sidebar poiché non sviluppate da noi.
+	
+	\subsection{Media queries}
+	Per garantire la stessa esperienza su tutti i dispositivi si è fatto uso di media queries, in particolare abbiamo individuato due \emph{breakpoint} che ci hanno permesso di adottare una sufficiente suddivisione delle regole css relative ad ampie categorie di dispositivi differenti; 1276px e 768px.
+	Per quanto riguarda la possibilità di stampare le pagine del sito, abbiamo scritto un foglio di stile \emph{print.css} che, in fase di stampa, riadatta i contenuti laddove possibile e si occoupa di rimuovere gli elementi di non utilità per un documento su carta, per esempio navbar e sidebar in quanto elementi prettamente di navigabilità più che di informazione.
 
 	\section{Accessibilità}
 	\subsection{Introduzione}
@@ -160,8 +206,8 @@
 	\section{Suddivisione dei ruoli}
 	dsfsdf
 	\begin{itemize}
-		\item \textbf{Francesco De Filippis}: 
 		\item \textbf{Giacomo Barzon}:
+		\item \textbf{Francesco De Filippis}: 
 		\item \textbf{Giacomo Greggio}:
 		\item \textbf{Michele Roverato}:
 	\end{itemize}
