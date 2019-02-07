@@ -76,7 +76,7 @@
                 ?>
                 </div>
                 <div id="content-article-body">
-                    <h1>Oppure gestisci quelli già esistenti</h1>
+                    <h1>Or manage existing ones</h1>
                     <?php
                         Card::printAllCreatedCards();
                     ?>
