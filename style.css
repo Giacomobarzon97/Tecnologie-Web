@@ -334,6 +334,8 @@ input[type="submit"]:hover{
 }
 
 #content-article-introduction [type=text]{
+    width:75%;
+    max-width: 400px;
     outline: none;
     display: table;
     margin:1em auto;
@@ -355,6 +357,7 @@ input[type="submit"]:hover{
     display: block;
     margin: auto;
     padding: 0.5em 1%;
+    width:98%;
     font-size: 1em;
     font-family: 'Open Sans', sans-serif;
 }
@@ -1572,10 +1575,6 @@ MEDIA QUERIES
     #content-article-introduction>ul li:before{
         background-image:none; 
         content: none;
-    }
-    
-    #content-article-introduction>form>fieldset>p>input[type=text]{
-        width: 75%;
     }
 
     #content-article-introduction>form>fieldset>p>input[type=submit]{
