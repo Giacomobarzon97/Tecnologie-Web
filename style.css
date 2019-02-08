@@ -990,7 +990,7 @@ ABOUT
     color:white;
     background-color: #3E50B1;
     text-align: center;
-    padding:7em 10%;
+    padding:4em 10%;
 }
 .about-section1 p, .about-section2 p, .about-section3 p{
     max-width: 1250px;
@@ -1005,13 +1005,13 @@ ABOUT
     text-align: center;
     max-width: 1250px;
     margin:auto;
-    padding:7em 0px;
+    padding:5em 0px;
 }
 .about-section3{
     color:white;
     background-color: #3E6052;
     text-align: center;
-    padding:7em 10%;
+    padding:4em 10%;
 }
 .bio-card{
     width:17%;
@@ -1462,7 +1462,7 @@ MEDIA QUERIES
 
     .about-section1 p, .about-section2 p, .about-section3 p{
         font-size: 1.5em;
-        text-align: left;
+        text-align: center;
     }
     .about-section1 h1, .about-section2 h1, .about-section3 h1{
         margin-bottom: 0.5em;
