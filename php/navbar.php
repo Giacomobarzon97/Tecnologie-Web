@@ -19,20 +19,20 @@
                     ";
                 }
                 if($_SESSION["breadcrumb"] == "profile.php"){
-                    echo "<li id='current-menu-entry'>Il tuo profilo</li>
+                    echo "<li id='current-menu-entry'>Profile</li>
                     ";
                 }else{
                     
-                    echo "<li><a href='profile.php'>Il tuo profilo</a></li>
+                    echo "<li><a href='profile.php'>Profile</a></li>
                     ";
                 }
                 
                 if(User::isAdmin($_SESSION['email'])) {
                     if($_SESSION["breadcrumb"] == "adminTools.php"){
-                        echo "<li id='current-menu-entry'>Strumenti</li>
+                        echo "<li id='current-menu-entry'>Admin tools</li>
                         ";
                     } else {
-                        echo "<li><a href='adminTools.php'>Strumenti</a></li>
+                        echo "<li><a href='adminTools.php'>Admin tools</a></li>
                         ";
                     }
                 }
@@ -47,17 +47,17 @@
                     ";
                 }
                 if($_SESSION["breadcrumb"] == "registrazione.php"){
-                    echo "<li id='current-menu-entry'>Registrazione</li>
+                    echo "<li id='current-menu-entry'>Create a new account</li>
                     ";
                 }else{
-                    echo "<li><a href='registrazione.php'>Registrazione</a></li>
+                    echo "<li><a href='registrazione.php'>Create a new account</a></li>
                     ";
                 }
                 if($_SESSION["breadcrumb"] == "login.php"){
-                    echo "<li id='current-menu-entry'>Accedi</li>
+                    echo "<li id='current-menu-entry'>Login</li>
                     ";
                 }else{
-                    echo "<li><a href='login.php'>Accedi</a></li>
+                    echo "<li><a href='login.php'>Login</a></li>
                     ";
                 }
             }

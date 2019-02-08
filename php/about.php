@@ -29,7 +29,7 @@
         <div class="about-section1">
             <h1>Who are we?</h1>
             <p>
-                Students from University of Padua, attending the course of I.T(Mathematics Department "Tullio Levi-Civita" - DM).
+                Students from University of Padua, attending the course of Computer Science (Mathematics Department "Tullio Levi-Civita" - DM).
                 Our group consists of four members: Francesco De Filippis, Michele Roverato, Giacomo Barzon and Giacomo Greggio.
             </p>
         </div>
