@@ -17,6 +17,24 @@ a{
 a:hover{
     color:black;
 }
+input[type="submit"]{
+    text-align: center;
+    display: block;
+    margin:1em auto;
+    cursor: pointer;
+    padding:0.5em 5%;
+    font-size: 1.2em;
+    color:white;
+    border:none;
+    border-radius: 50px;
+    background: #0D47A1;
+    outline:none;
+    transition:background 0.5s, color 0.5s;
+}
+input[type="submit"]:hover{
+    background:black;
+    color:white;
+}
 
 /*-----SIDEBAR-----*/
 #sidebar-wrapper{
@@ -1292,6 +1310,18 @@ FOOTER
 #comment-section{
     border-top: 1px solid #707070;
     padding:1.5em 4%;
+}
+#comment-section h1{
+    font-size: 1.5em;
+    font-weight: lighter;
+    margin-bottom: 0.5em;
+}
+#comment-section textarea{
+    resize: vertical;
+    display: block;
+    width: 92%;
+    padding: 0.5em 1%;
+    font-size: 1.2em;
 }
 .comment{
     margin-bottom:4em;
