@@ -1271,12 +1271,12 @@ FOOTER
     border-top: 1px solid #707070;
     padding:1.5em 4%;
 }
-#comment-section>label{
+#comment-section label{
     font-size: 1.5em;
     font-weight: lighter;
     margin-bottom: 0.5em;
 }
-#comment-section>textarea{
+#comment-section textarea{
     resize: vertical;
     display: block;
     width: 98%;
@@ -1293,6 +1293,7 @@ FOOTER
     margin:1em 0em;
 }
 .comment input[type="submit"]{
+    border-radius:none;
     border:none;
     background-color:transparent;
     font-family: 'Open Sans', sans-serif;
