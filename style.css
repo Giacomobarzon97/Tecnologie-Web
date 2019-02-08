@@ -541,7 +541,7 @@ ARTICLES
     background-color: #000000;
 }
 
-.article-content > h2 {
+.article-content > h1 {
     text-align: center;
     font-size: 4em;
 }
