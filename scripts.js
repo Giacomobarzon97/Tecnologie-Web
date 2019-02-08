@@ -117,8 +117,10 @@ function checkFileUpload(value){
 function CreateErrorBox(parentID, boxID, hideOnCreate = true){
     var parent = document.getElementById(parentID);
     if(parent != null){
-        parent.innerHTML = "<ul class=\"regform-errorbox\" id=" + boxID + "></ul>";
-        var createdElement = document.getElementById(boxID);
+        var createdElement = document.createElement("UL");
+        createdElement.className = "regform-errorbox";
+        createdElement.id = boxID;
+        parent.appendChild(createdElement);
         if(createdElement != null && hideOnCreate){
             return true && HideErrorBox(boxID);
         }
