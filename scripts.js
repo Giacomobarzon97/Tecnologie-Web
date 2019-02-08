@@ -621,10 +621,12 @@ window.addEventListener("load", function(){
     loadCSSstylesheet();
     var hamburger=document.getElementById("nav-hamburger");
     var mask=document.getElementById("mobile-sidebar-mask");
+    var closeButton=document.getElementById("close-sidebar-button");
     var menuIcon=document.getElementById("nav-menu-icon");
-    if(hamburger!=null && mask!=null){
+    if(hamburger!=null && mask!=null && closeButton!=null){
         hamburger.addEventListener("click",openMobileSidebar, true);
         mask.addEventListener("click",closeMobileSidebar, true);
+        closeButton.addEventListener("click",closeMobileSidebar,true);
     }
     if(menuIcon!=null){
         menuIcon.addEventListener("click",toggleMobileNavMenu , true);

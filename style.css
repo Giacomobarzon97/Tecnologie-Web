@@ -52,6 +52,12 @@ input[type="submit"]:hover{
     border-bottom: 1px solid #707070;
     padding:1em 5%;
 }
+#close-sidebar-button{
+    float:right;
+    width:1.5em;
+    height:auto;
+    display: none;
+}
 #search-bar{
     border:none;
 }
@@ -1492,6 +1498,9 @@ MEDIA QUERIES
     /* contenuto mobily-style.css (Barzi) */
     #sidebar-wrapper{
         width:0%;
+    }
+    #close-sidebar-button{
+        display:block;
     }
     #rightSideWrapper{
         margin-top:4em;
