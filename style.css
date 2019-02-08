@@ -38,7 +38,8 @@ a:hover{
 #search-bar{
     border:none;
 }
-#search-bar p{
+#search-bar label{
+    display: block;
     color:white;
     font-size: 1.5em;
     margin:1em 2%;
