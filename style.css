@@ -345,7 +345,7 @@ input[type="submit"]:hover{
 #content-article-introduction [type=text]:focus{
     box-shadow: 0 0 3px #0091ae;
 }
-#content-article-introduction{
+#content-article-introduction [type=submit]{
     width: 50%;
     margin:1em auto;
 }
