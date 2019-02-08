@@ -95,7 +95,7 @@
                     <fieldset>
                         <input type="hidden" name="subtopicID" value="<?php echo $_GET['subtopicID'] ?>" />
                         <p>
-                            <h2>Inserisci il titolo per il tuo articolo</h2>
+                            <label for="title">Inserisci il titolo per il tuo articolo</label>
                             <?php
                                 if(isset($_GET['articleID'])){
                                     echo '<input type="text" name="title" required id="title" placeholder="Titolo dell\'articolo" value="'.$articleInfo['Title'].'">';
@@ -105,7 +105,7 @@
                             ?>
                         </p>
                         <p>
-                            <h2>Scrivi il testo del tuo articolo</h2>
+                            <label for="new-article-content">Scrivi il testo del tuo articolo</label>
                             <?php
                                 if(isset($_GET['articleID'])){
                                     echo '<textarea name="article-input" required rows="10" cols="100" id="new-article-content">'.$articleInfo['HTMLCode'].'</textarea>';
@@ -114,7 +114,7 @@
                                 }
                             ?>
                         </p>
-                        <p>Tag HTML supportati</p>
+                        <p>Tag HTML supportati: <?php echo htmlspecialchars(Article::$allowed_content_tags) ?></p>
                         <?php
                             if(isset($_GET['articleID'])){
                                 echo '<input type="submit" value="Modifica articolo" name="edit-article"/>';

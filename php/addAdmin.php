@@ -69,7 +69,7 @@
                     </fieldset>
                 </form>
             </div>
-            <div style="text-aling:center;">
+            <div>
                     <?php User::printAllAdmin(); ?>
             </div>
         </div>	

@@ -46,7 +46,7 @@
             <div class="grid">
                 
 				<div id="home-search-bar">
-					<form form method="get" action="search.php">
+					<form method="get" action="search.php">
 						<fieldset id="search-bar">
 							<p>
                                 <label for="search-bar-textarea">Cerca articoli ed argomenti</label>

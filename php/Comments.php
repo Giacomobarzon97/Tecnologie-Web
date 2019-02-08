@@ -10,14 +10,10 @@
                     $nickname = unserialize($_SESSION['userInfo'])->nickname;
                     if(User::isBanned($nickname)) {
                         if(User::isAdmin($loggedUserEmail)) {
-                            echo '<div class="input-comment">
-                            <h4>Il tuo account è stato sospeso, pertanto non puoi lasciare nessun commento.<br/>
-                            Inoltre in qualità di admin, non puoi più eliminare i commenti degli altri utenti.</h4>
-                            </div>';
+                            echo '<h2>Your account has been suspended, so you can not leave a comment.<br/>
+                            As an admin, you can no longer delete comments from other users...</h2>';
                         } else {
-                            echo '<div class="input-comment">
-                            <h4>Il tuo account è stato sospeso, pertanto non puoi lasciare nessun commento.</h4>
-                            </div>';
+                            echo '<h2>Your account has been suspended, so you can not leave a comment.</h2>';
                         }
                         return;
                     }
@@ -29,20 +25,14 @@
                 echo '<div id="comments-error-box-insert-comment"></div>
                 <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" id="insert-new-comment-form">
                 <fieldset>';
-                echo '<div class="input-comment">
-                    <div class="input-comment-area">
-                            <p><textarea rows="4" cols="200" name="comment-input" id="comment-text-area-input" required
-                            onfocus="ReadArticle_HideInsertCommentError()"></textarea></p>
-                    </div>
-                    <div class="input-comment-footer">
-                        <p><input name="comment" type="submit" value="Invia commento" /></p>
-                    </div>
-                </div>';
+                echo '<p>
+                    <label for="comment-text-area-input">Add a comment to this article</label>
+                    <textarea rows="10" cols="100" placeholder="Write a comment..." name="comment-input" id="comment-text-area-input" required onfocus="ReadArticle_HideInsertCommentError()"></textarea>
+                    </p>
+                        <p><input name="comment" type="submit" value="Send comment" /></p>';
                 echo '</fieldset></form>';
             }else{
-                echo '<div class="input-comment">
-                <h4>Per favore esegui il login o registrati per commentare</h4>
-                </div>';
+                echo '<h2>Please, login or register to comment this article...</h2>';
             }
             //Destroy the object
             $connection = NULL;
@@ -85,97 +75,90 @@
                 $nickname = unserialize($_SESSION['userInfo'])->nickname;
                 $is_banned = User::isBanned($nickname);
 
-                echo '<div class="post-comment">';
-                echo '<span id="comment_'.$comment['Id'].'"></span>';
-                    echo '<div class="post-comment-body">';
-                        echo '<div class="post-comment-body-header">';
-                            echo '<div class="post-comment-header-info">';
-                                echo '<h4>'.$commentAuthor[0]['Nickname'].'</h4>';
-                                echo '<p>'.date("H:i:s j/n/Y", strtotime($comment['Date'])).'</p>';
-                            echo '</div>
-                            <div class="post-comment-body-header-votes">';
+                echo '<div class="comment">';
+                    echo '<span id="comment_'.$comment['Id'].'"></span>';
+                    echo '<div class="comment-header">';
+                        echo '<p class="comment-username">'.$commentAuthor[0]['Nickname'].'</p>';
 
-                                //Prendo le informazioni relative all'utente loggato per vedere se HA GIA' votato il commento corrente
-                                $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE :email = AuthorID AND :commID = CommentID");
-                                $connection->bindParameterToQuery(":commID", $comment['Id'], PDO::PARAM_STR);
-                                $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
-                                $loggedUserVote = $connection -> executeQuery();
+                        //Prendo le informazioni relative all'utente loggato per vedere se HA GIA' votato il commento corrente
+                        $connection -> prepareQuery("SELECT * FROM COMMENTS_VOTES WHERE :email = AuthorID AND :commID = CommentID");
+                        $connection->bindParameterToQuery(":commID", $comment['Id'], PDO::PARAM_STR);
+                        $connection->bindParameterToQuery(":email", $loggedUserEmail, PDO::PARAM_STR);
+                        $loggedUserVote = $connection -> executeQuery();
 
-                                if(isset($loggedUserEmail) && !$is_banned){
-                                    //Stampo un'immagine differente se ha già votato con un dislike
-                                    echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
-                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
-                                        echo '<input type="hidden" name="delete-vote" />';
-                                        echo '<input type="image" alt="Pulsante non mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike-red.svg" class="vote-button vote-button-dislike" />';
-                                    }else{
-                                        echo '<input type="hidden" name="isLike" value="0" />';
-                                        echo '<input type="hidden" name="vote-comment" />';
-                                        echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="vote-button vote-button-dislike" />';
-                                    }
-                                    echo '</form>';
-                                }else{ //Form non funzionante per utente non loggato
-                                    echo '<form class="vote-form">';
-                                    echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" disabled class="vote-button-disabled vote-button-dislike" />';
-                                    echo '</form>';
-                                }
-
-                                //-------------
-                                $totalVotes = Comments::getCommentVoteNumber($comment['Id']);
-
-                                //Stampo il conto dei voti in positivo/negativo
-                                if($totalVotes >= 0){
-                                    echo '<p class="positive-vote">'.$totalVotes.'</p>';
-                                }else{
-                                    echo '<p class="negative-vote">'.$totalVotes.'</p>';
-
-                                }
-
-                                //-------------
-                                if(isset($loggedUserEmail) && !$is_banned){
-                                    //Stampo un'immagine differente se ha già votato con un like
-                                    echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
-                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
-                                        echo '<input type="hidden" name="delete-vote" />';
-                                        echo '<input type="image" alt="Pulsante mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/like-green.svg" class="vote-button vote-button-like" />';
-                                    }else{
-                                        echo '<input type="hidden" name="isLike" value="1" />';
-                                        echo '<input type="hidden" name="vote-comment" />';
-                                        echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="vote-button vote-button-like" />';
-                                    }
-                                    echo '</form>';
-                                }else{ //Form non funzionante per utente non loggato
-                                    echo '<form class="vote-form">';
-                                    echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" disabled class="vote-button-disabled vote-button-like" />';
-                                    echo '</form>';
-                                }
-                            echo '</div>
-                        </div>';
-                        echo '<div class="post-comment-body-content">
-                            <p>';
-                                echo $comment['Text']; //Stampa contenuto effettivo commento
-                            echo '</p>
-                        </div>';
-                        //-------------
-                        //Se l'utente è admin aggiungi la possibilità di eliminare un commento
-                        echo '<div class="post-comment-body-footer">';
-                        if($loggedUserIsAdmin || ($comment['AuthorID'] == $loggedUserEmail)){
-                            if(isset($_SESSION['userInfo'])) {
-                                if(!$is_banned) {
-                                    echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
-                                    echo '<fieldset>';
-                                    echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                    echo '<p><input type="submit" name="delete-comment" value="Elimina il commento" class="delete-comment-link" /></p>';
-                                    echo '</fieldset>';
-                                    echo '</form>';
-                                }
+                        if(isset($loggedUserEmail) && !$is_banned){
+                            //Stampo un'immagine differente se ha già votato con un dislike
+                            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
+                            echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                            if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
+                                echo '<input type="hidden" name="delete-vote" />';
+                                echo '<input type="image" alt="Pulsante non mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike-red.svg" class="vote-button vote-button-dislike" />';
+                            }else{
+                                echo '<input type="hidden" name="isLike" value="0" />';
+                                echo '<input type="hidden" name="vote-comment" />';
+                                echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="vote-button vote-button-dislike" />';
                             }
-                            
+                            echo '</form>';
+                        }else{ //Form non funzionante per utente non loggato
+                            echo '<form class="vote-form">';
+                            echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" disabled class="vote-button-disabled vote-button-dislike" />';
+                            echo '</form>';
                         }
-                        echo '</div>';
-                    echo '</div>
-                </div>';
+
+                        //-------------
+                        $totalVotes = Comments::getCommentVoteNumber($comment['Id']);
+
+                        //Stampo il conto dei voti in positivo/negativo
+                        if($totalVotes >= 0){
+                            echo '<p class="comment-vote positive-vote">'.$totalVotes.'</p>';
+                        }else{
+                            echo '<p class="comment-vote negative-vote">'.$totalVotes.'</p>';
+
+                        }
+
+                        //-------------
+                        if(isset($loggedUserEmail) && !$is_banned){
+                            //Stampo un'immagine differente se ha già votato con un like
+                            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
+                            echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                            if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
+                                echo '<input type="hidden" name="delete-vote" />';
+                                echo '<input type="image" alt="Pulsante mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/like-green.svg" class="vote-button vote-button-like" />';
+                            }else{
+                                echo '<input type="hidden" name="isLike" value="1" />';
+                                echo '<input type="hidden" name="vote-comment" />';
+                                echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="vote-button vote-button-like" />';
+                            }
+                            echo '</form>';
+                        }else{ //Form non funzionante per utente non loggato
+                            echo '<form class="vote-form">';
+                            echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" disabled class="vote-button-disabled vote-button-like" />';
+                            echo '</form>';
+                        }
+                    echo '</div>';
+                    echo '<div class="comment-date">';
+                        echo '<img src="img/clock.svg" alt="clock"/>';
+                        echo '<p>'.date("H:i:s j/n/Y", strtotime($comment['Date'])).'</p>';
+                    echo '</div>';
+                    echo '<p class="comment-text">';
+                        echo $comment['Text']; //Stampa contenuto effettivo commento
+                    echo '</p>';
+                    //-------------
+                    //Se l'utente è admin aggiungi la possibilità di eliminare un commento
+                    if($loggedUserIsAdmin || ($comment['AuthorID'] == $loggedUserEmail)){
+                        if(isset($_SESSION['userInfo'])) {
+                            if(!$is_banned) {
+                                echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
+                                echo '<fieldset>';
+                                echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
+                                echo '<p><input type="submit" name="delete-comment" value="Delete comment" class="delete-comment-link" /></p>';
+                                echo '</fieldset>';
+                                echo '</form>';
+                            }
+                        }
+
+                    }
+                echo '</div>';
             }//end for print all comments
 
             //Destroy the object

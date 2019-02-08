@@ -65,9 +65,8 @@
                     Article::printArticleHTML($_GET["id"]);
                 ?>
                 </div>
-                <hr />
                 <!--Inizio centratura commenti-->
-                <div id="comments-content">
+                <div id="comment-section">
                     <?php
                         if(isset($_POST['comment'])) {
                             $result = User::addComment($_GET["id"], $_POST['comment-input'], $_SESSION['email']);
