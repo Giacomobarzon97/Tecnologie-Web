@@ -32,7 +32,7 @@
                         <p><input name="comment" type="submit" value="Send comment" /></p>';
                 echo '</fieldset></form>';
             }else{
-                echo '<h2>Per favore esegui il login o registrati per commentare</h2></div>';
+                echo '<h2>Per favore esegui il login o registrati per commentare</h2>';
             }
             //Destroy the object
             $connection = NULL;
