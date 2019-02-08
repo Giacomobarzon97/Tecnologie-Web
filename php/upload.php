@@ -1,6 +1,7 @@
 <?php
 
 include_once ("User.php");
+include_once ("ResultManager.php");
 
 function upload($name, $size, $type, $tmp_name) {
         $dirToSave = 'uploads/';
@@ -8,7 +9,7 @@ function upload($name, $size, $type, $tmp_name) {
 
         //Sopra 3MB non accetto
         if($size > 3000000){
-            return NULL;
+            return new ResultManager("<li>The uploaded file is too big and exceed 3MB!</li>", true);
         }
 
         //Prendo l'estensione del file
@@ -39,18 +40,20 @@ function upload($name, $size, $type, $tmp_name) {
                         $name = $name.$extension;
                     }
                     if(!resizeImage($tmp_name, 300, 150, $extension)){
-                        return NULL;
+                        return new ResultManager("<li>An error occurred while resizing the image!</li>", true);
                     }
                     if(move_uploaded_file($tmp_name, $dirToSave.$name)) {
-                        return $dirToSave.$name;
+                        $result =  new ResultManager("<li>Upload completed successfully</li>");
+                        $result->data_message = $dirToSave.$name;
+                        return $result;
                     } else {
-                        return NULL;
+                        return new ResultManager("<li>An error occurred while moving the uploaded file!</li>", true);
                     }
                 } else {
-                    return NULL;
+                    return new ResultManager("<li>You cannot upload that file, only jpg, jpeg or png!</li>", true);
                 }
             } else {
-                return NULL;
+                return new ResultManager("<li>An error occurred: the filename looks not valid!</li>", true);
             }
         }
 }//function upload

@@ -1,6 +1,7 @@
 <?php
     include_once ("Connection.php");
     include_once ("User.php");
+    include_once ("ResultManager.php");
     
     class Subtopics {
 
@@ -213,8 +214,7 @@
 
         static function printInsertSubtopicForm($sessionEmail, $topicID){
             if(User::isAdmin($sessionEmail)){
-                echo '<div id="subtopics-error-box-insert-subtopic"></div>
-                <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" id="insert-new-subtopic-form">
+                echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" id="insert-new-subtopic-form">
                     <fieldset>
                         <p>Create a new sub-topic</p>
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
@@ -223,8 +223,8 @@
                                 <input type="text" name="title" id="new-subtopic-title" placeholder="Titolo del subtopic" required maxlength="100" />
                             </p>
                             <p>
-                                <label for="description">Description of the new sub-topic:</label>
-                                <textarea id="descrizione" rows="10" cols="40" name="descrizione" placeholder="Write a description for the new sub-topic"></textarea>
+                                <label for="descrizione">Description of the new sub-topic:</label>
+                                <textarea id="descrizione" rows="10" cols="40" required name="descrizione" placeholder="Write a description for the new sub-topic"></textarea>
                             </p>
                             <p><input type="submit" name="add-subtopic" value="Create" /></p>
                     </fieldset>
@@ -233,6 +233,15 @@
         }
 
         static function insertSubtopic($title, $description, $topicID){
+            if(!isset($title) || strlen($title)<2){
+                return new ResultManager("<li>The subtopic title is not valid! (Probably is too short or empty)</li>", true);
+            }
+            if(!isset($description) || strlen($description)<2){
+                return new ResultManager("<li>The subtopic description is not valid! (Probably is too short or empty)</li>", true);
+            }
+            if(!Subtopics::checkIfTopicExists($topicID)){
+                return new ResultManager("<li>The received TOPICID is not valid!</li>", true);
+            }
             $connection = new Connection();
             $connection -> prepareQuery(
                 "INSERT INTO SUBTOPICS (Title, Description, TopicID)
@@ -242,6 +251,7 @@
             $connection->bindParameterToQuery(":topicid", $topicID, PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
+            return new ResultManager(NULL);
         }
 
         static function deleteSubtopic($subtopicID){

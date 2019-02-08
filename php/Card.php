@@ -92,6 +92,12 @@
         }
 
         static function insertTopic($title, $description, $image){
+            if(!isset($title) || strlen($title)<2){
+                return new ResultManager("<li>The topic title is not valid! (Probably is too short or empty)</li>", true);
+            }
+            if(!isset($description) || strlen($description)<2){
+                return new ResultManager("<li>The topic description is not valid! (Probably is too short or empty)</li>", true);
+            }
             $connection = new Connection();
             $connection -> prepareQuery(
                 "INSERT INTO TOPICS (Name, Description, ImageLink)
@@ -101,11 +107,11 @@
             $connection->bindParameterToQuery(":imageLink", $image, PDO::PARAM_STR);
             $result = $connection -> executeQueryDML();
             $connection = NULL;
+            return new ResultManager(NULL);
         }
 
         static function printInsertNewCardForm(){
-            echo '<div id="arguments-error-box-insert-card"></div>
-            <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data" id="insert-new-card-form">
+            echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" enctype="multipart/form-data" id="insert-new-card-form">
                 <fieldset>
                     <h1>Create a new topic</h1>
                     <p>
@@ -113,14 +119,11 @@
                         <input type="text" name="titolo" id="title-input-box" placeholder="Write the topic title" required maxlength="100" />
                     </p>
                     <p>
-                        <label for="description">Description of the new topic:</label>
-                        <textarea id="descrizione" rows="10" cols="40" name="descrizione" placeholder="Write a description for the new topic"></textarea>
+                        <label for="descrizione">Description of the new topic:</label>
+                        <textarea id="descrizione" rows="10" cols="40" name="descrizione" required placeholder="Write a description for the new topic"></textarea>
                     </p>
                     <p>
                         <label for="file-upload">Thumbnail image:</label>
-                        <label for="file-upload" class="custom-file-upload">
-                            <img src="https://frncscdf.github.io/Tecnologie-Web/img/photo-camera.svg" class="file-upload-img" alt="upload file"/>Carica un immagine
-                        </label>
                         <input id="file-upload" name="upfile" type="file" required />
                     </p>				
                     <p><input type="submit" name="add-topic" value="Create" /></p>

@@ -343,7 +343,7 @@ function ManageArguments_ShowInsertCardError(HTML_message){
 //Valida i dati del cambio dati base
 function validateInsertCardData(){
     title = document.getElementById("title-input-box").value;
-    description = document.getElementById("description-input-box").value;
+    description = document.getElementById("descrizione").value;
     image = document.getElementById("file-upload").value;
 
     var errorMessage = "";
@@ -420,7 +420,7 @@ function ArticleLinks_ShowInsertNewSubtopicError(HTML_message){
 //Valida i dati del cambio dati base
 function validateInsertNewSubtopicData(){
     var subtopic_title = document.getElementById("new-subtopic-title").value;
-    var subtopic_description = document.getElementById("new-subtopic-description").value;
+    var subtopic_description = document.getElementById("descrizione").value;
 
     var errorMessage = "";
     if(!checkStringIsValid(subtopic_title) || subtopic_title.length > 100){

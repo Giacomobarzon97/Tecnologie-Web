@@ -17,10 +17,6 @@
         Article::deleteArticle($_POST["articleID"]);
     }
 
-    if(isset($_POST["add-subtopic"])){
-        Subtopics::insertSubtopic($_POST["title"], $_POST["description"], $_POST["topicID"]);
-    }
-
     if(isset($_POST["delete-subtopic"])){
         Subtopics::deleteSubtopic($_POST["subtopicID"]);
     }
@@ -63,6 +59,20 @@
                 <div id="content-article-introduction">
                 <?php
                     Subtopics::printTopicIntroduction($_GET["id"]);
+                    echo '<div id="subtopics-error-box-insert-subtopic">';
+                    if(isset($_POST["add-subtopic"])){
+                        $result = Subtopics::insertSubtopic($_POST["title"], $_POST["descrizione"], $_POST["topicID"]);
+                        if($result->getIsError()){
+                            echo '<ul class="regform-errorbox">';
+                            echo $result->getMessage();
+                            echo '</ul>';
+                        }else{
+                            echo '<ul class="regform-successbox">';
+                            echo '<li>Subtopic created successfully</li>';
+                            echo '</ul>';
+                        }
+                    }
+                    echo '</div>';
                     Subtopics::printInsertSubtopicForm($_SESSION['email'], $_GET["id"]);
                 ?>
                 </div>
