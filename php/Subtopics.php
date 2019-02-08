@@ -219,7 +219,7 @@
                         <p>Create a new sub-topic</p>
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
                             <p>
-                                <label for="title">Title of the new sub-topic:</label>
+                                <label for="new-subtopic-title">Title of the new sub-topic:</label>
                                 <input type="text" name="title" id="new-subtopic-title" placeholder="Titolo del subtopic" required maxlength="100" />
                             </p>
                             <p>

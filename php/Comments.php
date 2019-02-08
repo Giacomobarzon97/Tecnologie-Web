@@ -10,10 +10,10 @@
                     $nickname = unserialize($_SESSION['userInfo'])->nickname;
                     if(User::isBanned($nickname)) {
                         if(User::isAdmin($loggedUserEmail)) {
-                            echo '<h2>Il tuo account è stato sospeso, pertanto non puoi lasciare nessun commento.<br/>
-                            Inoltre in qualità di admin, non puoi più eliminare i commenti degli altri utenti.</h2>';
+                            echo '<h2>Your account has been suspended, so you can not leave a comment.<br/>
+                            As an admin, you can no longer delete comments from other users...</h2>';
                         } else {
-                            echo '<h2>Il tuo account è stato sospeso, pertanto non puoi lasciare nessun commento.</h2>';
+                            echo '<h2>Your account has been suspended, so you can not leave a comment.</h2>';
                         }
                         return;
                     }
@@ -26,13 +26,13 @@
                 <form action="'.$_SERVER['REQUEST_URI'].'" method="POST" id="insert-new-comment-form">
                 <fieldset>';
                 echo '<p>
-                    <label for="comment-text-area-input">Inserisci un commento</label>
-                    <textarea rows="10" cols="100" name="comment-input" id="comment-text-area-input" required onfocus="ReadArticle_HideInsertCommentError()"></textarea>
+                    <label for="comment-text-area-input">Add a comment to this article</label>
+                    <textarea rows="10" cols="100" placeholder="Write a comment..." name="comment-input" id="comment-text-area-input" required onfocus="ReadArticle_HideInsertCommentError()"></textarea>
                     </p>
                         <p><input name="comment" type="submit" value="Send comment" /></p>';
                 echo '</fieldset></form>';
             }else{
-                echo '<h2>Per favore esegui il login o registrati per commentare</h2>';
+                echo '<h2>Please, login or register to comment this article...</h2>';
             }
             //Destroy the object
             $connection = NULL;
