@@ -1,14 +1,20 @@
 <?php
     include_once('sessionManager.php');
+    include_once ("User.php");
 
-    if(!isset($_POST['delete_account'])) {
-        header("Location: index.php");
+    if(isset($_POST['dismiss_conf_delete'])) {
+        header("Location: profile.php");
+    }else {
+        if (!isset($_POST['delete_account']) && (!isset($_POST['conf_delete']))) {
+            header("Location: index.php");
+        }
     }
+
 ?>  
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>Elimina Account &#124; DevSpace</title>
+        <title>Delete Account &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Conferma eliminazione account" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -26,22 +32,35 @@
     
     <body>
         <div id="registration-form">
-            <div class="regform-introduction">
-                <h1><a href="index.html">Eliminazione dell'account</a></h1>
-                <h2>Sei sicuro di voler eliminare il tuo account?</h2>
-            </div>
-            <div class="regform-main-section">
-                <form action="profile.php" method="POST" >
-                    <fieldset>
-                        <p><input class='profile-input' name='conf_delete' type='submit' value='Si, sono sicuro' /></p>
-                        <p><input class='profile-input' name='dismiss_conf_delete' type='submit' value='Annulla' /></p>
-                    </fieldset>
-                </form>
-            </div>
-            <ul id="regform-links">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="index.php">About</a></li>
-            </ul>
-        </div>	
+            <?php
+
+                if(isset($_POST['conf_delete'])) {
+                    User::deleteAccount($_SESSION['email']);
+                    session_destroy();
+                    echo '<div class="regform-introduction">';
+                        echo '<ul class="regform-successbox">';
+                            echo '<li>Your account has been successfully deleted</li>';
+                        echo '</ul>';
+                    echo '</div>';
+                }else{
+                    echo '<div class="regform-introduction">
+                        <h1><a href="index.html">You are about to delete your account</a></h1>
+                        <h2>Are you sure you want to delete your account?</h2>
+                    </div>
+                    <div class="regform-main-section">';
+                        echo '<form action="'.$_SERVER['PHP_SELF'].'" method="POST" >';
+                            echo '<fieldset>';
+                                echo '<p><input class="profile-input" name="conf_delete" type="submit" value="Yes, i am sure" /></p>';
+                                echo '<p><input class="profile-input" name="dismiss_conf_delete" type="submit" value="Cancel" /></p>';
+                            echo '</fieldset>
+                        </form>
+                    </div>';
+                }
+                echo '<ul id="regform-links">
+                    <li><a href="index.php">Back to home page</a></li>
+                    <li><a href="about.php">About</a></li>
+                </ul>
+            </div>';
+        ?>
     </body>
 </html>

@@ -1,16 +1,6 @@
 <?php
     include_once ('sessionManager.php');
     include_once ("User.php");
-
-    if(isset($_POST['dismiss_conf_delete'])) {
-        header("Location: profile.php");
-    }
-
-    if(isset($_POST['conf_delete'])) {
-        User::deleteAccount($_SESSION['email']);
-        session_destroy();
-        header("Location: index.php");
-    }
 ?>  
 <!DOCTYPE html>
 <html lang="it">

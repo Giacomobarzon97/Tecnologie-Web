@@ -55,7 +55,7 @@
 
         static function printSidebarSearchBox(){
             echo '<div id="sidebar-header">
-                <img src="img/close.svg" alt="close sidebar button" id="close-sidebar-button">
+                <img src="img/close.svg" alt="close sidebar button" id="close-sidebar-button" />
 				<form method="get" action="search.php">
 					<fieldset id="search-bar">
                         <p>

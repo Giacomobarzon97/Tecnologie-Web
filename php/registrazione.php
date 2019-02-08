@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>Registrazione &#124; DevSpace</title>
+        <title>Register &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina di registrazione a DevSpace" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -29,7 +29,7 @@
         <?php include_once ('navbar.php'); ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <h2>Effettua la registrazione a <strong>DevSpace</strong></h2>
+                <h2>Create an account for <strong>DevSpace</strong></h2>
             </div>
             <div id="register-error-box-zone"></div>
             <div class="regform-main-section">
@@ -73,7 +73,7 @@
                                     }
                                 echo '</p>
                                 <p>
-                                    <label for="lname">Nome</label>';
+                                    <label for="lname">Name</label>';
                                     if(isset($_POST['submit'])){
                                         echo '<input class="profile-input" type="text" id="lname" name="name" placeholder="Nome" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo nome" maxlength="100" 
                                         required value="'.$name.'"/>';
@@ -82,7 +82,7 @@
                                     }
                                 echo '</p>
                                 <p>
-                                    <label for="lsurname">Cognome</label>';
+                                    <label for="lsurname">Surname</label>';
                                     if(isset($_POST['submit'])){
                                         echo '<input class="profile-input" type="text" id="lsurname" name="surname" placeholder="Cognome" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo cognome" maxlength="100" 
                                         required value="'.$surname.'"/>';
@@ -95,7 +95,7 @@
                                     <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" maxlength="100" 
                                     required pattern=".{3,100}" title="La password deve avere tra 3 e 100 caratteri"/>
                                 </p>
-                                <p><input class="profile-input" name="submit" type="submit" value="Submit" /></p>
+                                <p><input class="profile-input" name="submit" type="submit" value="Register" /></p>
                             </fieldset>
                         </form>';
                     }
