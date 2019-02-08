@@ -1,2 +1,26 @@
-Studenti dell'Università di Padova, frequentanti il corso di Informatica(Dipartimento di Matematica "Tullio Levi-Civita" - DM).
-Il nostro gruppo è composto da quattro membri: Francesco De Filippis, Michele Roverato, Giacomo Barzon e Giacomo Greggio.
+ABOUT
+vedere about pagina statica
+ADDADMIN
+vedere addAdmin pagina statica
+ADMINTOOLS
+vedere adminTools pagina statica
+ARTICLE
+vedere article parte statica
+ARTICLE_LINKS
+vedere article_links parte statica
+CREATE_ARGUMENTS
+vedere Create_arguments parte statica
+INDEX
+vedere imdex parte statica
+LOGIN
+vedi parte statica
+MANAGE_USERS
+vedi parte statica
+PROFILE
+vedi parte statica
+REGISTRATION 
+vedi parte statica
+RESEARCH_RESULT
+vedi parte statica
+WRITE_ARTICLE
+vedi parte statica

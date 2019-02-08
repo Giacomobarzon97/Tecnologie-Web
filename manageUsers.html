@@ -38,8 +38,8 @@
 			<img src="img/logo.png" alt="Dev Space" id="nav-logo">
 			<ul id="menu">
 				<li><a href='index.php'>Home</a></li>
-				<li><a href='profile.php'>Il tuo profilo</a></li>
-				<li><a href='adminTools.php'>Strumenti</a></li>
+				<li><a href='profile.php'>Profile</a></li>
+				<li><a href='adminTools.php'>Manage</a></li>
 				<li><a href='logout.php'>Logout</a></li>
 				<li><a href='about.php'>About</a></li>
 			</ul>
@@ -47,7 +47,7 @@
 		</div>        
 		<div id="registration-form">
 			<h1>Devspace</h1>
-			<h2>Sospendi l'account di un utente</h2>
+			<h2>Ban an user account</h2>
 
 			<div id="login-error-box-zone">
 			</div>
@@ -60,12 +60,12 @@
 							<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onfocus="LoginPage_HideChangeLoginDataError()" />
 						</p>
 						<p>
-							<input class="profile-input" name="submit" type="submit" value="Esegui" />
+							<input class="profile-input" name="submit" type="submit" value="Ban" />
 						</p>
 					</fieldset>
 				</form>
 			</div>
-			<h2>Sospendi l'account di un utente</h2>
+			<h2>Manage banned users</h2>
 			<div class="regform-main-section">
 				<ul>
 					<li>
@@ -73,7 +73,7 @@
 						<form action="/manageUsers.php" method="POST">
 							<p>        
 								<input type="hidden" name="nicknameDel" value="b" />
-								<input class="profile-input" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
+								<input class="profile-input" name="submitNicknameDel" type="submit" value="Remove Ban" />
 							</p>
 						</form>
 					</li>
@@ -82,7 +82,7 @@
 						<form action="/manageUsers.php" method="POST">
 							<p>        
 								<input type="hidden" name="nicknameDel" value="c" />
-								<input class="profile-input" name="submitNicknameDel" type="submit" value="Rimuovi sospensione" />
+								<input class="profile-input" name="submitNicknameDel" type="submit" value="Remove Ban" />
 							</p>
 						</form>
 					</li>
