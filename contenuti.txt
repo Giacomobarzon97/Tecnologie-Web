@@ -290,9 +290,9 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
             </p>
             <h3>Multitasking and process management</h3>
             <p>
-            A multitasking operating system may just switch between processes to give the appearance of many processes executing simultaneously (that is, in parallel), though in fact only one process can be executing at any one time on a single CPU (unless the CPU has multiple cores, then multithreading or other similar technologies can be used).[a]
+            A multitasking operating system may just switch between processes to give the appearance of many processes executing simultaneously (that is, in parallel), though in fact only one process can be executing at any one time on a single CPU (unless the CPU has multiple cores, then multithreading or other similar technologies can be used).
             It is usual to associate a single process with a main program, and child processes with any spin-off, parallel processes, which behave like asynchronous subroutines. A process is said to own resources, of which an image of its program (in memory) is one such resource. However, in multiprocessing systems many processes may run off of, or share, the same reentrant program at the same location in memory, but each process is said to own its own image of the program.
-            Processes are often called "tasks" in embedded operating systems. The sense of "process" (or task) is "something that takes up time", as opposed to "memory", which is "something that takes up space".[b]
+            Processes are often called "tasks" in embedded operating systems. The sense of "process" (or task) is "something that takes up time", as opposed to "memory", which is "something that takes up space".
             The above description applies to both processes managed by an operating system, and processes as defined by process calculi.
             If a process requests something for which it must wait, it will be blocked. When the process is in the blocked state, it is eligible for swapping to disk, but this is transparent in a virtual memory system, where regions of a process's memory may be really on disk and not in main memory at any time. Note that even unused portions of active processes/tasks (executing programs) are eligible for swapping to disk. All parts of an executing program and its data do not have to be in physical memory for the associated process to be active.
             </p>
@@ -302,22 +302,22 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
             First, the process is "created" by being loaded from a secondary storage device (hard disk drive, CD-ROM, etc.) into main memory. After that the process scheduler assigns it the "waiting" state.
             While the process is "waiting", it waits for the scheduler to do a so-called context switch and load the process into the processor. The process state then becomes "running", and the processor executes the process instructions.
             If a process needs to wait for a resource (wait for user input or file to open, for example), it is assigned the "blocked" state. The process state is changed back to "waiting" when the process no longer needs to wait (in a blocked state).
-            Once the process finishes execution, or is terminated by the operating system, it is no longer needed. The process is removed instantly or is moved to the "terminated" state. When removed, it just waits to be removed from main memory.[1][3]
+            Once the process finishes execution, or is terminated by the operating system, it is no longer needed. The process is removed instantly or is moved to the "terminated" state. When removed, it just waits to be removed from main memory.
             </p>
         
         Interrupts
 
             <p>
-            In system programming, an interrupt is a signal to the processor emitted by hardware or software indicating an event that needs immediate attention. An interrupt alerts the processor to a high-priority condition requiring the interruption of the current code the processor is executing. The processor responds by suspending its current activities, saving its state, and executing a function called an interrupt handler (or an interrupt service routine, ISR) to deal with the event. This interruption is temporary, and, after the interrupt handler finishes, the processor resumes normal activities.[1] There are two types of interrupts: hardware interrupts and software interrupts.
+            In system programming, an interrupt is a signal to the processor emitted by hardware or software indicating an event that needs immediate attention. An interrupt alerts the processor to a high-priority condition requiring the interruption of the current code the processor is executing. The processor responds by suspending its current activities, saving its state, and executing a function called an interrupt handler (or an interrupt service routine, ISR) to deal with the event. This interruption is temporary, and, after the interrupt handler finishes, the processor resumes normal activities. There are two types of interrupts: hardware interrupts and software interrupts.
             </p>
             <p>
-            Hardware interrupts are used by devices to communicate that they require attention from the operating system.[2] Internally, hardware interrupts are implemented using electronic alerting signals that are sent to the processor from an external device, which is either a part of the computer itself, such as a disk controller, or an external peripheral. For example, pressing a key on the keyboard or moving the mouse triggers hardware interrupts that cause the processor to read the keystroke or mouse position. Unlike the software type (described below), hardware interrupts are asynchronous and can occur in the middle of instruction execution, requiring additional care in programming. The act of initiating a hardware interrupt is referred to as an interrupt request (IRQ).
+            Hardware interrupts are used by devices to communicate that they require attention from the operating system. Internally, hardware interrupts are implemented using electronic alerting signals that are sent to the processor from an external device, which is either a part of the computer itself, such as a disk controller, or an external peripheral. For example, pressing a key on the keyboard or moving the mouse triggers hardware interrupts that cause the processor to read the keystroke or mouse position. Unlike the software type (described below), hardware interrupts are asynchronous and can occur in the middle of instruction execution, requiring additional care in programming. The act of initiating a hardware interrupt is referred to as an interrupt request (IRQ).
             </p>
             <p>
             A software interrupt is caused either by an exceptional condition in the processor itself, or a special instruction in the instruction set which causes an interrupt when it is executed. The former is often called a trap or exception and is used for errors or events occurring during program execution that are exceptional enough that they cannot be handled within the program itself. For example, a divide-by-zero exception will be thrown if the processor's arithmetic logic unit is commanded to divide a number by zero as this instruction is an error and impossible. The operating system will catch this exception, and can decide what to do about it: usually aborting the process and displaying an error message. Software interrupt instructions can function similarly to subroutine calls and are used for a variety of purposes, such as to request services from device drivers, like interrupts sent to and from a disk controller to request reading or writing of data to and from the disk.
             </p>
             <p>
-            Each interrupt has its own interrupt handler. The number of hardware interrupts is limited by the number of interrupt request (IRQ) lines to the processor, but there may be hundreds of different software interrupts. Interrupts are a commonly used technique for computer multitasking, especially in real-time computing. Such a system is said to be interrupt-driven.[3]
+            Each interrupt has its own interrupt handler. The number of hardware interrupts is limited by the number of interrupt request (IRQ) lines to the processor, but there may be hundreds of different software interrupts. Interrupts are a commonly used technique for computer multitasking, especially in real-time computing. Such a system is said to be interrupt-driven.
             </p>
             <p>
             Interrupts are similar to signals, the difference being that signals are used for inter-process communication (IPC), mediated by the kernel (possibly via system calls) and handled by processes, while interrupts are mediated by the processor and handled by the kernel. The kernel may pass an interrupt as a signal to the process that caused it (typical examples are SIGSEGV, SIGBUS, SIGILL and SIGFPE). 
@@ -327,19 +327,19 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
 
             <h3>Introduction</h3>
             <p>
-            Memory management is a form of resource management applied to computer memory. The essential requirement of memory management is to provide ways to dynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed. This is critical to any advanced computer system where more than a single process might be underway at any time.[1]
+            Memory management is a form of resource management applied to computer memory. The essential requirement of memory management is to provide ways to dynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed. This is critical to any advanced computer system where more than a single process might be underway at any time.
             </p>
             <p>
             Several methods have been devised that increase the effectiveness of memory management. Virtual memory systems separate the memory addresses used by a process from actual physical addresses, allowing separation of processes and increasing the size of the virtual address space beyond the available amount of RAM using paging or swapping to secondary storage. The quality of the virtual memory manager can have an extensive effect on overall system performance. 
             </p>
             <h4>Dynamic memory allocation</h4>
             <p>
-            The task of fulfilling an allocation request consists of locating a block of unused memory of sufficient size. Memory requests are satisfied by allocating portions from a large pool of memory called the heap or free store.[a] At any given time, some parts of the heap are in use, while some are "free" (unused) and thus available for future allocations.
+            The task of fulfilling an allocation request consists of locating a block of unused memory of sufficient size. Memory requests are satisfied by allocating portions from a large pool of memory called the heap or free store. At any given time, some parts of the heap are in use, while some are "free" (unused) and thus available for future allocations.
             Several issues complicate the implementation, such as external fragmentation, which arises when there are many small gaps between allocated memory blocks, which invalidates their use for an allocation request. The allocator's metadata can also inflate the size of (individually) small allocations. This is often managed by chunking. The memory management system must track outstanding allocations to ensure that they do not overlap and that no memory is ever "lost" (i.e. that there be no "memory leak").
             </p>
             <h4>Efficiency</h4>
             <p>
-            The specific dynamic memory allocation algorithm implemented can impact performance significantly. A study conducted in 1994 by Digital Equipment Corporation illustrates the overheads involved for a variety of allocators. The lowest average instruction path length required to allocate a single memory slot was 52 (as measured with an instruction level profiler on a variety of software).[2]
+            The specific dynamic memory allocation algorithm implemented can impact performance significantly. A study conducted in 1994 by Digital Equipment Corporation illustrates the overheads involved for a variety of allocators. The lowest average instruction path length required to allocate a single memory slot was 52 (as measured with an instruction level profiler on a variety of software).
             </p>
             <h4>Implementations</h4>
             <p>
@@ -355,7 +355,7 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
             </p>
             <h4>Slab allocation</h4>
             <p>
-            This memory allocation mechanism preallocates memory chunks suitable to fit objects of a certain type or size.[3] These chunks are called caches and the allocator only has to keep track of a list of free cache slots. Constructing an object will use any one of the free cache slots and destructing an object will add a slot back to the free cache slot list. This technique alleviates memory fragmentation and is efficient as there is no need to search for a suitable portion of memory, as any open slot will suffice.
+            This memory allocation mechanism preallocates memory chunks suitable to fit objects of a certain type or size. These chunks are called caches and the allocator only has to keep track of a list of free cache slots. Constructing an object will use any one of the free cache slots and destructing an object will add a slot back to the free cache slot list. This technique alleviates memory fragmentation and is efficient as there is no need to search for a suitable portion of memory, as any open slot will suffice.
             </p>
             <h4>Automatic variables</h4>
             <p>
@@ -383,7 +383,7 @@ In more general language, Architecture of computer system can be considered as a
 Automata theory and functionals languages
 
 (Descrizione)Automata theory is the study of abstract machines and automata, as well as the computational problems that can be solved using them. It is a theory in theoretical computer science and discrete mathematics (a subject of study in both mathematics and computer science). The word automata (the plural of automaton) comes from the Greek word αὐτόματα, which means "self-acting".
-The figure at right illustrates a finite-state machine, which belongs to a well-known type of automaton. This automaton consists of states (represented in the figure by circles) and transitions (represented by arrows). As the automaton sees a symbol of input, it makes a transition (or jump) to another state, according to its transition function, which takes the current state and the recent symbol as its inputs.
+This automaton consists of states and transitions (represented by arrows). As the automaton sees a symbol of input, it makes a transition (or jump) to another state, according to its transition function, which takes the current state and the recent symbol as its inputs.
 Automata theory is closely related to formal language theory. An automaton is a finite representation of a formal language that may be an infinite set. Automata are often classified by the class of formal languages they can recognize, typically illustrated by the Chomsky hierarchy, which describes the relations between various languages and kinds of formalized logic.
 Automata play a major role in theory of computation, compiler construction, artificial intelligence, parsing and formal verification.
 
@@ -402,7 +402,7 @@ Automata play a major role in theory of computation, compiler construction, arti
             
             <h3>Introduction</h3>
             <p>
-            In automata theory, a deterministic pushdown automaton (DPDA or DPA) is a variation of the pushdown automaton. The class of deterministic pushdown automata accepts the deterministic context-free languages, a proper subset of context-free languages.[1]
+            In automata theory, a deterministic pushdown automaton (DPDA or DPA) is a variation of the pushdown automaton. The class of deterministic pushdown automata accepts the deterministic context-free languages, a proper subset of context-free languages.
             </p>
             <p>
             Machine transitions are based on the current state and input symbol, and also the current topmost symbol of the stack. Symbols lower in the stack are not visible and have no immediate effect. Machine actions include pushing, popping, or replacing the stack top. A deterministic pushdown automaton has at most one legal transition for the same combination of input symbol, state, and top stack symbol. This is where it differs from the nondeterministic pushdown automaton. 
@@ -438,7 +438,7 @@ Automata play a major role in theory of computation, compiler construction, arti
             <p>
             In the theory of computation, a branch of theoretical computer science, a pushdown automaton (PDA) is a type of automaton that employs a stack.
             Pushdown automata are used in theories about what can be computed by machines. They are more capable than finite-state machines but less capable than Turing machines. Deterministic pushdown automata can recognize all deterministic context-free languages while nondeterministic ones can recognize all context-free languages, with the former often used in parser design.
-            The term "pushdown" refers to the fact that the stack can be regarded as being "pushed down" like a tray dispenser at a cafeteria, since the operations never work on elements other than the top element. A stack automaton, by contrast, does allow access to and operations on deeper elements. Stack automata can recognize a strictly larger set of languages than pushdown automata.[1] A nested stack automaton allows full access, and also allows stacked values to be entire sub-stacks rather than just single finite symbols. 
+            The term "pushdown" refers to the fact that the stack can be regarded as being "pushed down" like a tray dispenser at a cafeteria, since the operations never work on elements other than the top element. A stack automaton, by contrast, does allow access to and operations on deeper elements. Stack automata can recognize a strictly larger set of languages than pushdown automata. A nested stack automaton allows full access, and also allows stacked values to be entire sub-stacks rather than just single finite symbols. 
             </p>
             <h3>Formal definition</h3>
             <p>
@@ -460,3 +460,234 @@ Automata play a major role in theory of computation, compiler construction, arti
 
             Here δ ( p , a , A ) contains all possible actions in state p with A on the stack, while reading a on the input. One writes for example δ ( p , a , A ) = { ( q , B A ) } precisely when ( q , B A ) ∈ { ( q , B A ) } , ( q , B A ) ∈ δ ( p , a , A ) , because ( ( p , a , A ) , { ( q , B A ) } ) ∈ δ. Note that finite in this definition is essential.
             </p>
+
+        Nondeterministic finite automaton(NFA)
+
+            <h3>Introduction</h3>
+            <p>
+            In automata theory, a finite state machine is called a deterministic finite automaton (DFA), if
+            each of its transitions is uniquely determined by its source state and input symbol, and
+            reading an input symbol is required for each state transition.
+            </p>
+            <p>
+            A nondeterministic finite automaton (NFA), or nondeterministic finite state machine, does not need to obey these restrictions. In particular, every DFA is also an NFA. Sometimes the term NFA is used in a narrower sense, referring to a NFA that is not a DFA, but not in this article.
+            Using the subset construction algorithm, each NFA can be translated to an equivalent DFA, i.e. a DFA recognizing the same formal language. Like DFAs, NFAs only recognize regular languages.
+            NFAs were introduced in 1959 by Michael O. Rabin and Dana Scott, who also showed their equivalence to DFAs. NFAs are used in the implementation of regular expressions: Thompson's construction is an algorithm for compiling a regular expression to an NFA that can efficiently perform pattern matching on strings.
+            NFAs have been generalized in multiple ways, e.g., nondeterministic finite automaton with ε-moves, finite state transducers, pushdown automata, alternating automata, ω-automata, and probabilistic automata. Besides the DFAs, other known special cases of NFAs are unambiguous finite automata (UFA) and self-verifying finite automata (SVFA). 
+            </p>
+            <h3>Formal definition</h3>
+            <p>
+            An NFA is represented formally by a 5-tuple, ( Q , Σ , Δ , q 0 , F ), consisting of
+            a finite set of states Q.
+            a finite set of input symbols Σ.
+            a transition function Δ : Q × Σ → P ( Q ).
+            an initial (or start) state q 0 ∈ Q.
+            a set of states F distinguished as accepting (or final) states F ⊆ Q.
+            </p>
+            <p>
+            Here, P ( Q ) denotes the power set of Q. Let w = a 1 a 2 . . . a n be a word over the alphabet Σ. The automaton M accepts the word w if a sequence of states, r 0 , r 1 , . . . , r n , exists in Q with the following conditions:
+            r 0 = q 0 
+            r i + 1 ∈ Δ ( r i , a i + 1 ), for i = 0 , … , n − 1
+            r n ∈ F .
+            </p>
+            <p>
+            In words, the first condition says that the machine starts in the start state q 0. The second condition says that given each character of string w, the machine will transition from state to state according to the transition function Δ . The last condition says that the machine accepts w if the last input of w causes the machine to halt in one of the accepting states. In order for w to be accepted by M, it is not required that every state sequence ends in an accepting state, it is sufficient if one does. Otherwise, i.e. if it is impossible at all to get from q 0 to a state from F by following w, it is said that the automaton rejects the string. The set of strings M accepts is the language recognized by M and this language is denoted by L ( M ).
+            We can also define L ( M ) in terms of Δ ∗ : Q × Σ ∗ → P ( Q ) such that:
+            Δ ∗ ( r , ϵ ) = { r } where ϵ is the empty string, and
+            If x ∈ Σ ∗ , a ∈ Σ , and Δ ∗ ( r , x ) = { r 1 , r 2 , . . . , r k } then Δ ∗ ( r , x a ) = Δ ( r 1 , a ) ∪ . . . ∪ Δ ( r k , a ).
+            Now L ( M ) = { w | Δ ∗ ( q 0 , w ) ∩ F ≠ ∅ }.
+            Note that there is a single initial state, which is not necessary. Sometimes, NFAs are defined with a set of initial states. There is an easy construction that translates a NFA with multiple initial states to a NFA with single initial state, which provides a convenient notation.
+            </p>
+
+        Turing machine
+
+            <h3>Introduction</h3>
+            <p>
+            A Turing machine is a mathematical model of computation that defines an abstract machine, which manipulates symbols on a strip of tape according to a table of rules. Despite the model's simplicity, given any computer algorithm, a Turing machine capable of simulating that algorithm's logic can be constructed.
+            The machine operates on an infinite memory tape divided into discrete cells.
+            The machine positions its head over a cell and "reads" (scans) the symbol there. 
+            Then, as per the symbol and its present place in a finite table of user-specified instructions, the machine writes a symbol 
+            (e.g., a digit or a letter from a finite alphabet) in the cell (some models allowing symbol erasure or no writing), then either moves the tape one cell left or right (some models allow no motion, some models move the head), then (as determined by the observed symbol and the machine's place in the table) either proceeds to a subsequent instruction or halts the computation.
+            </p>
+            <p>
+            The Turing machine was invented in 1936 by Alan Turing, who called it an a-machine (automatic machine).
+            With this model, Turing was able to answer two questions in the negative: 
+            (1) Does a machine exist that can determine whether any arbitrary machine on its tape is "circular" (e.g., freezes, or fails to continue its computational task); similarly, 
+            (2) does a machine exist that can determine whether any arbitrary machine on its tape ever prints a given symbol. 
+            Thus by providing a mathematical description of a very simple device capable of arbitrary computations, he was able to prove properties of computation in general—and in particular, the uncomputability of the Entscheidungsproblem ("decision problem").
+            Thus, Turing machines prove fundamental limitations on the power of mechanical computation. While they can express arbitrary computations, their minimalistic design makes them unsuitable for computation in practice: real-world computers are based on different designs that, unlike Turing machines, use random-access memory.
+            Turing completeness is the ability for a system of instructions to simulate a Turing machine. A programming language that is Turing complete is theoretically capable of expressing all tasks accomplishable by computers; nearly all programming languages are Turing complete if the limitations of finite memory are ignored. 
+            </p>
+            <h3>Formal definition</h3>
+            <p>
+            Following Hopcroft and Ullman (1979, p. 148), a (one-tape) Turing machine can be formally defined as a 7-tuple M = ⟨ Q , Γ , b , Σ , δ , q 0 , F ⟩ 
+            where
+            Q is a finite, non-empty set of states;
+            Γ is a finite, non-empty set of tape alphabet symbols;
+            b ∈ Γ is the blank symbol (the only symbol allowed to occur on the tape infinitely often at any step during the computation);
+            Σ ⊆ Γ ∖ { b }  is the set of input symbols, that is, the set of symbols allowed to appear in the initial tape contents;
+            q 0 ∈ Q is the initial state;
+            F ⊆ Q is the set of final states or accepting states. The initial tape contents is said to be accepted by M if it eventually halts in a state from F.
+            δ : ( Q ∖ F ) × Γ ↛ Q × Γ × { L , R } is a partial function called the transition function, where L is left shift, R is right shift. 
+            </p>
+            <p>
+            If δ is not defined on the current state and the current tape symbol, then the machine halts;
+            Anything that operates according to these specifications is a Turing machine.
+            The 7-tuple for the 3-state busy beaver looks like this (see more about this busy beaver at Turing machine examples):
+            Q = { A , B , C , HALT };
+            Γ = { 0 , 1 };
+            b = 0;
+            Σ = { 1 };
+            q 0 = A;
+            F = { HALT };
+            δ.
+            </p>
+
+Programming in Java
+
+(Descrizione)
+Java is a popular general-purpose programming language and computing platform. It is fast, reliable, and secure. According to Oracle, the company that owns Java, Java runs on 3 billion devices worldwide.
+Considering the number of Java developers, devices running Java, and companies adapting it, it's safe to say that Java will be around for many years to come.
+This guide will provide everything you need to know about Java programming language before you learn it. More specifically, you will learn about features of Java programming, its applications, reasons to learn it, and how you can learn it the right way.
+
+    Trails Covering the Basics
+
+    The Java Tutorials are practical guides for programmers who want to use the Java programming language to create applications. They include hundreds of complete, working examples, and dozens of lessons. Groups of related lessons are organized into "trails".
+
+        Getting Started
+
+            Java technology is both a programming language and a platform.
+            <h3>The Java Programming Language</h3>
+            <p>
+            The Java programming language is a high-level language that can be characterized by all of the following buzzwords:
+
+                Simple
+                Object oriented
+                Distributed
+                Multithreaded
+                Dynamic
+
+                Architecture neutral
+                Portable
+                High performance
+                Robust
+                Secure
+
+            Each of the preceding buzzwords is explained in The Java Language Environment , a white paper written by James Gosling and Henry McGilton.
+            In the Java programming language, all source code is first written in plain text files ending with the .java extension. Those source files are then compiled into .class files by the javac compiler. A .class file does not contain code that is native to your processor; it instead contains bytecodes — the machine language of the Java Virtual Machine1 (Java VM). The java launcher tool then runs your application with an instance of the Java Virtual Machine.
+            Because the Java VM is available on many different operating systems, the same .class files are capable of running on Microsoft Windows, the Solaris™ Operating System (Solaris OS), Linux, or Mac OS. Some virtual machines, such as the Java SE HotSpot at a Glance, perform additional steps at runtime to give your application a performance boost. This includes various tasks such as finding performance bottlenecks and recompiling (to native code) frequently used sections of code.
+            </p>
+            <h3>The Java Platform</h3>
+            <p>
+            A platform is the hardware or software environment in which a program runs. We've already mentioned some of the most popular platforms like Microsoft Windows, Linux, Solaris OS, and Mac OS. Most platforms can be described as a combination of the operating system and underlying hardware. The Java platform differs from most other platforms in that it's a software-only platform that runs on top of other hardware-based platforms.
+            The Java platform has two components:
+                The Java Virtual Machine
+                The Java Application Programming Interface (API)
+            You've already been introduced to the Java Virtual Machine; it's the base for the Java platform and is ported onto various hardware-based platforms.
+            The API is a large collection of ready-made software components that provide many useful capabilities. It is grouped into libraries of related classes and interfaces; these libraries are known as packages. The next section, What Can Java Technology Do? highlights some of the functionality provided by the API.
+            The API and Java Virtual Machine insulate the program from the underlying hardware.
+            As a platform-independent environment, the Java platform can be a bit slower than native code. However, advances in compiler and virtual machine technologies are bringing performance close to that of native code without threatening portability.
+            The terms"Java Virtual Machine" and "JVM" mean a Virtual Machine for the Java platform.
+            </p>
+            <h3>What can Java technology do?</h3>
+            <p>
+            The general-purpose, high-level Java programming language is a powerful software platform. Every full implementation of the Java platform gives you the following features:
+            Development Tools: The development tools provide everything you'll need for compiling, running, monitoring, debugging, and documenting your applications. As a new developer, the main tools you'll be using are the javac compiler, the java launcher, and the javadoc documentation tool.
+            Application Programming Interface (API): The API provides the core functionality of the Java programming language. It offers a wide array of useful classes ready for use in your own applications. It spans everything from basic objects, to networking and security, to XML generation and database access, and more. The core API is very large; to get an overview of what it contains, consult the Java Platform Standard Edition 8 Documentation.
+            Deployment Technologies: The JDK software provides standard mechanisms such as the Java Web Start software and Java Plug-In software for deploying your applications to end users.
+            User Interface Toolkits: The JavaFX, Swing, and Java 2D toolkits make it possible to create sophisticated Graphical User Interfaces (GUIs).
+            Integration Libraries: Integration libraries such as the Java IDL API, JDBC API, Java Naming and Directory Interface (JNDI) API, Java RMI, and Java Remote Method Invocation over Internet Inter-ORB Protocol Technology (Java RMI-IIOP Technology) enable database access and manipulation of remote objects.
+            </p>
+
+    Creating Graphical User Interfaces
+
+    A comprehensive introduction to GUI creation on the Java platform.
+            
+        
+    Specialized Trails and Lessons
+
+    Lessons for specialized and expert user
+
+        Custom networking
+
+            <h3>What You May Already Know About Networking in Java</h3>
+            <p>
+            The word networking strikes fear in the hearts of many programmers. Fear not! Using the networking capabilities provided in the Java environment is quite easy. In fact, you may be using the network already without even realizing it!
+            </p>
+            <h4>Loading Applets from the Network</h4>
+            <p>
+            If you have access to a Java-enabled browser, you have undoubtedly already executed many applets. The applets you've run are referenced by a special tag in an HTML file — the <APPLET> tag. Applets can be located anywhere, whether on your local machine or somewhere out on the Internet. The location of the applet is completely invisible to you, the user. However, the location of the applet is encoded within the <APPLET> tag. The browser decodes this information, locates the applet, and runs it. If the applet is on some machine other than your own, the browser must download the applet before it can be run.
+            This is the highest level of access that you have to the Internet from the Java development environment. Someone else has taken the time to write a browser that does all of the grunt work of connecting to the network and getting data from it, thereby enabling you to run applets from anywhere in the world.
+            The Java Applets trail describes how to write Java applets from A to Z.
+            <h4>Loading Images from URLs</h4>
+            <p>
+            If you've ventured into writing your own Java applets and applications, you may have run into a class in the java.net package called URL. This class represents a Uniform Resource Locator and is the address of some resource on the network. Your applets and applications can use a URL to reference and even connect to resources out on the network. For example, to load an image from the network, your Java program must first create a URL that contains the address to the image.
+            This is the next highest level of interaction you can have with the Internet — your Java program gets an address of something it wants, creates a URL for it, and then uses some existing function in the Java development environment that does the grunt work of connecting to the network and retrieving the resource.
+            </p>
+
+        Generics
+
+            <h3>Introduction</h3>
+            <p>
+            JDK 5.0 introduces several new extensions to the Java programming language. One of these is the introduction of generics.
+            This trail is an introduction to generics. You may be familiar with similar constructs from other languages, most notably C++ templates. If so, you'll see that there are both similarities and important differences. If you are unfamiliar with look-a-alike constructs from elsewhere, all the better; you can start fresh, without having to unlearn any misconceptions.
+            Generics allow you to abstract over types. The most common examples are container types, such as those in the Collections hierarchy.
+            Here is a typical usage of that sort:
+
+            List myIntList = new LinkedList(); // 1
+            myIntList.add(new Integer(0)); // 2
+            Integer x = (Integer) myIntList.iterator().next(); // 3        
+
+            The cast on line 3 is slightly annoying. Typically, the programmer knows what kind of data has been placed into a particular list. However, the cast is essential. The compiler can only guarantee that an Object will be returned by the iterator. To ensure the assignment to a variable of type Integer is type safe, the cast is required.
+            Of course, the cast not only introduces clutter. It also introduces the possibility of a run time error, since the programmer may be mistaken.
+            What if programmers could actually express their intent, and mark a list as being restricted to contain a particular data type? This is the core idea behind generics. Here is a version of the program fragment given above using generics:
+
+            List<Integer> 
+                myIntList = new LinkedList<Integer>(); // 1'
+            myIntList.add(new Integer(0)); // 2'
+            Integer x = myIntList.iterator().next(); // 3'
+
+            Notice the type declaration for the variable myIntList. It specifies that this is not just an arbitrary List, but a List of Integer, written List<Integer>. We say that List is a generic interface that takes a type parameter--in this case, Integer. We also specify a type parameter when creating the list object.
+            Note, too, that the cast on line 3' is gone.
+            Now, you might think that all we've accomplished is to move the clutter around. Instead of a cast to Integer on line 3, we have Integer as a type parameter on line 1'. However, there is a very big difference here. The compiler can now check the type correctness of the program at compile-time. When we say that myIntList is declared with type List<Integer>, this tells us something about the variable myIntList, which holds true wherever and whenever it is used, and the compiler will guarantee it. In contrast, the cast tells us something the programmer thinks is true at a single point in the code.
+            The net effect, especially in large programs, is improved readability and robustness.
+            </p>
+            <h3>Defining Simple Generics</h3>
+            <p>
+            Here is a small excerpt from the definitions of the interfaces List and Iterator in package java.util:
+
+            public interface List <E> {
+                void add(E x);
+                Iterator<E> iterator();
+            }
+
+            public interface Iterator<E> {
+                E next();
+                boolean hasNext();
+            }
+
+            This code should all be familiar, except for the stuff in angle brackets. Those are the declarations of the formal type parameters of the interfaces List and Iterator.
+            Type parameters can be used throughout the generic declaration, pretty much where you would use ordinary types (though there are some important restrictions; see the section The Fine Print.
+            In the introduction, we saw invocations of the generic type declaration List, such as List<Integer>. In the invocation (usually called a parameterized type), all occurrences of the formal type parameter (E in this case) are replaced by the actual type argument (in this case, Integer).
+            You might imagine that List<Integer> stands for a version of List where E has been uniformly replaced by Integer:
+
+            public interface IntegerList {
+                void add(Integer x);
+                Iterator<Integer> iterator();
+            }
+
+            This intuition can be helpful, but it's also misleading.
+            It is helpful, because the parameterized type List<Integer> does indeed have methods that look just like this expansion.
+            It is misleading, because the declaration of a generic is never actually expanded in this way. There aren't multiple copies of the code--not in source, not in binary, not on disk and not in memory. If you are a C++ programmer, you'll understand that this is very different than a C++ template.
+            A generic type declaration is compiled once and for all, and turned into a single class file, just like an ordinary class or interface declaration.
+            Type parameters are analogous to the ordinary parameters used in methods or constructors. Much like a method has formal value parameters that describe the kinds of values it operates on, a generic declaration has formal type parameters. When a method is invoked, actual arguments are substituted for the formal parameters, and the method body is evaluated. When a generic declaration is invoked, the actual type arguments are substituted for the formal type parameters.
+            A note on naming conventions. We recommend that you use pithy (single character if possible) yet evocative names for formal type parameters. It's best to avoid lower case characters in those names, making it easy to distinguish formal type parameters from ordinary classes and interfaces. Many container types use E, for element, as in the examples above. We'll see some additional conventions in later examples.
+            </p>
+
+Computer network
+
+(Descrizione)A computer network is a digital telecommunications network which allows nodes to share resources.
+In computer networks, computing devices exchange data with each other using connections (data links) between nodes.
+These data links are established over cable media such as wires or optic cables, or wireless media such as Wi-Fi. 
+
+
