@@ -78,8 +78,14 @@ input[type="submit"]:hover{
     background-position: 98% 
 }
 #search-bar input[type="submit"]{
+    color:black;
+    background-color: white;
     margin:1em auto;
     width: 40%;
+}
+#search-bar input[type="submit"]:hover{
+    color:white;
+    background-color: black;
 }
 #sidebar>li{
     overflow:hidden;
@@ -338,6 +344,10 @@ input[type="submit"]:hover{
 
 #content-article-introduction [type=text]:focus{
     box-shadow: 0 0 3px #0091ae;
+}
+#content-article-introduction{
+    width: 50%;
+    margin:1em auto;
 }
 
 #descrizione{
@@ -913,6 +923,10 @@ HOMEPAGE
     color: rgb(0,0,0);
     font-size:2.5em;
     margin-bottom:0.5em;
+}
+#home-search-bar label{
+    color:black;
+    font-size:2.5em;
 }
 #home-search-bar{
     padding:0em 5%;
