@@ -27,70 +27,63 @@
             <h1>DevSpace</h1>
         </div>
         <div class="about-section1">
-            <h1>Chi siamo??</h1>
+            <h1>Who are we?</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
+                Students from University of Padua, attending the course of I.T(Mathematics Department "Tullio Levi-Civita" - DM).
+                Our group consists of four members: Francesco De Filippis, Michele Roverato, Giacomo Barzon and Giacomo Greggio.
             </p>
         </div>
         <div class="about-section2">
-            <h1>Il Nostro Team</h1>
+            <h1>Our Team</h1>
             <div class="grid">
                 <div class="row">
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="http://placekitten.com/810/810" alt="meow"/>
+                            <img src="https://avatars0.githubusercontent.com/u/43989185?s=400&v=4" alt="Github avatar of Barzon Giacomo"/>
                         </div>
                         <h1>Barzon Giacomo</h1>
                         <h2>Full stack developer</h2>
                         <ul>
-                            <li><a><img alt="github logo" src="img/github-logo.svg"/></a></li>
-                            <li><a><img alt="facebook logo" src="img/facebook-logo.svg"/></a></li>
-                            <li><a><img alt="mail logo" src="img/mail-logo.svg"/></a></li>
+                            <li><a href="https://github.com/Giacomobarzon97"><img alt="github logo" src="img/github-logo.svg" /></a></li>
                         </ul>
                     </div>
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="http://placekitten.com/810/810" alt="meow"/>
+                            <img src="https://avatars2.githubusercontent.com/u/11294898?s=400&v=4" alt="Github avatar of Michele Roverato"/>
                         </div>
-                        <h1>Barzon Giacomo</h1>
+                        <h1>Roverato Michele</h1>
                         <h2>Full stack developer</h2>
                         <ul>
-                            <li><a><img alt="github logo" src="img/github-logo.svg"/></a></li>
-                            <li><a><img alt="facebook logo" src="img/facebook-logo.svg"/></a></li>
-                            <li><a><img alt="mail logo" src="img/mail-logo.svg"/></a></li>
+                            <li><a href="https://github.com/ScrappyCocco"><img alt="github logo" src="img/github-logo.svg" /></a></li>
                         </ul>
                     </div>
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="http://placekitten.com/810/810" alt="meow"/>
+                            <img src="https://avatars3.githubusercontent.com/u/29098430?s=400&v=4" alt="Github avatar of De Filippis Francesco"/>
                         </div>
-                        <h1>Barzon Giacomo</h1>
+                        <h1>De Filippis Francesco</h1>
                         <h2>Full stack developer</h2>
                         <ul>
-                            <li><a><img alt="github logo" src="img/github-logo.svg"/></a></li>
-                            <li><a><img alt="facebook logo" src="img/facebook-logo.svg"/></a></li>
-                            <li><a><img alt="mail logo" src="img/mail-logo.svg"/></a></li>
+                            <li><a href="https://github.com/frncscdf"><img alt="github logo" src="img/github-logo.svg" /></a></li>
                         </ul>
                     </div>
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="http://placekitten.com/810/810" alt="meow"/>
+                            <img src="https://avatars1.githubusercontent.com/u/43755172?s=460&v=4" alt="Github avatar of Greggio Giacomo"/>
                         </div>
-                        <h1>Barzon Giacomo</h1>
+                        <h1>Greggio Giacomo</h1>
                         <h2>Full stack developer</h2>
                         <ul>
-                            <li><a><img alt="github logo" src="img/github-logo.svg"/></a></li>
-                            <li><a><img alt="facebook logo" src="img/facebook-logo.svg"/></a></li>
-                            <li><a><img alt="mail logo" src="img/mail-logo.svg"/></a></li>
+                            <li><a href="https://github.com/giacomogreggio"><img alt="github logo" src="img/github-logo.svg" /></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="about-section3">
-            <h1>Perchè questo sito?</h1>
+            <h1>Why did we make this site?</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
+                This site is a project for the course of Web Technologies. This course takes place in our University during the last year of our Bachelor Degree.
             </p>
         </div>
         <div id="footer">
