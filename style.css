@@ -1293,7 +1293,7 @@ FOOTER
     margin:1em 0em;
 }
 .comment input[type="submit"]{
-    border-radius:none;
+    border-radius:0px;
     border:none;
     background-color:transparent;
     font-family: 'Open Sans', sans-serif;
