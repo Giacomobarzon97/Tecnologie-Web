@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    include_once ('sessionManager.php');
+
     session_destroy();
-    header("Location: index.php");
+    header("Location:".$_SESSION["lastVisitedPage"]);
 ?>
+
