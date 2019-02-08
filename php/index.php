@@ -49,7 +49,7 @@
 					<form method="get" action="search.php">
 						<fieldset id="search-bar">
 							<p>
-                                <label for="search-bar-textarea">Cerca articoli ed argomenti</label>
+                                <label for="search-bar-textarea">Search for topics and articles</label>
                                 <input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />
                             </p>
 	                    	<p>

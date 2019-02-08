@@ -58,7 +58,7 @@
 				<form method="get" action="search.php">
 					<fieldset id="search-bar">
                         <p>
-                            <label for="search-bar-textarea">Cerca articoli ed argomenti</label>';
+                            <label for="search-bar-textarea">Search for topics and articles</label>';
                             if(isset($_GET["search-term"])){
                                 echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="'.$_GET["search-term"].'" />';
                             }else{
@@ -111,16 +111,16 @@
                 <ul id="menu">';
             if(isset($_SESSION['email'])) {
                 echo "<li><a href='index.php'>Home</a></li>"; 
-                echo "<li><a href='profile.php'>Il tuo profilo</a></li>";
+                echo "<li><a href='profile.php'>Profile</a></li>";
                 if(User::isAdmin($_SESSION['email'])) {
-                    echo "<li><a href='adminTools.php'>Strumenti</a></li>
+                    echo "<li><a href='adminTools.php'>Admin tools</a></li>
                     ";
                 }
                 echo "<li><a href='logout.php'>Logout</a></li>";
             }else{
                 echo "<li><a href='index.php'>Home</a></li>";
-                echo "<li><a href='registrazione.php'>Registrati</a></li>";
-                echo "<li><a href='login.php'>Accedi</a></li>";
+                echo "<li><a href='registrazione.php'>Create a new account</a></li>";
+                echo "<li><a href='login.php'>Login</a></li>";
             }
             echo '<li><a href="about.php">About</a></li>';
             echo '</ul>
