@@ -228,7 +228,7 @@ input[type="submit"]:hover{
 #write-article-form h1{
     font-size: 2.5em;
 }
-#write-article-form h2{
+#write-article-form label{
     font-weight: 400;
     font-size: 2em;
     margin:0.5em 0em;
