@@ -130,78 +130,112 @@
 
 	\section{Accessibilità}
 	\subsection{Introduzione}
-	dsa
+	Affinché il sito raggiunga l'ampia vasta gamma di utenti per cui è stato progettato, particolare attenzione è stata posta sul fattore accessibilità seguendo i principi fondamentali descritti dal WCAG 2.0. In particolare, nel nostro caso specifico, sono stati adottati gli accorgimenti di seguito descritti.
 	\subsection{Scelte adottate}
-	das
+	In questa sezione verranno illustrate le scelte intraprese al fine di rendere il sito accessibile.
 	\subsubsection{Colori}
-	dsa
+	Per quanto riguarda l'utilizzo dei colori per i testi e gli elementi di tutte le pagine, abbiamo assicurato di ottenere un rapporto di contrasto pari 7:1 tra un elemento in foreground e uno in background, rendendo così il sito conforme ai livelli di accessibilità AA e AAA del WCAG 2.0. 
 	\subsubsection{Link}
 	dsa
 	\subsubsection{JavaScript}
-	da
+	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. Lo abbiamo inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine rendere disponibile la consultazione delle voci.
+	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vegono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati.	Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
+	[E MOBILE?]
 	\subsubsection{Breadcrumb}
-	dsa
+	Abbiamo utilizzato i breadcrumb per due differenti aree e funzionalità del sito. La prima riguarda la navbar, presente in tutte le pagine, che contiene i link per navigare in tutto il sito. Le voci del menù vengono evidenziate e i link disattivati in modo congruo alla pagina in cui l'utente si trova in quel preciso momento. Il secondo utilizzo di breadcrumb viene fatto nella sidebar, dove viene evidenziato l'elenco corrispondente al macroargomento e relativi sottoargomenti che l'utente sta visualizzando e, nel caso stesse leggendo un articolo, viene evidenziato solo il sottoargomento a cui esso appartiene.
+	
+	\subsubsection{Altro per accessibilità?}
 	
 
 	\section{Sviluppo}
 	\subsection{Tecnologie utilizzate}
-	sada
+	Le tecnologie utilizzate per sviluppare il sito sono le seguenti:
+	\begin{itemize}
+		\item HTML5;
+		\item CSS3;
+		\item JavaScript;
+		\item PHP v[];
+		\item SQL v[];
+	\end{itemize}
 	\subsection{Strumenti di supporto}
-	travis
+	Per poter garantire un buon coordinamento all'interno del team di sviluppo è stato utilizzato il servizio \emph{GitHub} per ospitare il repository del progetto, per tenere traccia delle attività da svolgere e per suddividere in modo efficiente e strutturato il lavoro. Inoltre è stato utilizzato \emph{TravisCI}, un servizio di continuous integration, per validare la pagine HTML e i fogli CSS prodotti ad ogni attività di push sul repository remoto. Questo ci ha permesso di controllare costantemente che le modifiche apportate al progetto non avessero introdotto errori che avrebbero potuto rendere non valide le pagine del nostro sito.
 	\subsection{Form}
 	\subsubsection{Struttura dei form}
 	sa
-	\subsubsection{Validazione dei form}
-	sa, sezioni per js, php, html ecc...
+	\subsubsection{Validazione dei form - Rove}
+	sezione html5
+	sezione js
+	sezione php
+	\subsubsection{Scrittura articoli}
+	Gli utenti amministratori hanno la possibilità di scrivere nuovi articoli o di modificare quelli esistenti. Per offrire questa funzionalità abbiamo scelto di utilizzare il tag \emph{<textarea>}. Il motivo di questa è scelta deriva da diversi fattori tra cui, la semplicità di gestione e il tempo a dispozione per produrre qualcosa di più elaborato. La seconda strada che si poteva intraprendere era l'inserimento di un plugin \emph{WYSIWYG(What You See Is What You Get)}, ma abbiamo constatato che uno strumento del genere, oltre ad essere molto difficile da gestire senza JavaScript, poteva generare dei problemi di incompatibilità con i browser e addirittura introdurre degli errori di struttura nei documenti HTML, invalidando così la pagine. Perciò abbiamo implementato la soluzione già descritta in cui l'utente può inserire il contenuto dell'articolo nella textarea utilizzando anche alcuni dei tag HTML che abbiamo concesso di utilizzare, i queli verranno interpretati correttamente dal browser. Siamo comunque consapevoli che, anche in questo caso l'articolo è prono ad errori, infatti l'utente potrebbe inavvertitamente utilizzare in modo scorretto i tag, rendendo così non valida la pagina dell'articolo.
 	\subsection{Separazione parte privata e pubblica}
 	asdsa
-	\subsection{Struttura pannello amministratore}
+	\subsection{Strumenti amministratore}
 	asds
 	\subsection{Classi}
 	sadsd
 	\subsection{Gestione degli errori}
-	asdsdas
-	\subsection{Progettazione del Database}
+	messaggi di errore
+	\subsection{Progettazione del Database - Rove}
 	sasa
+	\subsubsection{Gestione assenza JavaScript}
+	descrizione approfondita js e come viene gestita la sua assenza (append dei file)
+	\subsubsection{Ricerca dei contenuti}
+	assa
+	\subsubsection{Menù a tendina}
 	
-	\section{Scelte implementative}
+	\section{Limitazioni e miglioramenti}
 	\subsection{Introduzione}
 	sajdas
-	\subsection{Scelta riguardo ...}
-	sadd
-	\subsection{Scelta riguardo ...}
-	asdsad
 	
 	\section{Compatibilità}
+	tag html5 utilizzati
 	
 	\section{Test}
 	\subsection{Accessibilità}
-	dsa
+	Strumenti utilizzati per valutare l'accessibilità e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
 	asd
 	\subsubsection{Risultati}
 	das
 	
 	\subsection{Usabilità}
-	dsa
+	Strumenti utilizzati per valutare l'usabilità e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
-	dsa
+		\begin{itemize}
+			\item Google Mobile Friendliness Test: strumento offerto da Google per testare l'usabilità di un sito su dispositivi mobili, reperibile al seguente indirizzo \url{https://search.google.com/test/mobile-friendly};
+			\item Test umano: ...
+		\end{itemize}
 	\subsubsection{Risultati}
-	asd
-	
+		\begin{itemize}
+			\item Google Mobile Friendliness Test: il sito è stato valutato come positivamente, pertanto risulta essere ottimizzato per i dispositivi mobili;
+			\item Test umano: ...
+		\end{itemize}
 	\subsection{Performance}
-	dsa
+	Strumenti utilizzati per valutare le performance e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
-	sda
+		\begin{itemize}
+			\item Google PageSpeed Insights: strumento offerto da Google per testare le performance di un sito web, reperibile al seguente indirizzo \url{https://developers.google.com/speed/pagespeed/insights/?hl=it};
+			\item Google Chrome Audits: strumento integrato nei tools degli sviluppatori che fornisce informazioni sulle performance di un sito web (e anche altri parametri).
+		\end{itemize}
 	\subsubsection{Risultati}
-	asd
-
+		\begin{itemize}
+			\item Google PageSpeed Insights: i test con questo strumento hanno ottenuto un punteggio ottimo [fare tanti test e fare una media];
+			\item Google Chrome Audits: i test con questo strumento hanno ottenuto un punteggio ottimo [fare tanti test e fare una media].
+		\end{itemize}
+	\textbf{Nota}: i valori di questi test possono variare a seconda di diversi fattori, ad esempio la velocità della connessione.
 	\subsection{Validazione}
-	dsa
+	Strumenti utilizzati per validare i documenti e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
-	das
+	\begin{itemize}
+		\item Validatore HTML: validatore di documenti HTML offerto dal W3C, reperibile al seguente indirizzo \url{https://validator.w3.org/};
+		\item Validatore HTML\&CSS: validatore di documenti HTML compresi di CSS offerto dal W3C, reperibile al seguente indirizzo \url{https://jigsaw.w3.org/css-validator/}
+	\end{itemize}
 	\subsubsection{Risultati}
-	dsad
+		\begin{itemize}
+			\item Validatore HTML: il sito è stato valutato come positivamente, pertanto risulta essere ottimizzato per i dispositivi mobili;
+			\item Validatore HTML\&CSS:: ...
+		\end{itemize}
 	
 	\section{Suddivisione dei ruoli}
 	dsfsdf
