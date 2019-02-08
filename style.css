@@ -20,7 +20,6 @@ a:hover{
 input[type="submit"]{
     text-align: center;
     display: block;
-    margin:1em auto;
     cursor: pointer;
     padding:0.5em 5%;
     font-size: 1.2em;
@@ -79,22 +78,8 @@ input[type="submit"]:hover{
     background-position: 98% 
 }
 #search-bar input[type="submit"]{
-    display: block;
-    width: 40%;
     margin:1em auto;
-    cursor: pointer;
-    padding:0.5em 5%;
-    font-size: 1.2em;
-    color:white;
-    border:none;
-    border-radius: 50px;
-    background: #0091ae;
-    outline:none;
-    transition:background 0.5s, color 0.5s;
-}
-#search-bar input[type="submit"]:hover{
-    background:white;
-    color:black;
+    width: 40%;
 }
 #sidebar>li{
     overflow:hidden;
@@ -259,23 +244,11 @@ input[type="submit"]:hover{
     padding: 0.5em 1%;
     font-size: 1.2em;
 }
-#write-article-form [type=submit] {
-    outline: none;
-    display: block;
+#write-article-form input[type=submit] {
+    margin:1em auto;
     width: 50%;
-    margin:0em auto;
-    background-color: #0D47A1;
-    color: white;
-    padding: 1em;
-    border: none;
-    transition: background-color 0.5s;
-    border-radius: 1.5em;
-    cursor: pointer;
 }
 
-#write-article-form [type=submit]:hover{
-    background-color: #464646;
-}
 /* Nav-bar end */
 
 #content-article-introduction{
@@ -365,27 +338,6 @@ input[type="submit"]:hover{
 
 #content-article-introduction [type=text]:focus{
     box-shadow: 0 0 3px #0091ae;
-}
-
-
-#content-article-introduction input[type=submit]{
-    outline: none;
-    display: table;
-    margin:1em auto;
-    border: none;
-    background-color: #0D47A1;
-    color: #FFFFFF;
-    padding: 1em 10%;
-    text-align: center;
-    transition: background-color 0.5s;
-    border-radius: 1.5em;
-    text-decoration: none;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-#content-article-introduction input[type=submit]:hover {
-    background-color: #464646;
 }
 
 #descrizione{
@@ -1210,20 +1162,8 @@ PROFILE
 }
 
 .profile-input[type=submit] {
-    outline: none;
+    margin:1em auto;
     width: 100%;
-    background-color: #0D47A1;
-    color: white;
-    padding: 1em;
-    margin: 8px 0;
-    border: none;
-    transition: background-color 0.5s;
-    border-radius: 1.5em;
-    cursor: pointer;
-}
-
-.profile-input[type=submit]:hover{
-    background-color: #464646;
 }
 
 .registration-form a {
@@ -1319,9 +1259,12 @@ FOOTER
 #comment-section textarea{
     resize: vertical;
     display: block;
-    width: 92%;
+    width: 98%;
     padding: 0.5em 1%;
     font-size: 1.2em;
+}
+#comment-section>input[type="submit"]{
+    margin:1em auto;
 }
 .comment{
     margin-bottom:4em;
@@ -1335,12 +1278,10 @@ FOOTER
     font-family: 'Open Sans', sans-serif;
     text-decoration: underline;
     color: #0D47A1;
+    padding:0em;
     font-size:1.2em;
     cursor:pointer;
     transition: color 0.5s;
-}
-.comment input[type="submit"]:hover{
-    color:black;
 }
 .comment-header{
     overflow: hidden;
