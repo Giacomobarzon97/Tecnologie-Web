@@ -11,11 +11,11 @@
             $connection -> prepareQuery("SELECT Title, Id FROM SUBTOPICS WHERE ".$topicsInfo[0]['Id']." = SUBTOPICS.TopicId LIMIT 3");
             $argumentsTitle = $connection -> executeQuery();
             //Print the test results
-            echo 
-            "<div class='home-card'>
-                <div class='thumbnail'>
-                    <a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'><img src='".$topicsInfo[0]['ImageLink']."' alt='img'/></a>
-                </div>
+            echo "<div class='home-card'>";
+            echo "<div class='thumbnail'>";
+            $linkToImage =  str_replace(" ","%20",$topicsInfo[0]['ImageLink']);
+            echo '<a href="ArticleLinks.php?id='.$topicsInfo[0]['Id'].'"><img src="'.$linkToImage.'" alt="Image for topic '.$topicName.'"/></a>';
+            echo "</div>
                 <div class='home-card-content'>
                     <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>";
                     if(count($argumentsTitle) == 0){
@@ -115,7 +115,7 @@
                 <fieldset>
                     <h1>Create a new topic</h1>
                     <p>
-                        <label for="titolo">Title of the new topic:</label>
+                        <label for="title-input-box">Title of the new topic:</label>
                         <input type="text" name="titolo" id="title-input-box" placeholder="Write the topic title" required maxlength="100" />
                     </p>
                     <p>
@@ -146,7 +146,7 @@
             $topics = $connection -> executeQuery();
             echo '<ul>';
             foreach ($topics as $topic) {
-                echo '<li class="arg_title" id='.$topic['Id'].'>';
+                echo '<li class="arg_title" id="topic_'.$topic['Id'].'">';
                 echo '<div>';
                 echo '<div class="details">
                     <h2><a href="ArticleLinks.php?id='.$topic['Id'].'">'.$topic['Name'].'</a></h2>
