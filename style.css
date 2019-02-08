@@ -348,23 +348,6 @@ a:hover{
     box-shadow: 0 0 3px #0091ae;
 }
 
-#content-article-introduction input[type=file]{
-    display: none;
-}
-
-.custom-file-upload{
-    color:#0091ae;
-    border: 1px solid #ccc;
-    display:table;
-    margin:1em auto;
-    padding: 1em 5%;
-    cursor: pointer;
-}
-.file-upload-img{
-    height: 1em;
-    margin-right: 1em;
-    width: auto;
-}
 
 #content-article-introduction input[type=submit]{
     outline: none;
