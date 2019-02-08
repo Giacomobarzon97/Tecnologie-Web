@@ -204,3 +204,259 @@ It derives from the intuition of "memory" as a scratchpad.
             Continue this process of updating the neighboring intersections with the shortest distances, then marking the current intersection as visited and moving onto a closest unvisited intersection until you have marked the destination as visited. Once you have marked the destination as visited (as is the case with any visited intersection) you have determined the shortest path to it, from the starting point, and can trace your way back, following the arrows in reverse; in the algorithm's implementations, this is usually done (after the algorithm has reached the destination node) by following the nodes' parents from the destination node up to the starting node; that's why we also keep track of each node's parent.
             This algorithm makes no attempt of direct "exploration" towards the destination as one might expect. Rather, the sole consideration in determining the next "current" intersection is its distance from the starting point. This algorithm therefore expands outward from the starting point, interactively considering every node that is closer in terms of shortest path distance until it reaches the destination. When understood in this way, it is clear how the algorithm necessarily finds the shortest path. However, it may also reveal one of the algorithm's weaknesses: its relative slowness in some topologies. 
             </p>
+    
+    Binary Search tree
+        
+    In computer science, binary search trees (BST), sometimes called ordered or sorted binary trees, are a particular type of container: data structures that store "items" (such as numbers, names etc.) in memory.
+
+        Red-Black trees
+
+            <h3>Introduction</h3>
+            <p>
+            A red–black tree is a kind of self-balancing binary search tree in computer science. 
+            Each node of the binary tree has an extra bit, and that bit is often interpreted as the color (red or black) of the node. 
+            These color bits are used to ensure the tree remains approximately balanced during insertions and deletions.
+            Balance is preserved by painting each node of the tree with one of two colors in a way that satisfies certain properties, which collectively constrain how unbalanced the tree can become in the worst case.
+            When the tree is modified, the new tree is subsequently rearranged and repainted to restore the coloring properties.
+            The properties are designed in such a way that this rearranging and recoloring can be performed efficiently.
+            The balancing of the tree is not perfect, but it is good enough to allow it to guarantee searching in O(log n) time, where n is the total number of elements in the tree. 
+            The insertion and deletion operations, along with the tree rearrangement and recoloring, are also performed in O(log n) time.
+            Tracking the color of each node requires only 1 bit of information per node because there are only two colors.
+            The tree does not contain any other data specific to its being a red–black tree so its memory footprint is almost identical to a classic (uncolored) binary search tree. 
+            In many cases, the additional bit of information can be stored at no additional memory cost. 
+            </p>
+
+            <h3>Terminology</h3>
+            <p>
+            A red–black tree is a special type of binary tree, used in computer science to organize pieces of comparable data, such as text fragments or numbers.
+            The leaf nodes of red–black trees do not contain data. These leaves need not be explicit in computer memory—a null child pointer can encode the fact that this child is a leaf—but it simplifies some algorithms for operating on red–black trees if the leaves really are explicit nodes. To save execution time, sometimes a pointer to a single sentinel node (instead of a null pointer) performs the role of all leaf nodes; all references from internal nodes to leaf nodes then point to the sentinel node.
+            Red–black trees, like all binary search trees, allow efficient in-order traversal (that is: in the order Left–Root–Right) of their elements.
+            The search-time results from the traversal from root to leaf, and therefore a balanced tree of n nodes, having the least possible tree height, results in O(log n) search time.
+            </p>
+            <h3>Properties</h3>
+            <p>
+            Diagram of binary tree. The black root node has two red children and four black grandchildren. 
+            The child nodes of the grandchildren are black nil pointers or red nodes with black nil pointers.
+            An example of a red–black tree
+            In addition to the requirements imposed on a binary search tree the following must be satisfied by a red–black tree:
+            
+            Each node is either red or black.
+            The root is black. This rule is sometimes omitted. Since the root can always be changed from red to black, but not necessarily vice versa, this rule has little effect on analysis.
+            All leaves (NIL) are black.
+            If a node is red, then both its children are black.
+            Every path from a given node to any of its descendant NIL nodes contains the same number of black nodes.
+
+            Some definitions: the number of black nodes from the root to a node is the node's black depth; the uniform number of black nodes in all paths from root to the leaves is called the black-height of the red–black tree.
+            These constraints enforce a critical property of red–black trees: the path from the root to the farthest leaf is no more than twice as long as the path from the root to the nearest leaf. The result is that the tree is roughly height-balanced. Since operations such as inserting, deleting, and finding values require worst-case time proportional to the height of the tree, this theoretical upper bound on the height allows red–black trees to be efficient in the worst case, unlike ordinary binary search trees.
+            To see why this is guaranteed, it suffices to consider the effect of properties 4 and 5 together. For a red–black tree T, let B be the number of black nodes in property 5. Let the shortest possible path from the root of T to any leaf consist of B black nodes. Longer possible paths may be constructed by inserting red nodes. However, property 4 makes it impossible to insert more than one consecutive red node. Therefore, ignoring any black NIL leaves, the longest possible path consists of 2*B nodes, alternating black and red (this is the worst case). Counting the black NIL leaves, the longest possible path consists of 2*B-1 nodes.
+            The shortest possible path has all black nodes, and the longest possible path alternates between red and black nodes. Since all maximal paths have the same number of black nodes, by property 5, this shows that no path is more than twice as long as any other path. 
+            </p>
+
+Operating System
+
+(Descrizione)An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs.
+Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.
+For hardware functions such as input and output and memory allocation, the operating system acts as an intermediary between programs and the computer hardware, although the application code is usually executed directly by the hardware and frequently makes system calls to an OS function or is interrupted by it.
+Operating systems are found on many devices that contain a computer – from cellular phones and video game consoles to web servers and supercomputers.
+The dominant desktop operating system is Microsoft Windows with a market share of around 82.74%. macOS by Apple Inc. is in second place (13.23%), and the varieties of Linux are collectively in third place (1.57%).
+In the mobile (smartphone and tablet combined) sector, use in 2017 is up to 70% of Google's Android and according to third quarter 2016 data, Android on smartphones is dominant with 87.5 percent and a growth rate 10.3 percent per year, followed by Apple's iOS with 12.1 percent and a per year decrease in market share of 5.2 percent, while other operating systems amount to just 0.3 percent.
+Linux distributions are dominant in the server and supercomputing sectors. Other specialized classes of operating systems, such as embedded and real-time systems, exist for many applications.
+
+    Kernel
+
+    With the aid of the firmware and device drivers, the kernel provides the most basic level of control over all of the computer's hardware devices.
+    It manages memory access for programs in the RAM, it determines which programs get access to which hardware resources, it sets up or resets the CPU's operating states for optimal operation at all times, and it organizes the data for long-term non-volatile storage with file systems on such media as disks, tapes, flash memory, etc.
+
+        Process computing
+        
+            <h3>Introduction</h3>
+            <p>
+            In computing, a process is the instance of a computer program that is being executed. It contains the program code and its activity. Depending on the operating system (OS), a process may be made up of multiple threads of execution that execute instructions concurrently.
+            While a computer program is a passive collection of instructions, a process is the actual execution of those instructions. Several processes may be associated with the same program; for example, opening up several instances of the same program often results in more than one process being executed.
+            Multitasking is a method to allow multiple processes to share processors (CPUs) and other system resources. Each CPU (core) executes a single task at a time. However, multitasking allows each processor to switch between tasks that are being executed without having to wait for each task to finish. Depending on the operating system implementation, switches could be performed when tasks perform input/output operations, when a task indicates that it can be switched, or on hardware interrupts.
+            A common form of multitasking is time-sharing. Time-sharing is a method to allow high responsiveness for interactive user applications. In time-sharing systems, context switches are performed rapidly, which makes it seem like multiple processes are being executed simultaneously on the same processor. This seeming execution of multiple processes simultaneously is called concurrency.
+            For security and reliability, most modern operating systems prevent direct communication between independent processes, providing strictly mediated and controlled inter-process communication functionality.
+            </p>
+            <h3>Representation</h3>
+            <p>
+            In general, a computer system process consists of (or is said to own) the following resources:
+            An image of the executable machine code associated with a program.
+            Memory (typically some region of virtual memory); which includes the executable code, process-specific data (input and output), a call stack (to keep track of active subroutines and/or other events), and a heap to hold intermediate computation data generated during run time.
+            Operating system descriptors of resources that are allocated to the process, such as file descriptors (Unix terminology) or handles (Windows), and data sources and sinks.
+            Security attributes, such as the process owner and the process' set of permissions (allowable operations).
+            Processor state (context), such as the content of registers and physical memory addressing. The state is typically stored in computer registers when the process is executing, and in memory otherwise.
+            The operating system holds most of this information about active processes in data structures called process control blocks. Any subset of the resources, typically at least the processor state, may be associated with each of the process' threads in operating systems that support threads or child (daughter) processes.
+            The operating system keeps its processes separate and allocates the resources they need, so that they are less likely to interfere with each other and cause system failures (e.g., deadlock or thrashing). The operating system may also provide mechanisms for inter-process communication to enable processes to interact in safe and predictable ways
+            </p>
+            <h3>Multitasking and process management</h3>
+            <p>
+            A multitasking operating system may just switch between processes to give the appearance of many processes executing simultaneously (that is, in parallel), though in fact only one process can be executing at any one time on a single CPU (unless the CPU has multiple cores, then multithreading or other similar technologies can be used).[a]
+            It is usual to associate a single process with a main program, and child processes with any spin-off, parallel processes, which behave like asynchronous subroutines. A process is said to own resources, of which an image of its program (in memory) is one such resource. However, in multiprocessing systems many processes may run off of, or share, the same reentrant program at the same location in memory, but each process is said to own its own image of the program.
+            Processes are often called "tasks" in embedded operating systems. The sense of "process" (or task) is "something that takes up time", as opposed to "memory", which is "something that takes up space".[b]
+            The above description applies to both processes managed by an operating system, and processes as defined by process calculi.
+            If a process requests something for which it must wait, it will be blocked. When the process is in the blocked state, it is eligible for swapping to disk, but this is transparent in a virtual memory system, where regions of a process's memory may be really on disk and not in main memory at any time. Note that even unused portions of active processes/tasks (executing programs) are eligible for swapping to disk. All parts of an executing program and its data do not have to be in physical memory for the associated process to be active.
+            </p>
+            <h4>Process states</h4>
+            <p>
+            An operating system kernel that allows multitasking needs processes to have certain states. Names for these states are not standardised, but they have similar functionality.
+            First, the process is "created" by being loaded from a secondary storage device (hard disk drive, CD-ROM, etc.) into main memory. After that the process scheduler assigns it the "waiting" state.
+            While the process is "waiting", it waits for the scheduler to do a so-called context switch and load the process into the processor. The process state then becomes "running", and the processor executes the process instructions.
+            If a process needs to wait for a resource (wait for user input or file to open, for example), it is assigned the "blocked" state. The process state is changed back to "waiting" when the process no longer needs to wait (in a blocked state).
+            Once the process finishes execution, or is terminated by the operating system, it is no longer needed. The process is removed instantly or is moved to the "terminated" state. When removed, it just waits to be removed from main memory.[1][3]
+            </p>
+        
+        Interrupts
+
+            <p>
+            In system programming, an interrupt is a signal to the processor emitted by hardware or software indicating an event that needs immediate attention. An interrupt alerts the processor to a high-priority condition requiring the interruption of the current code the processor is executing. The processor responds by suspending its current activities, saving its state, and executing a function called an interrupt handler (or an interrupt service routine, ISR) to deal with the event. This interruption is temporary, and, after the interrupt handler finishes, the processor resumes normal activities.[1] There are two types of interrupts: hardware interrupts and software interrupts.
+            </p>
+            <p>
+            Hardware interrupts are used by devices to communicate that they require attention from the operating system.[2] Internally, hardware interrupts are implemented using electronic alerting signals that are sent to the processor from an external device, which is either a part of the computer itself, such as a disk controller, or an external peripheral. For example, pressing a key on the keyboard or moving the mouse triggers hardware interrupts that cause the processor to read the keystroke or mouse position. Unlike the software type (described below), hardware interrupts are asynchronous and can occur in the middle of instruction execution, requiring additional care in programming. The act of initiating a hardware interrupt is referred to as an interrupt request (IRQ).
+            </p>
+            <p>
+            A software interrupt is caused either by an exceptional condition in the processor itself, or a special instruction in the instruction set which causes an interrupt when it is executed. The former is often called a trap or exception and is used for errors or events occurring during program execution that are exceptional enough that they cannot be handled within the program itself. For example, a divide-by-zero exception will be thrown if the processor's arithmetic logic unit is commanded to divide a number by zero as this instruction is an error and impossible. The operating system will catch this exception, and can decide what to do about it: usually aborting the process and displaying an error message. Software interrupt instructions can function similarly to subroutine calls and are used for a variety of purposes, such as to request services from device drivers, like interrupts sent to and from a disk controller to request reading or writing of data to and from the disk.
+            </p>
+            <p>
+            Each interrupt has its own interrupt handler. The number of hardware interrupts is limited by the number of interrupt request (IRQ) lines to the processor, but there may be hundreds of different software interrupts. Interrupts are a commonly used technique for computer multitasking, especially in real-time computing. Such a system is said to be interrupt-driven.[3]
+            </p>
+            <p>
+            Interrupts are similar to signals, the difference being that signals are used for inter-process communication (IPC), mediated by the kernel (possibly via system calls) and handled by processes, while interrupts are mediated by the processor and handled by the kernel. The kernel may pass an interrupt as a signal to the process that caused it (typical examples are SIGSEGV, SIGBUS, SIGILL and SIGFPE). 
+            </p>
+
+        Memory management
+
+            <h3>Introduction</h3>
+            <p>
+            Memory management is a form of resource management applied to computer memory. The essential requirement of memory management is to provide ways to dynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed. This is critical to any advanced computer system where more than a single process might be underway at any time.[1]
+            </p>
+            <p>
+            Several methods have been devised that increase the effectiveness of memory management. Virtual memory systems separate the memory addresses used by a process from actual physical addresses, allowing separation of processes and increasing the size of the virtual address space beyond the available amount of RAM using paging or swapping to secondary storage. The quality of the virtual memory manager can have an extensive effect on overall system performance. 
+            </p>
+            <h4>Dynamic memory allocation</h4>
+            <p>
+            The task of fulfilling an allocation request consists of locating a block of unused memory of sufficient size. Memory requests are satisfied by allocating portions from a large pool of memory called the heap or free store.[a] At any given time, some parts of the heap are in use, while some are "free" (unused) and thus available for future allocations.
+            Several issues complicate the implementation, such as external fragmentation, which arises when there are many small gaps between allocated memory blocks, which invalidates their use for an allocation request. The allocator's metadata can also inflate the size of (individually) small allocations. This is often managed by chunking. The memory management system must track outstanding allocations to ensure that they do not overlap and that no memory is ever "lost" (i.e. that there be no "memory leak").
+            </p>
+            <h4>Efficiency</h4>
+            <p>
+            The specific dynamic memory allocation algorithm implemented can impact performance significantly. A study conducted in 1994 by Digital Equipment Corporation illustrates the overheads involved for a variety of allocators. The lowest average instruction path length required to allocate a single memory slot was 52 (as measured with an instruction level profiler on a variety of software).[2]
+            </p>
+            <h4>Implementations</h4>
+            <p>
+            Since the precise location of the allocation is not known in advance, the memory is accessed indirectly, usually through a pointer reference. The specific algorithm used to organize the memory area and allocate and deallocate chunks is interlinked with the kernel, and may use any of the following methods:
+            </p>
+            <h4>Fixed-size blocks allocation</h4>
+            <p>
+            Fixed-size blocks allocation, also called memory pool allocation, uses a free list of fixed-size blocks of memory (often all of the same size). This works well for simple embedded systems where no large objects need to be allocated, but suffers from fragmentation, especially with long memory addresses. However, due to the significantly reduced overhead this method can substantially improve performance for objects that need frequent allocation / de-allocation and is often used in video games.
+            </p>
+            <h4>Buddy blocks</h4>
+            <p>
+            In this system, memory is allocated into several pools of memory instead of just one, where each pool represents blocks of memory of a certain power of two in size, or blocks of some other convenient size progression. All blocks of a particular size are kept in a sorted linked list or tree and all new blocks that are formed during allocation are added to their respective memory pools for later use. If a smaller size is requested than is available, the smallest available size is selected and split. One of the resulting parts is selected, and the process repeats until the request is complete. When a block is allocated, the allocator will start with the smallest sufficiently large block to avoid needlessly breaking blocks. When a block is freed, it is compared to its buddy. If they are both free, they are combined and placed in the correspondingly larger-sized buddy-block list.
+            </p>
+            <h4>Slab allocation</h4>
+            <p>
+            This memory allocation mechanism preallocates memory chunks suitable to fit objects of a certain type or size.[3] These chunks are called caches and the allocator only has to keep track of a list of free cache slots. Constructing an object will use any one of the free cache slots and destructing an object will add a slot back to the free cache slot list. This technique alleviates memory fragmentation and is efficient as there is no need to search for a suitable portion of memory, as any open slot will suffice.
+            </p>
+            <h4>Automatic variables</h4>
+            <p>
+            In many programming language implementations, all variables declared within a procedure (subroutine, or function) are local to that function; the runtime environment for the program automatically allocates memory for these variables on program execution entry to the procedure, and automatically releases that memory when the procedure is exited. Special declarations may allow local variables to retain values between invocations of the procedure, or may allow local variables to be accessed by other procedures. The automatic allocation of local variables makes recursion possible, to a depth limited by available memory.
+            </p>
+            <h4>Garbage collection</h4>
+            <p>
+            Garbage collection is a strategy for automatically detecting memory allocated to objects that are no longer usable in a program, and returning that allocated memory to a pool of free memory locations. This method is in contrast to "manual" memory management where a programmer explicitly codes memory requests and memory releases in the program. While automatic garbage has the advantages of reducing programmer workload and preventing certain kinds of memory allocation bugs, garbage collection does require memory resources of its own, and can compete with the application program for processor time.
+            </p>
+
+Computer Organization and Architecture
+
+(Descrizione)Computer Organization and Architecture is the study of internal working, structuring and implementation of a computer system.
+Architecture in computer system, same as anywhere else, refers to the externally visual attributes of the system.
+Externally visual attributes, here in computer science, mean the way a system is visible to the logic of programs (not the human eyes!).
+Organization of computer system is the way of practical implementation which results in realization of architectural specifications of a computer system.
+In more general language, Architecture of computer system can be considered as a catalog of tools available for any operator using the system, while Organization will be the way the system is structured so that all those cataloged tools can be used, and that in an efficient fashion.
+
+    Von Neaumann architecture
+
+    A major break through came with the draft of second electronic computer, EDVAC.
+    This computer was proposed by John von Neumann and others in 1945.
+    It used stored program model for computers, wherein all instructions were also to be stored in memory along being data to be processed thereby removing the need for change in hardware structure to change the program.
+
+Automata theory and functionals languages
+
+(Descrizione)Automata theory is the study of abstract machines and automata, as well as the computational problems that can be solved using them. It is a theory in theoretical computer science and discrete mathematics (a subject of study in both mathematics and computer science). The word automata (the plural of automaton) comes from the Greek word αὐτόματα, which means "self-acting".
+The figure at right illustrates a finite-state machine, which belongs to a well-known type of automaton. This automaton consists of states (represented in the figure by circles) and transitions (represented by arrows). As the automaton sees a symbol of input, it makes a transition (or jump) to another state, according to its transition function, which takes the current state and the recent symbol as its inputs.
+Automata theory is closely related to formal language theory. An automaton is a finite representation of a formal language that may be an infinite set. Automata are often classified by the class of formal languages they can recognize, typically illustrated by the Chomsky hierarchy, which describes the relations between various languages and kinds of formalized logic.
+Automata play a major role in theory of computation, compiler construction, artificial intelligence, parsing and formal verification.
+
+    Variant definitions of automata
+
+    Automata are defined to study useful machines under mathematical formalism.
+    So, the definition of an automaton is open to variations according to the "real world machine", which we want to model using the automaton.
+    People have studied many variations of automata. The most standard variant, which is described above, is called a deterministic finite automaton.   
+    The following are some popular variations in the definition of different components of automata
+
+    Class of automata
+
+    Different types of automata divided into classes
+
+        Deterministic pushdown automaton(DPDA)
+            
+            <h3>Introduction</h3>
+            <p>
+            In automata theory, a deterministic pushdown automaton (DPDA or DPA) is a variation of the pushdown automaton. The class of deterministic pushdown automata accepts the deterministic context-free languages, a proper subset of context-free languages.[1]
+            </p>
+            <p>
+            Machine transitions are based on the current state and input symbol, and also the current topmost symbol of the stack. Symbols lower in the stack are not visible and have no immediate effect. Machine actions include pushing, popping, or replacing the stack top. A deterministic pushdown automaton has at most one legal transition for the same combination of input symbol, state, and top stack symbol. This is where it differs from the nondeterministic pushdown automaton. 
+            </p>
+            <h3>Formal definition</h3>
+            <p>
+            A (not necessarily deterministic) PDA M can be defined as a 7-tuple:
+            M = ( Q , Σ , Γ , q 0 , Z 0 , A , δ )
+            where
+                Q , is a finite set of states
+                Σ , is a finite set of input symbols
+                Γ , is a finite set of stack symbols
+                q 0 ∈ Q , is the start state
+                Z 0 ∈ Γ , is the starting stack symbol
+                A ⊆ Q , where A is the set of accepting states
+                δ  (delta), is a transition function, where
+
+                δ : ( Q × ( Σ ∪ { ε } ) × Γ ) ⟶ P ( Q × Γ ∗ ) 
+                where * is the Kleene star, meaning that Γ ∗ is "the set of all finite strings (including the empty string ε) of elements of Γ , ε denotes the empty string, and P ( X ) is the power set of a set X.
+            </p>
+            <p>
+            M is deterministic if it satisfies both the following conditions:
+
+                For any q ∈ Q , a ∈ Σ ∪ { ε } , x ∈ Γ , the set δ ( q , a , x ), has at most one element.
+                For any q ∈ Q , x ∈ Γ , if δ ( q , ε , x ) ≠ ∅ , then δ ( q , a , x ) = ∅  for every a ∈ Σ .
+            There are two possible acceptance criteria: acceptance by empty stack and acceptance by final state. The two are not equivalent for the deterministic pushdown automaton (although they are for the non-deterministic pushdown automaton). The languages accepted by empty stack are those languages that are accepted by final state and are prefix-free: no word in the language is the prefix of another word in the language.
+            The usual acceptance criterion is final state, and it is this acceptance criterion which is used to define the deterministic context-free languages.
+            </p>
+
+        Pushdown automaton(PDA)
+
+            <h3>Introduction</h3>
+            <p>
+            In the theory of computation, a branch of theoretical computer science, a pushdown automaton (PDA) is a type of automaton that employs a stack.
+            Pushdown automata are used in theories about what can be computed by machines. They are more capable than finite-state machines but less capable than Turing machines. Deterministic pushdown automata can recognize all deterministic context-free languages while nondeterministic ones can recognize all context-free languages, with the former often used in parser design.
+            The term "pushdown" refers to the fact that the stack can be regarded as being "pushed down" like a tray dispenser at a cafeteria, since the operations never work on elements other than the top element. A stack automaton, by contrast, does allow access to and operations on deeper elements. Stack automata can recognize a strictly larger set of languages than pushdown automata.[1] A nested stack automaton allows full access, and also allows stacked values to be entire sub-stacks rather than just single finite symbols. 
+            </p>
+            <h3>Formal definition</h3>
+            <p>
+            We use standard formal language notation: Γ ∗ denotes the set of strings over alphabet Γ  and ε denotes the empty string.
+            A PDA is formally defined as a 7-tuple:
+            M = ( Q , Σ , Γ , δ , q 0 , Z , F ) where
+            Q is a finite set of states
+            Σ is a finite set which is called the input alphabet
+            Γ is a finite set which is called the stack alphabet
+            δ is a finite subset of Q × ( Σ ∪ { ε } ) × Γ × Q × Γ ∗, the transition relation
+            q 0 ∈ Q is the start state
+            Z ∈ Γ is the initial stack symbol
+            F ⊆ Q is the set of accepting states
+            </p>
+            <p>
+            An element ( p , a , A , q , α ) ∈ δ is a transition of M. It has the intended meaning that M, in state p ∈ Q, on the input a ∈ Σ ∪ { ε } and with A ∈ Γ as topmost stack symbol, may read a, change the state to q , pop A, replacing it by pushing α ∈ Γ ∗. The ( Σ ∪ { ε } ) component of the transition relation is used to formalize that the PDA can either read a letter from the input, or proceed leaving the input untouched.
+
+            δ is the transition function, mapping Q × ( Σ ∪ { ε } ) × Γ into finite subsets of Q × Γ ∗
+
+            Here δ ( p , a , A ) contains all possible actions in state p with A on the stack, while reading a on the input. One writes for example δ ( p , a , A ) = { ( q , B A ) } precisely when ( q , B A ) ∈ { ( q , B A ) } , ( q , B A ) ∈ δ ( p , a , A ) , because ( ( p , a , A ) , { ( q , B A ) } ) ∈ δ. Note that finite in this definition is essential.
+            </p>
