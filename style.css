@@ -1276,6 +1276,11 @@ FOOTER
     font-weight: lighter;
     margin-bottom: 0.5em;
 }
+#comment-section h2{
+    font-size: 1.5em;	
+    font-weight: lighter;	
+    margin-bottom: 0.5em;	
+}
 #comment-section textarea{
     resize: vertical;
     display: block;
