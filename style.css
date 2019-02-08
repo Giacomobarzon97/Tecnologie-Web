@@ -77,13 +77,13 @@ input[type="submit"]:hover{
     background-size: 5%;
     background-position: 98% 
 }
-#search-bar input[type="submit"]{
+#sidebar-header input[type="submit"]{
     color:black;
     background-color: white;
     margin:1em auto;
     width: 40%;
 }
-#search-bar input[type="submit"]:hover{
+#sidebar-header input[type="submit"]:hover{
     color:white;
     background-color: black;
 }
