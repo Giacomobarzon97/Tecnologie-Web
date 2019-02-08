@@ -710,11 +710,11 @@ ARTICLES
     display: inline-block;
 }
 
-.post-comment-body-header-votes > .positive-vote {
+.positive-vote {
     color: #1E6022;
 }
 
-.post-comment-body-header-votes > .negative-vote {
+.negative-vote {
     color: #A31C26;
 }
 
@@ -1268,7 +1268,12 @@ FOOTER
     border-top: 1px solid #707070;
     padding:1.5em 4%;
 }
-#comment-section h1{
+#comment-section label{
+    font-size: 1.5em;
+    font-weight: lighter;
+    margin-bottom: 0.5em;
+}
+#comment-section h2{
     font-size: 1.5em;
     font-weight: lighter;
     margin-bottom: 0.5em;
@@ -1280,7 +1285,7 @@ FOOTER
     padding: 0.5em 1%;
     font-size: 1.2em;
 }
-#comment-section>input[type="submit"]{
+#comment-section>form>fieldset>p>input[type="submit"]{
     margin:1em auto;
 }
 .comment{
@@ -1310,7 +1315,7 @@ FOOTER
     max-width:70%;
     word-break: break-word;
     display: inline;
-    color:#0D47A1;
+    color:#000000;
     font-size:1.3em;
     font-weight: 700;
 }
