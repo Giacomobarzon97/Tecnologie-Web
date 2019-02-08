@@ -1,8 +1,17 @@
 <?php
     include_once ('sessionManager.php');
     include_once ('User.php');
+
+    if(!isset($_SESSION['email'])) {
+        header("Location: errore.php?errorCode=paginaNonDisponibile");
+    }
+
     if(!User::isAdmin($_SESSION['email'])){
-        header("Location: index.php");
+        header("Location: errore.php?errorCode=nonAdmin");
+    }
+
+    if(User::isBanned($_SESSION['email'])){
+        header("Location: errore.php?errorCode=bannanto");
     }
 ?>  
 <!DOCTYPE html>

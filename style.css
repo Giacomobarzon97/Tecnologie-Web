@@ -77,13 +77,13 @@ input[type="submit"]:hover{
     background-size: 5%;
     background-position: 98% 
 }
-#search-bar input[type="submit"]{
+#sidebar-header input[type="submit"]{
     color:black;
     background-color: white;
     margin:1em auto;
     width: 40%;
 }
-#search-bar input[type="submit"]:hover{
+#sidebar-header input[type="submit"]:hover{
     color:white;
     background-color: black;
 }
@@ -228,7 +228,7 @@ input[type="submit"]:hover{
 #write-article-form h1{
     font-size: 2.5em;
 }
-#write-article-form h2{
+#write-article-form label{
     font-weight: 400;
     font-size: 2em;
     margin:0.5em 0em;
@@ -931,6 +931,9 @@ HOMEPAGE
     color:black;
     font-size:2.5em;
 }
+#home-search-bar input[type="submit"]{
+    margin:1em auto;
+}
 #home-search-bar{
     padding:0em 5%;
     max-width: 600px;
@@ -987,7 +990,7 @@ ABOUT
     color:white;
     background-color: #3E50B1;
     text-align: center;
-    padding:7em 10%;
+    padding:4em 10%;
 }
 .about-section1 p, .about-section2 p, .about-section3 p{
     max-width: 1250px;
@@ -1002,13 +1005,13 @@ ABOUT
     text-align: center;
     max-width: 1250px;
     margin:auto;
-    padding:7em 0px;
+    padding:5em 0px;
 }
 .about-section3{
     color:white;
     background-color: #3E6052;
     text-align: center;
-    padding:7em 10%;
+    padding:4em 10%;
 }
 .bio-card{
     width:17%;
@@ -1190,6 +1193,7 @@ PROFILE
     text-align: center;
     border-radius: 10px;
     padding:1.5em 5%;
+    margin-bottom: 10%;
     border:1px solid #ccc;
 }
 .regform-side-section a{
@@ -1274,9 +1278,9 @@ FOOTER
     margin-bottom: 0.5em;
 }
 #comment-section h2{
-    font-size: 1.5em;
-    font-weight: lighter;
-    margin-bottom: 0.5em;
+    font-size: 1.5em;	
+    font-weight: lighter;	
+    margin-bottom: 0.5em;	
 }
 #comment-section textarea{
     resize: vertical;
@@ -1295,6 +1299,7 @@ FOOTER
     margin:1em 0em;
 }
 .comment input[type="submit"]{
+    border-radius:0px;
     border:none;
     background-color:transparent;
     font-family: 'Open Sans', sans-serif;
@@ -1448,7 +1453,7 @@ MEDIA QUERIES
         font-size: 2em;
     }
     #introduction{
-        text-align:left;
+        text-align: center;
         padding:1em;
         font-size:1.3em;
     }
@@ -1458,7 +1463,7 @@ MEDIA QUERIES
 
     .about-section1 p, .about-section2 p, .about-section3 p{
         font-size: 1.5em;
-        text-align: left;
+        text-align: center;
     }
     .about-section1 h1, .about-section2 h1, .about-section3 h1{
         margin-bottom: 0.5em;

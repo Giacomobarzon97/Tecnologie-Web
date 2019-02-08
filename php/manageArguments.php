@@ -71,7 +71,8 @@
                             echo $result->getMessage();
                             echo '</ul>';
                         }else{
-                            $result = Card::insertTopic($_POST['titolo'], $_POST['descrizione'], $result->data_message);
+                            $imageLink = str_replace(" ","%20", $result->data_message);
+                            $result = Card::insertTopic($_POST['titolo'], $_POST['descrizione'], $imageLink);
                             if($result->getIsError()){
                                 deleteFile($result->data_message);
                                 echo '<ul class="regform-errorbox">';
