@@ -24,3 +24,183 @@ RESEARCH_RESULT
 vedi parte statica
 WRITE_ARTICLE
 vedi parte statica
+
+Algorithms
+
+(Descrizione)In mathematics and computer science, an algorithm is an unambiguous specification of how to solve a class of problems.
+Algorithms can perform calculation, data processing, and automated reasoning tasks.
+Algorithms are essential to the way computers process data. Many computer programs contain algorithms that detail the specific instructions a computer should perform (in a specific order) to carry out a specified task, such as calculating employees' paychecks or printing students' report cards.
+Thus, an algorithm can be considered to be any sequence of operations that can be simulated by a Turing-complete system.
+Typically, when an algorithm is associated with processing information, data can be read from an input source, written to an output device and stored for further processing.
+Stored data are regarded as part of the internal state of the entity performing the algorithm.
+In practice, the state is stored in one or more data structures.
+For some such computational process, the algorithm must be rigorously defined: specified in the way it applies in all possible circumstances that could arise.
+That is, any conditional steps must be systematically dealt with, case-by-case; the criteria for each case must be clear (and computable).
+Because an algorithm is a precise list of precise steps, the order of computation is always crucial to the functioning of the algorithm.
+Instructions are usually assumed to be listed explicitly, and are described as starting "from the top" and going "down to the bottom", an idea that is described more formally by flow of control.
+So far, this discussion of the formalization of an algorithm has assumed the premises of imperative programming. This is the most common conception, and it attempts to describe a task in discrete, "mechanical" means.
+Unique to this conception of formalized algorithms is the assignment operation, setting the value of a variable.
+It derives from the intuition of "memory" as a scratchpad. 
+
+    Dynamic Programming
+
+    Dynamic programming is both a mathematical optimization method and a computer programming method.
+
+        Computer programming
+
+            <p>There are two key attributes that a problem must have in order for dynamic programming to be applicable: optimal substructure and overlapping sub-problems.
+            If a problem can be solved by combining optimal solutions to non-overlapping sub-problems, the strategy is called "divide and conquer" instead. 
+            This is why merge sort and quick sort are not classified as dynamic programming problems.</p>
+
+            <p>Optimal substructure means that the solution to a given optimization problem can be obtained by the combination of optimal solutions to its sub-problems.
+            Such optimal substructures are usually described by means of recursion. For example, given a graph G=(V,E), the shortest path p from a vertex u to a vertex v exhibits optimal substructure: take any intermediate vertex w on this shortest path p.
+            If p is truly the shortest path, then it can be split into sub-paths p1 from u to w and p2 from w to v such that these, in turn, are indeed the shortest paths between the corresponding vertices.
+            Hence, one can easily formulate the solution for finding shortest paths in a recursive manner, which is what the Bellman–Ford algorithm or the Floyd–Warshall algorithm does.
+            Overlapping sub-problems means that the space of sub-problems must be small, that is, any recursive algorithm solving the problem should solve the same sub-problems over and over, rather than generating new sub-problems.
+            For example, consider the recursive formulation for generating the Fibonacci series: Fi = Fi−1 + Fi−2, with base case F1 = F2 = 1. Then F43 = F42 + F41, and F42 = F41 + F40.
+            Now F41 is being solved in the recursive sub-trees of both F43 as well as F42. Even though the total number of sub-problems is actually small (only 43 of them), we end up solving the same problems over and over if we adopt a naive recursive solution such as this.
+            Dynamic programming takes account of this fact and solves each sub-problem only once.</p>
+            <h3>This can be achieved in either of two ways:</h3>
+            <h4>Top-down approach</h4>
+            <p>
+            This is the direct fall-out of the recursive formulation of any problem. 
+            If the solution to any problem can be formulated recursively using the solution to its sub-problems, and if its sub-problems are overlapping, then one can easily memoize or store the solutions to the sub-problems in a table.
+            Whenever we attempt to solve a new sub-problem, we first check the table to see if it is already solved. 
+            If a solution has been recorded, we can use it directly, otherwise we solve the sub-problem and add its solution to the table.
+            </p>
+            <h4>Bottom-up approach</h4>
+            <p>
+            Once we formulate the solution to a problem recursively as in terms of its sub-problems, we can try reformulating the problem in a bottom-up fashion: try solving the sub-problems first and use their solutions to build-on and arrive at solutions to bigger sub-problems.
+            This is also usually done in a tabular form by iteratively generating solutions to bigger and bigger sub-problems by using the solutions to small sub-problems.
+            For example, if we already know the values of F41 and F40, we can directly calculate the value of F42.
+            Some programming languages can automatically memoize the result of a function call with a particular set of arguments, in order to speed up call-by-name evaluation (this mechanism is referred to as call-by-need).
+            Some languages make it possible portably (e.g. Scheme, Common Lisp or Perl).
+            Some languages have automatic memoization built in, such as tabled Prolog and J, which supports memoization with the M. adverb.
+            In any case, this is only possible for a referentially transparent function.
+            </p>
+
+        Fibonacci sequence
+            
+            <h3>Introduction</h3>
+            <p>
+            In mathematics, the Fibonacci numbers, commonly denoted Fn form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. 
+            That is, F 0 = 0 , F 1 = 1 ,
+            and
+            F n = F n − 1 + F n − 2 ,
+            for n > 1.
+            One has F2 = 1. In some books, and particularly in old ones, F0, the "0" is omitted, and the Fibonacci sequence starts with F1 = F2 = 1.
+            The beginning of the sequence is thus:
+            ( 0 , ) 1 , 1 , 2 , 3 , 5 , 8 , 13 , 21 , 34 , 55 , 89 , 144 , … 
+            Fibonacci numbers are strongly related to the golden ratio: Binet's formula expresses the nth Fibonacci number in terms of n and the golden ratio, and implies that the ratio of two consecutive Fibonacci numbers tends to the golden ratio as n increases.
+            Fibonacci numbers are named after Italian mathematician Leonardo of Pisa, later known as Fibonacci.
+            They appear to have first arisen as early as 200 BC in work by Pingala on enumerating possible patterns of poetry formed from syllables of two lengths.
+            In his 1202 book Liber Abaci, Fibonacci introduced the sequence to Western European mathematics, although the sequence had been described earlier in Indian mathematics.
+            Fibonacci numbers appear unexpectedly often in mathematics, so much so that there is an entire journal dedicated to their study, the Fibonacci Quarterly. 
+            Applications of Fibonacci numbers include computer algorithms such as the Fibonacci search technique and the Fibonacci heap data structure, and graphs called Fibonacci cubes used for interconnecting parallel and distributed systems.
+            They also appear in biological settings, such as branching in trees, the arrangement of leaves on a stem, the fruit sprouts of a pineapple, the flowering of an artichoke, an uncurling fern and the arrangement of a pine cone's bracts.
+            Fibonacci numbers are also closely related to Lucas numbers L_{n} in that they form a complementary pair of Lucas sequences U n ( 1 , − 1 ) = F n and V n ( 1 , − 1 ) = L n .
+            Lucas numbers are also intimately connected with the golden ratio.
+            </p>
+            <h3>Mathematics</h3>
+            <p>
+            The Fibonacci numbers occur in the sums of "shallow" diagonals in Pascal's triangle (see binomial coefficient):
+            F n = ∑ k = 0 ⌊ n − 1 2 ⌋ ( n − k − 1 k ).
+            These numbers also give the solution to certain enumerative problems. The most common is that of counting the number of compositions of 1s and 2s which sum to a given total n: there are Fn+1 ways to do this.
+            For example, if n = 5, then Fn+1 = F6 = 8 counts the eight compositions summing to 5:
+            1+1+1+1+1 = 1+1+1+2 = 1+1+2+1 = 1+2+1+1 = 2+1+1+1 = 2+2+1 = 2+1+2 = 1+2+2.
+            The Fibonacci numbers can be found in different ways among the set of binary strings, or equivalently, among the subsets of a given set.
+            The number of binary strings of length n without consecutive 1s is the Fibonacci number Fn+2. For example, out of the 16 binary strings of length 4, there are F6 = 8 without consecutive 1s – they are 0000, 0001, 0010, 0100, 0101, 1000, 1001 and 1010. By symmetry, the number of strings of length n without consecutive 0s is also Fn+2. Equivalently, Fn+2 is the number of subsets S ⊂ {1,...,n} without consecutive integers: {i, i+1} ⊄ S for every i. The symmetric statement is: Fn+2 is the number of subsets S ⊂ {1,...,n} without two consecutive skipped integers: that is, S = {a1 < ... < ak} with ai+1 ≤ ai + 2.
+            The number of binary strings of length n without an odd number of consecutive 1s is the Fibonacci number Fn+1. For example, out of the 16 binary strings of length 4, there are F5 = 5 without an odd number of consecutive 1s – they are 0000, 0011, 0110, 1100, 1111. Equivalently, the number of subsets S ⊂ {1,...,n} without an odd number of consecutive integers is Fn+1.
+            The number of binary strings of length n without an even number of consecutive 0s or 1s is 2Fn. For example, out of the 16 binary strings of length 4, there are 2F4 = 6 without an even number of consecutive 0s or 1s – they are 0001, 0111, 0101, 1000, 1010, 1110. There is an equivalent statement about subsets.
+            Sequence properties
+            The first 21 Fibonacci numbers Fn for n = 0, 1, 2, ..., 20 are:
+            F0 	F1 	F2 	F3 	F4 	F5 	F6 	F7 	F8 	F9 	F10 	F11 	F12 	F13 	F14 	F15 	F16 	F17 	F18 	F19 	F20
+            0 	1 	1 	2 	3 	5 	8 	13 	21 	34 	55 	89 	144 	233 	377 	610 	987 	1597 	2584 	4181 	6765 
+            The sequence can also be extended to negative index n using the re-arranged recurrence relation
+            F n − 2 = F n − F n − 1 , 
+            which yields the sequence of "negafibonacci" numbers satisfying
+            F − n = ( − 1 ) n + 1 F n .
+            Thus the bidirectional sequence is
+            F−8 	F−7 	F−6 	F−5 	F−4 	F−3 	F−2 	F−1 	F0 	F1 	F2 	F3 	F4 	F5 	F6 	F7 	F8
+            −21 	13 	−8 	5 	−3 	2 	−1 	1 	0 	1 	1 	2 	3 	5 	8 	13 	21
+            </p>
+            <h4>Relation to the golden ratio</h4>
+            <p>
+            Like every sequence defined by a linear recurrence with constant coefficients, the Fibonacci numbers have a closed-form solution. It has become known as "Binet's formula", though it was already known by Abraham de Moivre and Daniel Bernoulli:
+            F n = φ n − ψ n φ − ψ = φ n − ψ n 5 
+            where
+            φ = 1 + 5 2 ≈ 1.61803 39887 …
+            is the golden ratio (OEIS: A001622), and
+            ψ = 1 − 5 2 = 1 − φ = − 1 φ ≈ − 0.61803 39887 … . 
+            Since ψ = − φ − 1 , this formula can also be written as
+            F n = φ n − ( − φ ) − n 5 = φ n − ( − φ ) − n 2 φ − 1 
+            To see this, note that φ and ψ are both solutions of the equations
+            x 2 = x + 1 and x n = x n − 1 + x n − 2 ,
+            so the powers of φ and ψ satisfy the Fibonacci recursion. In other words,
+            φ n = φ n − 1 + φ n − 2 
+            and
+            ψ n = ψ n − 1 + ψ n − 2 .
+            It follows that for any values a and b, the sequence defined by
+            U n = a φ n + b ψ n
+            satisfies the same recurrence
+            U n = a φ n − 1 + b ψ n − 1 + a φ n − 2 + b ψ n − 2 = U n − 1 + U n − 2 .
+            If a and b are chosen so that U0 = 0 and U1 = 1 then the resulting sequence Un must be the Fibonacci sequence. This is the same as requiring a and b satisfy the system of equations:
+            { a + b = 0 φ a + ψ b = 1
+            which has solution
+            a = 1 φ − ψ = 1 5 , b = − a ,
+            producing the required formula.
+            Taking the starting values U0 and U1 to be arbitrary constants, a more general solution is:
+            U n = a φ n + b ψ n
+            where
+            a = U 1 − U 0 ψ 5
+            b = U 0 φ − U 1 5 .
+            </p>
+
+
+        Dijkstra's algorithm
+
+            <h3>Introduction</h3>
+            <p>
+            Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. 
+            It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.
+            The algorithm exists in many variants; Dijkstra's original variant found the shortest path between two nodes, but a more common variant fixes a single node as the "source" node and finds shortest paths from the source to all other nodes in the graph, producing a shortest-path tree.
+            For a given source node in the graph, the algorithm finds the shortest path between that node and every other.
+            It can also be used for finding the shortest paths from a single node to a single destination node by stopping the algorithm once the shortest path to the destination node has been determined.
+            For example, if the nodes of the graph represent cities and edge path costs represent driving distances between pairs of cities connected by a direct road, Dijkstra's algorithm can be used to find the shortest route between one city and all other cities. 
+            As a result, the shortest path algorithm is widely used in network routing protocols, most notably IS-IS (Intermediate System to Intermediate System) and Open Shortest Path First (OSPF). 
+            It is also employed as a subroutine in other algorithms such as Johnson's.
+            The Dijkstra algorithm uses labels that are positive integer or real numbers, which have the strict weak ordering defined.
+            Interestingly, Dijkstra can be generalized to use labels defined in any way, provided they have the strict partial order defined, and provided the subsequent labels (a subsequent label is produced when traversing an edge) are monotonically non-decreasing. 
+            This generalization is called the Generic Dijkstra shortest-path algorithm.
+            Dijkstra's original algorithm does not use a min-priority queue and runs in time O ( | V | 2 ).
+            The idea of this algorithm is also given in Leyzorek et al. 1957. The implementation based on a min-priority queue implemented by a Fibonacci heap and running in O ( | E | + | V | log ⁡ | V | )
+            In some fields, artificial intelligence in particular, Dijkstra's algorithm or a variant of it is known as uniform cost search and formulated as an instance of the more general idea of best-first search.
+            </p>
+            
+            <h3>Alghorithm</h3>
+            <p>
+            Let the node at which we are starting be called the initial node. 
+            Let the distance of node Y be the distance from the initial node to Y. 
+            Dijkstra's algorithm will assign some initial distance values and will try to improve them step by step.
+            
+            Mark all nodes unvisited. Create a set of all the unvisited nodes called the unvisited set.
+            
+            Assign to every node a tentative distance value: set it to zero for our initial node and to infinity for all other nodes. Set the initial node as current.
+            
+            For the current node, consider all of its unvisited neighbors and calculate their tentative distances through the current node. Compare the newly calculated tentative distance to the current assigned value and assign the smaller one. For example, if the current node A is marked with a distance of 6, and the edge connecting it with a neighbor B has length 2, then the distance to B through A will be 6 + 2 = 8. If B was previously marked with a distance greater than 8 then change it to 8. Otherwise, keep the current value.
+            
+            When we are done considering all of the unvisited neighbors of the current node, mark the current node as visited and remove it from the unvisited set. A visited node will never be checked again.
+            
+            If the destination node has been marked visited (when planning a route between two specific nodes) or if the smallest tentative distance among the nodes in the unvisited set is infinity (when planning a complete traversal; occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.
+            
+            Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node", and go back to step 3.
+
+            When planning a route, it is actually not necessary to wait until the destination node is "visited" as above: the algorithm can stop once the destination node has the smallest tentative distance among all "unvisited" nodes (and thus could be selected as the next "current").
+            </p>
+            <h3>Description</h3>
+            <p>
+            Suppose you would like to find the shortest path between two intersections on a city map: a starting point and a destination. Dijkstra's algorithm initially marks the distance (from the starting point) to every other intersection on the map with infinity. This is done not to imply there is an infinite distance, but to note that those intersections have not yet been visited; some variants of this method simply leave the intersections' distances unlabeled. Now, at each iteration, select the current intersection. For the first iteration, the current intersection will be the starting point, and the distance to it (the intersection's label) will be zero. For subsequent iterations (after the first), the current intersection will be a closest unvisited intersection to the starting point (this will be easy to find).
+            From the current intersection, update the distance to every unvisited intersection that is directly connected to it. This is done by determining the sum of the distance between an unvisited intersection and the value of the current intersection, and relabeling the unvisited intersection with this value (the sum), if it is less than its current value. In effect, the intersection is relabeled if the path to it through the current intersection is shorter than the previously known paths. To facilitate shortest path identification, in pencil, mark the road with an arrow pointing to the relabeled intersection if you label/relabel it, and erase all others pointing to it. After you have updated the distances to each neighboring intersection, mark the current intersection as visited, and select an unvisited intersection with minimal distance (from the starting point) – or the lowest label—as the current intersection. Intersections marked as visited are labeled with the shortest path from the starting point to it and will not be revisited or returned to.
+            Continue this process of updating the neighboring intersections with the shortest distances, then marking the current intersection as visited and moving onto a closest unvisited intersection until you have marked the destination as visited. Once you have marked the destination as visited (as is the case with any visited intersection) you have determined the shortest path to it, from the starting point, and can trace your way back, following the arrows in reverse; in the algorithm's implementations, this is usually done (after the algorithm has reached the destination node) by following the nodes' parents from the destination node up to the starting node; that's why we also keep track of each node's parent.
+            This algorithm makes no attempt of direct "exploration" towards the destination as one might expect. Rather, the sole consideration in determining the next "current" intersection is its distance from the starting point. This algorithm therefore expands outward from the starting point, interactively considering every node that is closer in terms of shortest path distance until it reaches the destination. When understood in this way, it is clear how the algorithm necessarily finds the shortest path. However, it may also reveal one of the algorithm's weaknesses: its relative slowness in some topologies. 
+            </p>
