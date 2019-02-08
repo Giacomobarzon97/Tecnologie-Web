@@ -19,16 +19,6 @@
         header("Location: errore.php?errorCode=bannanto");
     }
 
-    //aggiungi card
-    if(isset($_POST['add-topic'])){
-        $upload_File = upload($_FILES['upfile']['name'], $_FILES['upfile']['size'], $_FILES['upfile']['type'], $_FILES['upfile']['tmp_name']);
-        if(isset($upload_File)){
-            Card::insertTopic($_POST['titolo'], $_POST['descrizione'], $upload_File);
-        }else{
-            echo 'Si è verificato un errore...';
-        }
-    }
-
     //Rimuovi card
     if(isset($_POST['delete-topic'])){
         deleteFile($_POST['image-url']);
@@ -72,6 +62,30 @@
             <div id="main">
                 <div id="content-article-introduction">
                 <?php
+                    //aggiungi card
+                    if(isset($_POST['add-topic'])){
+                        $result = upload($_FILES['upfile']['name'], $_FILES['upfile']['size'], $_FILES['upfile']['type'], $_FILES['upfile']['tmp_name']);
+                        echo '<div id="arguments-error-box-insert-card">';
+                        if($result->getIsError()){
+                            echo '<ul class="regform-errorbox">';
+                            echo $result->getMessage();
+                            echo '</ul>';
+                        }else{
+                            $result = Card::insertTopic($_POST['titolo'], $_POST['descrizione'], $result->data_message);
+                            if($result->getIsError()){
+                                deleteFile($result->data_message);
+                                echo '<ul class="regform-errorbox">';
+                                echo $result->getMessage();
+                                echo '</ul>';
+                            }else {
+                                echo '<ul class="regform-successbox">';
+                                echo '<li>Topic created successfully</li>';
+                                echo '</ul>';
+                            }
+                        }
+                        echo '</div>';
+                    }
+
                     Card::printInsertNewCardForm();
                 ?>
                 </div>

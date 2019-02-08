@@ -2,6 +2,7 @@
 class ResultManager {
     private $is_error = false;
     private $result_message = NULL;
+    public $data_message = NULL;
 
     function __construct($input_result_message, $input_is_error = false) {
         $this->result_message = $input_result_message;
