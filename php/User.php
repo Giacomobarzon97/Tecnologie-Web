@@ -56,19 +56,19 @@
             $error = false;
 
             if(!ValidateData::validateEmail($email)) {
-                $messagge += "<li>E-mail non valida!</li>";
+                $messagge .= "<li>E-mail non valida!</li>";
             }
             if(!ValidateData::checkStringIsEmpty($nickname)) {
-                $messagge += "<li>Nickname non valido!</li>";
+                $messagge .= "<li>Nickname non valido!</li>";
             }
             if(!ValidateData::validatePassword($password)) {
-                $messagge += "<li>Password non valida! Deve essere lunga tra 3 e 100 caratteri</li>";
+                $messagge .= "<li>Password non valida! Deve essere lunga tra 3 e 100 caratteri</li>";
             }
             if(!ValidateData::validateName($name)) {
-                $messagge += "<li>Nome non valido!</li>";
+                $messagge .= "<li>Nome non valido!</li>";
             }
             if(!ValidateData::validateName($surname)) {
-                $messagge += "<li>Cognome non valido!</li>";
+                $messagge .= "<li>Cognome non valido!</li>";
             }
             if ($messagge == "") {
                 try {
@@ -293,6 +293,14 @@
             $connection = NULL;
         }
 
+        static function checkIfCommentExist($commentID){
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT * FROM COMMENTS WHERE Id = $commentID");
+            $result = $connection -> executeQuery();
+            $connection = NULL;
+            return isset($result[0]);
+        }
+
         static function redirectToComment($articleID, $commentID){
             echo '<script>';
             echo 'commentRedirect('.$articleID.', '.$commentID.')';
@@ -301,6 +309,9 @@
 
         static function voteComment($commentID, $userVoteID, $isLike, $articleID) {
             if(User::isBanned($userVoteID, true)){
+                return;
+            }
+            if(!(User::checkIfCommentExist($commentID))){
                 return;
             }
             $connection = new Connection();
@@ -498,23 +509,23 @@
                 //Contenuto email in HTML
                 $email_content = '
                     <!DOCTYPE html>
-                    <html>
+                    <html lang="en">
                         <head>
-                            <title>Recupera la password del tuo account</title>
+                            <title>Recover your account password</title>
                         </head>
                         <body>
-                            <h1>Recupera la password del tuo account</h1>
-                            <p>Sembra che tu abbia dimenticato la password :( <br/>
-                            Recuperala utilizzando questo link, ricorda che <b>scadra\' tra 7 giorni!</b> <br/>
-                            Clicca <a href='.$recover_password_link.'>qui</a> oppure utilizza il link qui sotto:<br/><br/>
+                            <h1>Recover your account password</h1>
+                            <p>It seems you forgot your password :( <br/>
+                            Recover it using this link, remember that <b>it will expire in 7 days!!</b> <br/>
+                            Click <a href='.$recover_password_link.'>here</a> or use the link below:<br/><br/>
                             <a href='.$recover_password_link.'>'.$recover_password_link.'</a></p>
 
-                            <h4>Cordiali saluti, il team del sito</h4>
+                            <h4>Sincerely, the developers of DevSpace</h4>
                         </body>
                     </html>
                 ';
 
-                User::sendEmail($email, $email_content, "Recupera la password");
+                User::sendEmail($email, $email_content, "Recover your account password");
 
                 $connection = NULL;
                 return true;
