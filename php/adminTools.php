@@ -44,7 +44,7 @@
             echo "<div id='registration-form'>
             <div class='regform-introduction'>
                 
-                <h2>Adimn tools</h2>
+                <h2>Admin tools</h2>
             </div>
             <div class='regform-main-section'>
                 <ul class='simple-list'>
