@@ -38,8 +38,15 @@
         
         $nickname = unserialize($_SESSION['userInfo'])->nickname;
         if(User::isBanned($nickname)) {
-            echo "<span>Your account has been suspended, you can't use admin tools anymore. In order to get back your admin role
-            another user have to remove your suspension.</span>";
+            echo '<div id="registration-form">
+            <div id="login-error-box-zone"></div>
+            <div class="regform-main-section">
+            <ul class="regform-errorbox">
+                            <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
+                            another user have to remove your suspension.</li>
+                            </ul>
+                        </div>
+                    </div>';
         } else {
             echo "<div id='registration-form'>
             <div class='regform-introduction'>

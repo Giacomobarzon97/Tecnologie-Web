@@ -169,16 +169,29 @@
 	\subsubsection{Scrittura articoli}
 	Gli utenti amministratori hanno la possibilità di scrivere nuovi articoli o di modificare quelli esistenti. Per offrire questa funzionalità abbiamo scelto di utilizzare il tag \emph{<textarea>}. Il motivo di questa è scelta deriva da diversi fattori tra cui, la semplicità di gestione e il tempo a dispozione per produrre qualcosa di più elaborato. La seconda strada che si poteva intraprendere era l'inserimento di un plugin \emph{WYSIWYG(What You See Is What You Get)}, ma abbiamo constatato che uno strumento del genere, oltre ad essere molto difficile da gestire senza JavaScript, poteva generare dei problemi di incompatibilità con i browser e addirittura introdurre degli errori di struttura nei documenti HTML, invalidando così la pagine. Perciò abbiamo implementato la soluzione già descritta in cui l'utente può inserire il contenuto dell'articolo nella textarea utilizzando anche alcuni dei tag HTML che abbiamo concesso di utilizzare, i queli verranno interpretati correttamente dal browser. Siamo comunque consapevoli che, anche in questo caso l'articolo è prono ad errori, infatti l'utente potrebbe inavvertitamente utilizzare in modo scorretto i tag, rendendo così non valida la pagina dell'articolo.
 	\subsection{Separazione parte privata e pubblica}
-	asdsa
+	I file relativi alle funzionalità riservate agli amministratori si trovano nella cartella \textbf{admin} mentre quelli relativi alla parte pubblica o in comune alle due tipologie di utenti si trovano nella cartella \textbf{public}. Molte delle funzionalità di amministratore sono quindi state isolate da quelle riservate al resto degli utenti, in questo modo si aumenta la mantenibilità del sito e soprattutto una buona struttura logica dell'applicazione. Tuttavia in alcune situazioni abbiamo preferito gestire le funzionalità di entrambe le tipologie di utente nella stessa pagina, gestendo tramite codice quale funzionalità offrire in base al tipo account. In ogni caso le pagine sono tutte strutturate per essere molto corte e leggibili, richiedendo solo la chiamata di metodi per inserire le funzionalità.
+	\begin{itemize}
+		\item Funzionalità amministratore
+			\begin{itemize}
+				\item Scrittura/Modifica articolo (writeArticle.php): pagina dedicata per l'amministratore;
+				\item Gestione argomenti (manageArguments.php): pagina dedicata per l'amministratore;
+			\end{itemize}
+		\item Funzionalità comuni
+			\begin{itemize}
+				\item Lista dei link agli articoli (ArticleLinks.php): condivisa, l'utente visualizza solo la lista dei link mentre l'amministratore visualizza anche un form con cui può inserire un nuovo sottoargomento o articoli relativi ai sottoargomenti;
+				\item Lettura articolo (ReadArticle.php): condivisa, l'utente può leggere l'articolo e commentare mentre l'amministratore oltre a fare ciò, può anche eliminare i commenti degli utenti;
+				\item Navbar (navbar.php): codivisa, gli utenti visualizzano le voci per navigare nel sito, mentre gli amministratori oltre a queste visualizzano un link che porta al pannello amministratore.
+			\end{itemize}
+	\end{itemize}
 	\subsection{Strumenti amministratore}
 	asds
 	\subsection{Classi}
 	sadsd
-	\subsection{Gestione degli errori}
+	\subsection{Gestione degli errori - Rove}
 	messaggi di errore
 	\subsection{Progettazione del Database - Rove}
 	sasa
-	\subsubsection{Gestione assenza JavaScript}
+	\subsubsection{Gestione assenza JavaScript - Barzy}
 	descrizione approfondita js e come viene gestita la sua assenza (append dei file)
 	\subsubsection{Ricerca dei contenuti}
 	assa
@@ -189,15 +202,31 @@
 	sajdas
 	
 	\section{Compatibilità}
-	tag html5 utilizzati
+	\subsection{Descrizione}
+	sad
+	\subsection{Tag HTML5 utilizzati}
+	ksajdkl
+	\subsection{JavaScript}
+	dsa
+	\subsection{Browser supportati}
+	dsa
 	
 	\section{Test}
 	\subsection{Accessibilità}
 	Strumenti utilizzati per valutare l'accessibilità e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
-	asd
+		\begin{itemize}
+			\item NVDA: screen reader gratuito repereribile al seguente indirizzo \url{https://www.nvaccess.org/};
+			\item WebAIM Color Contrast Checker: strumento per controllare il contrasto dei colori reperibile al seguente indirizzo \url{https://webaim.org/resources/contrastchecker/};
+			\item Web Accessibility Checker: strumento per valutare il grado di accessibilità di un sito secondo gli standard WCAG 2.0 reperibile al seguente indirizzo \url{https://achecker.ca/checker/index.php};
+			\item Total Validator: strumento per validare le pagine e valutarne l'accessibilità reperibile al seguente indirizzo \url{https://www.totalvalidator.com/index.html};
+			\item Colorblind Web Page Filter: strumento per simulare il modo in cui un utente affetto da disturbi visivi quali Protanopia, Deutanopia, Tritanopia e Achromatopsia visualizza una pagina web, reperibile al seguente indirizzo \url{https://www.toptal.com/designers/colorfilter};
+			\item Google Chrome Audits: strumento integrato nei tools degli sviluppatori che fornisce un numero che indica il grado di accessibilità di un sito web (e anche altri parametri).
+		\end{itemize}
 	\subsubsection{Risultati}
-	das
+		\begin{itemize}
+			\item sjd
+		\end{itemize}
 	
 	\subsection{Usabilità}
 	Strumenti utilizzati per valutare l'usabilità e risultati ottenuti.

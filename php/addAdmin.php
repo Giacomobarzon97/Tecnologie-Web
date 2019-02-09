@@ -35,7 +35,21 @@
     
     <body>
         <button onclick="topFunction()" id="retTop" title="Torna su"></button>
-        <?php include_once ('navbar.php'); ?>
+        <?php include_once ('navbar.php'); 
+        $nickname = unserialize($_SESSION['userInfo'])->nickname;
+            if(User::isBanned($nickname)) {
+                echo '<div id="registration-form">
+            <div id="login-error-box-zone"></div>
+            <div class="regform-main-section">
+            <ul class="regform-errorbox">
+                            <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
+                            another user have to remove your suspension.</li>
+                            </ul>
+                        </div>
+                    </div>';
+                die();
+            }
+        ?>
         <div id="registration-form">
             <div class="regform-introduction">
                 <h2>Aggiungi un nuovo amministratore</h2>

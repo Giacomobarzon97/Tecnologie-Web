@@ -138,7 +138,7 @@
                     echo '</div>';
                     echo '<div class="comment-date">';
                         echo '<img src="img/clock.svg" alt="clock"/>';
-                        echo '<p>'.date("H:i:s j/n/Y", strtotime($comment['Date'])).'</p>';
+                        echo '<p>'.date("j/n/Y H:i", strtotime($comment['Date'])).'</p>';
                     echo '</div>';
                     echo '<p class="comment-text">';
                         echo $comment['Text']; //Stampa contenuto effettivo commento
