@@ -38,19 +38,19 @@
         
         $nickname = unserialize($_SESSION['userInfo'])->nickname;
         if(User::isBanned($nickname)) {
-            echo "<span>Il tuo account è stato sospeso, pertanto non potrai più utilizzare gli strumenti 
-            di amministratore.</span>";
+            echo "<span>Your account has been suspended, you can't use admin tools anymore. In order to get back your admin role
+            another user have to remove your suspension.</span>";
         } else {
             echo "<div id='registration-form'>
             <div class='regform-introduction'>
                 
-                <h2>Strumenti amministratore</h2>
+                <h2>Adimn tools</h2>
             </div>
             <div class='regform-main-section'>
                 <ul class='simple-list'>
-                    <li><a href='manageArguments.php'>Crea un nuovo argomento</a></li>
-                    <li><a href='addAdmin.php'>Aggiungi un nuovo amministratore</a></li>
-                    <li><a href='manageUsers.php'>Gestisci utenti bannati</a></li>
+                    <li><a href='manageArguments.php'>Create or delete topics</a></li>
+                    <li><a href='addAdmin.php'>Add new administrator</a></li>
+                    <li><a href='manageUsers.php'>User suspension</a></li>
                 </ul>
             </div>
         </div>	";
