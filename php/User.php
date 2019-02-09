@@ -44,6 +44,14 @@
             $connection = new Connection();
             $hashPassword = password_hash($password, PASSWORD_DEFAULT);
             $connection -> prepareQuery
+            ("SELECT Email FROM USERS WHERE Email = :Email");
+            $connection->bindParameterToQuery(":Email", $email, PDO::PARAM_STR);
+            $result = $connection -> executeQuery();
+            if(isset($result[0])){ //Email is already in use
+                $connection = NULL;
+                return new ResultManager("<li>Unable to register, email already in use!</li>", true);
+            }
+            $connection -> prepareQuery
             ("INSERT INTO USERS(Email, Nickname, Password, Name, Surname) 
             VALUES (:Email, :Nickname, :Password, :Name, :Surname)");
             $connection->bindParameterToQuery(":Email", $email, PDO::PARAM_STR);
@@ -56,27 +64,27 @@
             $error = false;
 
             if(!ValidateData::validateEmail($email)) {
-                $messagge .= "<li>E-mail non valida!</li>";
+                $messagge .= "<li>E-mail not valid!</li>";
             }
             if(!ValidateData::checkStringIsEmpty($nickname)) {
-                $messagge .= "<li>Nickname non valido!</li>";
+                $messagge .= "<li>Nickname not valid!</li>";
             }
             if(!ValidateData::validatePassword($password)) {
-                $messagge .= "<li>Password non valida! Deve essere lunga tra 3 e 100 caratteri</li>";
+                $messagge .= "<li>Password not valid! It must be between 3 and 100 characters long</li>";
             }
             if(!ValidateData::validateName($name)) {
-                $messagge .= "<li>Nome non valido!</li>";
+                $messagge .= "<li>Name not valid!</li>";
             }
             if(!ValidateData::validateName($surname)) {
-                $messagge .= "<li>Cognome non valido!</li>";
+                $messagge .= "<li>Surname not valid!</li>";
             }
             if ($messagge == "") {
                 try {
                     $result = $connection -> executeQueryDML();
-                    $messagge = "<li>Registrazione avvenuta con successo! <br/>
-                                Clicca <a href='login.php'>qui</a> per eseguire il login.</li>";
+                    $messagge = "<li>Registration was successful! <br/>
+                                Click <a href='login.php'>qui</a> to login into your account.</li>";
                 } catch (PDOException $e){
-                    $messagge = "<li>Impossibile registrarsi, utente già esistente o nickname già presente!</li>";
+                    $messagge = "<li>Unable to register, nickname already in use!</li>";
                     $error = true;
                 }
             }else{
