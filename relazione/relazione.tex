@@ -136,7 +136,7 @@
 	\subsubsection{Colori}
 	Per quanto riguarda l'utilizzo dei colori per i testi e gli elementi di tutte le pagine, abbiamo assicurato di ottenere un rapporto di contrasto pari 7:1 tra un elemento in foreground e uno in background, rendendo così il sito conforme ai livelli di accessibilità AA e AAA del WCAG 2.0. 
 	\subsubsection{Link}
-	dsa
+	Si è cercato di uniformare il più possibile i link presenti all'interno del sito web, in modo da renderli facilmente riconoscibili da qualsiasi tipologia di utente. La maggior parte dei link è facilmente riconoscibile da un particolare tonalità di blu, e dalla caratteristica sottolineatura diventata ormai uno standard all'interno del web. Gli unici link che fanno eccezione a queste regole sono quelli presenti all'interno della sidebar per questioni estetiche e di contrasto. Il team ritiene tuttavia nonostante ciò ritiene che siano ugualmente altamente facili da riconoscere grazie alla notevole diffusione all'interno del web di sidebar dalla struttura simile. 
 	\subsubsection{JavaScript}
 	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. Lo abbiamo inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine rendere disponibile la consultazione delle voci.
 	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vegono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati.	Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
@@ -191,8 +191,18 @@
 	messaggi di errore
 	\subsection{Progettazione del Database - Rove}
 	sasa
-	\subsection{Gestione assenza JavaScript - Barzy}
-	descrizione approfondita js e come viene gestita la sua assenza (append dei file)
+	\subsection{Gestione assenza JavaScript}
+	Per la gestione delle pagine in assenza di javascript sono state utilizzate principalmente due tecniche:
+	\begin{itemize}
+			\item l'utilizzo del tag <noscript> che permette di definire porzioni di codice HTML che verranno interpretate dal browser solamente in caso javascript sia disattivato.
+			\item l'utilizzo di una semplice ma efficacie tecnica che permette di definire del codice CSS che verrà interpretato dal browser solamente in caso JS sia attivato. Questa tecnica consiste nel:
+			\begin{itemize}
+				\item definire all'interno del file CSS principale solo ed esclusivamente il codice che dovrà essere eseguito in assenza di js.
+				\item In un secondo file definire il codice CSS che al contrario verrà eseguito solo ed esclusivamente nel caso in cui JS sia abilitato.
+				\item Tramite un apposito script JS effettuare l'append di  quest'ultimo foglio di stile nel tag <head> della pagina web.
+			\end{itemize}
+			L'append ovviamente potrà avvenire solo ed esclusivamente con JS abilitato, e cio permette di ottenere con facilità il risultato desiderato.
+	\end{itemize}
 	\subsection{Ricerca dei contenuti}
 	assa
 	\subsection{Menù a tendina}
