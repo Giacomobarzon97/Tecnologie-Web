@@ -637,7 +637,7 @@ ARTICLES
     position:relative;
 }
 
-.post-comment > span{
+.comment > span{
     position:absolute;
     top:-6em;
 }
