@@ -3,7 +3,7 @@
 
     class Article {
 
-        static $allowed_content_tags = '<strong><em><p>';
+        static $allowed_content_tags = '<strong><em><p><h3><h4><ul><li>';
 
         static function checkIfArticleExist($articleID){
             if((!is_numeric($articleID))){
