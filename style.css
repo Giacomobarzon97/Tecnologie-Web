@@ -294,6 +294,7 @@ input[type="submit"]:hover{
 .subtopic-title > span{
     position:absolute;
     top:-6em;
+    visibility: hidden;
 }
 
 #content-article-introduction>p{
@@ -637,9 +638,11 @@ ARTICLES
     position:relative;
 }
 
-.comment > span{
-    position:absolute;
+#comment-section span{
+    display: block;
+    position: relative;
     top:-6em;
+    visibility: hidden;
 }
 
 .post-comment-avatar > img, .input-comment-avatar > img {

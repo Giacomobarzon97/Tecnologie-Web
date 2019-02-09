@@ -75,8 +75,8 @@
                 $nickname = unserialize($_SESSION['userInfo'])->nickname;
                 $is_banned = User::isBanned($nickname);
 
+                echo '<span id="comment_'.$comment['Id'].'"></span>';
                 echo '<div class="comment">';
-                    echo '<span id="comment_'.$comment['Id'].'"></span>';
                     echo '<div class="comment-header">';
                         echo '<p class="comment-username">'.$commentAuthor[0]['Nickname'].'</p>';
 
