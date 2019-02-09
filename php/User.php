@@ -201,9 +201,12 @@
         
         // $ban true se va bannato, false se va tolto il ban
         static function userSuspend($nickname) {
-            if(!isset($nickname) || User::isBanned($nickname)
-            || unserialize($_SESSION['userInfo'])->nickname == $nickname) {
-                return false;
+            if(!isset($nickname) || User::isBanned($nickname)) {
+                return new ResultManager("Utente già sospeso!", true);
+            }
+            $actualNickname = unserialize($_SESSION['userInfo'])->nickname;
+            if(strtolower($actualNickname) == strtolower($nickname)) {
+                return new ResultManager("Non puoi sospendere te stesso!", true);
             }
 
             $connection = new Connection();
@@ -211,7 +214,7 @@
             "UPDATE USERS SET Banned = '1' WHERE Nickname = '".$nickname."'");
             $result = $connection -> executeQueryDML();
             $connection = NULL;
-            return User::isBanned($nickname);
+            return new ResultManager("Operazione avvenuta con successo!", false);
         }
 
         static function removeSuspension($nickname) {
@@ -235,6 +238,7 @@
             $result = $connection -> executeQuery();
             if(!isset($result[0])) {
                 echo "<span>Nessun utente sospeso!</span>";
+                return;
             }
             echo "<h2>Utenti sospesi</h2>";
             echo '<div class="regform-main-section">';

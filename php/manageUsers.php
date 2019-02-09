@@ -63,11 +63,11 @@
                         $nickname = $_POST['nickname'];
                         
                         $result = User::userSuspend($nickname);
-                        if($result) {
-                            echo '<ul class="regform-successbox"><li>Operazione avvenuta con successo</li></ul>';
+                        if(!$result->getIsError()) {
+                            echo '<ul class="regform-successbox"><li>'.$result->getMessage().'</li></ul>';
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
-                            <li>Utente già sospeso oppure inesistente!</li>
+                            <li>'.$result->getMessage().'</li>
                             </ul>
                             ';
                         }
@@ -77,7 +77,7 @@
                         $nick = $_POST['nicknameDel'];
                         $result = User::removeSuspension($nick);
                         if($result) {
-                            echo '<ul class="regform-successbox"><li>Operazione avvenuta con successo</li></ul>';
+                            echo '<ul class="regform-successbox"><li>Rimozione sospensione avvenuta con successo!</li></ul>';
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
                             <li>Sospensone già rimossa o utente inesistente!</li>
