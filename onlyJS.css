@@ -4,3 +4,11 @@
 #sidebar>li>ul{
 	display:none;
 }
+#lower-footer{
+	padding-bottom: 2.5em;
+}
+@media only screen and (max-width: 768px) {
+	#lower-footer{
+		padding-bottom: 1em;
+	}
+}

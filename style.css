@@ -34,7 +34,18 @@ input[type="submit"]:hover{
     background:black;
     color:white;
 }
-
+#nojs-messagebox, #nojs-messgebox-full{
+    width:75%;
+    text-align:center;
+    padding:0.5em 1%;
+    color:white;
+    background-color: red;
+    position: fixed;
+    bottom:0;
+}
+#nojs-messgebox-full{
+    width: 100%;
+}
 /*-----SIDEBAR-----*/
 #sidebar-wrapper{
     /*Strictly Necessary */
@@ -1253,7 +1264,7 @@ FOOTER
 #lower-footer{
     background-color: #333333;
     overflow: auto;
-    padding:2.5em 0em 2.5em 0em;
+    padding:2.5em 0em 5em 0em;
 }
 
 #developers{
@@ -1423,6 +1434,9 @@ MEDIA QUERIES
 }
 
 @media only screen and (max-width: 768px) {
+    #nojs-messagebox{
+        width:100%;
+    }
     /*versione alternativa commenti*/
     .comment-username{
         margin:0.5em 0em;
@@ -1703,7 +1717,7 @@ MEDIA QUERIES
         font-size:0.7em;
     }
     #lower-footer{
-        padding:1em 0em 1em 0em;
+        padding:1em 0em 4em 0em;
     }
     #developers>ul>li{
         display: block;
