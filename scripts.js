@@ -783,6 +783,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.addEventListener("scroll", function () {
+    var passiveSupported = false;
+    try {
+        var options = {
+            get passive() { 
+                // Questa funzione verrà chiamata quando il browser
+                // tenta di accedere alla proprietà passiva.
+                passiveSupported = true;
+            }
+        };
+    }catch(err) {
+        passiveSupported = false;
+    }
     scrollFunction();
 });
 
