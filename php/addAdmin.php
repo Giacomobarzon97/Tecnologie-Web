@@ -74,7 +74,7 @@
                     <fieldset>
                         <p>
                             <label for="lemail">Email</label>
-                            <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="AddAdmin_HideAddAdminEmailError()" />
+                            <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onchange="AddAdmin_HideAddAdminEmailError()" />
                         </p>
                         <p>
                             <input class="profile-input" name="submit" type="submit" value="Esegui" />

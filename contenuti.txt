@@ -48,18 +48,21 @@ It derives from the intuition of "memory" as a scratchpad.
 
         Computer programming
 
+            <h3>Introduction</h3>
             <p>There are two key attributes that a problem must have in order for dynamic programming to be applicable: optimal substructure and overlapping sub-problems.
             If a problem can be solved by combining optimal solutions to non-overlapping sub-problems, the strategy is called "divide and conquer" instead. 
-            This is why merge sort and quick sort are not classified as dynamic programming problems.</p>
-
-            <p>Optimal substructure means that the solution to a given optimization problem can be obtained by the combination of optimal solutions to its sub-problems.
+            This is why merge sort and quick sort are not classified as dynamic programming problems.
+            </p>
+            <p>
+            Optimal substructure means that the solution to a given optimization problem can be obtained by the combination of optimal solutions to its sub-problems.
             Such optimal substructures are usually described by means of recursion. For example, given a graph G=(V,E), the shortest path p from a vertex u to a vertex v exhibits optimal substructure: take any intermediate vertex w on this shortest path p.
             If p is truly the shortest path, then it can be split into sub-paths p1 from u to w and p2 from w to v such that these, in turn, are indeed the shortest paths between the corresponding vertices.
             Hence, one can easily formulate the solution for finding shortest paths in a recursive manner, which is what the Bellman–Ford algorithm or the Floyd–Warshall algorithm does.
             Overlapping sub-problems means that the space of sub-problems must be small, that is, any recursive algorithm solving the problem should solve the same sub-problems over and over, rather than generating new sub-problems.
             For example, consider the recursive formulation for generating the Fibonacci series: Fi = Fi−1 + Fi−2, with base case F1 = F2 = 1. Then F43 = F42 + F41, and F42 = F41 + F40.
             Now F41 is being solved in the recursive sub-trees of both F43 as well as F42. Even though the total number of sub-problems is actually small (only 43 of them), we end up solving the same problems over and over if we adopt a naive recursive solution such as this.
-            Dynamic programming takes account of this fact and solves each sub-problem only once.</p>
+            Dynamic programming takes account of this fact and solves each sub-problem only once.
+            </p>
             <h3>This can be achieved in either of two ways:</h3>
             <h4>Top-down approach</h4>
             <p>
@@ -84,10 +87,14 @@ It derives from the intuition of "memory" as a scratchpad.
             <h3>Introduction</h3>
             <p>
             In mathematics, the Fibonacci numbers, commonly denoted Fn form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. 
+            </p>
+            <p>
             That is, F 0 = 0 , F 1 = 1 ,
             and
             F n = F n − 1 + F n − 2 ,
             for n > 1.
+            </p>
+            <p>
             One has F2 = 1. In some books, and particularly in old ones, F0, the "0" is omitted, and the Fibonacci sequence starts with F1 = F2 = 1.
             The beginning of the sequence is thus:
             ( 0 , ) 1 , 1 , 2 , 3 , 5 , 8 , 13 , 21 , 34 , 55 , 89 , 144 , … 
@@ -112,7 +119,9 @@ It derives from the intuition of "memory" as a scratchpad.
             The number of binary strings of length n without consecutive 1s is the Fibonacci number Fn+2. For example, out of the 16 binary strings of length 4, there are F6 = 8 without consecutive 1s – they are 0000, 0001, 0010, 0100, 0101, 1000, 1001 and 1010. By symmetry, the number of strings of length n without consecutive 0s is also Fn+2. Equivalently, Fn+2 is the number of subsets S ⊂ {1,...,n} without consecutive integers: {i, i+1} ⊄ S for every i. The symmetric statement is: Fn+2 is the number of subsets S ⊂ {1,...,n} without two consecutive skipped integers: that is, S = {a1 < ... < ak} with ai+1 ≤ ai + 2.
             The number of binary strings of length n without an odd number of consecutive 1s is the Fibonacci number Fn+1. For example, out of the 16 binary strings of length 4, there are F5 = 5 without an odd number of consecutive 1s – they are 0000, 0011, 0110, 1100, 1111. Equivalently, the number of subsets S ⊂ {1,...,n} without an odd number of consecutive integers is Fn+1.
             The number of binary strings of length n without an even number of consecutive 0s or 1s is 2Fn. For example, out of the 16 binary strings of length 4, there are 2F4 = 6 without an even number of consecutive 0s or 1s – they are 0001, 0111, 0101, 1000, 1010, 1110. There is an equivalent statement about subsets.
-            Sequence properties
+            </p>
+            <h4>Sequence properties</h4>
+            <p>
             The first 21 Fibonacci numbers Fn for n = 0, 1, 2, ..., 20 are:
             F0 	F1 	F2 	F3 	F4 	F5 	F6 	F7 	F8 	F9 	F10 	F11 	F12 	F13 	F14 	F15 	F16 	F17 	F18 	F19 	F20
             0 	1 	1 	2 	3 	5 	8 	13 	21 	34 	55 	89 	144 	233 	377 	610 	987 	1597 	2584 	4181 	6765 
@@ -169,6 +178,8 @@ It derives from the intuition of "memory" as a scratchpad.
             For example, if the nodes of the graph represent cities and edge path costs represent driving distances between pairs of cities connected by a direct road, Dijkstra's algorithm can be used to find the shortest route between one city and all other cities. 
             As a result, the shortest path algorithm is widely used in network routing protocols, most notably IS-IS (Intermediate System to Intermediate System) and Open Shortest Path First (OSPF). 
             It is also employed as a subroutine in other algorithms such as Johnson's.
+            </p>
+            <p>
             The Dijkstra algorithm uses labels that are positive integer or real numbers, which have the strict weak ordering defined.
             Interestingly, Dijkstra can be generalized to use labels defined in any way, provided they have the strict partial order defined, and provided the subsequent labels (a subsequent label is produced when traversing an edge) are monotonically non-decreasing. 
             This generalization is called the Generic Dijkstra shortest-path algorithm.
@@ -177,24 +188,23 @@ It derives from the intuition of "memory" as a scratchpad.
             In some fields, artificial intelligence in particular, Dijkstra's algorithm or a variant of it is known as uniform cost search and formulated as an instance of the more general idea of best-first search.
             </p>
             
-            <h3>Alghorithm</h3>
+            <h3>Algorithm</h3>
+            <ul>
+            <li>Let the node at which we are starting be called the initial node.</li>
+            <li>Let the distance of node Y be the distance from the initial node to Y.</li>
+            </ul>
             <p>
-            Let the node at which we are starting be called the initial node. 
-            Let the distance of node Y be the distance from the initial node to Y. 
             Dijkstra's algorithm will assign some initial distance values and will try to improve them step by step.
-            
-            Mark all nodes unvisited. Create a set of all the unvisited nodes called the unvisited set.
-            
-            Assign to every node a tentative distance value: set it to zero for our initial node and to infinity for all other nodes. Set the initial node as current.
-            
-            For the current node, consider all of its unvisited neighbors and calculate their tentative distances through the current node. Compare the newly calculated tentative distance to the current assigned value and assign the smaller one. For example, if the current node A is marked with a distance of 6, and the edge connecting it with a neighbor B has length 2, then the distance to B through A will be 6 + 2 = 8. If B was previously marked with a distance greater than 8 then change it to 8. Otherwise, keep the current value.
-            
-            When we are done considering all of the unvisited neighbors of the current node, mark the current node as visited and remove it from the unvisited set. A visited node will never be checked again.
-            
-            If the destination node has been marked visited (when planning a route between two specific nodes) or if the smallest tentative distance among the nodes in the unvisited set is infinity (when planning a complete traversal; occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.
-            
-            Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node", and go back to step 3.
-
+            </p>
+            <ol>
+            <li>Mark all nodes unvisited. Create a set of all the unvisited nodes called the unvisited set.</li>
+            <li>Assign to every node a tentative distance value: set it to zero for our initial node and to infinity for all other nodes. Set the initial node as current.</li>
+            <li>For the current node, consider all of its unvisited neighbors and calculate their tentative distances through the current node. Compare the newly calculated tentative distance to the current assigned value and assign the smaller one. For example, if the current node A is marked with a distance of 6, and the edge connecting it with a neighbor B has length 2, then the distance to B through A will be 6 + 2 = 8. If B was previously marked with a distance greater than 8 then change it to 8. Otherwise, keep the current value.</li>
+            <li>When we are done considering all of the unvisited neighbors of the current node, mark the current node as visited and remove it from the unvisited set. A visited node will never be checked again.</li>
+            <li>If the destination node has been marked visited (when planning a route between two specific nodes) or if the smallest tentative distance among the nodes in the unvisited set is infinity (when planning a complete traversal; occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.</li>
+            <li>Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node", and go back to step 3.</li>
+            </ol>
+            <p>
             When planning a route, it is actually not necessary to wait until the destination node is "visited" as above: the algorithm can stop once the destination node has the smallest tentative distance among all "unvisited" nodes (and thus could be selected as the next "current").
             </p>
             <h3>Description</h3>
@@ -219,6 +229,8 @@ It derives from the intuition of "memory" as a scratchpad.
             Balance is preserved by painting each node of the tree with one of two colors in a way that satisfies certain properties, which collectively constrain how unbalanced the tree can become in the worst case.
             When the tree is modified, the new tree is subsequently rearranged and repainted to restore the coloring properties.
             The properties are designed in such a way that this rearranging and recoloring can be performed efficiently.
+            </p>
+            <p>
             The balancing of the tree is not perfect, but it is good enough to allow it to guarantee searching in O(log n) time, where n is the total number of elements in the tree. 
             The insertion and deletion operations, along with the tree rearrangement and recoloring, are also performed in O(log n) time.
             Tracking the color of each node requires only 1 bit of information per node because there are only two colors.
@@ -234,18 +246,15 @@ It derives from the intuition of "memory" as a scratchpad.
             The search-time results from the traversal from root to leaf, and therefore a balanced tree of n nodes, having the least possible tree height, results in O(log n) search time.
             </p>
             <h3>Properties</h3>
-            <p>
-            Diagram of binary tree. The black root node has two red children and four black grandchildren. 
-            The child nodes of the grandchildren are black nil pointers or red nodes with black nil pointers.
-            An example of a red–black tree
-            In addition to the requirements imposed on a binary search tree the following must be satisfied by a red–black tree:
+            <ul>In addition to the requirements imposed on a binary search tree the following must be satisfied by a red–black tree:
             
-            Each node is either red or black.
-            The root is black. This rule is sometimes omitted. Since the root can always be changed from red to black, but not necessarily vice versa, this rule has little effect on analysis.
-            All leaves (NIL) are black.
-            If a node is red, then both its children are black.
-            Every path from a given node to any of its descendant NIL nodes contains the same number of black nodes.
-
+            <li>Each node is either red or black.</li>
+            <li>The root is black. This rule is sometimes omitted. Since the root can always be changed from red to black, but not necessarily vice versa, this rule has little effect on analysis.</li>
+            <li>All leaves (NIL) are black.</li>
+            <li>If a node is red, then both its children are black.</li>
+            <li>Every path from a given node to any of its descendant NIL nodes contains the same number of black nodes.</li>
+            </ul>
+            <p>
             Some definitions: the number of black nodes from the root to a node is the node's black depth; the uniform number of black nodes in all paths from root to the leaves is called the black-height of the red–black tree.
             These constraints enforce a critical property of red–black trees: the path from the root to the farthest leaf is no more than twice as long as the path from the root to the nearest leaf. The result is that the tree is roughly height-balanced. Since operations such as inserting, deleting, and finding values require worst-case time proportional to the height of the tree, this theoretical upper bound on the height allows red–black trees to be efficient in the worst case, unlike ordinary binary search trees.
             To see why this is guaranteed, it suffices to consider the effect of properties 4 and 5 together. For a red–black tree T, let B be the number of black nodes in property 5. Let the shortest possible path from the root of T to any leaf consist of B black nodes. Longer possible paths may be constructed by inserting red nodes. However, property 4 makes it impossible to insert more than one consecutive red node. Therefore, ignoring any black NIL leaves, the longest possible path consists of 2*B nodes, alternating black and red (this is the worst case). Counting the black NIL leaves, the longest possible path consists of 2*B-1 nodes.
@@ -408,26 +417,26 @@ Automata play a major role in theory of computation, compiler construction, arti
             Machine transitions are based on the current state and input symbol, and also the current topmost symbol of the stack. Symbols lower in the stack are not visible and have no immediate effect. Machine actions include pushing, popping, or replacing the stack top. A deterministic pushdown automaton has at most one legal transition for the same combination of input symbol, state, and top stack symbol. This is where it differs from the nondeterministic pushdown automaton. 
             </p>
             <h3>Formal definition</h3>
-            <p>
-            A (not necessarily deterministic) PDA M can be defined as a 7-tuple:
+            <ol>A (not necessarily deterministic) PDA M can be defined as a 7-tuple:
             M = ( Q , Σ , Γ , q 0 , Z 0 , A , δ )
             where
-                Q , is a finite set of states
-                Σ , is a finite set of input symbols
-                Γ , is a finite set of stack symbols
-                q 0 ∈ Q , is the start state
-                Z 0 ∈ Γ , is the starting stack symbol
-                A ⊆ Q , where A is the set of accepting states
-                δ  (delta), is a transition function, where
+                <li>Q , is a finite set of states</li>
+                <li>Σ , is a finite set of input symbols</li>
+                <li>Γ , is a finite set of stack symbols</li>
+                <li>q 0 ∈ Q , is the start state</li>
+                <li>Z 0 ∈ Γ , is the starting stack symbol</li>
+                <li>A ⊆ Q , where A is the set of accepting states</li>
+                <li>δ  (delta), is a transition function, where
 
                 δ : ( Q × ( Σ ∪ { ε } ) × Γ ) ⟶ P ( Q × Γ ∗ ) 
-                where * is the Kleene star, meaning that Γ ∗ is "the set of all finite strings (including the empty string ε) of elements of Γ , ε denotes the empty string, and P ( X ) is the power set of a set X.
-            </p>
-            <p>
-            M is deterministic if it satisfies both the following conditions:
+                where * is the Kleene star, meaning that Γ ∗ is "the set of all finite strings (including the empty string ε) of elements of Γ , ε denotes the empty string, and P ( X ) is the power set of a set X.</li>
+            </ol>
+            <ul>M is deterministic if it satisfies both the following conditions:
 
-                For any q ∈ Q , a ∈ Σ ∪ { ε } , x ∈ Γ , the set δ ( q , a , x ), has at most one element.
-                For any q ∈ Q , x ∈ Γ , if δ ( q , ε , x ) ≠ ∅ , then δ ( q , a , x ) = ∅  for every a ∈ Σ .
+                <li>For any q ∈ Q , a ∈ Σ ∪ { ε } , x ∈ Γ , the set δ ( q , a , x ), has at most one element.</li>
+                <li>For any q ∈ Q , x ∈ Γ , if δ ( q , ε , x ) ≠ ∅ , then δ ( q , a , x ) = ∅  for every a ∈ Σ .</li>
+            </ul>
+            <p>
             There are two possible acceptance criteria: acceptance by empty stack and acceptance by final state. The two are not equivalent for the deterministic pushdown automaton (although they are for the non-deterministic pushdown automaton). The languages accepted by empty stack are those languages that are accepted by final state and are prefix-free: no word in the language is the prefix of another word in the language.
             The usual acceptance criterion is final state, and it is this acceptance criterion which is used to define the deterministic context-free languages.
             </p>
@@ -441,18 +450,17 @@ Automata play a major role in theory of computation, compiler construction, arti
             The term "pushdown" refers to the fact that the stack can be regarded as being "pushed down" like a tray dispenser at a cafeteria, since the operations never work on elements other than the top element. A stack automaton, by contrast, does allow access to and operations on deeper elements. Stack automata can recognize a strictly larger set of languages than pushdown automata. A nested stack automaton allows full access, and also allows stacked values to be entire sub-stacks rather than just single finite symbols. 
             </p>
             <h3>Formal definition</h3>
-            <p>
-            We use standard formal language notation: Γ ∗ denotes the set of strings over alphabet Γ  and ε denotes the empty string.
+            <ol>We use standard formal language notation: Γ ∗ denotes the set of strings over alphabet Γ  and ε denotes the empty string.
             A PDA is formally defined as a 7-tuple:
             M = ( Q , Σ , Γ , δ , q 0 , Z , F ) where
-            Q is a finite set of states
-            Σ is a finite set which is called the input alphabet
-            Γ is a finite set which is called the stack alphabet
-            δ is a finite subset of Q × ( Σ ∪ { ε } ) × Γ × Q × Γ ∗, the transition relation
-            q 0 ∈ Q is the start state
-            Z ∈ Γ is the initial stack symbol
-            F ⊆ Q is the set of accepting states
-            </p>
+            <li>Q is a finite set of states</li>
+            <li>Σ is a finite set which is called the input alphabet</li>
+            <li>Γ is a finite set which is called the stack alphabet</li>
+            <li>δ is a finite subset of Q × ( Σ ∪ { ε } ) × Γ × Q × Γ ∗, the transition relation</li>
+            <li>q 0 ∈ Q is the start state</li>
+            <li>Z ∈ Γ is the initial stack symbol</li>
+            <li>F ⊆ Q is the set of accepting states</li>
+            </ol>
             <p>
             An element ( p , a , A , q , α ) ∈ δ is a transition of M. It has the intended meaning that M, in state p ∈ Q, on the input a ∈ Σ ∪ { ε } and with A ∈ Γ as topmost stack symbol, may read a, change the state to q , pop A, replacing it by pushing α ∈ Γ ∗. The ( Σ ∪ { ε } ) component of the transition relation is used to formalize that the PDA can either read a letter from the input, or proceed leaving the input untouched.
 
@@ -476,14 +484,13 @@ Automata play a major role in theory of computation, compiler construction, arti
             NFAs have been generalized in multiple ways, e.g., nondeterministic finite automaton with ε-moves, finite state transducers, pushdown automata, alternating automata, ω-automata, and probabilistic automata. Besides the DFAs, other known special cases of NFAs are unambiguous finite automata (UFA) and self-verifying finite automata (SVFA). 
             </p>
             <h3>Formal definition</h3>
-            <p>
-            An NFA is represented formally by a 5-tuple, ( Q , Σ , Δ , q 0 , F ), consisting of
-            a finite set of states Q.
-            a finite set of input symbols Σ.
-            a transition function Δ : Q × Σ → P ( Q ).
-            an initial (or start) state q 0 ∈ Q.
-            a set of states F distinguished as accepting (or final) states F ⊆ Q.
-            </p>
+            <ul>An NFA is represented formally by a 5-tuple, ( Q , Σ , Δ , q 0 , F ), consisting of
+            <li>a finite set of states Q.</li>
+            <li>a finite set of input symbols Σ.</li>
+            <li>a transition function Δ : Q × Σ → P ( Q ).</li>
+            <li>an initial (or start) state q 0 ∈ Q.</li>
+            <li>a set of states F distinguished as accepting (or final) states F ⊆ Q.</li>
+            </ul>
             <p>
             Here, P ( Q ) denotes the power set of Q. Let w = a 1 a 2 . . . a n be a word over the alphabet Σ. The automaton M accepts the word w if a sequence of states, r 0 , r 1 , . . . , r n , exists in Q with the following conditions:
             r 0 = q 0 
@@ -519,29 +526,29 @@ Automata play a major role in theory of computation, compiler construction, arti
             Turing completeness is the ability for a system of instructions to simulate a Turing machine. A programming language that is Turing complete is theoretically capable of expressing all tasks accomplishable by computers; nearly all programming languages are Turing complete if the limitations of finite memory are ignored. 
             </p>
             <h3>Formal definition</h3>
-            <p>
-            Following Hopcroft and Ullman (1979, p. 148), a (one-tape) Turing machine can be formally defined as a 7-tuple M = ⟨ Q , Γ , b , Σ , δ , q 0 , F ⟩ 
+            <ol>Following Hopcroft and Ullman (1979, p. 148), a (one-tape) Turing machine can be formally defined as a 7-tuple M = ⟨ Q , Γ , b , Σ , δ , q 0 , F ⟩ 
             where
-            Q is a finite, non-empty set of states;
-            Γ is a finite, non-empty set of tape alphabet symbols;
-            b ∈ Γ is the blank symbol (the only symbol allowed to occur on the tape infinitely often at any step during the computation);
-            Σ ⊆ Γ ∖ { b }  is the set of input symbols, that is, the set of symbols allowed to appear in the initial tape contents;
-            q 0 ∈ Q is the initial state;
-            F ⊆ Q is the set of final states or accepting states. The initial tape contents is said to be accepted by M if it eventually halts in a state from F.
-            δ : ( Q ∖ F ) × Γ ↛ Q × Γ × { L , R } is a partial function called the transition function, where L is left shift, R is right shift. 
-            </p>
+            <li>Q is a finite, non-empty set of states;</li>
+            <li>Γ is a finite, non-empty set of tape alphabet symbols;</li>
+            <li>b ∈ Γ is the blank symbol (the only symbol allowed to occur on the tape infinitely often at any step during the computation);</li>
+            <li>Σ ⊆ Γ ∖ { b }  is the set of input symbols, that is, the set of symbols allowed to appear in the initial tape contents;</li>
+            <li>q 0 ∈ Q is the initial state;</li>
+            <li>F ⊆ Q is the set of final states or accepting states. The initial tape contents is said to be accepted by M if it eventually halts in a state from F.</li>
+            <li>δ : ( Q ∖ F ) × Γ ↛ Q × Γ × { L , R } is a partial function called the transition function, where L is left shift, R is right shift.</li>
+            </ol>
             <p>
             If δ is not defined on the current state and the current tape symbol, then the machine halts;
             Anything that operates according to these specifications is a Turing machine.
-            The 7-tuple for the 3-state busy beaver looks like this (see more about this busy beaver at Turing machine examples):
-            Q = { A , B , C , HALT };
-            Γ = { 0 , 1 };
-            b = 0;
-            Σ = { 1 };
-            q 0 = A;
-            F = { HALT };
-            δ.
             </p>
+            <ul>The 7-tuple for the 3-state busy beaver looks like this (see more about this busy beaver at Turing machine examples):
+            <li>Q = { A , B , C , HALT };</li>
+            <li>Γ = { 0 , 1 };</li>
+            <li>b = 0;</li>
+            <li>Σ = { 1 };</li>
+            <li>q 0 = A;</li>
+            <li>F = { HALT };</li>
+            <li>δ.</li>
+            </ul>
 
 Programming in Java
 
@@ -556,23 +563,25 @@ This guide will provide everything you need to know about Java programming langu
 
         Getting Started
 
-            Java technology is both a programming language and a platform.
-            <h3>The Java Programming Language</h3>
             <p>
-            The Java programming language is a high-level language that can be characterized by all of the following buzzwords:
+            Java technology is both a programming language and a platform.
+            </p>
+            <h3>The Java Programming Language</h3>
+            <ul>The Java programming language is a high-level language that can be characterized by all of the following buzzwords:
 
-                Simple
-                Object oriented
-                Distributed
-                Multithreaded
-                Dynamic
+                <li>Simple</li>
+                <li>Object oriented</li>
+                <li>Distributed</li>
+                <li>Multithreaded</li>
+                <li>Dynamic</li>
 
-                Architecture neutral
-                Portable
-                High performance
-                Robust
-                Secure
-
+                <li>Architecture neutral</li>
+                <li>Portable</li>
+                <li>High performance</li>
+                <li>Robust</li>
+                <li>Secure</li>
+            </ul>
+            <p>
             Each of the preceding buzzwords is explained in The Java Language Environment , a white paper written by James Gosling and Henry McGilton.
             In the Java programming language, all source code is first written in plain text files ending with the .java extension. Those source files are then compiled into .class files by the javac compiler. A .class file does not contain code that is native to your processor; it instead contains bytecodes — the machine language of the Java Virtual Machine1 (Java VM). The java launcher tool then runs your application with an instance of the Java Virtual Machine.
             Because the Java VM is available on many different operating systems, the same .class files are capable of running on Microsoft Windows, the Solaris™ Operating System (Solaris OS), Linux, or Mac OS. Some virtual machines, such as the Java SE HotSpot at a Glance, perform additional steps at runtime to give your application a performance boost. This includes various tasks such as finding performance bottlenecks and recompiling (to native code) frequently used sections of code.
@@ -580,9 +589,12 @@ This guide will provide everything you need to know about Java programming langu
             <h3>The Java Platform</h3>
             <p>
             A platform is the hardware or software environment in which a program runs. We've already mentioned some of the most popular platforms like Microsoft Windows, Linux, Solaris OS, and Mac OS. Most platforms can be described as a combination of the operating system and underlying hardware. The Java platform differs from most other platforms in that it's a software-only platform that runs on top of other hardware-based platforms.
-            The Java platform has two components:
-                The Java Virtual Machine
-                The Java Application Programming Interface (API)
+            </p>
+            <ul>The Java platform has two components:
+                <li>The Java Virtual Machine</li>
+                <li>The Java Application Programming Interface (API)</li>
+            </ul>
+            <p>
             You've already been introduced to the Java Virtual Machine; it's the base for the Java platform and is ported onto various hardware-based platforms.
             The API is a large collection of ready-made software components that provide many useful capabilities. It is grouped into libraries of related classes and interfaces; these libraries are known as packages. The next section, What Can Java Technology Do? highlights some of the functionality provided by the API.
             The API and Java Virtual Machine insulate the program from the underlying hardware.
@@ -606,7 +618,7 @@ This guide will provide everything you need to know about Java programming langu
         
     Specialized Trails and Lessons
 
-    Lessons for specialized and expert user
+    Lessons for specialized and expert user.
 
         Custom networking
 
@@ -633,19 +645,27 @@ This guide will provide everything you need to know about Java programming langu
             This trail is an introduction to generics. You may be familiar with similar constructs from other languages, most notably C++ templates. If so, you'll see that there are both similarities and important differences. If you are unfamiliar with look-a-alike constructs from elsewhere, all the better; you can start fresh, without having to unlearn any misconceptions.
             Generics allow you to abstract over types. The most common examples are container types, such as those in the Collections hierarchy.
             Here is a typical usage of that sort:
+            </p>
+            <p>
 
             List myIntList = new LinkedList(); // 1
             myIntList.add(new Integer(0)); // 2
-            Integer x = (Integer) myIntList.iterator().next(); // 3        
+            Integer x = (Integer) myIntList.iterator().next(); // 3
+            </p>
+            <p>      
 
             The cast on line 3 is slightly annoying. Typically, the programmer knows what kind of data has been placed into a particular list. However, the cast is essential. The compiler can only guarantee that an Object will be returned by the iterator. To ensure the assignment to a variable of type Integer is type safe, the cast is required.
             Of course, the cast not only introduces clutter. It also introduces the possibility of a run time error, since the programmer may be mistaken.
             What if programmers could actually express their intent, and mark a list as being restricted to contain a particular data type? This is the core idea behind generics. Here is a version of the program fragment given above using generics:
+            </p>
+            <p>
 
             List<Integer> 
                 myIntList = new LinkedList<Integer>(); // 1'
             myIntList.add(new Integer(0)); // 2'
             Integer x = myIntList.iterator().next(); // 3'
+            </p>
+            <p>
 
             Notice the type declaration for the variable myIntList. It specifies that this is not just an arbitrary List, but a List of Integer, written List<Integer>. We say that List is a generic interface that takes a type parameter--in this case, Integer. We also specify a type parameter when creating the list object.
             Note, too, that the cast on line 3' is gone.
@@ -655,27 +675,32 @@ This guide will provide everything you need to know about Java programming langu
             <h3>Defining Simple Generics</h3>
             <p>
             Here is a small excerpt from the definitions of the interfaces List and Iterator in package java.util:
-
+            </p>
+            <p>
             public interface List <E> {
                 void add(E x);
                 Iterator<E> iterator();
             }
-
+            </p>
+            <p>
             public interface Iterator<E> {
                 E next();
                 boolean hasNext();
             }
-
+            </p>
+            <p>
             This code should all be familiar, except for the stuff in angle brackets. Those are the declarations of the formal type parameters of the interfaces List and Iterator.
             Type parameters can be used throughout the generic declaration, pretty much where you would use ordinary types (though there are some important restrictions; see the section The Fine Print.
             In the introduction, we saw invocations of the generic type declaration List, such as List<Integer>. In the invocation (usually called a parameterized type), all occurrences of the formal type parameter (E in this case) are replaced by the actual type argument (in this case, Integer).
             You might imagine that List<Integer> stands for a version of List where E has been uniformly replaced by Integer:
-
+            </p>
+            <p>
             public interface IntegerList {
                 void add(Integer x);
                 Iterator<Integer> iterator();
             }
-
+            </p>
+            <p>
             This intuition can be helpful, but it's also misleading.
             It is helpful, because the parameterized type List<Integer> does indeed have methods that look just like this expansion.
             It is misleading, because the declaration of a generic is never actually expanded in this way. There aren't multiple copies of the code--not in source, not in binary, not on disk and not in memory. If you are a C++ programmer, you'll understand that this is very different than a C++ template.

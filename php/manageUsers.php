@@ -89,7 +89,7 @@
                     <fieldset>
                         <p>
                             <label for="lnickname">Nickname</label>
-                            <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onfocus="BanUser_HideBanUserError()" />
+                            <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onchange="BanUser_HideBanUserError()" />
                         </p>
                         <p>
                             <input class="profile-input" name="submit" type="submit" value="Esegui" />

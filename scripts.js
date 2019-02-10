@@ -1,68 +1,70 @@
-function openMobileSidebar(){
-    var wrapper=document.getElementById("sidebar-wrapper");
-    var mask=document.getElementById("mobile-sidebar-mask");
-    if(wrapper!=null && mask!=null){
-        wrapper.style.width="70%";
-        mask.style.display="block";
-        mask.style.backgroundColor="rgba(0,0,0,0.5)";
+function openMobileSidebar() {
+    var wrapper = document.getElementById("sidebar-wrapper");
+    var mask = document.getElementById("mobile-sidebar-mask");
+    if (wrapper != null && mask != null) {
+        wrapper.style.width = "70%";
+        mask.style.display = "block";
+        mask.style.backgroundColor = "rgba(0,0,0,0.5)";
     }
 }
-function loadCSSstylesheet(){
-    var file = location.pathname.split( "/" ).pop();
 
-    var link = document.createElement( "link" );
+function loadCSSstylesheet() {
+    var file = location.pathname.split("/").pop();
+
+    var link = document.createElement("link");
     link.href = "onlyJS.css";
     link.type = "text/css";
     link.rel = "stylesheet";
-    document.getElementsByTagName( "head" )[0].appendChild( link );	
+    document.getElementsByTagName("head")[0].appendChild(link);
 }
-function closeMobileSidebar(){
-    var wrapper=document.getElementById("sidebar-wrapper");
-    var mask=document.getElementById("mobile-sidebar-mask");
-    if(wrapper!=null && mask!=null){
-        wrapper.style.width="0%";
-        mask.style.backgroundColor="rgba(0,0,0,0.0)";		
-        mask.style.display="none";
+
+function closeMobileSidebar() {
+    var wrapper = document.getElementById("sidebar-wrapper");
+    var mask = document.getElementById("mobile-sidebar-mask");
+    if (wrapper != null && mask != null) {
+        wrapper.style.width = "0%";
+        mask.style.backgroundColor = "rgba(0,0,0,0.0)";
+        mask.style.display = "none";
     }
 }
 
-function toggleMobileNavMenu(){
-    var menu=document.getElementById("menu");
-    if(menu!=null){
-        if(menu.style.display=="block"){
-            menu.style.display="none";		
-        }else{
-            menu.style.display="block";	
+function toggleMobileNavMenu() {
+    var menu = document.getElementById("menu");
+    if (menu != null) {
+        if (menu.style.display == "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
         }
     }
 }
 
-function sidebarExpandButtons(){
+function sidebarExpandButtons() {
     var buttons = document.getElementsByClassName("expand-button");
-    for(var i=0; i<buttons.length;i++){
-        buttons[i].addEventListener("click",function(e){
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function (e) {
             e = e || window.event;
             var target = e.target || e.srcElement;
-            var sublist= target.parentNode.parentNode.getElementsByTagName("UL")[0];
-            if(sublist.style.display=="block"){
-                target.src="img/expand-button.svg";
-                sublist.style.display="none";
-            }else{
-                sublist.style.display="block";
-                target.src="img/collapse-button.svg";				
+            var sublist = target.parentNode.parentNode.getElementsByTagName("UL")[0];
+            if (sublist.style.display == "block") {
+                target.src = "img/expand-button.svg";
+                sublist.style.display = "none";
+            } else {
+                sublist.style.display = "block";
+                target.src = "img/collapse-button.svg";
             }
-        },false);
+        }, false);
     }
 }
 
 //apre automaticamente la sezione del topic nella sidebar
-function sidebarExtendTopic(topicID){
+function sidebarExtendTopic(topicID) {
     var topic = document.getElementById(topicID);
-    if(topic != null){
+    if (topic != null) {
         var sublist = topic.parentNode.parentNode.getElementsByTagName("UL")[0];
-        topic.src="img/collapse-button.svg";
+        topic.src = "img/collapse-button.svg";
         topic.setAttribute("name", "auto-opened");
-        sublist.style.display="block";
+        sublist.style.display = "block";
     }
 }
 
@@ -74,54 +76,63 @@ function sidebarExtendTopic(topicID){
 
 //---FUNZIONI CONTROLLO VALORI---
 
-function checkStringEquals(string1, string2){
-    if(string1 == null || string2 == null){
+function checkStringEquals(string1, string2) {
+    if (string1 == null || string2 == null) {
         return false;
     }
-    return string1 == string2;
+    return string1 === string2;
 }
 
-function checkStringIsValid(value){
-    if(value == null){
+function checkStringIsValid(value) {
+    if (value == null) {
         return false;
     }
-    if(value.trim() == ""){
+    if (value.trim() === "") {
         return false;
     }
-    if(value.length == 0){
-        return false;
-    }
-    return true;
+    return value.length !== 0;
+
 }
 
 //Validazione con espressioni regolari
 
-function checkEmailStringFormat(email){
+function checkEmailStringFormat(email) {
     //RE presa da http://jsfiddle.net/ghvj4gy9/embedded/result,js/
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
-function checkSimpleStringFormat(value){
+/*Currently not used*/
+function checkSimpleStringFormat(value) {
     var re = /^[A-Za-z]{1,99}$/;
     return re.test(value);
 }
 
-function checkFileUpload(value){
-    //TODO
-    return true;
+function checkNameStringFormat(value) {
+    var re = /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/;
+    return re.test(value);
+}
+
+function checkFileUpload(value) {
+    var _validFileExtensions = ["jpg", "jpeg", "png"];
+    var extension = value.split('.').pop();
+    if ((_validFileExtensions.indexOf(extension) > -1)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //---FUNZIONI PER MOSTRARE/NASCONDERE BOX ERRORE---
 
-function CreateErrorBox(parentID, boxID, hideOnCreate = true){
+function CreateErrorBox(parentID, boxID, hideOnCreate = true) {
     var parent = document.getElementById(parentID);
-    if(parent != null){
+    if (parent != null) {
         var createdElement = document.createElement("UL");
         createdElement.className = "regform-errorbox";
         createdElement.id = boxID;
         parent.appendChild(createdElement);
-        if(createdElement != null && hideOnCreate){
+        if (createdElement != null && hideOnCreate) {
             return true && HideErrorBox(boxID);
         }
         return true;
@@ -129,9 +140,9 @@ function CreateErrorBox(parentID, boxID, hideOnCreate = true){
     return false;
 }
 
-function HideErrorBox(boxID){
+function HideErrorBox(boxID) {
     var ErrorBox = document.getElementById(boxID);
-    if (ErrorBox!=null){
+    if (ErrorBox != null) {
         ErrorBox.style.display = "none";
         ErrorBox.innerHTML = "";
         return true;
@@ -139,9 +150,9 @@ function HideErrorBox(boxID){
     return false;
 }
 
-function ShowErrorBox(boxID, HTML_message){
+function ShowErrorBox(boxID, HTML_message) {
     var ErrorBox = document.getElementById(boxID);
-    if (ErrorBox!=null){
+    if (ErrorBox != null) {
         ErrorBox.style.display = "block";
         ErrorBox.innerHTML = HTML_message;
         return true;
@@ -154,32 +165,33 @@ function ShowErrorBox(boxID, HTML_message){
 //---
 
 //Crea il box dell'errore nella posizione data
-function LoginPage_CreateErrorBox(){
+function LoginPage_CreateErrorBox() {
     CreateErrorBox("login-error-box-zone", "js-login-input-error");
 }
 
 //Nascondi il box dell'errore
-function LoginPage_HideChangeLoginDataError(){
+function LoginPage_HideChangeLoginDataError() {
     HideErrorBox("js-login-input-error");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function LoginPage_ShowChangeLoginDataError(HTML_message){
+function LoginPage_ShowChangeLoginDataError(HTML_message) {
     ShowErrorBox("js-login-input-error", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateLoginData(){
-    email = document.getElementById("lemail").value;
-    password = document.getElementById("lpassword").value;
+function validateLoginData() {
+    var email = document.getElementById("lemail").value;
+    var password = document.getElementById("lpassword").value;
+
     var errorMessage = "";
-    if(!checkStringIsValid(email) || email.length > 100){
-        errorMessage += "<li>L'email inserita non è valida!</li>";
-    } 
-    if(!checkStringIsValid(password) || password.length > 100){
-        errorMessage += "<li>La password inserita non è valida!</li>";
+    if (!checkStringIsValid(email) || email.length > 100) {
+        errorMessage += "<li>The email is not valid!</li>";
     }
-    if(errorMessage != ""){
+    if (!checkStringIsValid(password) || password.length > 100) {
+        errorMessage += "<li>The password is invalid!</li>";
+    }
+    if (errorMessage !== "") {
         LoginPage_ShowChangeLoginDataError(errorMessage);
         return false;
     }
@@ -191,44 +203,45 @@ function validateLoginData(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function RegisterPage_CreateErrorBox(){
+function RegisterPage_CreateErrorBox() {
     CreateErrorBox("register-error-box-zone", "js-register-input-error");
 }
 
 //Nascondi il box dell'errore
-function RegisterPage_HideChangeLoginDataError(){
+function RegisterPage_HideChangeLoginDataError() {
     HideErrorBox("js-register-input-error");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function RegisterPage_ShowChangeLoginDataError(HTML_message){
+function RegisterPage_ShowChangeLoginDataError(HTML_message) {
     ShowErrorBox("js-register-input-error", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateRegisterData(){
-    email = document.getElementById("lemail").value;
-    nick = document.getElementById("lnickname").value;
-    name = document.getElementById("lname").value;
-    surname = document.getElementById("lsurname").value;
-    password = document.getElementById("lpassword").value;
+function validateRegisterData() {
+    var email = document.getElementById("lemail").value;
+    var nick = document.getElementById("lnickname").value;
+    var name = document.getElementById("lname").value;
+    var surname = document.getElementById("lsurname").value;
+    var password = document.getElementById("lpassword").value;
+
     var errorMessage = "";
-    if(!checkStringIsValid(email) || email.length > 100 || !checkEmailStringFormat(email)){
-        errorMessage += "<li>L'email inserita non è valida!</li>";
+    if (!checkStringIsValid(email) || email.length > 100 || !checkEmailStringFormat(email)) {
+        errorMessage += "<li>The email is not valid!</li>";
     }
-    if(!checkStringIsValid(nick) || nick.length > 100){
-        errorMessage += "<li>Il nickname inserito non è valido!</li>";
+    if (!checkStringIsValid(nick) || nick.length > 100) {
+        errorMessage += "<li>The nickname is not valid!</li>";
     }
-    if(!checkStringIsValid(name) || name.length > 100 || !checkSimpleStringFormat(name)){
-        errorMessage += "<li>Il nome inserito non è valido!</li>";
+    if (!checkStringIsValid(name) || name.length > 100 || !checkNameStringFormat(name)) {
+        errorMessage += "<li>The name is not valid!</li>";
     }
-    if(!checkStringIsValid(surname) || surname.length > 100 || !checkSimpleStringFormat(surname)){
-        errorMessage += "<li>Il cognome inserito non è valido!</li>";
+    if (!checkStringIsValid(surname) || surname.length > 100 || !checkNameStringFormat(surname)) {
+        errorMessage += "<li>The surname entered is not valid!</li>";
     }
-    if(!checkStringIsValid(password) || password.length > 100){
-        errorMessage += "<li>La password inserita non è valida!</li>";
+    if (!checkStringIsValid(password) || password.length > 100) {
+        errorMessage += "<li>The password is invalid!</li>";
     }
-    if(errorMessage != ""){
+    if (errorMessage !== "") {
         RegisterPage_ShowChangeLoginDataError(errorMessage);
         return false;
     }
@@ -242,36 +255,37 @@ function validateRegisterData(){
 //--->Zona di cambio dei dati base
 
 //Crea il box dell'errore nella posizione data
-function ProfilePage_CreateErrorBox_BasicData(){
+function ProfilePage_CreateErrorBox_BasicData() {
     CreateErrorBox("profile-error-box-base-data", "base-data-error-box");
 }
 
 //Nascondi il box dell'errore
-function ProfilePage_HideChangeBasicDataPWError(){
+function ProfilePage_HideChangeBasicDataPWError() {
     HideErrorBox("base-data-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function ProfilePage_ShowChangeBasicDataError(HTML_message){
+function ProfilePage_ShowChangeBasicDataError(HTML_message) {
     ShowErrorBox("base-data-error-box", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateChangeBasicData(){
-    nickname = document.getElementById("lnickname").value;
-    name = document.getElementById("lname").value;
-    surname = document.getElementById("lsurname").value;
+function validateChangeBasicData() {
+    var nickname = document.getElementById("lnickname").value;
+    var name = document.getElementById("lname").value;
+    var surname = document.getElementById("lsurname").value;
+
     var errorMessage = "";
-    if(!checkStringIsValid(nickname) || nickname.length > 100){
-        errorMessage += "<li>Il nickname inserito non è valido!</li>";
-    } 
-    if(!checkStringIsValid(name) || name.length > 100 || !checkSimpleStringFormat(name)){
-        errorMessage += "<li>Il nome inserito non è valido!</li>";
+    if (!checkStringIsValid(nickname) || nickname.length > 100) {
+        errorMessage += "<li>The entered nickname is not valid!</li>";
     }
-    if(!checkStringIsValid(surname) || surname.length > 100 || !checkSimpleStringFormat(surname)){
-        errorMessage += "<li>Il cognome inserito non è valido!</li>";
+    if (!checkStringIsValid(name) || name.length > 100 || !checkNameStringFormat(name)) {
+        errorMessage += "<li>The name is not valid!</li>";
     }
-    if(errorMessage != ""){
+    if (!checkStringIsValid(surname) || surname.length > 100 || !checkNameStringFormat(surname)) {
+        errorMessage += "<li>The surname is not valid!</li>";
+    }
+    if (errorMessage !== "") {
         ProfilePage_ShowChangeBasicDataError(errorMessage);
         return false;
     }
@@ -281,41 +295,42 @@ function validateChangeBasicData(){
 //--->Zona di cambio password
 
 //Crea il box dell'errore nella posizione data
-function ProfilePage_CreateErrorBox_ChangePw(){
+function ProfilePage_CreateErrorBox_ChangePw() {
     CreateErrorBox("profile-error-box-change-pw", "password-error-box");
 }
 
 //Nascondi il box dell'errore
-function ProfilePage_HideChangePWError(){
+function ProfilePage_HideChangePWError() {
     HideErrorBox("password-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function ProfilePage_ShowChangePwError(HTML_message){
+function ProfilePage_ShowChangePwError(HTML_message) {
     ShowErrorBox("password-error-box", HTML_message);
 }
 
 //Valida i dati del cambio password
-function validateChangePassword(){
-    original_password = document.getElementById("lold-password").value;
-    new_password_1 = document.getElementById("lnew-password").value;
-    new_password_2 = document.getElementById("lconf-new-password").value;
+function validateChangePassword() {
+    var original_password = document.getElementById("lold-password").value;
+    var new_password_1 = document.getElementById("lnew-password").value;
+    var new_password_2 = document.getElementById("lconf-new-password").value;
+
     var errorMessage = "";
-    if(!checkStringIsValid(original_password) || original_password.length > 100){
-        errorMessage += "<li>La passowrd originale non è valida!</li>";
-    } 
-    if(!checkStringIsValid(new_password_1) || new_password_1.length > 100){
-        errorMessage += "<li>La nuova password non è valida!</li>";
+    if (!checkStringIsValid(original_password) || original_password.length > 100) {
+        errorMessage += "<li>The original password is invalid!</li>";
     }
-    if(!checkStringIsValid(new_password_2) || new_password_2.length > 100){
-        errorMessage += "<li>La conferma della nuova password non è valida!</li>";
+    if (!checkStringIsValid(new_password_1) || new_password_1.length > 100) {
+        errorMessage += "<li>The new password is invalid!</li>";
     }
-    if(errorMessage != ""){
+    if (!checkStringIsValid(new_password_2) || new_password_2.length > 100) {
+        errorMessage += "<li>Confirmation of the new password is invalid!</li>";
+    }
+    if (errorMessage !== "") {
         ProfilePage_ShowChangePwError(errorMessage);
         return false;
     }
-    if(!checkStringEquals(new_password_1, new_password_2)){
-        ProfilePage_ShowChangePwError("<li>Le due password non coincidono!</li>");
+    if (!checkStringEquals(new_password_1, new_password_2)) {
+        ProfilePage_ShowChangePwError("<li>The two passwords do not match!</li>");
         return false;
     }
     return true;
@@ -326,37 +341,37 @@ function validateChangePassword(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function ManageArguments_CreateErrorBox_InsertCard(){
+function ManageArguments_CreateErrorBox_InsertCard() {
     CreateErrorBox("arguments-error-box-insert-card", "card-error-box");
 }
 
 //Nascondi il box dell'errore
-function ManageArguments_HideInsertCardError(){
+function ManageArguments_HideInsertCardError() {
     HideErrorBox("card-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function ManageArguments_ShowInsertCardError(HTML_message){
+function ManageArguments_ShowInsertCardError(HTML_message) {
     ShowErrorBox("card-error-box", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateInsertCardData(){
-    title = document.getElementById("title-input-box").value;
-    description = document.getElementById("descrizione").value;
-    image = document.getElementById("file-upload").value;
+function validateInsertCardData() {
+    var title = document.getElementById("title-input-box").value;
+    var description = document.getElementById("descrizione").value;
+    var image = document.getElementById("file-upload").value;
 
     var errorMessage = "";
-    if(!checkStringIsValid(title) || title.length > 100){
-        errorMessage += "<li>Il titolo non è valido!</li>";
+    if (!checkStringIsValid(title) || title.length > 100) {
+        errorMessage += "<li>The title is not valid!</li>";
     }
-    if(!checkStringIsValid(description) || description.length > 10000){
-        errorMessage += "<li>La descrizione non è valida!</li>";
+    if (!checkStringIsValid(description) || description.length > 10000) {
+        errorMessage += "<li>The description is invalid!</li>";
     }
-    if(!checkFileUpload(image)){
-        errorMessage += "<li>L'immagine di copertina non è valida!</li>";
+    if (!checkFileUpload(image)) {
+        errorMessage += "<li>The cover image is invalid (probably you're not uploading an image)!</li>";
     }
-    if(errorMessage != ""){
+    if (errorMessage !== "") {
         ManageArguments_ShowInsertCardError(errorMessage);
         return false;
     }
@@ -368,30 +383,30 @@ function validateInsertCardData(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function ReadArticle_CreateErrorBox_InsertComment(){
+function ReadArticle_CreateErrorBox_InsertComment() {
     CreateErrorBox("comments-error-box-insert-comment", "insert-comment-error-box");
 }
 
 //Nascondi il box dell'errore
-function ReadArticle_HideInsertCommentError(){
+function ReadArticle_HideInsertCommentError() {
     HideErrorBox("insert-comment-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function ReadArticle_ShowInsertCommentError(HTML_message){
+function ReadArticle_ShowInsertCommentError(HTML_message) {
     ShowErrorBox("insert-comment-error-box", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateInsertCommentData(){
+function validateInsertCommentData() {
     var commentTextArea = document.getElementById("comment-text-area-input").value;
 
     var errorMessage = "";
-    if(!checkStringIsValid(commentTextArea) || commentTextArea.length > 10000){
-        errorMessage += "<li>Il commento non è valido!</li>";
+    if (!checkStringIsValid(commentTextArea) || commentTextArea.length > 10000) {
+        errorMessage += "<li>The comment content is invalid!</li>";
     }
 
-    if(errorMessage != ""){
+    if (errorMessage !== "") {
         ReadArticle_ShowInsertCommentError(errorMessage);
         return false;
     }
@@ -403,34 +418,34 @@ function validateInsertCommentData(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function ArticleLinks_CreateErrorBox_InsertNewSubtopic(){
+function ArticleLinks_CreateErrorBox_InsertNewSubtopic() {
     CreateErrorBox("subtopics-error-box-insert-subtopic", "insert-new-subtopic-error-box");
 }
 
 //Nascondi il box dell'errore
-function ArticleLinks_HideInsertNewSubtopicError(){
+function ArticleLinks_HideInsertNewSubtopicError() {
     HideErrorBox("insert-new-subtopic-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function ArticleLinks_ShowInsertNewSubtopicError(HTML_message){
+function ArticleLinks_ShowInsertNewSubtopicError(HTML_message) {
     ShowErrorBox("insert-new-subtopic-error-box", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateInsertNewSubtopicData(){
+function validateInsertNewSubtopicData() {
     var subtopic_title = document.getElementById("new-subtopic-title").value;
     var subtopic_description = document.getElementById("descrizione").value;
 
     var errorMessage = "";
-    if(!checkStringIsValid(subtopic_title) || subtopic_title.length > 100){
-        errorMessage += "<li>Il titolo non è valido!</li>";
+    if (!checkStringIsValid(subtopic_title) || subtopic_title.length > 100) {
+        errorMessage += "<li>The title is not valid!</li>";
     }
-    if(!checkStringIsValid(subtopic_description) || subtopic_description.length > 10000){
-        errorMessage += "<li>La descrizione non è valida!</li>";
+    if (!checkStringIsValid(subtopic_description) || subtopic_description.length > 10000) {
+        errorMessage += "<li>The description is not valid!</li>";
     }
 
-    if(errorMessage != ""){
+    if (errorMessage !== "") {
         ArticleLinks_ShowInsertNewSubtopicError(errorMessage);
         return false;
     }
@@ -442,37 +457,38 @@ function validateInsertNewSubtopicData(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function RecoverPassword_CreateErrorBox_ChangePw(){
+function RecoverPassword_CreateErrorBox_ChangePw() {
     CreateErrorBox("forgot-pw-error-box-change-password", "recover-password-error-box");
 }
 
 //Nascondi il box dell'errore
-function RecoverPassword_HideChangePwError(){
+function RecoverPassword_HideChangePwError() {
     HideErrorBox("recover-password-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function RecoverPassword_ShowChangePwError(HTML_message){
+function RecoverPassword_ShowChangePwError(HTML_message) {
     ShowErrorBox("recover-password-error-box", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateRecoverPasswordData(){
-    new_password_1 = document.getElementById("lpassword").value;
-    new_password_2 = document.getElementById("lpassword-confirm").value;
+function validateRecoverPasswordData() {
+    var new_password_1 = document.getElementById("lpassword").value;
+    var new_password_2 = document.getElementById("lpassword-confirm").value;
+
     var errorMessage = "";
-    if(!checkStringIsValid(new_password_1) || new_password_1.length > 100){
-        errorMessage += "<li>La nuova password non è valida!</li>";
+    if (!checkStringIsValid(new_password_1) || new_password_1.length > 100) {
+        errorMessage += "<li>The new password is invalid!</li>";
     }
-    if(!checkStringIsValid(new_password_2) || new_password_2.length > 100){
-        errorMessage += "<li>La conferma della nuova password non è valida!</li>";
+    if (!checkStringIsValid(new_password_2) || new_password_2.length > 100) {
+        errorMessage += "<li>The confirmation of the new password is invalid!</li>";
     }
-    if(errorMessage != ""){
+    if (errorMessage !== "") {
         RecoverPassword_ShowChangePwError(errorMessage);
         return false;
     }
-    if(!checkStringEquals(new_password_1, new_password_2)){
-        RecoverPassword_ShowChangePwError("<li>Le due password non coincidono!</li>");
+    if (!checkStringEquals(new_password_1, new_password_2)) {
+        RecoverPassword_ShowChangePwError("<li>The two passwords do not match!</li>");
         return false;
     }
     return true;
@@ -483,34 +499,34 @@ function validateRecoverPasswordData(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function InsertArticle_CreateErrorBox_InsertArticle(){
+function InsertArticle_CreateErrorBox_InsertArticle() {
     CreateErrorBox("insert-article-error-box", "recover-password-error-box");
 }
 
 //Nascondi il box dell'errore
-function InsertArticle_HideInsertArticleError(){
+function InsertArticle_HideInsertArticleError() {
     HideErrorBox("recover-password-error-box");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function InsertArticle_ShowInsertArticleError(HTML_message){
+function InsertArticle_ShowInsertArticleError(HTML_message) {
     ShowErrorBox("recover-password-error-box", HTML_message);
 }
 
 //Valida i dati del cambio dati base
-function validateInsertNewArticleData(){
+function validateInsertNewArticleData() {
     var article_title = document.getElementById("title").value;
     var article_content = document.getElementById("new-article-content").value;
 
     var errorMessage = "";
-    if(!checkStringIsValid(article_title) || article_title.length > 100){
-        errorMessage += "<li>Il titolo non è valido!</li>";
+    if (!checkStringIsValid(article_title) || article_title.length > 100) {
+        errorMessage += "<li>The title is not valid!</li>";
     }
-    if(!checkStringIsValid(article_content) || article_content.length > 100000){
-        errorMessage += "<li>Il contenuto dell'articolo non è valido!</li>";
+    if (!checkStringIsValid(article_content) || article_content.length > 100000) {
+        errorMessage += "<li>The content of the article is not valid!</li>";
     }
 
-    if(errorMessage != ""){
+    if (errorMessage !== "") {
         InsertArticle_ShowInsertArticleError(errorMessage);
         return false;
     }
@@ -522,28 +538,29 @@ function validateInsertNewArticleData(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function AddAdmin_CreateErrorBox(){
+function AddAdmin_CreateErrorBox() {
     CreateErrorBox("add-admin-error-box-zone", "js-add-admin-input-error");
 }
 
 //Nascondi il box dell'errore
-function AddAdmin_HideAddAdminEmailError(){
+function AddAdmin_HideAddAdminEmailError() {
     HideErrorBox("js-add-admin-input-error");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function AddAdmin_ShowAddAdminEmailError(HTML_message){
+function AddAdmin_ShowAddAdminEmailError(HTML_message) {
     ShowErrorBox("js-add-admin-input-error", HTML_message);
 }
 
 //Valida se l'email dell'utente è valida
-function validateAddAdminData(){
-    email = document.getElementById("lemail").value;
+function validateAddAdminData() {
+    var email = document.getElementById("lemail").value;
+
     var errorMessage = "";
-    if(!checkStringIsValid(email) || email.length > 100){
-        errorMessage += "<li>L'email inserita non è valida!</li>";
-    } 
-    if(errorMessage != ""){
+    if (!checkStringIsValid(email) || email.length > 100) {
+        errorMessage += "<li>The email entered is not valid!</li>";
+    }
+    if (errorMessage !== "") {
         AddAdmin_ShowAddAdminEmailError(errorMessage);
         return false;
     }
@@ -555,28 +572,28 @@ function validateAddAdminData(){
 //---
 
 //Crea il box dell'errore nella posizione data
-function BanUser_CreateErrorBox(){
+function BanUser_CreateErrorBox() {
     CreateErrorBox("ban-user-error-box-zone", "js-ban-user-input-error");
 }
 
 //Nascondi il box dell'errore
-function BanUser_HideBanUserError(){
+function BanUser_HideBanUserError() {
     HideErrorBox("js-ban-user-input-error");
 }
 
 //Mostra il box dell'errore con un messaggio specifico
-function BanUser_ShowBanUserNicknameError(HTML_message){
+function BanUser_ShowBanUserNicknameError(HTML_message) {
     ShowErrorBox("js-ban-user-input-error", HTML_message);
 }
 
 //Valida se il nickname dato è valido
-function validateBanUserData(){
+function validateBanUserData() {
     nick = document.getElementById("lnickname").value;
     var errorMessage = "";
-    if(!checkStringIsValid(nick) || nick.length > 100){
-        errorMessage += "<li>Il nickname inserito non è valido!</li>";
+    if (!checkStringIsValid(nick) || nick.length > 100) {
+        errorMessage += "<li>The entered nickname is not valid!</li>";
     }
-    if(errorMessage != ""){
+    if (errorMessage !== "") {
         BanUser_ShowBanUserNicknameError(errorMessage);
         return false;
     }
@@ -587,155 +604,158 @@ function validateBanUserData(){
 //Principali EventListener
 //----------------------------------------------------
 function resize(lastWidth) {
-    if(window.innerWidth!=lastWidth){
-        var wrapper=document.getElementById("sidebar-wrapper");
-        var mask=document.getElementById("mobile-sidebar-mask");
-        var menu=document.getElementById("menu");
-        if(window.innerWidth>768){
-            if(wrapper!=null && mask!=null){
-                wrapper.style.width="25%";
-                mask.style.backgroundColor="rgba(0,0,0,0.0)";       
-                mask.style.display="none";
+    if (window.innerWidth != lastWidth) {
+        var wrapper = document.getElementById("sidebar-wrapper");
+        var mask = document.getElementById("mobile-sidebar-mask");
+        var menu = document.getElementById("menu");
+        if (window.innerWidth > 768) {
+            if (wrapper != null && mask != null) {
+                wrapper.style.width = "25%";
+                mask.style.backgroundColor = "rgba(0,0,0,0.0)";
+                mask.style.display = "none";
             }
-            if(menu!=null){
-                menu.style.display="block";
+            if (menu != null) {
+                menu.style.display = "block";
             }
-        }else{
-            if(wrapper!=null){
-                wrapper.style.width="0%";
+        } else {
+            if (wrapper != null) {
+                wrapper.style.width = "0%";
             }
-            if(menu!=null){
-                menu.style.display="none";
+            if (menu != null) {
+                menu.style.display = "none";
             }
 
         }
     }
     return window.innerWidth;
 }
-function manageResize(){
-    var l=window.innerWidth;
-    window.addEventListener('resize',function(){l=resize(l)}, false);
+
+function manageResize() {
+    var l = window.innerWidth;
+    window.addEventListener('resize', function () {
+        l = resize(l)
+    }, false);
 }
 
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
     loadCSSstylesheet();
-    var hamburger=document.getElementById("nav-hamburger");
-    var mask=document.getElementById("mobile-sidebar-mask");
-    var closeButton=document.getElementById("close-sidebar-button");
-    var menuIcon=document.getElementById("nav-menu-icon");
-    if(hamburger!=null && mask!=null && closeButton!=null){
-        hamburger.addEventListener("click",openMobileSidebar, true);
-        mask.addEventListener("click",closeMobileSidebar, true);
-        closeButton.addEventListener("click",closeMobileSidebar,true);
+    var hamburger = document.getElementById("nav-hamburger");
+    var mask = document.getElementById("mobile-sidebar-mask");
+    var closeButton = document.getElementById("close-sidebar-button");
+    var menuIcon = document.getElementById("nav-menu-icon");
+    if (hamburger != null && mask != null && closeButton != null) {
+        hamburger.addEventListener("click", openMobileSidebar, true);
+        mask.addEventListener("click", closeMobileSidebar, true);
+        closeButton.addEventListener("click", closeMobileSidebar, true);
     }
-    if(menuIcon!=null){
-        menuIcon.addEventListener("click",toggleMobileNavMenu , true);
+    if (menuIcon != null) {
+        menuIcon.addEventListener("click", toggleMobileNavMenu, true);
     }
     //Profile.php
-    var changePwForm=document.getElementById("change_pw_form");
-    var changeBasicDataForm=document.getElementById("change_basic_data_form");
-    if(changePwForm!=null){
+    var changePwForm = document.getElementById("change_pw_form");
+    var changeBasicDataForm = document.getElementById("change_basic_data_form");
+    if (changePwForm != null) {
         ProfilePage_CreateErrorBox_ChangePw();
-        changePwForm.addEventListener("submit", function(event) {
-            if(!validateChangePassword()){
+        changePwForm.addEventListener("submit", function (event) {
+            if (!validateChangePassword()) {
                 event.preventDefault();
             }
         }, false);
     }
-    if(changeBasicDataForm!=null){
+    if (changeBasicDataForm != null) {
         ProfilePage_CreateErrorBox_BasicData();
-        changeBasicDataForm.addEventListener("submit", function(event) {
-            if(!validateChangeBasicData()){
+        changeBasicDataForm.addEventListener("submit", function (event) {
+            if (!validateChangeBasicData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //Login.php
-    var mainLoginForm=document.getElementById("login-main-form");
-    if(mainLoginForm != null){
+    var mainLoginForm = document.getElementById("login-main-form");
+    if (mainLoginForm != null) {
         LoginPage_CreateErrorBox();
-        mainLoginForm.addEventListener("submit", function(event) {
-            if(!validateLoginData()){
+        mainLoginForm.addEventListener("submit", function (event) {
+            if (!validateLoginData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //Register.php
-    var mainRegisterForm=document.getElementById("register-main-form");
-    if(mainRegisterForm != null){
+    var mainRegisterForm = document.getElementById("register-main-form");
+    if (mainRegisterForm != null) {
         RegisterPage_CreateErrorBox();
-        mainRegisterForm.addEventListener("submit", function(event) {
-            if(!validateRegisterData()){
+        mainRegisterForm.addEventListener("submit", function (event) {
+            if (!validateRegisterData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //Manage Argument.php
-    var insertCardForm=document.getElementById("insert-new-card-form");
-    if(insertCardForm != null){
+    var insertCardForm = document.getElementById("insert-new-card-form");
+    if (insertCardForm != null) {
         ManageArguments_CreateErrorBox_InsertCard();
-        insertCardForm.addEventListener("submit", function(event) {
-            if(!validateInsertCardData()){
+        insertCardForm.addEventListener("submit", function (event) {
+            if (!validateInsertCardData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //Comments.php
-    var insertCommentForm=document.getElementById("insert-new-comment-form");
-    if(insertCommentForm != null){
+    var insertCommentForm = document.getElementById("insert-new-comment-form");
+    if (insertCommentForm != null) {
         ReadArticle_CreateErrorBox_InsertComment();
-        insertCommentForm.addEventListener("submit", function(event) {
-            if(!validateInsertCommentData()){
+        insertCommentForm.addEventListener("submit", function (event) {
+            if (!validateInsertCommentData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //ArticleLinks
-    var insertSubtopicForm=document.getElementById("insert-new-subtopic-form");
-    if(insertSubtopicForm != null){
+    var insertSubtopicForm = document.getElementById("insert-new-subtopic-form");
+    if (insertSubtopicForm != null) {
         ArticleLinks_CreateErrorBox_InsertNewSubtopic();
-        insertSubtopicForm.addEventListener("submit", function(event) {
-            if(!validateInsertNewSubtopicData()){
+        insertSubtopicForm.addEventListener("submit", function (event) {
+            if (!validateInsertNewSubtopicData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //RecoverPassword
-    var recoverPasswordChangeForm=document.getElementById("change-password-forgot-token");
-    if(recoverPasswordChangeForm != null){
+    var recoverPasswordChangeForm = document.getElementById("change-password-forgot-token");
+    if (recoverPasswordChangeForm != null) {
         RecoverPassword_CreateErrorBox_ChangePw();
-        recoverPasswordChangeForm.addEventListener("submit", function(event) {
-            if(!validateRecoverPasswordData()){
+        recoverPasswordChangeForm.addEventListener("submit", function (event) {
+            if (!validateRecoverPasswordData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //InsertArticle
-    var insertNewArticleForm=document.getElementById("write-article-form");
-    if(insertNewArticleForm != null){
+    var insertNewArticleForm = document.getElementById("write-article-form");
+    if (insertNewArticleForm != null) {
         InsertArticle_CreateErrorBox_InsertArticle();
-        insertNewArticleForm.addEventListener("submit", function(event) {
-            if(!validateInsertNewArticleData()){
+        insertNewArticleForm.addEventListener("submit", function (event) {
+            if (!validateInsertNewArticleData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //AddAdmin
-    var addAdminForm=document.getElementById("add-admin-form");
-    if(addAdminForm != null){
+    var addAdminForm = document.getElementById("add-admin-form");
+    if (addAdminForm != null) {
         AddAdmin_CreateErrorBox();
-        addAdminForm.addEventListener("submit", function(event) {
-            if(!validateAddAdminData()){
+        addAdminForm.addEventListener("submit", function (event) {
+            if (!validateAddAdminData()) {
                 event.preventDefault();
             }
         }, false);
     }
     //BanUser
-    var banUserForm=document.getElementById("ban-user-form");
-    if(banUserForm != null){
+    var banUserForm = document.getElementById("ban-user-form");
+    if (banUserForm != null) {
         BanUser_CreateErrorBox();
-        banUserForm.addEventListener("submit", function(event) {
-            if(!validateBanUserData()){
+        banUserForm.addEventListener("submit", function (event) {
+            if (!validateBanUserData()) {
                 event.preventDefault();
             }
         }, false);
@@ -748,12 +768,12 @@ window.addEventListener("load", function(){
 
 
 /* nav-bar menu collapse */
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     //The first argument are the elements to which the plugin shall be initialized
     //The second argument has to be at least a empty object or a object with your desired options
-    var sidebar=document.getElementById("sidebar-wrapper");
-    if(sidebar!=null){
-        OverlayScrollbars(sidebar, { });
+    var sidebar = document.getElementById("sidebar-wrapper");
+    if (sidebar != null) {
+        OverlayScrollbars(sidebar, {});
     }
 });
 
@@ -762,11 +782,25 @@ document.addEventListener("DOMContentLoaded", function() {
 //----------------------------------------------------
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.addEventListener("scroll", function () {
+    var passiveSupported = false;
+    try {
+        var options = {
+            get passive() { 
+                // Questa funzione verrà chiamata quando il browser
+                // tenta di accedere alla proprietà passiva.
+                passiveSupported = true;
+            }
+        };
+    }catch(err) {
+        passiveSupported = false;
+    }
+    scrollFunction();
+});
 
 function scrollFunction() {
     var goTop = document.getElementById("retTop");
-    if(goTop!=null){
+    if (goTop != null) {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             document.getElementById("retTop").style.display = "block";
         } else {
@@ -776,10 +810,9 @@ function scrollFunction() {
 }
 
 
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-    scrollTo(document.documentElement, 0, 1250); 
+    scrollTo(document.documentElement, 0, 1250);
 }
 
 function scrollTo(element, to, duration) {
@@ -787,19 +820,19 @@ function scrollTo(element, to, duration) {
         change = to - start,
         currentTime = 0,
         increment = 20;
-        
-    var animateScroll = function(){        
+
+    var animateScroll = function () {
         currentTime += increment;
         var val = Math.easeInOutQuad(currentTime, start, change, duration);
         element.scrollTop = val;
-        if(currentTime < duration) {
+        if (currentTime < duration) {
             setTimeout(animateScroll, increment);
         }
     };
     animateScroll();
 }
 
-function commentRedirect(articleID, commentID){
+function commentRedirect(articleID, commentID) {
     window.location.replace("ReadArticle.php?id=" + articleID + '#comment_' + commentID);
 }
 
@@ -808,9 +841,9 @@ function commentRedirect(articleID, commentID){
 //c = change in value
 //d = duration
 Math.easeInOutQuad = function (t, b, c, d) {
-    t /= d/2;
-    if (t < 1) return c/2*t*t + b;
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
     t--;
-    return -c/2 * (t*(t-2) - 1) + b;
+    return -c / 2 * (t * (t - 2) - 1) + b;
 };
 

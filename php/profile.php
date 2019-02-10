@@ -76,17 +76,17 @@
                     <fieldset>
                         <p>
                             <label for="lnickname">Nickname</label>
-                            <input class="profile-input" type="text" id="lnickname" name="nickname" maxlength="100" required onfocus="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lnickname" name="nickname" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->nickname;?>"/>
                         </p>
                         <p>
                             <label for="lname">Nome</label>
-                            <input class="profile-input" type="text" id="lname" name="name" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" required onfocus="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lname" name="name" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->name;?>"/>
                         </p>
                         <p>
                             <label for="lsurname">Cognome</label>
-                            <input class="profile-input" type="text" id="lsurname" name="surname" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required onfocus="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lsurname" name="surname" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->surname;?>"/>
                         </p>
                         <p><input class="profile-input" name="submitChangeInfo" type="submit" value="Aggiorna informazioni" /></p>
@@ -113,15 +113,15 @@
                     <fieldset>
                         <p>
                             <label for="lold-password">Password attuale</label>
-                            <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Password attuale" maxlength="100" required onfocus="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Password attuale" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p>
                             <label for="lnew-password">Nuova password</label>
-                            <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="Nuova password" maxlength="100" required onfocus="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="Nuova password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p>
                             <label for="lconf-new-password">Conferma Nuova password</label>
-                            <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" placeholder="Conferma nuova password" maxlength="100" required onfocus="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" placeholder="Conferma nuova password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p><input class="profile-input" name="submitChangePassword" type="submit" value="Cambia password" /></p>
                     </fieldset>

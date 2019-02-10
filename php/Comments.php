@@ -27,12 +27,12 @@
                 <fieldset>';
                 echo '<p>
                     <label for="comment-text-area-input">Add a comment to this article</label>
-                    <textarea rows="10" cols="100" placeholder="Write a comment..." name="comment-input" id="comment-text-area-input" required onfocus="ReadArticle_HideInsertCommentError()"></textarea>
+                    <textarea rows="10" cols="100" placeholder="Write a comment..." name="comment-input" id="comment-text-area-input" required onchange="ReadArticle_HideInsertCommentError()"></textarea>
                     </p>
                         <p><input name="comment" type="submit" value="Send comment" /></p>';
                 echo '</fieldset></form>';
             }else{
-                echo '<h2>Please, login or register to comment this article...</h2>';
+                echo '<h2>Please, login or register to comment this article or to vote existing comments...</h2>';
             }
             //Destroy the object
             $connection = NULL;
@@ -92,16 +92,16 @@
                             echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                             if(isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
                                 echo '<input type="hidden" name="delete-vote" />';
-                                echo '<input type="image" alt="Pulsante non mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike-red.svg" class="vote-button vote-button-dislike" />';
+                                echo '<input type="image" title="Button to remove the dislike" alt="dislike button - already voted" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike-red.svg" class="vote-button vote-button-dislike" />';
                             }else{
                                 echo '<input type="hidden" name="isLike" value="0" />';
                                 echo '<input type="hidden" name="vote-comment" />';
-                                echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="vote-button vote-button-dislike" />';
+                                echo '<input type="image" title="Button to add a dislike" alt="dislike button" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" class="vote-button vote-button-dislike" />';
                             }
                             echo '</form>';
                         }else{ //Form non funzionante per utente non loggato
                             echo '<form class="vote-form">';
-                            echo '<input type="image" alt="Pulsante non mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" disabled class="vote-button-disabled vote-button-dislike" />';
+                            echo '<input type="image" title="Button to add a dislike - not active, login or register to vote" alt="dislike button - not active" src="https://frncscdf.github.io/Tecnologie-Web/img/dislike.svg" disabled class="vote-button-disabled vote-button-dislike" />';
                             echo '</form>';
                         }
 
@@ -123,16 +123,16 @@
                             echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
                             if(isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
                                 echo '<input type="hidden" name="delete-vote" />';
-                                echo '<input type="image" alt="Pulsante mi piace - già votato" src="https://frncscdf.github.io/Tecnologie-Web/img/like-green.svg" class="vote-button vote-button-like" />';
+                                echo '<input type="image" title="Button to remove the like" alt="like button - already voted" src="https://frncscdf.github.io/Tecnologie-Web/img/like-green.svg" class="vote-button vote-button-like" />';
                             }else{
                                 echo '<input type="hidden" name="isLike" value="1" />';
                                 echo '<input type="hidden" name="vote-comment" />';
-                                echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="vote-button vote-button-like" />';
+                                echo '<input type="image" title="Button to add a like" alt="like button" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" class="vote-button vote-button-like" />';
                             }
                             echo '</form>';
                         }else{ //Form non funzionante per utente non loggato
                             echo '<form class="vote-form">';
-                            echo '<input type="image" alt="Pulsante mi piace" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" disabled class="vote-button-disabled vote-button-like" />';
+                            echo '<input type="image" title="Button to add a like - not active, login or register to vote" alt="like button - not active" src="https://frncscdf.github.io/Tecnologie-Web/img/like.svg" disabled class="vote-button-disabled vote-button-like" />';
                             echo '</form>';
                         }
                     echo '</div>';

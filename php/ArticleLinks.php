@@ -22,7 +22,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
     <head>
         <title><?php echo Subtopics::getTopicTitle($_GET["id"]) ?>: list of articles &#124; DevSpace</title>
         <meta charset="UTF-8">

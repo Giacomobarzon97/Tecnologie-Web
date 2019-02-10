@@ -116,13 +116,13 @@
                     <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                         <input type="hidden" name="delete-article" />
                         <input type="hidden" name="articleID" value="'.$article['Id'].'" />
-                        <input type="image" alt="pulsante elimina articolo" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_link" />
+                        <input type="image" title="Delete this article" alt="button delete article" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_link" />
                     </form>
                     <form action="writeArticle.php" method="GET">
                         <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
                         <input type="hidden" name="articleID" value="'.$article['Id'].'" />
-                        <input type="image" alt="pulsante modifica articolo" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="add_button_link" />
+                        <input type="image" title="Edit this article" alt="button edit article" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="add_button_link" />
                     </form>
                     </div>';
                 }
@@ -131,7 +131,7 @@
             //Non ci sono articoli
             if(count($articles)==0){
                 echo '<li>';
-                echo '<p>Non ci sono ancora articoli in questa categoria...</p>';
+                echo '<p>There are no articles in this category...</p>';
                 echo '</li>';
             }
             //Destroy the object
@@ -148,7 +148,7 @@
                 echo '<div>'; //--Apertura div titolo--
                 //Stampa dettagli elemento
                 echo '<div class="details">';
-                echo '<h2 class="subtopic-title" >Non ci sono ancora sottoargomenti per questo argomento...</h2>';
+                echo '<h2 class="subtopic-title" >There are no subtopics for this topic ...</h2>';
                 echo '</div>';
                 echo '</div>'; //--Chiusura div titolo--
                 echo '</li>';
@@ -170,12 +170,12 @@
                     echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                             <input type="hidden" name="delete-subtopic" />
                             <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
-                            <input type="image" alt="cestino elimina sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
+                            <input type="image" title="Delete this subtopic" alt="button delete subtopic" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
                         </form>
                         <form action="writeArticle.php" method="GET">
                             <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                             <input type="hidden" name="topicID" value="'.$topicID.'" />
-                            <input type="image" alt="aggiunta sotto-argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/new-article.svg" class="add_button_gen" />
+                            <input type="image" title="Write an article for this subtopic" alt="button write article" src="https://frncscdf.github.io/Tecnologie-Web/img/new-article.svg" class="add_button_gen" />
                         </form>';
                     echo '</div>';
                 }

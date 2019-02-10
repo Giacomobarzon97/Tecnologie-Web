@@ -19,7 +19,7 @@
                 <div class='home-card-content'>
                     <h2><a href='ArticleLinks.php?id=".$topicsInfo[0]['Id']."'>".$topicsInfo[0]["Name"]."</a></h2>";
                     if(count($argumentsTitle) == 0){
-                        echo '<p>Non ci sono ancora articoli per questo argomento...</p>';
+                        echo '<p>There are no articles for this topic...</p>';
                     }else{
                         echo "<ul class='links'>";
                         foreach ($argumentsTitle as $item) {
@@ -116,15 +116,15 @@
                     <h1>Create a new topic</h1>
                     <p>
                         <label for="title-input-box">Title of the new topic:</label>
-                        <input type="text" name="titolo" id="title-input-box" placeholder="Write the topic title" required maxlength="100" />
+                        <input type="text" name="titolo" id="title-input-box" placeholder="Write the topic title" required maxlength="100" onchange="ManageArguments_HideInsertCardError()" />
                     </p>
                     <p>
                         <label for="descrizione">Description of the new topic:</label>
-                        <textarea id="descrizione" rows="10" cols="40" name="descrizione" required placeholder="Write a description for the new topic"></textarea>
+                        <textarea id="descrizione" rows="10" cols="40" name="descrizione" required placeholder="Write a description for the new topic" onchange="ManageArguments_HideInsertCardError()"></textarea>
                     </p>
                     <p>
-                        <label for="file-upload">Thumbnail image:</label>
-                        <input id="file-upload" name="upfile" type="file" required />
+                        <label for="file-upload">Thumbnail image (max 3MB):</label>
+                        <input id="file-upload" name="upfile" type="file" accept=".jpg,.jpeg,.png" required onchange="ManageArguments_HideInsertCardError()" />
                     </p>				
                     <p><input type="submit" name="add-topic" value="Create" /></p>
                 </fieldset>
@@ -136,7 +136,7 @@
                 <input type="hidden" name="delete-topic" />
                 <input type="hidden" name="image-url" value="'.$imageUrl.'" />
                 <input type="hidden" name="topicID" value="'.$topicID.'" />
-                <input type="image" alt="cestino elimina argomento" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
+                <input type="image" title="Delete this topic" alt="button delete topic" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
             </form>';
         }
 
