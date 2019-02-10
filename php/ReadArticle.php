@@ -31,7 +31,7 @@
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         <?php
-            if(isset($_POST['vote-comment'])) {
+            if(isset($_POST['vote-comment']) && isset($_SESSION['email'])) {
                 User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
             }
             if(isset($_POST['delete-vote'])) {
