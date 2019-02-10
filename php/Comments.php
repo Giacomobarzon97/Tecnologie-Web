@@ -151,7 +151,7 @@
                                 echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST" class="vote-form">';
                                 echo '<fieldset>';
                                 echo '<input type="hidden" name="commentID" value="'.$comment['Id'].'" />';
-                                echo '<p><input type="submit" name="delete-comment" value="Delete comment" class="delete-comment-link" /></p>';
+                                echo '<p><input type="submit" name="delete-comment" value="Delete comment" /></p>';
                                 echo '</fieldset>';
                                 echo '</form>';
                             }
