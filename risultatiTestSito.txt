@@ -1,0 +1,199 @@
+N.B. Google Chrome Audits verà eseguito in navigazione in incognito per evitare che le estensioni intacchino il risultato della performance
+
+General
+    style.css
+    CSS Validation Service: Congratulazioni! Nessun errore trovato.
+
+    print.css
+    CSS Validation Service: Congratulazioni! Nessun errore trovato.
+
+Index
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Colorblind Web Page Filter: OK (tutte le varianti)
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) SEO: 100
+
+Article_links(no logged in)
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Colorblind Web Page Filter: OK (tutte le varianti)
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 99(Ensure text remains visible during webfont load)  Accessibility: 100  
+                                        Best Practice: 80(Does not use HTTPS,Does not use HTTP/2,Does not use passive listeners to improve scrolling performance) 
+                                        SEO: 100
+
+Login
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Colorblind Web Page Filter: OK (tutte le varianti)
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) SEO: 100
+
+Article_links(logged in)
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100 Accessibility: 100  
+                                        Best Practice: 80(Does not use HTTPS,Does not use HTTP/2,Does not use passive listeners to improve scrolling performance) 
+                                        SEO: 100
+
+Profile
+    
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili 
+                                    Page caricata parzialmente
+                                    Non è stato possibile caricare tutte le risorse della pagina. Ciò può influire su come Google vede e comprende la tua pagina. Correggi i problemi di disponibilità per le risorse che influiscono sulla comprensione della pagina da parte di Google.
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) SEO: 100
+
+Admin Tool
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili.
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) SEO: 100
+
+Create argument
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 98(Ensure text remains visible during webfont load)  Accessibility: 100  
+                                        Best Practice: 80(Does not use HTTPS,Does not use HTTP/2,Does not use passive listeners to improve scrolling performance) 
+                                        SEO: 100
+
+
+Manage users
+    
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili.
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) SEO: 100
+    
+AddAdmin
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili.
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) SEO: 100
+
+Article(logged in)
+
+    Web Accessibility Checker: 2.4 Navigable: Provide ways to help users navigate, find content, and determine where they are.
+
+                                                    Success Criteria 2.4.6 Headings and Labels (AA)
+
+                                                    Check 37: Header nesting - header following h1 is incorrect.
+                                                    Repair: Modify the header levels so only an h1 or h2 follows h1.
+                                                    Error Line 107, Column 17:
+                                                    <h1>Process computing</h1>
+
+
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+                                    (Per il no logged in) Pagina caricata parzialmente
+                                    Non è stato possibile caricare tutte le risorse della pagina. Ciò può influire su come Google vede e comprende la tua pagina. Correggi i problemi di disponibilità per le risorse che influiscono sulla comprensione della pagina da parte di Google.
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  
+                                        Best Practice: 80(Does not use HTTPS,Does not use HTTP/2,Does not use passive listeners to improve scrolling performance) 
+                                        SEO: 100
+
+Write Article
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 98(Ensure text remains visible during webfont load)  Accessibility: 100  
+                                        Best Practice: 80(Does not use HTTPS,Does not use HTTP/2,Does not use passive listeners to improve scrolling performance) 
+                                        SEO: 100
+
+About
+    
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Colorblind Web Page Filter: OK (tutte le varianti)
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) SEO: 100
+
+Research result
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Colorblind Web Page Filter: OK (tutte le varianti)
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 99(Ensure text remains visible during webfont load)  Accessibility: 100  
+                                        Best Practice: 80(Does not use HTTPS,Does not use HTTP/2,Does not use passive listeners to improve scrolling performance) 
+                                        SEO: 100
+
+404
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Colorblind Web Page Filter: OK (tutte le varianti)
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100
+
+Registration
+
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+
+    Colorblind Web Page Filter: OK (tutte le varianti)
+
+    Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili.
+                                    Pagina caricata parzialmente
+                                    Non è stato possibile caricare tutte le risorse della pagina. Ciò può influire su come Google vede e comprende la tua pagina. Correggi i problemi di disponibilità per le risorse che influiscono sulla comprensione della pagina da parte di Google.
+
+    Markup Validator Service: Document checking completed. No errors or warnings to show.
+
+    Google Chrome Audits(Desktop/Mobile): Performance: 100  Accessibility: 100  
+                                        Best Practice: 87(Does not use HTTPS,Does not use HTTP/2) 
+                                        SEO: 100
