@@ -267,6 +267,10 @@ input[type="submit"]:hover {
     font-size: 1.2em;
 }
 
+.article-content{
+    padding: 0px 4%;
+}
+
 #article-info li {
     display: inline-block;
     margin-right: 2%;
