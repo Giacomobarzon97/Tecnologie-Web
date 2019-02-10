@@ -61,10 +61,11 @@
             <div id="main">
                 <div id="content-article-introduction">
                 <?php
+                    echo '<div id="arguments-error-box-insert-card">';
                     //aggiungi card
                     if(isset($_POST['add-topic'])){
                         $result = upload($_FILES['upfile']['name'], $_FILES['upfile']['size'], $_FILES['upfile']['type'], $_FILES['upfile']['tmp_name']);
-                        echo '<div id="arguments-error-box-insert-card">';
+
                         if($result->getIsError()){
                             echo '<ul class="regform-errorbox">';
                             echo $result->getMessage();
@@ -83,8 +84,9 @@
                                 echo '</ul>';
                             }
                         }
-                        echo '</div>';
+
                     }
+                    echo '</div>';
 
                     Card::printInsertNewCardForm();
                 ?>

@@ -123,7 +123,7 @@
                         <textarea id="descrizione" rows="10" cols="40" name="descrizione" required placeholder="Write a description for the new topic"></textarea>
                     </p>
                     <p>
-                        <label for="file-upload">Thumbnail image:</label>
+                        <label for="file-upload">Thumbnail image (max 3MB):</label>
                         <input id="file-upload" name="upfile" type="file" required />
                     </p>				
                     <p><input type="submit" name="add-topic" value="Create" /></p>
