@@ -2,7 +2,7 @@
     overflow-y: hidden;
 }
 
-#sidebar > li > ul {
+.sidebar > li > ul {
     display: none;
 }
 
