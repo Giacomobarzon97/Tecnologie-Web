@@ -2,7 +2,7 @@
     echo '<div id="footer">
         <div id="upper-footer">
             <p>powered by</p>
-            <h1>Università di Padova</h1>
+            <h1>University of Padua</h1>
         </div>
         <div id="lower-footer">
             <div id="developers">

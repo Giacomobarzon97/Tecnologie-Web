@@ -209,7 +209,10 @@
         
         // $ban true se va bannato, false se va tolto il ban
         static function userSuspend($nickname) {
-            if(!isset($nickname) || User::isBanned($nickname)) {
+            if(!isset($nickname)) {
+                return new ResultManager("Utente inesistente!", true);
+            } 
+            if(User::isBanned($nickname)) {
                 return new ResultManager("Utente già sospeso!", true);
             }
             $actualNickname = unserialize($_SESSION['userInfo'])->nickname;
@@ -218,6 +221,14 @@
             }
 
             $connection = new Connection();
+            $connection -> prepareQuery(
+                "SELECT * FROM USERS WHERE Nickname = '".$nickname."'");
+            $result = $connection -> executeQuery();
+            if(!isset($result[0])) {
+                return new ResultManager("Utente inesistente!", true);
+            }
+
+            
             $connection -> prepareQuery(
             "UPDATE USERS SET Banned = '1' WHERE Nickname = '".$nickname."'");
             $result = $connection -> executeQueryDML();

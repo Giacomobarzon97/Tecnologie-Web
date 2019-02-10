@@ -3,13 +3,12 @@
     include_once('Card.php');
 ?>
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
     <head>
     <title>Errore &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina gestione errori" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
-        <meta name="language" content="italian it" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />

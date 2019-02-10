@@ -3,16 +3,15 @@
     include_once ('Card.php');
 ?>
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
     <head>
         <title>Homepage &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="DevSpace è una piattaforma che offre articoli 
-        per conoscere il mondo dell'informatica." />
-        <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
-        <meta name="language" content="italian it" />
+        <meta name="description" content="DevSpace is a platform that offers articles about 
+        computer science world." />
+        <meta name="keywords" content="computer, science, development, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#F5F5F5" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
         <?php include_once ('favicon.php'); ?>
@@ -33,13 +32,12 @@
         <div id="main">
             <div id="content">
                 <div id="introduction">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
-                        </p>
-                        <br/>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
-                        </p>
+                    <p>
+						Dev Space is a project with the purpose of collect computer science tutorials for developers and others that want to start their trip in CS world. Contents are target to give to our users a base, a start point of principal topics.</p>
+					<br/>
+					<p>
+						Reach goals, learn new things, ask questions to other users and get answers that solve your doubts. Say your opinion, discuss, become part of our community.
+                    </p>
                 </div>
             </div>
         
@@ -58,7 +56,7 @@
 						</fieldset>
 					</form>
 				</div>
-                <h1>Argomenti</h1>
+                <h1>Topics</h1>
                 <?php
                     Card::printAllCards();
                 ?>
