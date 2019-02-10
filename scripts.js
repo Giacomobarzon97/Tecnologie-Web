@@ -795,6 +795,11 @@ window.addEventListener("scroll", function () {
     }catch(err) {
         passiveSupported = false;
     }
+    if(passiveSupported){
+        {passive : true}
+    }else{
+        {passive : false}
+    }
     scrollFunction();
 });
 
