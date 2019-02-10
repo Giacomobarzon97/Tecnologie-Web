@@ -65,6 +65,7 @@ input[type="submit"]:hover {
 }
 
 #nojs-menu{
+    display: none;
     text-align:center;
     font-size:1.2em;
 }
@@ -88,7 +89,7 @@ input[type="submit"]:hover {
     /*Aesthetics*/
     background: #404040;
 }
-#sidebar-header {
+.sidebar-header {
     border-bottom: 1px solid #707070;
     padding: 1em 5%;
 }
@@ -100,11 +101,11 @@ input[type="submit"]:hover {
     display: none;
 }
 
-#search-bar {
+.search-bar {
     border: none;
 }
 
-#search-bar label {
+.search-bar label {
     display: block;
     color: white;
     font-size: 1.5em;
@@ -113,7 +114,7 @@ input[type="submit"]:hover {
     font-weight: 400;
 }
 
-#search-bar input[type="text"] {
+.search-bar input[type="text"] {
     margin: 1em auto;
     max-width: 600px;
     outline: none;
@@ -129,31 +130,31 @@ input[type="submit"]:hover {
     background-position: 98%
 }
 
-#sidebar-header input[type="submit"] {
+.sidebar-header input[type="submit"] {
     color: black;
     background-color: white;
     margin: 1em auto;
     width: 40%;
 }
 
-#sidebar-header input[type="submit"]:hover {
+.sidebar-header input[type="submit"]:hover {
     color: white;
     background-color: black;
 }
 
-#sidebar > li {
+.sidebar > li {
     overflow: hidden;
     padding: 2em 0em;
     border-bottom: 1px solid #707070;
     word-break: break-word;
 }
 
-#sidebar > li > div {
+.sidebar > li > div {
     width: 100%;
     overflow: hidden;
 }
 
-#sidebar > li > div > a {
+.sidebar > li > div > a {
     float: left;
     width: 80%;
     text-decoration: none;
@@ -161,7 +162,7 @@ input[type="submit"]:hover {
     color: white;
     padding-left: 3%;
 }
-#sidebar>li>div>img{
+.sidebar>li>div>img{
     float:right;
     width:10%;
     margin-right:5%;
@@ -170,24 +171,24 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-#sidebar > li > ul {
+.sidebar > li > ul {
     list-style-type: none;
     overflow-y: hidden;
     display: block;
     transition: height 0.5s;
 }
 
-#sidebar > li > ul > li {
+.sidebar > li > ul > li {
     margin-top: 1em;
 }
 
-#sidebar > li > ul > li > a {
+.sidebar > li > ul > li > a {
     text-decoration: none;
     color: #D6D6D6;
     padding: 1em;
 }
 
-#sidebar > li > ul > li > a:hover {
+.sidebar > li > ul > li > a:hover {
     transition: color 0.125s ease-in-out;
     color: white;
 }
@@ -230,19 +231,19 @@ input[type="submit"]:hover {
     width: 100%;
 }
 
-#nav-hamburger, #nav-menu-icon {
+#nav-hamburger, #nav-menu-icon, #nojs-hamburger, #nojs-menu-icon {
     display: none;
     width: 2em;
     height: 2em;
     margin-top: 1.25em;
 }
 
-#nav-hamburger {
+#nav-hamburger, #nojs-hamburger {
     margin-left: 2%;
     float: left;
 }
 
-#nav-menu-icon {
+#nav-menu-icon, #nojs-menu-icon {
     margin-right: 2%;
     float: right;
 }
@@ -1225,8 +1226,14 @@ MEDIA QUERIES
 }
 
 @media only screen and (max-width: 768px) {
+    #nojs-hamburger, #nojs-menu-icon{
+        display: block;
+    }
     #nojs-messagebox {
-        width: 100%;
+        width: 99%;
+    }
+    #nojs-menu{
+        display: block;
     }
     #nojs-sidebar-wrapper{
         display:block;
@@ -1339,11 +1346,6 @@ MEDIA QUERIES
 
     #nav > ul > li, #nav-full > ul > li {
         margin: 0em 0.5em;
-    }
-
-    #nav-hamburger, #nav-menu-icon {
-        display: block;
-        margin-top: 1em;
     }
 
     #nav-logo {
