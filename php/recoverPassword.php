@@ -62,11 +62,11 @@
                         <fielset>
                         <p><label for="lpassword">Password</label>
                         <input class="profile-input" type="password" id="lpassword" name="password" 
-                        placeholder="Password" required onfocus="RecoverPassword_HideChangePwError()" /></p>
+                        placeholder="Password" required onchange="RecoverPassword_HideChangePwError()" /></p>
 
                         <p><label for="lpassword-confirm">Conferma la Password</label>
                         <input class="profile-input" type="password" id="lpassword-confirm" name="password" 
-                        placeholder="Conferma la Password" required onfocus="RecoverPassword_HideChangePwError()" /></p>
+                        placeholder="Conferma la Password" required onchange="RecoverPassword_HideChangePwError()" /></p>
                         ';
                         if(isset($_GET['token'])){ //Alla prima apertura stampo il token dal get
                             echo '<input type="hidden" name="change_pw_token" value="'.$_GET['token'].'" />';

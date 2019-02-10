@@ -90,10 +90,8 @@ function checkStringIsValid(value) {
     if (value.trim() === "") {
         return false;
     }
-    if (value.length === 0) {
-        return false;
-    }
-    return true;
+    return value.length !== 0;
+
 }
 
 //Validazione con espressioni regolari
@@ -116,7 +114,7 @@ function checkNameStringFormat(value) {
 }
 
 function checkFileUpload(value) {
-    var _validFileExtensions = [".jpg", ".jpeg", ".png"];
+    var _validFileExtensions = ["jpg", "jpeg", "png"];
     var extension = value.split('.').pop();
     if ((_validFileExtensions.indexOf(extension) > -1)) {
         return true;
@@ -274,7 +272,7 @@ function ProfilePage_ShowChangeBasicDataError(HTML_message) {
 //Valida i dati del cambio dati base
 function validateChangeBasicData() {
     var nickname = document.getElementById("lnickname").value;
-    var vname = document.getElementById("lname").value;
+    var name = document.getElementById("lname").value;
     var surname = document.getElementById("lsurname").value;
 
     var errorMessage = "";
@@ -556,7 +554,8 @@ function AddAdmin_ShowAddAdminEmailError(HTML_message) {
 
 //Valida se l'email dell'utente è valida
 function validateAddAdminData() {
-    email = document.getElementById("lemail").value;
+    var email = document.getElementById("lemail").value;
+
     var errorMessage = "";
     if (!checkStringIsValid(email) || email.length > 100) {
         errorMessage += "<li>The email entered is not valid!</li>";

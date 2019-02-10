@@ -58,15 +58,15 @@
                             <label for="lemail">Email</label>
                             <?php
                             if(isset($_POST['email'])){
-                                echo '<input class="profile-input" type="email" value="'.$_POST['email'].'" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="LoginPage_HideChangeLoginDataError()" />';
+                                echo '<input class="profile-input" type="email" value="'.$_POST['email'].'" id="lemail" name="email" placeholder="Email@some.boh" required onchange="LoginPage_HideChangeLoginDataError()" />';
                             }else{
-                                echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onfocus="LoginPage_HideChangeLoginDataError()" />';
+                                echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onchange="LoginPage_HideChangeLoginDataError()" />';
                             }
                             ?>
                         </p>
                         <p>
                             <label for="lpassword">Password</label>
-                            <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required onfocus="LoginPage_HideChangeLoginDataError()" />
+                            <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required onchange="LoginPage_HideChangeLoginDataError()" />
                         </p>
                         <p>
                             <input class="profile-input" name="submit" type="submit" value="Accedi" />

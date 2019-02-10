@@ -27,7 +27,7 @@
                 <fieldset>';
                 echo '<p>
                     <label for="comment-text-area-input">Add a comment to this article</label>
-                    <textarea rows="10" cols="100" placeholder="Write a comment..." name="comment-input" id="comment-text-area-input" required onfocus="ReadArticle_HideInsertCommentError()"></textarea>
+                    <textarea rows="10" cols="100" placeholder="Write a comment..." name="comment-input" id="comment-text-area-input" required onchange="ReadArticle_HideInsertCommentError()"></textarea>
                     </p>
                         <p><input name="comment" type="submit" value="Send comment" /></p>';
                 echo '</fieldset></form>';
