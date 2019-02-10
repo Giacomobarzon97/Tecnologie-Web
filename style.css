@@ -471,6 +471,7 @@ input[type="submit"]:hover {
 
 .add_button_gen {
     margin-right: 10%;
+    float: right;
 }
 
 .delete_button_link, .add_button_link {
