@@ -29,7 +29,7 @@
             } else{
                 echo $errors['404'];
             }
-            echo "<img src='img/404.png' alt='Immagine errore 404' id='error_404_image' />";
+            echo "<img src='img/404.png' alt='404 error image' id='error_404_image' />";
         ?>
         
     </body>
