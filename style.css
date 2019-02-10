@@ -125,7 +125,7 @@ input[type="submit"]:hover{
 #sidebar>li>div>img{
     float:right;
     width:10%;
-    margin: 0px 5%;
+    margin-right:5%;
     height: 1.0em;
     width: 1.0em;
     cursor: pointer;
