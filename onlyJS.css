@@ -1,14 +1,17 @@
-#sidebar-wrapper{
-	overflow-y:hidden;
+#sidebar-wrapper {
+    overflow-y: hidden;
 }
-#sidebar>li>ul{
-	display:none;
+
+#sidebar > li > ul {
+    display: none;
 }
-#lower-footer{
-	padding-bottom: 2.5em;
+
+#lower-footer {
+    padding-bottom: 2.5em;
 }
+
 @media only screen and (max-width: 768px) {
-	#lower-footer{
-		padding-bottom: 1em;
-	}
+    #lower-footer {
+        padding-bottom: 1em;
+    }
 }
