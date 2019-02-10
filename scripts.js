@@ -781,25 +781,10 @@ document.addEventListener("DOMContentLoaded", function () {
 //Gestione scroll verso l'alto
 //----------------------------------------------------
 
+window.addEventListener('scroll', onscroll, {passive: true});
+
 // When the user scrolls down 20px from the top of the document, show the button
 window.addEventListener("scroll", function () {
-    var passiveSupported = false;
-    try {
-        var options = {
-            get passive() { 
-                // Questa funzione verrà chiamata quando il browser
-                // tenta di accedere alla proprietà passiva.
-                passiveSupported = true;
-            }
-        };
-    }catch(err) {
-        passiveSupported = false;
-    }
-    if(passiveSupported){
-        {passive : true}
-    }else{
-        {passive : false}
-    }
     scrollFunction();
 });
 
