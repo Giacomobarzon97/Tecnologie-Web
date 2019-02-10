@@ -43,7 +43,10 @@ input[type="submit"]:hover {
     background: black;
     color: white;
 }
-
+#nojs-sidebar-wrapper{
+    background-color: #404040;
+    display: none;
+}
 #nojs-messagebox, #nojs-messgebox-full {
     width: 75%;
     text-align: center;
@@ -56,6 +59,10 @@ input[type="submit"]:hover {
 
 #nojs-messgebox-full {
     width: 100%;
+}
+
+#nojs-menu{
+    text-align:center;
 }
 
 /*-----SIDEBAR-----*/
@@ -71,7 +78,6 @@ input[type="submit"]:hover {
     /*Aesthetics*/
     background: #404040;
 }
-
 #sidebar-header {
     border-bottom: 1px solid #707070;
     padding: 1em 5%;
@@ -98,6 +104,8 @@ input[type="submit"]:hover {
 }
 
 #search-bar input[type="text"] {
+    margin: 1em auto;
+    max-width: 600px;
     outline: none;
     display: block;
     padding: 0.5em 8% 0.5em 2%;
@@ -669,13 +677,8 @@ HOMEPAGE
     font-size: 2.5em;
 }
 
-#home-search-bar input[type="submit"] {
-    margin: 1em auto;
-}
-
 #home-search-bar {
     padding: 0em 5%;
-    max-width: 600px;
     margin: 1em auto;
 }
 
@@ -1212,7 +1215,9 @@ MEDIA QUERIES
     #nojs-messagebox {
         width: 100%;
     }
-
+    #nojs-sidebar-wrapper{
+        display:block;
+    }
     /*css commenti*/
     .comment-username {
         margin: 0.5em 0em;
@@ -1515,16 +1520,29 @@ MEDIA QUERIES
     #developers > ul > li {
         font-size: 0.8em;
     }
-
-    .article-content > h1 {
-        font-size: 1.9em;
-        padding: 1%;
+    
+    .article-content{
+        padding:1em 5%;
     }
 
-    .article-content {
-        text-align: center;
+    .article-content  h1 {
+        font-size: 2.5em;
     }
-
+    .article-content  h2 {
+        font-size:2em;
+    }
+    .article-content  h3 {
+        font-size:1.5em;
+    }
+    .article-content h4{
+        font-size:1.3em;
+    }
+    .article-content ul, ol{
+        font-size:1em;
+    }
+    .article-content p{
+        font-size:1em;
+    }
     #article-author {
         margin-top: 1.5em;
         margin-bottom: 1em;
