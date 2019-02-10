@@ -188,13 +188,14 @@ It derives from the intuition of "memory" as a scratchpad.
             In some fields, artificial intelligence in particular, Dijkstra's algorithm or a variant of it is known as uniform cost search and formulated as an instance of the more general idea of best-first search.
             </p>
             
-            <h3>Alghorithm</h3>
-            <p>
+            <h3>Algorithm</h3>
             <ul>
             <li>Let the node at which we are starting be called the initial node.</li>
             <li>Let the distance of node Y be the distance from the initial node to Y.</li>
             </ul>
+            <p>
             Dijkstra's algorithm will assign some initial distance values and will try to improve them step by step.
+            </p>
             <ol>
             <li>Mark all nodes unvisited. Create a set of all the unvisited nodes called the unvisited set.</li>
             <li>Assign to every node a tentative distance value: set it to zero for our initial node and to infinity for all other nodes. Set the initial node as current.</li>
@@ -203,6 +204,7 @@ It derives from the intuition of "memory" as a scratchpad.
             <li>If the destination node has been marked visited (when planning a route between two specific nodes) or if the smallest tentative distance among the nodes in the unvisited set is infinity (when planning a complete traversal; occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.</li>
             <li>Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node", and go back to step 3.</li>
             </ol>
+            <p>
             When planning a route, it is actually not necessary to wait until the destination node is "visited" as above: the algorithm can stop once the destination node has the smallest tentative distance among all "unvisited" nodes (and thus could be selected as the next "current").
             </p>
             <h3>Description</h3>
@@ -244,7 +246,6 @@ It derives from the intuition of "memory" as a scratchpad.
             The search-time results from the traversal from root to leaf, and therefore a balanced tree of n nodes, having the least possible tree height, results in O(log n) search time.
             </p>
             <h3>Properties</h3>
-            <p>
             <ul>In addition to the requirements imposed on a binary search tree the following must be satisfied by a red–black tree:
             
             <li>Each node is either red or black.</li>
@@ -253,7 +254,7 @@ It derives from the intuition of "memory" as a scratchpad.
             <li>If a node is red, then both its children are black.</li>
             <li>Every path from a given node to any of its descendant NIL nodes contains the same number of black nodes.</li>
             </ul>
-
+            <p>
             Some definitions: the number of black nodes from the root to a node is the node's black depth; the uniform number of black nodes in all paths from root to the leaves is called the black-height of the red–black tree.
             These constraints enforce a critical property of red–black trees: the path from the root to the farthest leaf is no more than twice as long as the path from the root to the nearest leaf. The result is that the tree is roughly height-balanced. Since operations such as inserting, deleting, and finding values require worst-case time proportional to the height of the tree, this theoretical upper bound on the height allows red–black trees to be efficient in the worst case, unlike ordinary binary search trees.
             To see why this is guaranteed, it suffices to consider the effect of properties 4 and 5 together. For a red–black tree T, let B be the number of black nodes in property 5. Let the shortest possible path from the root of T to any leaf consist of B black nodes. Longer possible paths may be constructed by inserting red nodes. However, property 4 makes it impossible to insert more than one consecutive red node. Therefore, ignoring any black NIL leaves, the longest possible path consists of 2*B nodes, alternating black and red (this is the worst case). Counting the black NIL leaves, the longest possible path consists of 2*B-1 nodes.
@@ -416,7 +417,6 @@ Automata play a major role in theory of computation, compiler construction, arti
             Machine transitions are based on the current state and input symbol, and also the current topmost symbol of the stack. Symbols lower in the stack are not visible and have no immediate effect. Machine actions include pushing, popping, or replacing the stack top. A deterministic pushdown automaton has at most one legal transition for the same combination of input symbol, state, and top stack symbol. This is where it differs from the nondeterministic pushdown automaton. 
             </p>
             <h3>Formal definition</h3>
-            <p>
             <ol>A (not necessarily deterministic) PDA M can be defined as a 7-tuple:
             M = ( Q , Σ , Γ , q 0 , Z 0 , A , δ )
             where
@@ -431,13 +431,12 @@ Automata play a major role in theory of computation, compiler construction, arti
                 δ : ( Q × ( Σ ∪ { ε } ) × Γ ) ⟶ P ( Q × Γ ∗ ) 
                 where * is the Kleene star, meaning that Γ ∗ is "the set of all finite strings (including the empty string ε) of elements of Γ , ε denotes the empty string, and P ( X ) is the power set of a set X.</li>
             </ol>
-            </p>
-            <p>
             <ul>M is deterministic if it satisfies both the following conditions:
 
                 <li>For any q ∈ Q , a ∈ Σ ∪ { ε } , x ∈ Γ , the set δ ( q , a , x ), has at most one element.</li>
                 <li>For any q ∈ Q , x ∈ Γ , if δ ( q , ε , x ) ≠ ∅ , then δ ( q , a , x ) = ∅  for every a ∈ Σ .</li>
             </ul>
+            <p>
             There are two possible acceptance criteria: acceptance by empty stack and acceptance by final state. The two are not equivalent for the deterministic pushdown automaton (although they are for the non-deterministic pushdown automaton). The languages accepted by empty stack are those languages that are accepted by final state and are prefix-free: no word in the language is the prefix of another word in the language.
             The usual acceptance criterion is final state, and it is this acceptance criterion which is used to define the deterministic context-free languages.
             </p>
@@ -451,7 +450,6 @@ Automata play a major role in theory of computation, compiler construction, arti
             The term "pushdown" refers to the fact that the stack can be regarded as being "pushed down" like a tray dispenser at a cafeteria, since the operations never work on elements other than the top element. A stack automaton, by contrast, does allow access to and operations on deeper elements. Stack automata can recognize a strictly larger set of languages than pushdown automata. A nested stack automaton allows full access, and also allows stacked values to be entire sub-stacks rather than just single finite symbols. 
             </p>
             <h3>Formal definition</h3>
-            <p>
             <ol>We use standard formal language notation: Γ ∗ denotes the set of strings over alphabet Γ  and ε denotes the empty string.
             A PDA is formally defined as a 7-tuple:
             M = ( Q , Σ , Γ , δ , q 0 , Z , F ) where
@@ -463,7 +461,6 @@ Automata play a major role in theory of computation, compiler construction, arti
             <li>Z ∈ Γ is the initial stack symbol</li>
             <li>F ⊆ Q is the set of accepting states</li>
             </ol>
-            </p>
             <p>
             An element ( p , a , A , q , α ) ∈ δ is a transition of M. It has the intended meaning that M, in state p ∈ Q, on the input a ∈ Σ ∪ { ε } and with A ∈ Γ as topmost stack symbol, may read a, change the state to q , pop A, replacing it by pushing α ∈ Γ ∗. The ( Σ ∪ { ε } ) component of the transition relation is used to formalize that the PDA can either read a letter from the input, or proceed leaving the input untouched.
 
@@ -487,7 +484,6 @@ Automata play a major role in theory of computation, compiler construction, arti
             NFAs have been generalized in multiple ways, e.g., nondeterministic finite automaton with ε-moves, finite state transducers, pushdown automata, alternating automata, ω-automata, and probabilistic automata. Besides the DFAs, other known special cases of NFAs are unambiguous finite automata (UFA) and self-verifying finite automata (SVFA). 
             </p>
             <h3>Formal definition</h3>
-            <p>
             <ul>An NFA is represented formally by a 5-tuple, ( Q , Σ , Δ , q 0 , F ), consisting of
             <li>a finite set of states Q.</li>
             <li>a finite set of input symbols Σ.</li>
@@ -495,7 +491,6 @@ Automata play a major role in theory of computation, compiler construction, arti
             <li>an initial (or start) state q 0 ∈ Q.</li>
             <li>a set of states F distinguished as accepting (or final) states F ⊆ Q.</li>
             </ul>
-            </p>
             <p>
             Here, P ( Q ) denotes the power set of Q. Let w = a 1 a 2 . . . a n be a word over the alphabet Σ. The automaton M accepts the word w if a sequence of states, r 0 , r 1 , . . . , r n , exists in Q with the following conditions:
             r 0 = q 0 
@@ -531,7 +526,6 @@ Automata play a major role in theory of computation, compiler construction, arti
             Turing completeness is the ability for a system of instructions to simulate a Turing machine. A programming language that is Turing complete is theoretically capable of expressing all tasks accomplishable by computers; nearly all programming languages are Turing complete if the limitations of finite memory are ignored. 
             </p>
             <h3>Formal definition</h3>
-            <p>
             <ol>Following Hopcroft and Ullman (1979, p. 148), a (one-tape) Turing machine can be formally defined as a 7-tuple M = ⟨ Q , Γ , b , Σ , δ , q 0 , F ⟩ 
             where
             <li>Q is a finite, non-empty set of states;</li>
@@ -542,10 +536,10 @@ Automata play a major role in theory of computation, compiler construction, arti
             <li>F ⊆ Q is the set of final states or accepting states. The initial tape contents is said to be accepted by M if it eventually halts in a state from F.</li>
             <li>δ : ( Q ∖ F ) × Γ ↛ Q × Γ × { L , R } is a partial function called the transition function, where L is left shift, R is right shift.</li>
             </ol>
-            </p>
             <p>
             If δ is not defined on the current state and the current tape symbol, then the machine halts;
             Anything that operates according to these specifications is a Turing machine.
+            </p>
             <ul>The 7-tuple for the 3-state busy beaver looks like this (see more about this busy beaver at Turing machine examples):
             <li>Q = { A , B , C , HALT };</li>
             <li>Γ = { 0 , 1 };</li>
@@ -555,7 +549,6 @@ Automata play a major role in theory of computation, compiler construction, arti
             <li>F = { HALT };</li>
             <li>δ.</li>
             </ul>
-            </p>
 
 Programming in Java
 
@@ -570,9 +563,10 @@ This guide will provide everything you need to know about Java programming langu
 
         Getting Started
 
-            Java technology is both a programming language and a platform.
-            <h3>The Java Programming Language</h3>
             <p>
+            Java technology is both a programming language and a platform.
+            </p>
+            <h3>The Java Programming Language</h3>
             <ul>The Java programming language is a high-level language that can be characterized by all of the following buzzwords:
 
                 <li>Simple</li>
@@ -587,6 +581,7 @@ This guide will provide everything you need to know about Java programming langu
                 <li>Robust</li>
                 <li>Secure</li>
             </ul>
+            <p>
             Each of the preceding buzzwords is explained in The Java Language Environment , a white paper written by James Gosling and Henry McGilton.
             In the Java programming language, all source code is first written in plain text files ending with the .java extension. Those source files are then compiled into .class files by the javac compiler. A .class file does not contain code that is native to your processor; it instead contains bytecodes — the machine language of the Java Virtual Machine1 (Java VM). The java launcher tool then runs your application with an instance of the Java Virtual Machine.
             Because the Java VM is available on many different operating systems, the same .class files are capable of running on Microsoft Windows, the Solaris™ Operating System (Solaris OS), Linux, or Mac OS. Some virtual machines, such as the Java SE HotSpot at a Glance, perform additional steps at runtime to give your application a performance boost. This includes various tasks such as finding performance bottlenecks and recompiling (to native code) frequently used sections of code.
@@ -594,10 +589,12 @@ This guide will provide everything you need to know about Java programming langu
             <h3>The Java Platform</h3>
             <p>
             A platform is the hardware or software environment in which a program runs. We've already mentioned some of the most popular platforms like Microsoft Windows, Linux, Solaris OS, and Mac OS. Most platforms can be described as a combination of the operating system and underlying hardware. The Java platform differs from most other platforms in that it's a software-only platform that runs on top of other hardware-based platforms.
+            </p>
             <ul>The Java platform has two components:
                 <li>The Java Virtual Machine</li>
                 <li>The Java Application Programming Interface (API)</li>
             </ul>
+            <p>
             You've already been introduced to the Java Virtual Machine; it's the base for the Java platform and is ported onto various hardware-based platforms.
             The API is a large collection of ready-made software components that provide many useful capabilities. It is grouped into libraries of related classes and interfaces; these libraries are known as packages. The next section, What Can Java Technology Do? highlights some of the functionality provided by the API.
             The API and Java Virtual Machine insulate the program from the underlying hardware.
@@ -621,7 +618,7 @@ This guide will provide everything you need to know about Java programming langu
         
     Specialized Trails and Lessons
 
-    Lessons for specialized and expert user
+    Lessons for specialized and expert user.
 
         Custom networking
 
