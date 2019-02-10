@@ -43,6 +43,15 @@ input[type="submit"]:hover {
     background: black;
     color: white;
 }
+input[type=text],input[type=email],input[type=password] {
+    outline: none;
+    padding: 0.5em 2%;
+    margin:1em 0em;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 1.5em;
+    box-sizing: border-box;
+}
 #nojs-sidebar-wrapper{
     background-color: #404040;
     display: none;
@@ -117,8 +126,6 @@ input[type="submit"]:hover {
 .search-bar input[type="text"] {
     margin: 1em auto;
     max-width: 600px;
-    outline: none;
-    display: block;
     padding: 0.5em 8% 0.5em 2%;
     width: 90%;
     border: none;
@@ -315,9 +322,6 @@ input[type="submit"]:hover {
 }
 
 #write-article-form [type=text] {
-    outline: none;
-    margin: 0.5em 0px;
-    display: block;
     width: 97%;
     padding: 0.5em 1%;
 }
@@ -418,12 +422,9 @@ input[type="submit"]:hover {
 #content-article-introduction [type=text] {
     width: 75%;
     max-width: 400px;
-    outline: none;
     display: table;
     margin: 1em auto;
     font-size: 1em;
-    padding: 0.5em;
-    border: none;
 }
 
 #content-article-introduction [type=text]:focus {
@@ -944,41 +945,8 @@ PROFILE
     color: #2E562E;
 }
 
-/*unificare i prossimi 4 set di regole css*/
-.profile-input[type=text] {
-    outline: none;
+.profile-input[type=text],.profile-input[type=email],.profile-input[type=password] {
     width: 100%;
-    padding: 0.5em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 1.5em;
-    box-sizing: border-box;
-}
-
-.profile-input[type=email] {
-    outline: none;
-    width: 100%;
-    padding: 0.5em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 1.5em;
-    box-sizing: border-box;
-}
-
-.profile-input[type=password] {
-    outline: none;
-    width: 100%;
-    padding: 0.5em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 1.5em;
-    box-sizing: border-box;
 }
 
 .profile-input[type=submit] {
