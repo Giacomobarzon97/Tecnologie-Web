@@ -40,11 +40,9 @@
             //Destroy the object
             $connection = NULL;
             echo '<h1>'.$result[0]['Title'].'</h1>';
-            echo '<!--Inizio paragrafo-->
-            <div class="content-paragraph">';
+            echo '<!--Inizio paragrafo-->';
             echo $result[0]['HTMLCode'];
-            echo '<h4 class="article-author">Autore articolo: '.$author[0]['Nickname'].'</h4>';
-            echo '</div>';
+            echo '<p id="article-author">Autore articolo: '.$author[0]['Nickname'].'</p>';
         }
 
         static function insertArticleInTable($title, $content, $authorID, $subtopicID){
