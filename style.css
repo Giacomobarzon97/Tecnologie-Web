@@ -555,15 +555,37 @@ ARTICLES
 #retTop:hover {
     background-color: #000000;
 }
-
-.article-content > h1 {
+.article-content{
+	padding:1em 3%; 
+}
+.article-content  h1 {
+	margin:0em 0em 0.5em 0em;
     text-align: center;
     font-size: 4em;
 }
-
-.article-content > h3 {
-    text-align: center;
-    font-size: 2em;
+.article-content  h2 {
+	font-size:3em;
+	margin:0em 0em 0.5em 0em;
+	font-weight: lighter;
+}
+.article-content  h3 {
+	margin:0em 0em 0.5em 0em;
+	font-size:2.5em;
+	font-weight: lighter;
+}
+.article-content h4{
+	margin:0em 0em 0.5em 0em;
+	font-size:2em;
+	font-weight: lighter;
+}
+.article-content ul, ol{
+	font-size:1.2em;
+	margin-left:3%;
+	list-style-position: inside
+}
+.article-content p{
+	margin:1em 0em;
+	font-size: 1.2em;
 }
 
 #article-author {
@@ -1501,13 +1523,6 @@ MEDIA QUERIES
     .article-content > h1 {
         font-size: 1.9em;
         padding: 1%;
-    }
-
-    .article-content > h3 {
-        font-size: 1.6em;
-        margin-top: 1%;
-        padding-left: 3%;
-        padding-right: 5%;
     }
 
     .article-content {
