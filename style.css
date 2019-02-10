@@ -595,8 +595,9 @@ ARTICLES
     display: block;
 }
 
-.article-author {
+#article-author {
     margin-top: 3em;
+    margin-bottom: 2em;
     font-weight: bold;
 }
 
@@ -1768,8 +1769,9 @@ MEDIA QUERIES
         margin: 0 auto;
     }
     
-    .article-author {
+    #article-author {
         margin-top: 1.5em;
+        margin-bottom: 1em;
     }
     
     .input-comment-footer > p > input, .input-reply-footer > p > input {

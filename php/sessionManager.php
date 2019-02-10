@@ -3,7 +3,7 @@
     session_start();
 
     $pagesToIgnore = array("login.php", "errore.php", "registrazione.php", "forgotPassword.php", "recoverPassword.php",
-        "logout.php", "confirmDeleteAccount.php");
+        "logout.php", "confirmDeleteAccount.php", "manageUsers.php", "adminTools.php", "addAdmin.php");
 
     $shouldBeIgnored = false;
 
