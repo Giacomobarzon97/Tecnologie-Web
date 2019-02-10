@@ -781,7 +781,11 @@ document.addEventListener("DOMContentLoaded", function () {
 //Gestione scroll verso l'alto
 //----------------------------------------------------
 
-window.addEventListener('scroll', onscroll, {passive: true});
+addEventListener(document, "touchstart", function(e) {
+    console.log(e.defaultPrevented);  // will be false
+    e.preventDefault();   // does nothing since the listener is passive
+    console.log(e.defaultPrevented);  // still false
+  }, Modernizr.passiveeventlisteners ? {passive: true} : false);
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.addEventListener("scroll", function () {
