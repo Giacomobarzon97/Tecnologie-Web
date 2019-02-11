@@ -107,6 +107,7 @@
         <?php
         echo '<noscript>';
         SimpleNavbar::printSimpleNavbar(true);
+        SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
         ?>
     </body>
