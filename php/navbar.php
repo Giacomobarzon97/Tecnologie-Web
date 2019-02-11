@@ -33,7 +33,7 @@ class SimpleNavbar
                 echo "<li class='current-menu-entry'>Home</li>
             ";
             } else {
-                echo "<li><a href='index.php'>Home</a></li>
+                echo "<li><a href='index.php' accesskey='h'>Home</a></li>
             ";
             }
             if ($_SESSION["breadcrumb"] == "profile.php") {
@@ -41,7 +41,7 @@ class SimpleNavbar
             ";
             } else {
 
-                echo "<li><a href='profile.php'>Profile</a></li>
+                echo "<li><a href='profile.php' accesskey='p'>Profile</a></li>
             ";
             }
 
@@ -50,32 +50,32 @@ class SimpleNavbar
                     echo "<li class='current-menu-entry'>Admin tools</li>
                 ";
                 } else {
-                    echo "<li><a href='adminTools.php'>Admin tools</a></li>
+                    echo "<li><a href='adminTools.php' accesskey='t'>Admin tools</a></li>
                 ";
                 }
             }
-            echo "<li><a href='logout.php'>Logout</a></li>
+            echo "<li><a href='logout.php' accesskey='l'>Logout</a></li>
         ";
         } else {
             if ($_SESSION["breadcrumb"] == "index.php") {
                 echo "<li class='current-menu-entry'>Home</li>
             ";
             } else {
-                echo "<li><a href='index.php'>Home</a></li>
+                echo "<li><a href='index.php' accesskey='h'>Home</a></li>
             ";
             }
             if ($_SESSION["breadcrumb"] == "registrazione.php") {
                 echo "<li class='current-menu-entry'>Create a new account</li>
             ";
             } else {
-                echo "<li><a href='registrazione.php'>Create a new account</a></li>
+                echo "<li><a href='registrazione.php' accesskey='c'>Create a new account</a></li>
             ";
             }
             if ($_SESSION["breadcrumb"] == "login.php") {
                 echo "<li class='current-menu-entry'>Login</li>
             ";
             } else {
-                echo "<li><a href='login.php'>Login</a></li>
+                echo "<li><a href='login.php' accesskey='l'>Login</a></li>
             ";
             }
         }
@@ -83,7 +83,7 @@ class SimpleNavbar
             echo "<li class='current-menu-entry'>About</li>
         ";
         } else {
-            echo "<li><a href='about.php'>About</a></li>
+            echo "<li><a href='about.php' accesskey='a'>About</a></li>
         ";
         }
 

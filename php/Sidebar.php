@@ -123,19 +123,19 @@
                 <a href="index.php"><img src="img/logo.png" alt="Dev Space" id="nav-logo"></a>
                 <ul id="menu">';
             if(isset($_SESSION['email'])) {
-                echo "<li><a href='index.php'>Home</a></li>"; 
-                echo "<li><a href='profile.php'>Profile</a></li>";
+                echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
+                echo "<li><a href='profile.php' accesskey='p'>Profile</a></li>";
                 if(User::isAdmin($_SESSION['email'])) {
-                    echo "<li><a href='adminTools.php'>Admin tools</a></li>
+                    echo "<li><a href='adminTools.php' accesskey='t'>Admin tools</a></li>
                     ";
                 }
-                echo "<li><a href='logout.php'>Logout</a></li>";
+                echo "<li><a href='logout.php' accesskey='l'>Logout</a></li>";
             }else{
-                echo "<li><a href='index.php'>Home</a></li>";
-                echo "<li><a href='registrazione.php'>Create a new account</a></li>";
-                echo "<li><a href='login.php'>Login</a></li>";
+                echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
+                echo "<li><a href='registrazione.php' accesskey='c'>Create a new account</a></li>";
+                echo "<li><a href='login.php' accesskey='l'>Login</a></li>";
             }
-            echo '<li><a href="about.php">About</a></li>';
+            echo '<li><a href="about.php" accesskey="a">About</a></li>';
             echo '</ul>
             <noscript>
 			<a href="#nojs-menu"><img src="img/hamburger.svg" alt="nav menu icon" id="nojs-menu-icon"/></a>
@@ -157,19 +157,19 @@
             echo '<ul id="nojs-menu">';
             echo '<li><h1>Menu</h1></li>';
             if(isset($_SESSION['email'])) {
-                echo "<li><a href='index.php'>Home</a></li>";
-                echo "<li><a href='profile.php'>Profile</a></li>";
+                echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
+                echo "<li><a href='profile.php' accesskey='p'>Profile</a></li>";
                 if(User::isAdmin($_SESSION['email'])) {
-                    echo "<li><a href='adminTools.php'>Admin tools</a></li>
+                    echo "<li><a href='adminTools.php' accesskey='t'>Admin tools</a></li>
                     ";
                 }
-                echo "<li><a href='logout.php'>Logout</a></li>";
+                echo "<li><a href='logout.php' accesskey='l'>Logout</a></li>";
             }else{
-                echo "<li><a href='index.php'>Home</a></li>";
-                echo "<li><a href='registrazione.php'>Create a new account</a></li>";
-                echo "<li><a href='login.php'>Login</a></li>";
+                echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
+                echo "<li><a href='registrazione.php' accesskey='c'>Create a new account</a></li>";
+                echo "<li><a href='login.php' accesskey='l'>Login</a></li>";
             }
-            echo '<li><a href="about.php">About</a></li>';
+            echo '<li><a href="about.php" accesskey="a">About</a></li>';
             echo '</ul>';
         }
 
@@ -180,9 +180,9 @@
                             <p>
                                 <label for="nojs-search-bar-textarea">Search for topics and articles</label>';
                                 if(isset($_GET["search-term"])){
-                                    echo '<input type="text" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="'.$_GET["search-term"].'" />';
+                                    echo '<input type="text" accesskey="s" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="'.$_GET["search-term"].'" />';
                                 }else{
-                                    echo '<input type="text" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />';
+                                    echo '<input type="text" accesskey="s" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />';
                                 }
                             echo '</p>
                             <p><input type="submit" value="Search"></p>
