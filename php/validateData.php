@@ -42,7 +42,7 @@
                 return false;
             }
 
-            if(!preg_match('/^[A-Za-z]{1,99}$/', $string)){
+            if(!preg_match('/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/', $string)){
                 return false;
             }
 
