@@ -82,27 +82,32 @@
             echo '<ul class="sidebar">
             ';
             foreach ($topics as $topic) {
-                if(Sidebar::checkSidebarHasEntries($topic['Id'])){
-                    if($topic['Id'] === $topicID && !$isarticle){
-                        echo '<li class="breadcrumb">';
-                    }else{
-                        echo '<li>';
-                    }
-                    echo '<div>
-                        <a href="ArticleLinks.php?id='.$topic['Id'].'">'.$topic['Name'].'</a>';
-                    if(!$isNoJsSidebar){
-                        echo '<img src="https://frncscdf.github.io/Tecnologie-Web/img/expand-button.svg" id="'.$topic['Id'].'" class="expand-button" alt="Expand"/>';
-                    }
-                    echo '</div>
-                    ';
+                $hasEntries = Sidebar::checkSidebarHasEntries($topic['Id']);
+                if($topic['Id'] === $topicID && !$isarticle){
+                    echo '<li class="breadcrumb">';
+                }else{
+                    echo '<li>';
+                }
+                echo '<div>';
+                if($topic['Id'] === $topicID && !$isarticle) { //Se ci sono dentro il titolo non lo metto come link
+                    echo '<p>'.$topic['Name'].'</p>';
+                }else {
+                    echo '<a href="ArticleLinks.php?id='.$topic['Id'].'">'.$topic['Name'].'</a>';
+                }
+                if(!$isNoJsSidebar && $hasEntries){ //Se il topic ha almeno un elemento ci metto la freccetta
+                    echo '<img src="https://frncscdf.github.io/Tecnologie-Web/img/expand-button.svg" id="'.$topic['Id'].'" class="expand-button" alt="Expand"/>';
+                }
+                echo '</div>
+                ';
+                if($hasEntries) { //Controllo se il topic ha argomenti prima di stampare l'elenco
                     echo '<ul>
                     ';
                     Sidebar::printSidebarEntry($topic['Id'], $subtopicID, $isarticle);
                     echo '</ul>
                     ';
-                    echo '</li>
-                    ';
                 }
+                echo '</li>
+                ';
             }
             echo '</ul>';
             //Destroy the object
