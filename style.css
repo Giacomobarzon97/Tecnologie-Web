@@ -137,11 +137,14 @@ input[type=text],input[type=email],input[type=password] {
     background-position: 98%
 }
 
+.search-bar input[type="submit"] {
+    margin: 1em auto;
+    width: 40%;
+    max-width: 400px;
+}
 .sidebar-header input[type="submit"] {
     color: black;
     background-color: white;
-    margin: 1em auto;
-    width: 40%;
 }
 
 .sidebar-header input[type="submit"]:hover {
@@ -693,18 +696,14 @@ HOMEPAGE
     font-size: 2.5em;
 }
 
+#home-search-bar [type="submit"]{
+    color:white;
+    background-color: black    
+}
+
 #home-search-bar {
     padding: 0em 5%;
     margin: 1em auto;
-}
-
-#home-search-bar #search-bar input[type="text"] {
-    border: 1px solid #ccc;
-}
-
-#home-search-bar #search-bar input[type="button"]:hover {
-    color: white;
-    background: black;
 }
 
 .grid {
