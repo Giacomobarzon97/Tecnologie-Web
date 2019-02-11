@@ -107,10 +107,14 @@
                 <p>Are you already registered?
                 <p>Click <a href='login.php'>here</a> to login.</p>
             </div>
-        </div>
         <?php
         echo '<noscript>';
         SimpleNavbar::printSimpleNavbar(true);
+        echo '</noscript>';
+        ?>
+        </div>
+        <?php
+        echo '<noscript>';
         SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
         ?>

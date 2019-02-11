@@ -24,10 +24,13 @@
     </head>
     
     <body>
+        <?php
+        include_once('navbar.php');
+        SimpleNavbar::printSimpleNavbar();
+        ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <h1>DevSpace</h1>
-                <h2>Did you forget your password? Retrieve it!</h2>
+                <h2>Get an email to recover your password</h2>
             </div>
             <div class="regform-main-section">
             <?php 
@@ -37,9 +40,13 @@
                         $email = $_POST['email'];
                         $result = User::passwordRecover($email);
                         if($result) {
-                            echo '<span>Password recovery e-mail sent!</span><br/>';
+                            echo '<ul class="regform-successbox">';
+                            echo '<li>Password recovery e-mail sent!</li>';
+                            echo '</ul>';
                         } else {
-                            echo '<span>The e-mail you entered is not registered!</span><br/>';
+                            echo '<ul class="regform-errorbox">';
+                            echo '<li>The e-mail you entered is not registered!</li>';
+                            echo '</ul>';
                         }
                     } 
                 ?>
@@ -57,10 +64,11 @@
                 <p>Not yet registered?
                 <p>Click <a href='registrazione.php'>here</a> to create a new account.</p>
             </div>
-            <ul id="regform-links">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="index.php">About</a></li>
-            </ul>
+            <?php
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>';
+            ?>
         </div>
         <?php
         echo '<noscript>';

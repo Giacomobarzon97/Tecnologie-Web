@@ -87,10 +87,14 @@
             <div>
                     <?php User::printAllAdmin(); ?>
             </div>
+            <?php
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>';
+            ?>
         </div>
         <?php
             echo '<noscript>';
-            SimpleNavbar::printSimpleNavbar(true);
             SimpleNavbar::printNoJSWarning();
             echo '</noscript>';
         ?>

@@ -30,6 +30,10 @@
     </head>
     
     <body>
+        <?php
+        include_once('navbar.php');
+        SimpleNavbar::printSimpleNavbar();
+        ?>
         <div id="registration-form">
             <?php
 
@@ -55,11 +59,10 @@
                         </form>
                     </div>';
                 }
-                echo '<ul id="regform-links">
-                    <li><a href="index.php">Back to home page</a></li>
-                    <li><a href="about.php">About</a></li>
-                </ul>
-            </div>';
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>';
+            echo '</div>';
             echo '<noscript>';
             SimpleNavbar::printNoJSWarning();
             echo '</noscript>';

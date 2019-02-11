@@ -70,6 +70,7 @@
         ?>
         <?php
             include_once ('footer.php');
+            Footer::printDefaultFooterWithLargeJSError();
         ?>
     </body>
 </html>

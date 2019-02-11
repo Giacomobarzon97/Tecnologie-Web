@@ -81,10 +81,14 @@
                 <p>Not yet registered?<a href='registrazione.php'>Click here</a> to create a new account.</p>
                 <p>Did you forget your password?<a href='forgotPassword.php'>Click here</a> to recover it.</p>
             </div>
+            <?php
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>';
+            ?>
         </div>
         <?php
         echo '<noscript>';
-        SimpleNavbar::printSimpleNavbar(true);
         SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
         ?>

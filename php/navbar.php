@@ -5,7 +5,7 @@ class SimpleNavbar
 {
 
     static function printNoJSWarning(){
-        echo '<div id="nojs-messagebox">ATTENTION - With JavaScript disabled some features may not be available or may not work properly!</div>';
+        echo '<div id="nojs-messagebox-full">ATTENTION - With JavaScript disabled some features may not be available or may not work properly!</div>';
     }
 
     static function printSimpleNavbar($isNoJsVersion = false)

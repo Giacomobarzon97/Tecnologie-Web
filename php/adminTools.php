@@ -46,8 +46,11 @@
                             <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
                             another user have to remove your suspension.</li>
                             </ul>
-                        </div>
-                    </div>';
+                        </div>';
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>';
+            echo '</div>';
         } else {
             echo "<div id='registration-form'>
             <div class='regform-introduction'>
@@ -60,12 +63,14 @@
                     <li><a href='addAdmin.php'>Add new administrator</a></li>
                     <li><a href='manageUsers.php'>User suspension</a></li>
                 </ul>
-            </div>
-        </div>	";
+            </div>";
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>';
+            echo "</div>";
         }
 
         echo '<noscript>';
-        SimpleNavbar::printSimpleNavbar(true);
         SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
         

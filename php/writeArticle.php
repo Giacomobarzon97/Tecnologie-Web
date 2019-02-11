@@ -127,6 +127,7 @@
             </div>
             <?php
                 include_once ('footer.php');
+                Footer::printDefaultFooterWithJSError();
                 Sidebar::openSidebarEntry($_GET["topicID"]);
             ?>
         </div>

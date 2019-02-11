@@ -92,6 +92,7 @@
             </noscript>
             <?php
                 include_once ('footer.php');
+                Footer::printDefaultFooterWithJSError();
                 Sidebar::openSidebarEntryArticle($_GET["id"]);
             ?>
         </div>

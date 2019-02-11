@@ -123,6 +123,7 @@
             </div> <!--Chiusura div main-->
             <?php
                 include_once ('footer.php');
+                Footer::printDefaultFooterWithJSError();
             ?>
         </div>
     </body>

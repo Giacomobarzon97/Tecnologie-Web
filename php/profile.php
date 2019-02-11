@@ -137,11 +137,15 @@
             <form action="confirmDeleteAccount.php" method="POST" >
                 <p><input class="profile-input" name="delete_account" type="submit" value="Delete your account" /></p>
             </form>
-            </div>  
+            </div>
+            <?php
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>';
+            ?>
         </div>
         <?php
         echo '<noscript>';
-        SimpleNavbar::printSimpleNavbar(true);
         SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
         ?>
