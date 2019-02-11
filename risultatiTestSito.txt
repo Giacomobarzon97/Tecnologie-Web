@@ -113,20 +113,9 @@ AddAdmin
 
 Article(logged in)
 
-    Web Accessibility Checker: 2.4 Navigable: Provide ways to help users navigate, find content, and determine where they are.
-
-                                                    Success Criteria 2.4.6 Headings and Labels (AA)
-
-                                                    Check 37: Header nesting - header following h1 is incorrect.
-                                                    Repair: Modify the header levels so only an h1 or h2 follows h1.
-                                                    Error Line 107, Column 17:
-                                                    <h1>Process computing</h1>
-
-
+    Web Accessibility Checker: 2.4 Navigable: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
-                                    (Per il no logged in) Pagina caricata parzialmente
-                                    Non è stato possibile caricare tutte le risorse della pagina. Ciò può influire su come Google vede e comprende la tua pagina. Correggi i problemi di disponibilità per le risorse che influiscono sulla comprensione della pagina da parte di Google.
 
     Markup Validator Service: Document checking completed. No errors or warnings to show.
 
