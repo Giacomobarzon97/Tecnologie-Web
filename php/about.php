@@ -4,7 +4,7 @@
     <head>
         <title>About &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Informazioni sulla piattaforma DevSpace e i suoi sviluppatori" />
+        <meta name="description" content="Information about DevSpace and its developers" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -90,8 +90,6 @@
             echo '<noscript>';
             SimpleNavbar::printSimpleNavbar(true);
             echo '</noscript>';
-        ?>
-        <?php
             include_once ('footer.php');
             Footer::printDefaultFooterWithLargeJSError();
         ?>

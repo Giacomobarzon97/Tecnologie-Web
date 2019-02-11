@@ -40,10 +40,10 @@
             <div id="login-error-box-zone"></div>
             <div class="regform-main-section">
             <ul class="regform-errorbox">
-                            <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
-                            another user have to remove your suspension.</li>
-                            </ul>
-                        </div>';
+                <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
+                another user have to remove your suspension.</li>
+            </ul>
+            </div>';
             echo '<noscript>';
             SimpleNavbar::printSimpleNavbar(true);
             echo '</noscript>';
@@ -51,7 +51,6 @@
         } else {
             echo "<div id='registration-form'>
             <div class='regform-introduction'>
-                
                 <h2>Admin tools</h2>
             </div>
             <div class='regform-main-section'>
@@ -70,8 +69,6 @@
         echo '<noscript>';
         SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
-        
         ?>
-        
     </body>
 </html>

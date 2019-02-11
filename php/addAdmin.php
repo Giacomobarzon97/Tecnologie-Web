@@ -1,7 +1,7 @@
 <?php
     include_once ('sessionManager.php');
     include_once ('User.php');
-    
+
     if(!isset($_SESSION['email'])) {
         header("Location: errore.php?errorCode=paginaNonDisponibile");
     }
@@ -10,7 +10,7 @@
         header("Location: errore.php?errorCode=nonAdmin");
     }
 
-?>  
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,14 +21,14 @@
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
         <?php include_once ('favicon.php'); ?>
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
-        
+
     </head>
-    
+
     <body>
         <button onclick="topFunction()" id="retTop" title="Torna su"></button>
         <?php
@@ -40,12 +40,12 @@
             <div id="login-error-box-zone"></div>
             <div class="regform-main-section">
             <ul class="regform-errorbox">
-                            <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
-                            another user have to remove your suspension.</li>
-                            </ul>
-                        </div>
-                    </div>';
-        }else {
+                <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role 
+                another user have to remove your suspension.</li>
+            </ul>
+            </div>
+            </div>';
+        } else {
             echo '<div id="registration-form">
                 <div class="regform-introduction">
                     <h2>Add a new administrator</h2>

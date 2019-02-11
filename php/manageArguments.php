@@ -33,7 +33,7 @@
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         
         <?php
-        Sidebar::printSidebarIncludeHeader();
+            Sidebar::printSidebarIncludeHeader();
         ?>
     </head>
     <body>
