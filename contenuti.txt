@@ -48,7 +48,7 @@ It derives from the intuition of "memory" as a scratchpad.
 
         Computer programming
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>There are two key attributes that a problem must have in order for dynamic programming to be applicable: optimal substructure and overlapping sub-problems.
             If a problem can be solved by combining optimal solutions to non-overlapping sub-problems, the strategy is called "divide and conquer" instead. 
             This is why merge sort and quick sort are not classified as dynamic programming problems.
@@ -63,15 +63,15 @@ It derives from the intuition of "memory" as a scratchpad.
             Now F41 is being solved in the recursive sub-trees of both F43 as well as F42. Even though the total number of sub-problems is actually small (only 43 of them), we end up solving the same problems over and over if we adopt a naive recursive solution such as this.
             Dynamic programming takes account of this fact and solves each sub-problem only once.
             </p>
-            <h3>This can be achieved in either of two ways:</h3>
-            <h4>Top-down approach</h4>
+            <h2>This can be achieved in either of two ways:</h2>
+            <h3>Top-down approach</h3>
             <p>
             This is the direct fall-out of the recursive formulation of any problem. 
             If the solution to any problem can be formulated recursively using the solution to its sub-problems, and if its sub-problems are overlapping, then one can easily memoize or store the solutions to the sub-problems in a table.
             Whenever we attempt to solve a new sub-problem, we first check the table to see if it is already solved. 
             If a solution has been recorded, we can use it directly, otherwise we solve the sub-problem and add its solution to the table.
             </p>
-            <h4>Bottom-up approach</h4>
+            <h3>Bottom-up approach</h3>
             <p>
             Once we formulate the solution to a problem recursively as in terms of its sub-problems, we can try reformulating the problem in a bottom-up fashion: try solving the sub-problems first and use their solutions to build-on and arrive at solutions to bigger sub-problems.
             This is also usually done in a tabular form by iteratively generating solutions to bigger and bigger sub-problems by using the solutions to small sub-problems.
@@ -84,7 +84,7 @@ It derives from the intuition of "memory" as a scratchpad.
 
         Fibonacci sequence
             
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             In mathematics, the Fibonacci numbers, commonly denoted Fn form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. 
             </p>
@@ -108,7 +108,7 @@ It derives from the intuition of "memory" as a scratchpad.
             Fibonacci numbers are also closely related to Lucas numbers L_{n} in that they form a complementary pair of Lucas sequences U n ( 1 , − 1 ) = F n and V n ( 1 , − 1 ) = L n .
             Lucas numbers are also intimately connected with the golden ratio.
             </p>
-            <h3>Mathematics</h3>
+            <h2>Mathematics</h2>
             <p>
             The Fibonacci numbers occur in the sums of "shallow" diagonals in Pascal's triangle (see binomial coefficient):
             F n = ∑ k = 0 ⌊ n − 1 2 ⌋ ( n − k − 1 k ).
@@ -120,7 +120,7 @@ It derives from the intuition of "memory" as a scratchpad.
             The number of binary strings of length n without an odd number of consecutive 1s is the Fibonacci number Fn+1. For example, out of the 16 binary strings of length 4, there are F5 = 5 without an odd number of consecutive 1s – they are 0000, 0011, 0110, 1100, 1111. Equivalently, the number of subsets S ⊂ {1,...,n} without an odd number of consecutive integers is Fn+1.
             The number of binary strings of length n without an even number of consecutive 0s or 1s is 2Fn. For example, out of the 16 binary strings of length 4, there are 2F4 = 6 without an even number of consecutive 0s or 1s – they are 0001, 0111, 0101, 1000, 1010, 1110. There is an equivalent statement about subsets.
             </p>
-            <h4>Sequence properties</h4>
+            <h3>Sequence properties</h3>
             <p>
             The first 21 Fibonacci numbers Fn for n = 0, 1, 2, ..., 20 are:
             F0 	F1 	F2 	F3 	F4 	F5 	F6 	F7 	F8 	F9 	F10 	F11 	F12 	F13 	F14 	F15 	F16 	F17 	F18 	F19 	F20
@@ -133,7 +133,7 @@ It derives from the intuition of "memory" as a scratchpad.
             F−8 	F−7 	F−6 	F−5 	F−4 	F−3 	F−2 	F−1 	F0 	F1 	F2 	F3 	F4 	F5 	F6 	F7 	F8
             −21 	13 	−8 	5 	−3 	2 	−1 	1 	0 	1 	1 	2 	3 	5 	8 	13 	21
             </p>
-            <h4>Relation to the golden ratio</h4>
+            <h3>Relation to the golden ratio</h3>
             <p>
             Like every sequence defined by a linear recurrence with constant coefficients, the Fibonacci numbers have a closed-form solution. It has become known as "Binet's formula", though it was already known by Abraham de Moivre and Daniel Bernoulli:
             F n = φ n − ψ n φ − ψ = φ n − ψ n 5 
@@ -168,7 +168,7 @@ It derives from the intuition of "memory" as a scratchpad.
 
         Dijkstra's algorithm
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. 
             It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.
@@ -188,7 +188,7 @@ It derives from the intuition of "memory" as a scratchpad.
             In some fields, artificial intelligence in particular, Dijkstra's algorithm or a variant of it is known as uniform cost search and formulated as an instance of the more general idea of best-first search.
             </p>
             
-            <h3>Algorithm</h3>
+            <h2>Algorithm</h2>
             <ul>
             <li>Let the node at which we are starting be called the initial node.</li>
             <li>Let the distance of node Y be the distance from the initial node to Y.</li>
@@ -207,7 +207,7 @@ It derives from the intuition of "memory" as a scratchpad.
             <p>
             When planning a route, it is actually not necessary to wait until the destination node is "visited" as above: the algorithm can stop once the destination node has the smallest tentative distance among all "unvisited" nodes (and thus could be selected as the next "current").
             </p>
-            <h3>Description</h3>
+            <h2>Description</h2>
             <p>
             Suppose you would like to find the shortest path between two intersections on a city map: a starting point and a destination. Dijkstra's algorithm initially marks the distance (from the starting point) to every other intersection on the map with infinity. This is done not to imply there is an infinite distance, but to note that those intersections have not yet been visited; some variants of this method simply leave the intersections' distances unlabeled. Now, at each iteration, select the current intersection. For the first iteration, the current intersection will be the starting point, and the distance to it (the intersection's label) will be zero. For subsequent iterations (after the first), the current intersection will be a closest unvisited intersection to the starting point (this will be easy to find).
             From the current intersection, update the distance to every unvisited intersection that is directly connected to it. This is done by determining the sum of the distance between an unvisited intersection and the value of the current intersection, and relabeling the unvisited intersection with this value (the sum), if it is less than its current value. In effect, the intersection is relabeled if the path to it through the current intersection is shorter than the previously known paths. To facilitate shortest path identification, in pencil, mark the road with an arrow pointing to the relabeled intersection if you label/relabel it, and erase all others pointing to it. After you have updated the distances to each neighboring intersection, mark the current intersection as visited, and select an unvisited intersection with minimal distance (from the starting point) – or the lowest label—as the current intersection. Intersections marked as visited are labeled with the shortest path from the starting point to it and will not be revisited or returned to.
@@ -221,7 +221,7 @@ It derives from the intuition of "memory" as a scratchpad.
 
         Red-Black trees
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             A red–black tree is a kind of self-balancing binary search tree in computer science. 
             Each node of the binary tree has an extra bit, and that bit is often interpreted as the color (red or black) of the node. 
@@ -238,14 +238,14 @@ It derives from the intuition of "memory" as a scratchpad.
             In many cases, the additional bit of information can be stored at no additional memory cost. 
             </p>
 
-            <h3>Terminology</h3>
+            <h2>Terminology</h2>
             <p>
             A red–black tree is a special type of binary tree, used in computer science to organize pieces of comparable data, such as text fragments or numbers.
             The leaf nodes of red–black trees do not contain data. These leaves need not be explicit in computer memory—a null child pointer can encode the fact that this child is a leaf—but it simplifies some algorithms for operating on red–black trees if the leaves really are explicit nodes. To save execution time, sometimes a pointer to a single sentinel node (instead of a null pointer) performs the role of all leaf nodes; all references from internal nodes to leaf nodes then point to the sentinel node.
             Red–black trees, like all binary search trees, allow efficient in-order traversal (that is: in the order Left–Root–Right) of their elements.
             The search-time results from the traversal from root to leaf, and therefore a balanced tree of n nodes, having the least possible tree height, results in O(log n) search time.
             </p>
-            <h3>Properties</h3>
+            <h2>Properties</h2>
             <ul>In addition to the requirements imposed on a binary search tree the following must be satisfied by a red–black tree:
             
             <li>Each node is either red or black.</li>
@@ -278,7 +278,7 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
 
         Process computing
         
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             In computing, a process is the instance of a computer program that is being executed. It contains the program code and its activity. Depending on the operating system (OS), a process may be made up of multiple threads of execution that execute instructions concurrently.
             While a computer program is a passive collection of instructions, a process is the actual execution of those instructions. Several processes may be associated with the same program; for example, opening up several instances of the same program often results in more than one process being executed.
@@ -286,7 +286,7 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
             A common form of multitasking is time-sharing. Time-sharing is a method to allow high responsiveness for interactive user applications. In time-sharing systems, context switches are performed rapidly, which makes it seem like multiple processes are being executed simultaneously on the same processor. This seeming execution of multiple processes simultaneously is called concurrency.
             For security and reliability, most modern operating systems prevent direct communication between independent processes, providing strictly mediated and controlled inter-process communication functionality.
             </p>
-            <h3>Representation</h3>
+            <h2>Representation</h2>
             <p>
             In general, a computer system process consists of (or is said to own) the following resources:
             An image of the executable machine code associated with a program.
@@ -297,7 +297,7 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
             The operating system holds most of this information about active processes in data structures called process control blocks. Any subset of the resources, typically at least the processor state, may be associated with each of the process' threads in operating systems that support threads or child (daughter) processes.
             The operating system keeps its processes separate and allocates the resources they need, so that they are less likely to interfere with each other and cause system failures (e.g., deadlock or thrashing). The operating system may also provide mechanisms for inter-process communication to enable processes to interact in safe and predictable ways
             </p>
-            <h3>Multitasking and process management</h3>
+            <h2>Multitasking and process management</h2>
             <p>
             A multitasking operating system may just switch between processes to give the appearance of many processes executing simultaneously (that is, in parallel), though in fact only one process can be executing at any one time on a single CPU (unless the CPU has multiple cores, then multithreading or other similar technologies can be used).
             It is usual to associate a single process with a main program, and child processes with any spin-off, parallel processes, which behave like asynchronous subroutines. A process is said to own resources, of which an image of its program (in memory) is one such resource. However, in multiprocessing systems many processes may run off of, or share, the same reentrant program at the same location in memory, but each process is said to own its own image of the program.
@@ -305,7 +305,7 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
             The above description applies to both processes managed by an operating system, and processes as defined by process calculi.
             If a process requests something for which it must wait, it will be blocked. When the process is in the blocked state, it is eligible for swapping to disk, but this is transparent in a virtual memory system, where regions of a process's memory may be really on disk and not in main memory at any time. Note that even unused portions of active processes/tasks (executing programs) are eligible for swapping to disk. All parts of an executing program and its data do not have to be in physical memory for the associated process to be active.
             </p>
-            <h4>Process states</h4>
+            <h3>Process states</h3>
             <p>
             An operating system kernel that allows multitasking needs processes to have certain states. Names for these states are not standardised, but they have similar functionality.
             First, the process is "created" by being loaded from a secondary storage device (hard disk drive, CD-ROM, etc.) into main memory. After that the process scheduler assigns it the "waiting" state.
@@ -334,43 +334,43 @@ Linux distributions are dominant in the server and supercomputing sectors. Other
 
         Memory management
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             Memory management is a form of resource management applied to computer memory. The essential requirement of memory management is to provide ways to dynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed. This is critical to any advanced computer system where more than a single process might be underway at any time.
             </p>
             <p>
             Several methods have been devised that increase the effectiveness of memory management. Virtual memory systems separate the memory addresses used by a process from actual physical addresses, allowing separation of processes and increasing the size of the virtual address space beyond the available amount of RAM using paging or swapping to secondary storage. The quality of the virtual memory manager can have an extensive effect on overall system performance. 
             </p>
-            <h4>Dynamic memory allocation</h4>
+            <h3>Dynamic memory allocation</h3>
             <p>
             The task of fulfilling an allocation request consists of locating a block of unused memory of sufficient size. Memory requests are satisfied by allocating portions from a large pool of memory called the heap or free store. At any given time, some parts of the heap are in use, while some are "free" (unused) and thus available for future allocations.
             Several issues complicate the implementation, such as external fragmentation, which arises when there are many small gaps between allocated memory blocks, which invalidates their use for an allocation request. The allocator's metadata can also inflate the size of (individually) small allocations. This is often managed by chunking. The memory management system must track outstanding allocations to ensure that they do not overlap and that no memory is ever "lost" (i.e. that there be no "memory leak").
             </p>
-            <h4>Efficiency</h4>
+            <h3>Efficiency</h3>
             <p>
             The specific dynamic memory allocation algorithm implemented can impact performance significantly. A study conducted in 1994 by Digital Equipment Corporation illustrates the overheads involved for a variety of allocators. The lowest average instruction path length required to allocate a single memory slot was 52 (as measured with an instruction level profiler on a variety of software).
             </p>
-            <h4>Implementations</h4>
+            <h3>Implementations</h3>
             <p>
             Since the precise location of the allocation is not known in advance, the memory is accessed indirectly, usually through a pointer reference. The specific algorithm used to organize the memory area and allocate and deallocate chunks is interlinked with the kernel, and may use any of the following methods:
             </p>
-            <h4>Fixed-size blocks allocation</h4>
+            <h3>Fixed-size blocks allocation</h3>
             <p>
             Fixed-size blocks allocation, also called memory pool allocation, uses a free list of fixed-size blocks of memory (often all of the same size). This works well for simple embedded systems where no large objects need to be allocated, but suffers from fragmentation, especially with long memory addresses. However, due to the significantly reduced overhead this method can substantially improve performance for objects that need frequent allocation / de-allocation and is often used in video games.
             </p>
-            <h4>Buddy blocks</h4>
+            <h3>Buddy blocks</h3>
             <p>
             In this system, memory is allocated into several pools of memory instead of just one, where each pool represents blocks of memory of a certain power of two in size, or blocks of some other convenient size progression. All blocks of a particular size are kept in a sorted linked list or tree and all new blocks that are formed during allocation are added to their respective memory pools for later use. If a smaller size is requested than is available, the smallest available size is selected and split. One of the resulting parts is selected, and the process repeats until the request is complete. When a block is allocated, the allocator will start with the smallest sufficiently large block to avoid needlessly breaking blocks. When a block is freed, it is compared to its buddy. If they are both free, they are combined and placed in the correspondingly larger-sized buddy-block list.
             </p>
-            <h4>Slab allocation</h4>
+            <h3>Slab allocation</h3>
             <p>
             This memory allocation mechanism preallocates memory chunks suitable to fit objects of a certain type or size. These chunks are called caches and the allocator only has to keep track of a list of free cache slots. Constructing an object will use any one of the free cache slots and destructing an object will add a slot back to the free cache slot list. This technique alleviates memory fragmentation and is efficient as there is no need to search for a suitable portion of memory, as any open slot will suffice.
             </p>
-            <h4>Automatic variables</h4>
+            <h3>Automatic variables</h3>
             <p>
             In many programming language implementations, all variables declared within a procedure (subroutine, or function) are local to that function; the runtime environment for the program automatically allocates memory for these variables on program execution entry to the procedure, and automatically releases that memory when the procedure is exited. Special declarations may allow local variables to retain values between invocations of the procedure, or may allow local variables to be accessed by other procedures. The automatic allocation of local variables makes recursion possible, to a depth limited by available memory.
             </p>
-            <h4>Garbage collection</h4>
+            <h3>Garbage collection</h3>
             <p>
             Garbage collection is a strategy for automatically detecting memory allocated to objects that are no longer usable in a program, and returning that allocated memory to a pool of free memory locations. This method is in contrast to "manual" memory management where a programmer explicitly codes memory requests and memory releases in the program. While automatic garbage has the advantages of reducing programmer workload and preventing certain kinds of memory allocation bugs, garbage collection does require memory resources of its own, and can compete with the application program for processor time.
             </p>
@@ -409,14 +409,14 @@ Automata play a major role in theory of computation, compiler construction, arti
 
         Deterministic pushdown automaton(DPDA)
             
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             In automata theory, a deterministic pushdown automaton (DPDA or DPA) is a variation of the pushdown automaton. The class of deterministic pushdown automata accepts the deterministic context-free languages, a proper subset of context-free languages.
             </p>
             <p>
             Machine transitions are based on the current state and input symbol, and also the current topmost symbol of the stack. Symbols lower in the stack are not visible and have no immediate effect. Machine actions include pushing, popping, or replacing the stack top. A deterministic pushdown automaton has at most one legal transition for the same combination of input symbol, state, and top stack symbol. This is where it differs from the nondeterministic pushdown automaton. 
             </p>
-            <h3>Formal definition</h3>
+            <h2>Formal definition</h2>
             <ol>A (not necessarily deterministic) PDA M can be defined as a 7-tuple:
             M = ( Q , Σ , Γ , q 0 , Z 0 , A , δ )
             where
@@ -443,13 +443,13 @@ Automata play a major role in theory of computation, compiler construction, arti
 
         Pushdown automaton(PDA)
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             In the theory of computation, a branch of theoretical computer science, a pushdown automaton (PDA) is a type of automaton that employs a stack.
             Pushdown automata are used in theories about what can be computed by machines. They are more capable than finite-state machines but less capable than Turing machines. Deterministic pushdown automata can recognize all deterministic context-free languages while nondeterministic ones can recognize all context-free languages, with the former often used in parser design.
             The term "pushdown" refers to the fact that the stack can be regarded as being "pushed down" like a tray dispenser at a cafeteria, since the operations never work on elements other than the top element. A stack automaton, by contrast, does allow access to and operations on deeper elements. Stack automata can recognize a strictly larger set of languages than pushdown automata. A nested stack automaton allows full access, and also allows stacked values to be entire sub-stacks rather than just single finite symbols. 
             </p>
-            <h3>Formal definition</h3>
+            <h2>Formal definition</h2>
             <ol>We use standard formal language notation: Γ ∗ denotes the set of strings over alphabet Γ  and ε denotes the empty string.
             A PDA is formally defined as a 7-tuple:
             M = ( Q , Σ , Γ , δ , q 0 , Z , F ) where
@@ -471,7 +471,7 @@ Automata play a major role in theory of computation, compiler construction, arti
 
         Nondeterministic finite automaton(NFA)
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             In automata theory, a finite state machine is called a deterministic finite automaton (DFA), if
             each of its transitions is uniquely determined by its source state and input symbol, and
@@ -483,7 +483,7 @@ Automata play a major role in theory of computation, compiler construction, arti
             NFAs were introduced in 1959 by Michael O. Rabin and Dana Scott, who also showed their equivalence to DFAs. NFAs are used in the implementation of regular expressions: Thompson's construction is an algorithm for compiling a regular expression to an NFA that can efficiently perform pattern matching on strings.
             NFAs have been generalized in multiple ways, e.g., nondeterministic finite automaton with ε-moves, finite state transducers, pushdown automata, alternating automata, ω-automata, and probabilistic automata. Besides the DFAs, other known special cases of NFAs are unambiguous finite automata (UFA) and self-verifying finite automata (SVFA). 
             </p>
-            <h3>Formal definition</h3>
+            <h2>Formal definition</h2>
             <ul>An NFA is represented formally by a 5-tuple, ( Q , Σ , Δ , q 0 , F ), consisting of
             <li>a finite set of states Q.</li>
             <li>a finite set of input symbols Σ.</li>
@@ -508,7 +508,7 @@ Automata play a major role in theory of computation, compiler construction, arti
 
         Turing machine
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             A Turing machine is a mathematical model of computation that defines an abstract machine, which manipulates symbols on a strip of tape according to a table of rules. Despite the model's simplicity, given any computer algorithm, a Turing machine capable of simulating that algorithm's logic can be constructed.
             The machine operates on an infinite memory tape divided into discrete cells.
@@ -525,7 +525,7 @@ Automata play a major role in theory of computation, compiler construction, arti
             Thus, Turing machines prove fundamental limitations on the power of mechanical computation. While they can express arbitrary computations, their minimalistic design makes them unsuitable for computation in practice: real-world computers are based on different designs that, unlike Turing machines, use random-access memory.
             Turing completeness is the ability for a system of instructions to simulate a Turing machine. A programming language that is Turing complete is theoretically capable of expressing all tasks accomplishable by computers; nearly all programming languages are Turing complete if the limitations of finite memory are ignored. 
             </p>
-            <h3>Formal definition</h3>
+            <h2>Formal definition</h2>
             <ol>Following Hopcroft and Ullman (1979, p. 148), a (one-tape) Turing machine can be formally defined as a 7-tuple M = ⟨ Q , Γ , b , Σ , δ , q 0 , F ⟩ 
             where
             <li>Q is a finite, non-empty set of states;</li>
@@ -566,7 +566,7 @@ This guide will provide everything you need to know about Java programming langu
             <p>
             Java technology is both a programming language and a platform.
             </p>
-            <h3>The Java Programming Language</h3>
+            <h2>The Java Programming Language</h2>
             <ul>The Java programming language is a high-level language that can be characterized by all of the following buzzwords:
 
                 <li>Simple</li>
@@ -586,7 +586,7 @@ This guide will provide everything you need to know about Java programming langu
             In the Java programming language, all source code is first written in plain text files ending with the .java extension. Those source files are then compiled into .class files by the javac compiler. A .class file does not contain code that is native to your processor; it instead contains bytecodes — the machine language of the Java Virtual Machine1 (Java VM). The java launcher tool then runs your application with an instance of the Java Virtual Machine.
             Because the Java VM is available on many different operating systems, the same .class files are capable of running on Microsoft Windows, the Solaris™ Operating System (Solaris OS), Linux, or Mac OS. Some virtual machines, such as the Java SE HotSpot at a Glance, perform additional steps at runtime to give your application a performance boost. This includes various tasks such as finding performance bottlenecks and recompiling (to native code) frequently used sections of code.
             </p>
-            <h3>The Java Platform</h3>
+            <h2>The Java Platform</h2>
             <p>
             A platform is the hardware or software environment in which a program runs. We've already mentioned some of the most popular platforms like Microsoft Windows, Linux, Solaris OS, and Mac OS. Most platforms can be described as a combination of the operating system and underlying hardware. The Java platform differs from most other platforms in that it's a software-only platform that runs on top of other hardware-based platforms.
             </p>
@@ -601,7 +601,7 @@ This guide will provide everything you need to know about Java programming langu
             As a platform-independent environment, the Java platform can be a bit slower than native code. However, advances in compiler and virtual machine technologies are bringing performance close to that of native code without threatening portability.
             The terms"Java Virtual Machine" and "JVM" mean a Virtual Machine for the Java platform.
             </p>
-            <h3>What can Java technology do?</h3>
+            <h2>What can Java technology do?</h2>
             <p>
             The general-purpose, high-level Java programming language is a powerful software platform. Every full implementation of the Java platform gives you the following features:
             Development Tools: The development tools provide everything you'll need for compiling, running, monitoring, debugging, and documenting your applications. As a new developer, the main tools you'll be using are the javac compiler, the java launcher, and the javadoc documentation tool.
@@ -622,16 +622,16 @@ This guide will provide everything you need to know about Java programming langu
 
         Custom networking
 
-            <h3>What You May Already Know About Networking in Java</h3>
+            <h2>What You May Already Know About Networking in Java</h2>
             <p>
             The word networking strikes fear in the hearts of many programmers. Fear not! Using the networking capabilities provided in the Java environment is quite easy. In fact, you may be using the network already without even realizing it!
             </p>
-            <h4>Loading Applets from the Network</h4>
+            <h3>Loading Applets from the Network</h3>
             <p>
             If you have access to a Java-enabled browser, you have undoubtedly already executed many applets. The applets you've run are referenced by a special tag in an HTML file — the <APPLET> tag. Applets can be located anywhere, whether on your local machine or somewhere out on the Internet. The location of the applet is completely invisible to you, the user. However, the location of the applet is encoded within the <APPLET> tag. The browser decodes this information, locates the applet, and runs it. If the applet is on some machine other than your own, the browser must download the applet before it can be run.
             This is the highest level of access that you have to the Internet from the Java development environment. Someone else has taken the time to write a browser that does all of the grunt work of connecting to the network and getting data from it, thereby enabling you to run applets from anywhere in the world.
             The Java Applets trail describes how to write Java applets from A to Z.
-            <h4>Loading Images from URLs</h4>
+            <h3>Loading Images from URLs</h3>
             <p>
             If you've ventured into writing your own Java applets and applications, you may have run into a class in the java.net package called URL. This class represents a Uniform Resource Locator and is the address of some resource on the network. Your applets and applications can use a URL to reference and even connect to resources out on the network. For example, to load an image from the network, your Java program must first create a URL that contains the address to the image.
             This is the next highest level of interaction you can have with the Internet — your Java program gets an address of something it wants, creates a URL for it, and then uses some existing function in the Java development environment that does the grunt work of connecting to the network and retrieving the resource.
@@ -639,7 +639,7 @@ This guide will provide everything you need to know about Java programming langu
 
         Generics
 
-            <h3>Introduction</h3>
+            <h2>Introduction</h2>
             <p>
             JDK 5.0 introduces several new extensions to the Java programming language. One of these is the introduction of generics.
             This trail is an introduction to generics. You may be familiar with similar constructs from other languages, most notably C++ templates. If so, you'll see that there are both similarities and important differences. If you are unfamiliar with look-a-alike constructs from elsewhere, all the better; you can start fresh, without having to unlearn any misconceptions.
@@ -672,7 +672,7 @@ This guide will provide everything you need to know about Java programming langu
             Now, you might think that all we've accomplished is to move the clutter around. Instead of a cast to Integer on line 3, we have Integer as a type parameter on line 1'. However, there is a very big difference here. The compiler can now check the type correctness of the program at compile-time. When we say that myIntList is declared with type List<Integer>, this tells us something about the variable myIntList, which holds true wherever and whenever it is used, and the compiler will guarantee it. In contrast, the cast tells us something the programmer thinks is true at a single point in the code.
             The net effect, especially in large programs, is improved readability and robustness.
             </p>
-            <h3>Defining Simple Generics</h3>
+            <h2>Defining Simple Generics</h2>
             <p>
             Here is a small excerpt from the definitions of the interfaces List and Iterator in package java.util:
             </p>
