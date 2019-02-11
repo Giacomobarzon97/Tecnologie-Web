@@ -221,7 +221,7 @@
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
                             <p>
                                 <label for="new-subtopic-title">Title of the new sub-topic:</label>
-                                <input type="text" name="title" id="new-subtopic-title" placeholder="Titolo del subtopic" required maxlength="100" />
+                                <input type="text" name="title" id="new-subtopic-title" placeholder="Subtopic title" required maxlength="100" />
                             </p>
                             <p>
                                 <label for="descrizione">Description of the new sub-topic:</label>

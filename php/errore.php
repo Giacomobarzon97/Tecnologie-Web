@@ -7,7 +7,7 @@
     <head>
     <title>Error &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina gestione errori" />
+        <meta name="description" content="Error handling page" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />

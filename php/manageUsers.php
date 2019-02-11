@@ -9,10 +9,6 @@
     if(!User::isAdmin($_SESSION['email'])){
         header("Location: errore.php?errorCode=nonAdmin");
     }
-
-    if(User::isBanned($_SESSION['email'])){
-        header("Location: errore.php?errorCode=bannanto");
-    }
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -49,66 +45,66 @@
                             </ul>
                         </div>
                     </div>';
-            die();
-        }
-        
-        ?>
-        <div id="registration-form">
-            <div class="regform-introduction">
-                <h2>Suspend a user's account</h2>
-            </div>
-            <div id="ban-user-error-box-zone"></div>
-            <div class="regform-main-section">
-                <?php 
 
-                    if(isset($_POST['submit'])){
-                        $nickname = $_POST['nickname'];
-                        
-                        $result = User::userSuspend($nickname);
-                        if(!$result->getIsError()) {
-                            echo '<ul class="regform-successbox"><li>'.$result->getMessage().'</li></ul>';
-                        } else { //Stampa dell'errore
-                            echo '<ul class="regform-errorbox">
-                            <li>'.$result->getMessage().'</li>
-                            </ul>
-                            ';
-                        }
-                    }
+        }else{
 
-                    if(isset($_POST['submitNicknameDel'])) {
-                        $nick = $_POST['nicknameDel'];
-                        $result = User::removeSuspension($nick);
-                        if($result) {
-                            echo '<ul class="regform-successbox"><li>Removal of suspension successfully completed!</li></ul>';
-                        } else { //Stampa dell'errore
-                            echo '<ul class="regform-errorbox">
-                            <li>Suspension already removed or non-existent user!</li>
-                            </ul>
-                            ';
+            echo '<div id="registration-form">
+                <div class="regform-introduction">
+                    <h2>Suspend a user account</h2>
+                </div>
+                <div id="ban-user-error-box-zone"></div>
+                <div class="regform-main-section">';
+
+
+                        if(isset($_POST['submit'])){
+                            $nickname = $_POST['nickname'];
+
+                            $result = User::userSuspend($nickname);
+                            if(!$result->getIsError()) {
+                                echo '<ul class="regform-successbox"><li>'.$result->getMessage().'</li></ul>';
+                            } else { //Stampa dell'errore
+                                echo '<ul class="regform-errorbox">
+                                <li>'.$result->getMessage().'</li>
+                                </ul>
+                                ';
+                            }
                         }
-                    }
-                ?>
-                <form action="manageUsers.php" id="ban-user-form" method="POST">
-                    <fieldset>
-                        <p>
-                            <label for="lnickname">Nickname</label>
-                            <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onchange="BanUser_HideBanUserError()" />
-                        </p>
-                        <p>
-                            <input class="profile-input" name="submit" type="submit" value="Suspend" />
-                        </p>
-                    </fieldset>
-                </form>
-            </div>
-            <div>
-                <?php User::printAllBannedUsers(); ?>
-            </div>
-            <?php
+
+                        if(isset($_POST['submitNicknameDel'])) {
+                            $nick = $_POST['nicknameDel'];
+                            $result = User::removeSuspension($nick);
+                            if($result) {
+                                echo '<ul class="regform-successbox"><li>Removal of suspension successfully completed!</li></ul>';
+                            } else { //Stampa dell'errore
+                                echo '<ul class="regform-errorbox">
+                                <li>Suspension already removed or non-existent user!</li>
+                                </ul>
+                                ';
+                            }
+                        }
+
+                    echo '<form action="manageUsers.php" id="ban-user-form" method="POST">
+                        <fieldset>
+                            <p>
+                                <label for="lnickname">Nickname</label>
+                                <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onchange="BanUser_HideBanUserError()" />
+                            </p>
+                            <p>
+                                <input class="profile-input" name="submit" type="submit" value="Suspend" />
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div>';
+                    User::printAllBannedUsers();
+                echo '</div>';
+                echo '</div>';
+            }
             echo '<noscript>';
             SimpleNavbar::printSimpleNavbar(true);
             echo '</noscript>';
             ?>
-        </div>
+
         <?php
         echo '<noscript>';
         SimpleNavbar::printNoJSWarning();

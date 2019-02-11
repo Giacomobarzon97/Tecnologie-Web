@@ -44,7 +44,7 @@
     <head>
         <title>Scrittura Articolo &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina scrittura di un nuovo articolo" />
+        <meta name="description" content="Page to write a new article" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />
@@ -76,50 +76,52 @@
                 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST" id="write-article-form">
                     <?php
                         if(isset($_GET['articleID'])){
-                            echo '<h1>Modifica un articolo</h1>';
+                            echo '<h1>Edit an article</h1>';
                         }else{
-                            echo '<h1>Scrivi un nuovo articolo</h1>';
+                            echo '<h1>Write a new article</h1>';
                         }
                     ?>
                     <ul id="article-info">
                         <?php
-                            echo '<li>Argomento: <a href="ArticleLinks.php?id='.$_GET['topicID'].'">'.Subtopics::getTopicTitle($_GET['topicID']).'</a></li>';
-                            echo '<li>Sottoargomento: <a href="ArticleLinks.php?id='.$_GET['topicID'].'#subtopic_'.$_GET['subtopicID'].'">'.Subtopics::getSubtopicTitle($_GET['subtopicID']).'</a></li>';
+                            echo '<li>Topic: <a href="ArticleLinks.php?id='.$_GET['topicID'].'">'.Subtopics::getTopicTitle($_GET['topicID']).'</a></li>';
+                            echo '<li>Subtopic: <a href="ArticleLinks.php?id='.$_GET['topicID'].'#subtopic_'.$_GET['subtopicID'].'">'.Subtopics::getSubtopicTitle($_GET['subtopicID']).'</a></li>';
                             if(isset($_GET['articleID'])){
                                 $articleInfo = Article::getArticleRowFromId($_GET['articleID']);
-                                echo '<li>Stai modificando l\'articolo: <a href="ReadArticle.php?id='.$articleInfo['Id'].'" target="_blank">'.$articleInfo['Title'].'</a></li>';
+                                echo '<li>You are editing the article: <a href="ReadArticle.php?id='.$articleInfo['Id'].'" target="_blank">'.$articleInfo['Title'].'</a></li>';
                             }
                         ?>
                     </ul>
                     <fieldset>
                         <input type="hidden" name="subtopicID" value="<?php echo $_GET['subtopicID'] ?>" />
                         <p>
-                            <label for="title">Inserisci il titolo per il tuo articolo</label>
                             <?php
                                 if(isset($_GET['articleID'])){
-                                    echo '<input type="text" name="title" required id="title" placeholder="Titolo dell\'articolo" value="'.$articleInfo['Title'].'">';
+                                    echo '<label for="title">Edit the title for your article</label>';
+                                    echo '<input type="text" name="title" required id="title" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" placeholder="Title of the article" value="'.$articleInfo['Title'].'">';
                                 }else{
-                                    echo '<input type="text" name="title" required id="title" placeholder="Titolo dell\'articolo">';
+                                    echo '<label for="title">Enter the title for your article</label>';
+                                    echo '<input type="text" name="title" required id="title" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" placeholder="Title of the article">';
                                 }
                             ?>
                         </p>
                         <p>
-                            <label for="new-article-content">Scrivi il testo del tuo articolo</label>
                             <?php
                                 if(isset($_GET['articleID'])){
+                                    echo '<label for="new-article-content">Edit the text of your article</label>';
                                     echo '<textarea name="article-input" required rows="10" cols="100" id="new-article-content">'.$articleInfo['HTMLCode'].'</textarea>';
                                 }else{
+                                    echo '<label for="new-article-content">Write the text of your article</label>';
                                     echo '<textarea name="article-input" required rows="10" cols="100" id="new-article-content"></textarea>';
                                 }
                             ?>
                         </p>
-                        <p>Tag HTML supportati: <?php echo htmlspecialchars(Article::$allowed_content_tags) ?></p>
+                        <p>Supported HTML tags: <?php echo htmlspecialchars(Article::$allowed_content_tags) ?></p>
                         <?php
                             if(isset($_GET['articleID'])){
-                                echo '<input type="submit" value="Modifica articolo" name="edit-article"/>';
-                                echo '<a href="ArticleLinks.php?id='.$_GET['topicID'].'">Annulla modifica</a>';
+                                echo '<input type="submit" value="Edit article" name="edit-article"/>';
+                                echo '<a href="ArticleLinks.php?id='.$_GET['topicID'].'">Cancel article edit and go back</a>';
                             }else{
-                                echo '<input type="submit" value="Invia" name="create-article"/>';
+                                echo '<input type="submit" value="Create Article" name="create-article"/>';
                             }
                         ?>
                     </fieldset>                 	

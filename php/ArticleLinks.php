@@ -28,7 +28,7 @@
     <head>
         <title><?php echo Subtopics::getTopicTitle($_GET["id"]) ?>: list of articles &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina link agli articoli" />
+        <meta name="description" content="Page with links to articles about a topici" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="language" content="italian it" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />

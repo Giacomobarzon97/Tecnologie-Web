@@ -10,16 +10,13 @@
         header("Location: errore.php?errorCode=nonAdmin");
     }
 
-    if(User::isBanned($_SESSION['email'])){
-        header("Location: errore.php?errorCode=bannanto");
-    }
 ?>  
 <!DOCTYPE html>
 <html lang="en">
     <head>
     <title>Admin Tools &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina strumenti amministratore" />
+        <meta name="description" content="Administrator tools page" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
