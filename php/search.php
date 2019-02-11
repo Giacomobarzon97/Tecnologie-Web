@@ -15,7 +15,7 @@
     <head>
         <title>Search results for "<?php echo $_GET["search-term"] ?>" &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina risultati di ricerca" />
+        <meta name="description" content="Search results page" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />

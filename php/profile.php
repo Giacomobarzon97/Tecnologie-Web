@@ -7,7 +7,7 @@
     <head>
         <title>Your profile &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina profilo personale" />
+        <meta name="description" content="Personal profile page" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -97,12 +97,12 @@
                         </p>
                         <p>
                             <label for="lname">Name</label>
-                            <input class="profile-input" type="text" id="lname" name="name" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo nome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lname" name="name" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Your Name" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->name;?>"/>
                         </p>
                         <p>
                             <label for="lsurname">Surname</label>
-                            <input class="profile-input" type="text" id="lsurname" name="surname" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo cognome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lsurname" name="surname" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Your surname" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->surname;?>"/>
                         </p>
                         <p><input class="profile-input" name="submitChangeInfo" type="submit" value="Update information" /></p>
@@ -129,15 +129,15 @@
                     <fieldset>
                         <p>
                             <label for="lold-password">Current Password</label>
-                            <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Password attuale" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Current Password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p>
                             <label for="lnew-password">New password</label>
-                            <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="Nuova password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="New password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p>
                             <label for="lconf-new-password">Confirm new password</label>
-                            <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" placeholder="Conferma nuova password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" placeholder="Confirm new password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p><input class="profile-input" name="submitChangePassword" type="submit" value="Change Password" /></p>
                     </fieldset>

@@ -20,7 +20,7 @@
     <head>
         <title><?php echo Article::getArticleTitle($_GET['id']) ?> &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina lettura articolo" />
+        <meta name="description" content="Article reading page" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -31,14 +31,16 @@
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
         <?php
-            if(isset($_POST['vote-comment']) && isset($_SESSION['email'])) {
-                User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
-            }
-            if(isset($_POST['delete-vote'])) {
-                User::removeVoteComment($_POST['commentID'], $_SESSION['email'], $_GET["id"], true);
-            }
-            if(isset($_POST['delete-comment'])) {
-                User::deleteComment($_SESSION['email'], $_POST['commentID']);
+            if(isset($_SESSION['email'])) {
+                if (isset($_POST['vote-comment'])) {
+                    User::voteComment($_POST['commentID'], $_SESSION['email'], $_POST['isLike'], $_GET["id"]);
+                }
+                if (isset($_POST['delete-vote'])) {
+                    User::removeVoteComment($_POST['commentID'], $_SESSION['email'], $_GET["id"], true);
+                }
+                if (isset($_POST['delete-comment'])) {
+                    User::deleteComment($_SESSION['email'], $_POST['commentID']);
+                }
             }
 
             Sidebar::printSidebarIncludeHeader();

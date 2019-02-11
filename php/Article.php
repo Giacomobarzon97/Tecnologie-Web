@@ -42,7 +42,7 @@
             echo '<h1>'.$result[0]['Title'].'</h1>';
             echo '<!--Inizio paragrafo-->';
             echo $result[0]['HTMLCode'];
-            echo '<p id="article-author">Autore articolo: '.$author[0]['Nickname'].'</p>';
+            echo '<p id="article-author">Article author: '.$author[0]['Nickname'].'</p>';
         }
 
         static function insertArticleInTable($title, $content, $authorID, $subtopicID){

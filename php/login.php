@@ -11,7 +11,7 @@
     <head>
     <title>Login &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina di login" />
+        <meta name="description" content="Login page to the DevSpace" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -61,9 +61,9 @@
                             <label for="lemail">Email</label>
                             <?php
                             if(isset($_POST['email'])){
-                                echo '<input class="profile-input" type="email" value="'.$_POST['email'].'" id="lemail" name="email" placeholder="Email@some.boh" required onchange="LoginPage_HideChangeLoginDataError()" />';
+                                echo '<input class="profile-input" type="email" value="'.$_POST['email'].'" id="lemail" name="email" placeholder="someone@example.com" required onchange="LoginPage_HideChangeLoginDataError()" />';
                             }else{
-                                echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onchange="LoginPage_HideChangeLoginDataError()" />';
+                                echo '<input class="profile-input" type="email" id="lemail" name="email" placeholder="someone@example.com" required onchange="LoginPage_HideChangeLoginDataError()" />';
                             }
                             ?>
                         </p>

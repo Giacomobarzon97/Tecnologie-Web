@@ -11,7 +11,7 @@
     <head>
         <title>Forgot password &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Password dimenticata nella piattaforma DevSpace" />
+        <meta name="description" content="Forgotten password on the DevSpace website" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />
