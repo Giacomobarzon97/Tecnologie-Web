@@ -790,16 +790,18 @@ try {
     }
   });
   window.addEventListener("testPassive", null, opts);
-  window.removeEventListener("testPassive", null, opts);
 } catch (e) {}
 
 // Use our detect's results. passive applied if supported, capture will be false either way.
-document.addEventListener('touchstart',supportsPassive ? { passive: true } : false); 
+document.addEventListener('touchstart',supportsPassive ? { passive: true } : false);
+document.addEventListener('mousewheel',supportsPassive ? { passive: true } : false);
+document.addEventListener('wheel',supportsPassive ? { passive: true } : false);
+document.addEventListener('touchmove',supportsPassive ? { passive: true } : false);
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.addEventListener("scroll", function () {
     scrollFunction();
-});
+},supportsPassive ? { passive: true } : false);
 
 function scrollFunction() {
     var goTop = document.getElementById("retTop");
