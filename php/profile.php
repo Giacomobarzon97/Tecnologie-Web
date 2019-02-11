@@ -84,12 +84,12 @@
                         </p>
                         <p>
                             <label for="lname">Name</label>
-                            <input class="profile-input" type="text" id="lname" name="name" pattern="[A-Za-z]+" title="Il tuo nome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lname" name="name" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo nome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->name;?>"/>
                         </p>
                         <p>
                             <label for="lsurname">Surname</label>
-                            <input class="profile-input" type="text" id="lsurname" name="surname" pattern="[A-Za-z]+" title="Il tuo cognome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lsurname" name="surname" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" title="Il tuo cognome" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->surname;?>"/>
                         </p>
                         <p><input class="profile-input" name="submitChangeInfo" type="submit" value="Update information" /></p>

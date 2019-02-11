@@ -29,10 +29,16 @@ https://elearning.unipd.it/math/pluginfile.php/43657/mod_resource/content/1/Spec
 ->per le immagini racchiudere il tag img dentro al tag <figure> accompagnato da 
     <figcaption>(non ci sarà quindi la necessità di mettere l'alt se si usa questo tag)
 ->file .manifest???(cache manifest) elenca le risorse disponibili anche in assenza di  connessione alla rete
-->colori link
+
 ->casella di ricerca
 ->uniformare i bottoni: che tutti i bottoni abbiano lo stesso layout
+->topic senza argomenti su breadcrumb
 
+!!! vedere ultime slide PHP per regole consegna e relazione
 
-!!! vedere ultime slide PHP per regole consegna e relazione iscrizione alla consegna
-7 febbraio
+->colori link(da motivare nella relazione)
+->accessKey(vedi issue)
+->lingua inglese
+->check javascript
+->relazione(compatibilità tag html5/versioni browser Giacomo G.) + leggere
+->dividere css per ogni media query/dispositivo
