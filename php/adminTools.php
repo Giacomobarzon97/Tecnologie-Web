@@ -33,7 +33,9 @@
     </head>
     
     <body>
-        <?php include_once ('navbar.php'); 
+        <?php
+        include_once('navbar.php');
+        SimpleNavbar::printSimpleNavbar();
         
         $nickname = unserialize($_SESSION['userInfo'])->nickname;
         if(User::isBanned($nickname)) {
@@ -61,6 +63,10 @@
             </div>
         </div>	";
         }
+
+        echo '<noscript>';
+        SimpleNavbar::printSimpleNavbar(true);
+        echo '</noscript>';
         
         ?>
         

@@ -34,7 +34,10 @@
     
     <body>
         <button onclick="topFunction()" id="retTop" title="Torna su"></button>
-        <?php include_once ('navbar.php'); 
+        <?php
+        include_once('navbar.php');
+        SimpleNavbar::printSimpleNavbar();
+
         $nickname = unserialize($_SESSION['userInfo'])->nickname;
         if(User::isBanned($nickname)) {
             echo '<div id="registration-form">
@@ -100,6 +103,11 @@
             <div>
                 <?php User::printAllBannedUsers(); ?>
             </div>
-        </div>	
+        </div>
+        <?php
+        echo '<noscript>';
+        SimpleNavbar::printSimpleNavbar(true);
+        echo '</noscript>';
+        ?>
     </body>
 </html>

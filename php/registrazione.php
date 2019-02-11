@@ -25,7 +25,10 @@
     </head>
 
     <body>
-        <?php include_once ('navbar.php'); ?>
+        <?php
+        include_once('navbar.php');
+        SimpleNavbar::printSimpleNavbar();
+        ?>
         <div id="registration-form">
             <div class="regform-introduction">
                 <h2>Create an account for <strong>DevSpace</strong></h2>
@@ -104,6 +107,11 @@
                 <p>Sei già registrato?
                 <p>Clicca <a href='login.php'>qui</a> per effettuare il login.</p>
             </div>
-        </div>	
+        </div>
+        <?php
+        echo '<noscript>';
+        SimpleNavbar::printSimpleNavbar(true);
+        echo '</noscript>';
+        ?>
     </body>
 </html>

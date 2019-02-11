@@ -89,7 +89,7 @@
         <?php
             echo '<noscript>';
             SimpleNavbar::printSimpleNavbar(true);
-            echo '</noscript>'
+            echo '</noscript>';
         ?>
         <?php
             include_once ('footer.php');

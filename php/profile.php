@@ -21,7 +21,10 @@
     </head>
 
     <body>
-        <?php include_once ('navbar.php'); ?>
+        <?php
+        include_once('navbar.php');
+        SimpleNavbar::printSimpleNavbar();
+        ?>
         <div id="registration-form">
             <div class="regform-introduction">
                 <h1>Bentornato utente!</h1>
@@ -135,6 +138,11 @@
                 <p><input class="profile-input" name="delete_account" type="submit" value="Elimina il tuo account" /></p>  
             </form>
             </div>  
-        </div>	
+        </div>
+        <?php
+        echo '<noscript>';
+        SimpleNavbar::printSimpleNavbar(true);
+        echo '</noscript>';
+        ?>
     </body>
 </html>
