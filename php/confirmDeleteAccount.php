@@ -60,6 +60,9 @@
                     <li><a href="about.php">About</a></li>
                 </ul>
             </div>';
+            echo '<noscript>';
+            SimpleNavbar::printNoJSWarning();
+            echo '</noscript>';
         ?>
     </body>
 </html>
