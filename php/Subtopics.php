@@ -162,7 +162,7 @@
                 echo '<div class="details">';
                 echo '<h2 class="subtopic-title" ><span id="subtopic_'.$subtopic['Id'].'"></span>'.$subtopic['Title'].'</h2>';
                 if(strlen($subtopic['Description']) > 0){
-                    echo '<h3>'.SearchManager::shortDescription($subtopic['Description'], 300).'</h3>';
+                    echo '<h3>'.$subtopic['Description'].'</h3>';
                 }
                 echo '</div>';
                 //Stampa bottoni elemento (se l'utente è admin)
@@ -225,7 +225,7 @@
                             </p>
                             <p>
                                 <label for="descrizione">Description of the new sub-topic:</label>
-                                <textarea id="descrizione" rows="10" cols="40" required name="descrizione" placeholder="Write a description for the new sub-topic"></textarea>
+                                <textarea id="descrizione" rows="10" cols="40" required name="descrizione" placeholder="Write a description for the new sub-topic (max 500 characters)"></textarea>
                             </p>
                             <p><input type="submit" name="add-subtopic" value="Create" /></p>
                     </fieldset>
@@ -234,11 +234,11 @@
         }
 
         static function insertSubtopic($title, $description, $topicID){
-            if(!isset($title) || strlen($title)<2){
-                return new ResultManager("<li>The subtopic title is not valid! (Probably is too short or empty)</li>", true);
+            if(!isset($title) || strlen($title)<2 || strlen($title)>100){
+                return new ResultManager("<li>The subtopic title is not valid! (Probably is too short/long or empty)</li>", true);
             }
-            if(!isset($description) || strlen($description)<2){
-                return new ResultManager("<li>The subtopic description is not valid! (Probably is too short or empty)</li>", true);
+            if(!isset($description) || strlen($description)<2 || strlen($description)>500){
+                return new ResultManager("<li>The subtopic description is not valid! (Probably is too short/long or empty)</li>", true);
             }
             if(!Subtopics::checkIfTopicExists($topicID)){
                 return new ResultManager("<li>The received TOPICID is not valid!</li>", true);

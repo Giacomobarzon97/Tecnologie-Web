@@ -432,7 +432,7 @@ function ArticleLinks_ShowInsertNewSubtopicError(HTML_message) {
     ShowErrorBox("insert-new-subtopic-error-box", HTML_message);
 }
 
-//Valida i dati del cambio dati base
+//Valida i dati per la creazione di un nuovo subtopic
 function validateInsertNewSubtopicData() {
     var subtopic_title = document.getElementById("new-subtopic-title").value;
     var subtopic_description = document.getElementById("descrizione").value;
@@ -441,7 +441,7 @@ function validateInsertNewSubtopicData() {
     if (!checkStringIsValid(subtopic_title) || subtopic_title.length > 100) {
         errorMessage += "<li>The title is not valid!</li>";
     }
-    if (!checkStringIsValid(subtopic_description) || subtopic_description.length > 10000) {
+    if (!checkStringIsValid(subtopic_description) || subtopic_description.length > 500) {
         errorMessage += "<li>The description is not valid!</li>";
     }
 

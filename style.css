@@ -272,7 +272,7 @@ input[type=text],input[type=email],input[type=password] {
     margin: 2em 0em;
 }
 
-#current-menu-entry {
+.current-menu-entry {
     color: #000000;
     font-weight: bold;
 }

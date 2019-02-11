@@ -81,6 +81,15 @@
                 </div>
                 <!--Fine centratura commenti-->
             </div> <!--Chiusura div main-->
+            <noscript>
+                <?php
+                Sidebar::printNoJsNavbar();
+                echo '<div id="nojs-sidebar-wrapper">';
+                Sidebar::printNoJsSidebarSearchbox();
+                Sidebar::printArticleSidebar($_GET["id"], true);
+                echo '</div>';
+                ?>
+            </noscript>
             <?php
                 include_once ('footer.php');
                 Sidebar::openSidebarEntryArticle($_GET["id"]);

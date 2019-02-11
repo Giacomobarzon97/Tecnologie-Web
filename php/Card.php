@@ -94,11 +94,11 @@
         }
 
         static function insertTopic($title, $description, $image){
-            if(!isset($title) || strlen($title)<2){
-                return new ResultManager("<li>The topic title is not valid! (Probably is too short or empty)</li>", true);
+            if(!isset($title) || strlen($title)<2 || strlen($title)>100){
+                return new ResultManager("<li>The topic title is not valid! (Probably is too short/long or empty)</li>", true);
             }
-            if(!isset($description) || strlen($description)<2){
-                return new ResultManager("<li>The topic description is not valid! (Probably is too short or empty)</li>", true);
+            if(!isset($description) || strlen($description)<2 || strlen($description) > 10000){
+                return new ResultManager("<li>The topic description is not valid! (Probably is too short/long or empty)</li>", true);
             }
             $connection = new Connection();
             $connection -> prepareQuery(

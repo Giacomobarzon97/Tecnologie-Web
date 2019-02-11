@@ -25,6 +25,7 @@
         <button onclick="topFunction()" id="retTop" title="Torna su"></button>
         <?php
             include_once('navbar.php');
+            SimpleNavbar::printSimpleNavbar();
         ?>
         <div id="header">
             <h1>DevSpace</h1>
@@ -45,7 +46,7 @@
                 
 				<div id="home-search-bar">
 					<form method="get" action="search.php">
-						<fieldset id="search-bar">
+						<fieldset class="search-bar">
 							<p>
                                 <label for="search-bar-textarea">Search for topics and articles</label>
                                 <input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />
@@ -62,6 +63,11 @@
                 ?>
             </div>
         </div>
+        <?php
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>'
+        ?>
         <?php
             include_once ('footer.php');
         ?>

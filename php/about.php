@@ -20,6 +20,7 @@
     <body>
         <?php
             include_once('navbar.php');
+            SimpleNavbar::printSimpleNavbar();
         ?>
         
         <div id="header">
@@ -85,22 +86,13 @@
                 This site is a project for the course of Web Technologies. This course takes place in our University during the last year of our Bachelor Degree.
             </p>
         </div>
-        <div id="footer">
-            <div id="upper-footer">
-                <p>powered by</p>
-                <h1>Universita' di Padova</h1>
-            </div>
-            <div id="lower-footer">
-                <div id="developers">
-                    <h2>Developed By</h2>
-                    <ul>
-                        <li>Barzon Giacomo</li>
-                        <li>De Filippis Francesco</li>
-                        <li>Greggio Giacomo</li>
-                        <li>Roverato Michele</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <?php
+            echo '<noscript>';
+            SimpleNavbar::printSimpleNavbar(true);
+            echo '</noscript>'
+        ?>
+        <?php
+            include_once ('footer.php');
+        ?>
     </body>
 </html>
