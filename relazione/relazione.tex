@@ -136,11 +136,10 @@
 	\subsubsection{Colori}
 	Per quanto riguarda l'utilizzo dei colori per i testi e gli elementi di tutte le pagine, abbiamo assicurato di ottenere un rapporto di contrasto pari 7:1 tra un elemento in foreground e uno in background, rendendo così il sito conforme ai livelli di accessibilità AA e AAA del WCAG 2.0. 
 	\subsubsection{Link}
-	Si è cercato di uniformare il più possibile i link presenti all'interno del sito web, in modo da renderli facilmente riconoscibili da qualsiasi tipologia di utente. La maggior parte dei link è facilmente riconoscibile da un particolare tonalità di blu, e dalla caratteristica sottolineatura diventata ormai uno standard all'interno del web. Gli unici link che fanno eccezione a queste regole sono quelli presenti all'interno della sidebar per questioni estetiche e di contrasto. Il team ritiene tuttavia nonostante ciò ritiene che siano ugualmente altamente facili da riconoscere grazie alla notevole diffusione all'interno del web di sidebar dalla struttura simile. 
+	Si è cercato di uniformare il più possibile i link presenti all'interno del sito web, in modo da renderli facilmente riconoscibili da qualsiasi tipologia di utente. La maggior parte dei link è facilmente riconoscibile da un particolare tonalità di blu, e dalla caratteristica sottolineatura diventata ormai uno standard all'interno del web. Gli unici link che fanno eccezione a queste regole sono quelli presenti all'interno della sidebar per questioni estetiche e di contrasto. Il team ritiene tuttavia che siano ugualmente altamente facili da riconoscere grazie alla notevole diffusione all'interno del web di sidebar dalla struttura simile. 
 	\subsubsection{JavaScript}
-	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. Lo abbiamo inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine rendere disponibile la consultazione delle voci.
+	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. Lo abbiamo inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine rendere disponibile la consultazione delle voci. Per quanto riguarda i dispositivi mobili, qualora JavaScript non fosse attivato, viene utilizzata una versione del menù a tendina e della sidebar studiate appositamente. 
 	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vegono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati.	Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
-	[E MOBILE?]
 	\subsubsection{Breadcrumb}
 	Abbiamo utilizzato i breadcrumb per due differenti aree e funzionalità del sito. La prima riguarda la navbar, presente in tutte le pagine, che contiene i link per navigare in tutto il sito. Le voci del menù vengono evidenziate e i link disattivati in modo congruo alla pagina in cui l'utente si trova in quel preciso momento. Il secondo utilizzo di breadcrumb viene fatto nella sidebar, dove viene evidenziato l'elenco corrispondente al macroargomento e relativi sottoargomenti che l'utente sta visualizzando e, nel caso stesse leggendo un articolo, viene evidenziato solo il sottoargomento a cui esso appartiene.
 	
@@ -184,42 +183,71 @@
 			\end{itemize}
 	\end{itemize}
 	\subsection{Strumenti amministratore}
-	asds
+	Agli utenti di tipo amministratore viene fornito un pannello che permette di accedere ad altre funzionalità oltre a quelle già descritte al punto precedente. Nella pagina adminTools.php, l'amministratore dispone di tre funzionalità a cui può avere accesso tramite un link:
+	\begin{itemize}	
+		\item \textbf{Gestione degli argomenti (manageArguments.php)}: in questa pagina è possibile creare un nuovo macroargomento ed eventualmente cancellarne di esistenti;
+		\item \textbf{Aggiunta amministratore (addAdmin.php)}: in questa pagina è possibile rendere amministrare un utente che ancora non lo è, inserendo il suo indirizzo mail. \textbf{Nota}: non è possibile rimuovere amministratori poiché, in tal caso, un amministratore potrebbe revocare i permessi a tutti gli altri ed essere quindi l'unico ad avere il controllo totale sul sito. Siamo consapevoli della mancanza di questa opzione ma per questioni di tempo e semplicità non abbiamo implementato un sistema di utenti e permessi più dettagliato;
+		\item \textbf{Gestione utenti (manageUsers.php)}: in questa pagina è possibile sospendere un utente inserendo il suo nickname ed eventualmente revocare la sospensione agli utenti attualmente sospesi.
+	\end{itemize}
 	\subsection{Classi}
-	sadsd
-	\subsection{Gestione degli errori - Rove}
-	messaggi di errore
+	Per dare una struttura ordinata, in particolare renderla estendibile e mantenibile abbiamo previsto le seguenti classi:
+		\begin{itemize}
+			\item \textbf{Article.php}: fornisce i metodi necessari per la gestione degli articoli (creazione, modifica, stampa del loro contenuto);
+			\item \textbf{Card.php}: fornisce i metodi necessari per la stampa delle card presenti nella homepage;
+			\item \textbf{Comments.php}: fornisce i metodi necessari per la gestione dei commenti (creazione, eliminazione, stampa);
+			\item \textbf{SearchManager.php}: fornisce i metodi necessari per gestire i risultati delle ricerche;
+			\item \textbf{Sidebar.php}: fornisce i metodi necessari per stampare la sidebar ed altri elementi associati;
+			\item \textbf{Subtopics.php}: fornisce i metodi necessari per la gestione dei sottoargomenti (creazione, eliminazione, stampa);
+			\item \textbf{User.php}: fornisce i metodi necessari per gestire gli utenti e le funzionalità ad essi associate;
+			\item \textbf{validateData.php}: fornisce metodi di utilità per la validazione di dati.
+		\end{itemize}
+	Le classi sopra elencate contengono solo metodi statici e pertanto non necessitano di essere istanziate, questo per rendere semplice il loro utilizzo e facile il loro evolversi. Ci è sembrata la scelta migliore poiché non è stato possibile, per questioni di tempo, implementare un design pattern più complesso (e sicuramente più efficiente e mantenibile) come \emph{MVC}.
+	Le uniche classi istanziabili sono le seguenti:
+	\begin{itemize}
+		\item \textbf{ResultManager}: situata in ResulManager.php, si occupa di gestire i messaggi di stato dei metodi;
+		\item \textbf{SearchElement}: situata in SearchManager.php, si occupa di gestire una ricerca effettuata tramite la searchbar;
+		\item \textbf{UserInfo}: situtata in User.php, si occupa di raccogliere le informazioni relative di un utente e viene inoltre utilizzata per salvare un oggetto in una variabile di sessione, utile quando si necessita avere più informazioni contemporaneamente sulla sessione di un utente.
+	\end{itemize}
+	\subsection{Gestione degli errori}
+	Come già accennato la classe \textbf{ResultManager} viene utilizzata per gestire i messaggi di stato dei metodi.
+	Questa classe è costituita da un campo che identifica la stringa del messaggio e da un campo booleano che stabilisce se questo è un errore oppure no.
+	Molti metodi ne fanno uso per poter ritornare al chiamante un oggetto di questo tipo, al fine di semplificare le modalità in cui vengono stampati i messaggi nel front-end. 
 	\subsection{Progettazione del Database - Rove}
 	sasa
 	\subsection{Gestione assenza JavaScript}
 	Per la gestione delle pagine in assenza di javascript sono state utilizzate principalmente due tecniche:
 	\begin{itemize}
 			\item l'utilizzo del tag <noscript> che permette di definire porzioni di codice HTML che verranno interpretate dal browser solamente in caso javascript sia disattivato.
-			\item l'utilizzo di una semplice ma efficacie tecnica che permette di definire del codice CSS che verrà interpretato dal browser solamente in caso JS sia attivato. Questa tecnica consiste nel:
+			\item l'utilizzo di una semplice ma efficace tecnica che permette di definire del codice CSS che verrà interpretato dal browser solamente in caso JS sia attivato. Questa tecnica consiste nel:
 			\begin{itemize}
 				\item definire all'interno del file CSS principale solo ed esclusivamente il codice che dovrà essere eseguito in assenza di js.
 				\item In un secondo file definire il codice CSS che al contrario verrà eseguito solo ed esclusivamente nel caso in cui JS sia abilitato.
-				\item Tramite un apposito script JS effettuare l'append di  quest'ultimo foglio di stile nel tag <head> della pagina web.
+				\item Tramite un apposito script JS effettuare l'append di quest'ultimo foglio di stile nel tag <head> della pagina web.
 			\end{itemize}
-			L'append ovviamente potrà avvenire solo ed esclusivamente con JS abilitato, e cio permette di ottenere con facilità il risultato desiderato.
+			L'append ovviamente potrà avvenire solo ed esclusivamente con JS abilitato, e ciò permette di ottenere con facilità il risultato desiderato.
 	\end{itemize}
-	\subsection{Ricerca dei contenuti}
+
+	\subsection{Ricerca dei contenuti - Rove}
 	assa
 	\subsection{Menù a tendina}
 	
-	\section{Limitazioni e miglioramenti}
-	\subsection{Introduzione}
-	sajdas
-	
 	\section{Compatibilità}
 	\subsection{Descrizione}
-	sad
+	In questa sezione verranno discusse le compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito.
 	\subsection{Tag HTML5 utilizzati}
 	ksajdkl
-	\subsection{JavaScript}
-	dsa
 	\subsection{Browser supportati}
-	dsa
+	Il sito deve essere funzionante sul maggior numero di browser disponibili sul mercato con le versioni più recenti. I test sono stati effettutati sui seguenti browser:
+		\begin{itemize}
+			\item Google Chrome - v.
+			\item Mozilla Firefox - v
+			\item Safari - v
+			\item Opera - v
+			\item Microsoft Edge - v
+			\item Internet Explorer - v
+		\end{itemize}
+	\subsection{JavaScript}
+	Dai test effettuati abbiamo riscontrato che il sito è utilizzabile e consultabile completamente senza l'utilizzo di JavaScript. L'unica componente non funzionante (Safari e Internet Explorer) è il pulsante che permette di tornare in cima alla pagina, il quale non inficia sul corretto funzionamento del sito in quanto è solo un miglioramento dell'esperienza d'uso.
 	
 	\section{Test}
 	\subsection{Accessibilità}

@@ -29,9 +29,9 @@ class SearchElement{
 class SearchManager{
     static $min_similarity = 55;
 
-    static function shortDescription($text){
-        if(strlen($text)>150){
-            return substr($text, 0, 150)."[...]";
+    static function shortDescription($text, $length = 150){
+        if(strlen($text)>$length){
+            return substr($text, 0, $length)."[...]";
         }else{
             return $text;
         }
