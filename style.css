@@ -78,10 +78,12 @@ textarea{
     bottom: 0;
 }
 
-#nojs-messgebox-full {
+#nojs-messagebox-full {
     width: 100%;
 }
-
+.nojs-menu-spacer{
+    margin-bottom:6em;
+}
 #nojs-menu{
     padding-top:5em;
     margin-top:-5em;
@@ -90,6 +92,7 @@ textarea{
     text-align:center;
     font-size:1.2em;
 }
+
 #nojs-menu h1{
     font-size:2em;
 }
