@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Aggiunta amministratore &#124; DevSpace</title>
+    <title>Administrators management &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina aggiunta admin" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -53,7 +53,7 @@
         ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <h2>Aggiungi un nuovo amministratore</h2>
+                <h2>Add a new administrator</h2>
             </div>
             <div id="add-admin-error-box-zone"></div>
             <div class="regform-main-section">

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Errore &#124; DevSpace</title>
+    <title>Error &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina gestione errori" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />

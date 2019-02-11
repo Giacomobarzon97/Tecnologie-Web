@@ -28,7 +28,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Gestione Argomenti &#124; DevSpace</title>
+        <title>Topics management &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina di gestione dei macroargomenti argomenti" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />

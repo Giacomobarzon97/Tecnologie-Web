@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Strumenti Admin &#124; DevSpace</title>
+    <title>Admin Tools &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina strumenti amministratore" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />

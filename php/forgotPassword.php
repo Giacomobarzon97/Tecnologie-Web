@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Password Dimenticata &#124; DevSpace</title>
+        <title>Forgot password &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Password dimenticata nella piattaforma DevSpace" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -26,8 +26,8 @@
     <body>
         <div id="registration-form">
             <div class="regform-introduction">
-                <h1><a href="index.html">Nome del sito</a></h1>
-                <h2>Hai dimenticato la password? Recuperala!</h2>
+                <h1>DevSpace</h1>
+                <h2>Did you forget your password? Retrieve it!</h2>
             </div>
             <div class="regform-main-section">
             <?php 
@@ -37,9 +37,9 @@
                         $email = $_POST['email'];
                         $result = User::passwordRecover($email);
                         if($result) {
-                            echo '<span>Email di recupero password inviata!</span><br/>';
+                            echo '<span>Password recovery e-mail sent!</span><br/>';
                         } else {
-                            echo '<span>L\'email che hai inserito non è registrata!</span><br/>';
+                            echo '<span>The e-mail you entered is not registered!</span><br/>';
                         }
                     } 
                 ?>
@@ -49,13 +49,13 @@
                             <label for="lemail">Email</label>
                             <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required />
                         </p>
-                        <p><input class="profile-input" name="submit" type="submit" value="Recupera" /></p>
+                        <p><input class="profile-input" name="submit" type="submit" value="Recover password" /></p>
                     </fieldset>
                 </form>
             </div>
             <div class="regform-side-section">
-                <p>Non sei ancora registrato?
-                <p>Clicca <a href='registrazione.php'>qui</a> per creare un nuovo account.</p>
+                <p>Not yet registered?
+                <p>Click <a href='registrazione.php'>here</a> to create a new account.</p>
             </div>
             <ul id="regform-links">
                 <li><a href="index.php">Home</a></li>

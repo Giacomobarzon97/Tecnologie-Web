@@ -31,7 +31,7 @@
         ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <h2>Effettua il login a <strong>DevSpace</strong></h2>
+                <h2>You're going to login to <strong>DevSpace</strong></h2>
             </div>
             <div id="login-error-box-zone"></div>
             <div class="regform-main-section">
@@ -49,7 +49,7 @@
                             die();
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
-                            <li>Credenziali errate, riprova!</li>
+                            <li>Wrong credentials, try again!</li>
                             </ul>
                             ';
                         }
@@ -72,14 +72,14 @@
                             <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required onchange="LoginPage_HideChangeLoginDataError()" />
                         </p>
                         <p>
-                            <input class="profile-input" name="submit" type="submit" value="Accedi" />
+                            <input class="profile-input" name="submit" type="submit" value="Login" />
                         </p>
                     </fieldset>
                 </form>
             </div>
             <div class="regform-side-section">
-                <p>Non sei ancora registrato?<a href='registrazione.php'>Clicca qui</a> per creare un nuovo account.</p>
-                <p>Hai dimenticato la password?<a href='forgotPassword.php'>Clicca qui</a> per recuperarla.</p>
+                <p>Not yet registered?<a href='registrazione.php'>Click here</a> to create a new account.</p>
+                <p>Did you forget your password?<a href='forgotPassword.php'>Click here</a> to recover it.</p>
             </div>
             <?php
             echo '<noscript>';
