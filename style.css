@@ -52,6 +52,14 @@ input[type=text],input[type=email],input[type=password] {
     border-radius: 1.5em;
     box-sizing: border-box;
 }
+textarea{
+    resize: vertical;
+    display: block;
+    width: 97%;
+    padding: 0.5em 1%;
+    font-size: 1.2em;
+    font-family: 'Open Sans', sans-serif;
+}
 #nojs-sidebar-wrapper{
     background-color: #404040;
     display: none;
@@ -328,14 +336,6 @@ input[type=text],input[type=email],input[type=password] {
 #write-article-form [type=text] {
     width: 97%;
     padding: 0.5em 1%;
-}
-
-#write-article-form textarea {
-    resize: vertical;
-    display: block;
-    width: 97%;
-    padding: 0.5em 1%;
-    font-size: 1.2em;
 }
 
 #write-article-form input[type=submit] {
@@ -1042,14 +1042,6 @@ FOOTER
     font-size: 1.5em;
     font-weight: lighter;
     margin-bottom: 0.5em;
-}
-
-#comment-section textarea {
-    resize: vertical;
-    display: block;
-    width: 98%;
-    padding: 0.5em 1%;
-    font-size: 1.2em;
 }
 
 #comment-section > form > fieldset > p > input[type="submit"] {
