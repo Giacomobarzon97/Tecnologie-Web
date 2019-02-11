@@ -81,9 +81,7 @@ textarea{
 #nojs-messagebox-full {
     width: 100%;
 }
-.nojs-menu-spacer{
-    margin-bottom:6em;
-}
+
 #nojs-menu{
     padding-top:5em;
     margin-top:-5em;
@@ -863,6 +861,7 @@ PROFILE
     width: 50%;
     max-width: 400px;
     margin: 0px auto;
+    margin-bottom: 5em;
 }
 
 #registration-form h1 {
@@ -1544,8 +1543,6 @@ MEDIA QUERIES
     #registration-form {
         padding-top: 20%;
         width: 90%;
-        max-width: 400px;
-        margin: 0px auto;
     }
 
     #errorMsg {
