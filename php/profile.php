@@ -26,6 +26,19 @@
         SimpleNavbar::printSimpleNavbar();
         ?>
         <div id="registration-form">
+        <?php 
+            $nickname = unserialize($_SESSION['userInfo'])->nickname;
+            if(User::isBanned($nickname)) {
+                echo '<div id="login-error-box-zone"></div>
+                <div class="regform-main-section">
+                <ul class="regform-errorbox">
+                                <li>Your account has been suspended, you can\'t leave comments and/or
+                                like/dislike any article. In order to get back your features, an admin user
+                                have to remove your suspension.</li>
+                                </ul>
+                            </div>';
+            }
+        ?>
             <div class="regform-introduction">
                 <h1>Welcome back user!</h1>
                 <?php 
