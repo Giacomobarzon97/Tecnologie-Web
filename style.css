@@ -195,7 +195,8 @@ input[type=text],input[type=email],input[type=password] {
 .sidebar > li > ul > li > a {
     text-decoration: none;
     color: #D6D6D6;
-    padding: 1em;
+    padding-top: 1em;
+    padding-left: 3%;
 }
 
 .sidebar > li > ul > li > a:hover {
