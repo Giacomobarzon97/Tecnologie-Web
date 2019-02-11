@@ -15,16 +15,16 @@
     <head>
         <title>Recupera Password &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina per il recupero della password" />
+        <meta name="description" content="Password recovery page" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
         <?php include_once ('favicon.php'); ?>
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
-        <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="./style/style.css" />
+        <link rel="stylesheet" type="text/css" href="./style/print.css" media="print"/>
+        <script src="./script/scripts.js"></script>
         
     </head>
     
@@ -102,7 +102,7 @@
                         echo '<p><input class="profile-input" name="submit" type="submit" value="Reset" /></p>
                         </fielset></form>';
                     } else { //Il token non esiste
-                        echo 'Purtroppo il token fornito per il cambio della password non è valido... Controlla o richiedine uno nuovo...';
+                        echo 'Unfortunately the token provided for the password change is not valid... Check or request a new one...';
                     }
                 }
             ?>

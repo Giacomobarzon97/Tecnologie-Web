@@ -40,74 +40,74 @@
 		\subsection{Requisiti}
 		Lo scopo di questo progetto consiste nel dare vita ad una piattaforma web che offre la possibilità di consultare un archivio di informazioni sugli argomenti del mondo informatico. Gli utenti troveranno le informazioni suddivise nel seguente modo:
 		\begin{itemize}
-			\item Nella home page sono disponibili delle card che descrivono il macroargomento che trattano con relativa immagini e alcuni link ai principali sottoargomenti;
+			\item Nella home page sono disponibili delle card che identificano il macroargomento, mostrano una immagine ad esso relativa e vengono elencati i principali sottoargomenti tramite dei link;
 			\item I sottoargomenti, a cui è dedicata una pagina, contengono dei link che si riferiscono agli articoli facenti parte di quel particolare sottoargomento.
 		\end{itemize}
-		 L'utente ha inoltre la possibilità di commentare e votare i singoli articoli, interagendo così con gli altri utenti registrati al blog. Gli amministratori dispongono di un pannello amministratore in cui vengono elencate le operazioni che possono compiere, tra cui aggiornare la piattaforma con nuovi contenuti ed eventualmente migliorare contenuti già esistenti.
-		IDevono inoltre occuparsi di moderare l'ambiente sfruttando la possibilità di eliminare eventuali commenti inopportuni.
+		 L'utente ha inoltre la possibilità di commentare i singoli articoli, interagendo così con gli altri utenti registrati al blog. L'utente ha la possibilità di lasciare un giudizio(pollice in sù/pollice verso) ai commenti degli altri utenti. Gli amministratori dispongono di un pannello amministratore in cui vengono elencate le operazioni che possono compiere, tra cui aggiornare la piattaforma con nuovi contenuti(eventualmente migliorando contenuti già esistenti), sospendere un account utente e nominare nuovi amministratori.
+		Devono inoltre occuparsi di moderare l'ambiente sfruttando la possibilità di eliminare eventuali commenti inopportuni.
 	\subsection{Target di utenza}
 		Il sito è rivolto ad un pubblico che ha dimestichezza con la tecnologia e certamente con la ricerca e l'utilizzo di Internet per trovare informazioni. Inoltre può essere consultato da persone che desiderano acquisire delle nozioni sui principali argomenti riguardanti l'informatica, perciò si prevede che la piattaforma verrà raggiunta da utenti con età superiore ai 14 anni (e.g. dagli studi superiori in poi).
 		
 	\section{Architettura delle informazioni}
 	\subsection{Descrizione}
-		In questa sezione verrà descritto il modo in cui è stato scelto di gestire le informazioni presentate nel sito. Poichè si tratta di un blog in cui la quantità di contenuti è destinata a crescere nel tempo è stata adottata un'interfaccia a tre pannelli, navbar, sidebar e contenuto. La spiegazione dettagliata verrà fornita nella \textbf{Sezione \textbf{Usabilità}}.
-	\subsection{Struttura pagine pubblica}
+		In questa sezione verrà descritto il modo in cui è stato scelto di gestire le informazioni presentate nel sito. Poiché si tratta di un blog in cui la quantità di contenuti è destinata a crescere nel tempo è stata adottata un'interfaccia a tre pannelli, navbar, sidebar e contenuto. La spiegazione dettagliata verrà fornita nella \textbf{Sezione \textbf{Usabilità}}.
+	\subsection{Struttura pagine pubbliche}
 		La parte pubblica del sito è accessibile a tutti gli utenti e di seguito verranno descritte le pagine visitabili con le relative funzionalità offerte.
 		\begin{itemize}
 				\item \textbf{Homepage (index.php)}: si tratta della pagina principale del sito in cui l'utente trova le seguenti informazioni:
 				\begin{itemize}
 						\item \textbf{Navbar}: parte superiore della pagina in cui viene mostrato il logo del sito e una lista orizzontale di link utili alla navigazione;
-						\item \textbf{Header}: immagine di sfondo della parte sottostante alla navbar e nome del sito;
+						\item \textbf{Header}: sezione sottostante alla navbar composta da immagine di sfondo e nome del sito;
 						\item \textbf{Barra di ricerca}: permette la ricerca di contenuti specifici che riguardano macroargomenti, sottoargomenti e articoli;
-						\item \textbf{Descrizione e Contenuto}: nella parte inferiore all'header è presente una descrizione del sito, seguita dalla lista dei macroargomenti visualizzati sottoforma di Card;
-						\item \textbf{Footer}: parte inferiore del sito contenente ulteriori le informazioni sulla piattaforma.
+						\item \textbf{Descrizione e Contenuto}: nella parte inferiore dell'header è presente una descrizione del sito, seguita dalla lista dei macroargomenti visualizzati sottoforma di card;
+						\item \textbf{Footer}: parte inferiore del sito contenente ulteriori informazioni sulla piattaforma.
 				\end{itemize}
-			\item \textbf{About (about.php)}: è una pagina che fornisce tutte le informazioni sul sito, ovvero lo scopo e gli sviluppatori che lo hanno realizzato. Anche in questa pagina è presente la navbar per la navigabilità, l'header e il footer;
-			\item \textbf{Ricerca (search.php)}: in questa pagina vengono visualizzati i risultati di una ricerca avvenuta tramite la casella di ricerca, utile per trovare in modo specifico determinati argomenti e/o articoli;
+			\item \textbf{About (about.php)}: è una pagina che fornisce tutte le informazioni sul sito, ovvero lo scopo dello stesso e gli sviluppatori che lo hanno realizzato. Anche in questa pagina è presente la navbar per la navigabilità, l'header e il footer;
+			\item \textbf{Ricerca (search.php)}: in questa pagina vengono visualizzati i risultati di una ricerca avvenuta tramite la casella di ricerca, utile per trovare in modo veloce specifici argomenti e/o articoli;
 			\item \textbf{Registrazione {registrazione.php}}: pagina che offre la possibilità di creare un account agli utenti non registrati al blog;
 			\item \textbf{Login {login.php}}: pagina che offre la possibilità di effettuare il login agli utenti che sono registrati alla piattaforma;
-			\item \textbf{Link Articoli (ArticleLinks.php)}: questa pagina contiene tutti i sottoargomenti relativi ad un macroargomento, ed elenca per ciascuno i link riferiti ai singoli articoli appartenenti al ciascun sottoargomento. La pagina è strutturata nel seguente modo:
+			\item \textbf{Link Articoli (ArticleLinks.php)}: questa pagina contiene tutti i sottoargomenti, con i relativi link agli articoli, appartenenti ognuno al proprio macroargomento. La pagina è strutturata nel seguente modo:
 				\begin{itemize}
 					\item Sulla sinistra è presente una sidebar che elenca tutti i macroargomenti;
-					\item Per ciascun macroargomento, vengono elencate le ancore ai link dei sottoargomenti presenti nel contenuto della pagina situato al centro;
+					\item Nel contenuto, a inizio pagina, a seguito della descrizione del macroargomento che è stato selezionato, vengono elencate tramite link le ancore ai sottoargomenti presenti;
 					\item Per ciascun sottoargomento, vengono elencati i link degli articoli relativi;
-					\item Nella parte superiore è presente la navabr già descritta e nella parte inferiorie il footer, anch'esso già descritto.
+					\item Nella parte superiore è presente la navabr già descritta precedentemente, e nella parte inferiore è situato il footer, anch'esso già descritto.
 				\end{itemize}
-			\item \textbf{Articolo (ReadArticle.php)}: questa pagina è strutturata nello stesso modo di quella descritta al punto precedente, ma nel contenuto (quindi la parte centrale) vi è il corpo di un articolo che l'utente ha raggiunto utilizzando uno dei link elencati sotto ciascun sottoargomento;
+			\item \textbf{Articolo (ReadArticle.php)}: questa pagina è strutturata nello stesso modo di quella descritta al punto precedente, ma nel contenuto vi è il corpo di un articolo che l'utente ha raggiunto utilizzando uno dei link elencati sotto ciascun sottoargomento della precedente pagina;
 			\item \textbf{Account (profile.php)}: in questa pagina l'utente può visualizzare le sue informazioni personali, ed eventualmente le può modificare;
 		\end{itemize}
 	
 	\subsubsection{Struttura pagine privata}
 	La parte privata del sito è accessibile ai soli account amministratori della piattaforma. Di seguito verranno descritte le pagine di interesse con le relative funzionalità offerte.
 	\begin{itemize}
-		\item \textbf{Link Articoli (ArticleLinks.php)}: questa pagina, già descritta, presenta un aspetto diverso per l'utente amministrare, il quale può:
+		\item \textbf{Link Articoli (ArticleLinks.php)}: questa pagina, già descritta, presenta un aspetto diverso per l'utente amministratore, il quale può:
 		\begin{itemize}
 			\item Aggiungere un nuovo sottoargomento;
 			\item Eliminare un sottoargomento esistente;
 			\item Scrivere un nuovo articolo;
 			\item Modificare un articolo esistente;
-			\item Elinimare un articolo esistente.
+			\item Eliminare un articolo esistente.
 		\end{itemize}
 		\item \textbf{Articolo (ReadArticle.php)}: la pagina, già descritta nella sezione precedente, permette ad un amministratore di eliminare i commenti degli utenti, nel caso in cui non siano pertinenti;
 		\item \textbf{Scrivi Articolo (writeArticle.php)}: questa pagina è dedicata alla gestione di un singolo articolo, in particolare l'amministrare può modificare il contenuto di un articolo già esistente, oppure scriverne uno nuovo;
-		\item \textbf{Strumenti (adminTools.php)}: in questa pagina l'utente amministratore visualizza una lista delle oprezioni che può compiere, ovvero:
+		\item \textbf{Strumenti (adminTools.php)}: in questa pagina l'utente amministratore visualizza una lista delle operazioni che può compiere, ovvero:
 			\begin{itemize}
-				\item Crea un nuovo argomento;
-				\item Aggiungi un nuovo amministratore;
-				\item Gestisci utenti sospesi.
+				\item Creare un nuovo macroargomento;
+				\item Aggiungere un nuovo amministratore;
+				\item Gestire utenti sospesi.
 			\end{itemize}
 		\item \textbf{Gestione argomenti (manageArguments.php)}: questa pagina permette all'amministratore di creare un nuovo macroargomento e di eliminare quelli esistenti;
-		\item \textbf{Aggiunta amministratore (addAdmin.php)}: in questa pagina un utente amministratore può aggiungere un nuovo utente al gruppo dei moderatori del sito fornendo il suo indirizzo mail;
+		\item \textbf{Aggiunta amministratore (addAdmin.php)}: in questa pagina un utente amministratore può aggiungere un nuovo utente al gruppo dei moderatori del sito fornendo il suo indirizzo email;
 		\item \textbf{Sospensione account (manageUsers.php)}: in questa pagina un utente amministratore può sospendere un utente, restringendo così le sue attività sulla piattaforma, oppure revocare la sospensione ad utenti attualmente sospesi.
 	\end{itemize}
 
 	\section{Usabilità}
 	\subsection{Introduzione}
-	Essendo il sito rivolto ad un pubblico potenzialmente molto differenziato, è stato adottato lo schema a tre pannelli il quale, a nostro parere, permette una buona navigabilità data la natura del sito.
+	Essendo il sito rivolto ad un pubblico potenzialmente vario, è stato adottato lo schema a tre pannelli il quale, a nostro parere, permette una buona navigabilità data la natura del sito.
 	\subsection{Layout e design}
-	Tutte la pagine che presentano i contenuti, quindi presumibilmente le più visitate, sono dotate di una sidebar che offre un modo intuitivo e veloce per navigare attraverso argomenti e articoli, una navbar che permette di spostarsi in altree aree del sito con un solo click e un footer che fornisce informazioni sul sito.
+	Tutte la pagine che presentano i contenuti, quindi presumibilmente le più visitate, sono dotate di una sidebar che offre un modo intuitivo e veloce per navigare attraverso macroargomenti, sottoargomenti, una navbar che permette di spostarsi in altre aree del sito con un solo click e un footer che fornisce informazioni aggiuntive sul sito.
 	\subsubsection{Scroll verticale}
-	Poiché il sito è destinato alla raccolta di contenuti, è possibile che nel tempo questi crescano, generando così delle pagine o sezioni potenzialmente lunghe (soprattutto la sidebar e la pagina con i link agli articolo). Su mobile inoltre, questo tipo di situazione è sentita maggiormente date le dimensioni degli schermi dei dispositivi mobili. L'unico accorgimento per ovviare, non tanto allo scroll necessario per la discesa della pagina quanto alla risalita, è stato l'introduzione di un pulsante che permette di tornare all'inizio della pagina che si sta scorrendo. Tuttavia esistono oggigiorno moltissimi siti e piattaforme che fanno uso di strutture simili per la presentazione di una grande mole di contenuti, perciò riteniamo che l'utente medio giunto sul nostro sito trovi familiare e semplice questo tipo di layout e navigabilità.
+	Poiché il sito è destinato alla raccolta di contenuti, è possibile che nel tempo questi crescano, generando così delle pagine o sezioni potenzialmente lunghe (soprattutto la sidebar e la pagina con i link agli articoli). Su mobile inoltre, questo tipo di situazione è sentita maggiormente date le dimensioni degli schermi dei dispositivi mobili. L'unico accorgimento per ovviare a questo problema, non tanto per lo scroll necessario alla discesa della pagina quanto alla risalita, è stato l'introduzione di un pulsante che permetta di tornare all'inizio della pagina. Tuttavia esistono oggigiorno moltissimi siti e piattaforme che fanno uso di strutture simili per la presentazione di una grande mole di contenuti, perciò riteniamo che l'utente medio giunto sul nostro sito trovi familiare e semplice questo tipo di layout e modalità di navigazione.
 	
 	\subsection{Favicon}
 	Tutte le pagine sono dotate di favicon che permettono la facile individuazione del sito tra le schede del browser o nei preferiti. Per generare le favicon in diversi formati è stato utilizzato il tool offerto al seguente link:
@@ -119,27 +119,27 @@
 	dfs
 
 	\subsection{Sidebar}
-	La sidebar come già accennato è pensata per offrire un modo semplice ed intuitivo per navigare tra i contenuti del sito, pertanto costituisce un elemento cruciale all'interno della nostra piattaforma. Nella sidebar è presente per prima cosa una casella di ricerca, la quale permette di cercare immediatamente dei contenuti specifici invece di navigare per le varie voci presenti più in basso. Sotto alla casella di ricerca vi è una lista di voci che rappresentano i macroargomenti, e ciascuna di queste voci si può espandere per visualizzare i rispettivi sottoargomenti, i quali sono link ancora verso la parte centrale della pagina che mostra i sottoargomenti con relativi articoli. Per facilitare l'orientamento dell'utente abbiamo fatto uso dei \emph{breadcrumb} che si occupano di evidenziare il macroargomento (e la lista dei sottoargomenti) che si sta visualizzando oppure nel caso di un articolo, viene evidenziato il sottoargomento a cui appartiene l'articolo che si sta leggendo.
+	La sidebar come già accennato è pensata per offrire un modo semplice ed intuitivo per navigare tra i contenuti del sito, pertanto costituisce un elemento cruciale all'interno della nostra piattaforma. Nella sidebar è presente per prima cosa una casella di ricerca, la quale permette di cercare immediatamente dei contenuti specifici invece di navigare per le varie voci presenti più in basso. Sotto la casella di ricerca vi è una lista di voci che rappresentano i macroargomenti, e ciascuna di queste voci si può espandere per visualizzare i rispettivi sottoargomenti, i quali sono link ancora verso la parte centrale della pagina che mostra i sottoargomenti con relativi articoli. Per facilitare l'orientamento dell'utente abbiamo fatto uso dei \emph{breadcrumb} che si occupano di evidenziare il macroargomento (e la lista dei sottoargomenti) che si sta visualizzando oppure nel caso di un articolo, viene evidenziato il sottoargomento a cui appartiene l'articolo che si sta leggendo.
 		
 	\subsection{Minificazioni}
 	I file .css e .js generalmente vengono minificati al fine di ridurre il loro peso complessivo e quindi velocizzare la richiesta della risorsa al server. Per questioni di leggibilità non è stato fatto, eccetto per le librerie JavaScript che abbiamo utilizzato per gestire lo stile della scrollbar situata nella sidebar poiché non sviluppate da noi.
 	
 	\subsection{Media queries}
 	Per garantire la stessa esperienza su tutti i dispositivi si è fatto uso di media queries, in particolare abbiamo individuato due \emph{breakpoint} che ci hanno permesso di adottare una sufficiente suddivisione delle regole css relative ad ampie categorie di dispositivi differenti; 1276px e 768px.
-	Per quanto riguarda la possibilità di stampare le pagine del sito, abbiamo scritto un foglio di stile \emph{print.css} che, in fase di stampa, riadatta i contenuti laddove possibile e si occoupa di rimuovere gli elementi di non utilità per un documento su carta, per esempio navbar e sidebar in quanto elementi prettamente di navigabilità più che di informazione.
+	Per quanto riguarda la possibilità di stampare le pagine del sito, abbiamo scritto un foglio di stile \emph{print.css} che, in fase di stampa, riadatta i contenuti laddove possibile e si occupa di rimuovere gli elementi di non utilità per un documento su carta, per esempio navbar e sidebar in quanto elementi prettamente di navigabilità più che di informazione.
 
 	\section{Accessibilità}
 	\subsection{Introduzione}
-	Affinché il sito raggiunga l'ampia vasta gamma di utenti per cui è stato progettato, particolare attenzione è stata posta sul fattore accessibilità seguendo i principi fondamentali descritti dal WCAG 2.0. In particolare, nel nostro caso specifico, sono stati adottati gli accorgimenti di seguito descritti.
+	Affinché il sito raggiunga la vasta gamma di utenti per cui è stato progettato, particolare attenzione è stata posta sul fattore accessibilità seguendo i principi fondamentali descritti dal WCAG 2.0. In particolare, nel nostro caso specifico, sono stati adottati gli accorgimenti di seguito descritti.
 	\subsection{Scelte adottate}
 	In questa sezione verranno illustrate le scelte intraprese al fine di rendere il sito accessibile.
 	\subsubsection{Colori}
 	Per quanto riguarda l'utilizzo dei colori per i testi e gli elementi di tutte le pagine, abbiamo assicurato di ottenere un rapporto di contrasto pari 7:1 tra un elemento in foreground e uno in background, rendendo così il sito conforme ai livelli di accessibilità AA e AAA del WCAG 2.0. 
 	\subsubsection{Link}
-	Si è cercato di uniformare il più possibile i link presenti all'interno del sito web, in modo da renderli facilmente riconoscibili da qualsiasi tipologia di utente. La maggior parte dei link è facilmente riconoscibile da un particolare tonalità di blu, e dalla caratteristica sottolineatura diventata ormai uno standard all'interno del web. Gli unici link che fanno eccezione a queste regole sono quelli presenti all'interno della sidebar per questioni estetiche e di contrasto. Il team ritiene tuttavia che siano ugualmente altamente facili da riconoscere grazie alla notevole diffusione all'interno del web di sidebar dalla struttura simile. 
+	Sono stati uniformati i link presenti all'interno del sito web, in modo da renderli facilmente riconoscibili da qualsiasi tipologia di utente. La maggior parte dei link è facilmente riconoscibile da una particolare tonalità di blu, e dalla caratteristica sottolineatura diventata ormai uno standard all'interno del web. Gli unici link che fanno eccezione a queste regole sono quelli presenti all'interno della sidebar per questioni estetiche e di contrasto. Il team ritiene tuttavia che siano ugualmente riconoscibili grazie alla notevole diffusione all'interno del web di sidebar dalla struttura simile. 
 	\subsubsection{JavaScript}
-	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. Lo abbiamo inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine rendere disponibile la consultazione delle voci. Per quanto riguarda i dispositivi mobili, qualora JavaScript non fosse attivato, viene utilizzata una versione del menù a tendina e della sidebar studiate appositamente. 
-	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vegono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati.	Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
+	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. JavaScript è stato inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine di rendere disponibile la consultazione delle voci. Per quanto riguarda i dispositivi mobili, qualora JavaScript non fosse attivato, viene utilizzata una versione del menù a tendina e della sidebar studiate appositamente. 
+	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vengono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati. Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
 	\subsubsection{Breadcrumb}
 	Abbiamo utilizzato i breadcrumb per due differenti aree e funzionalità del sito. La prima riguarda la navbar, presente in tutte le pagine, che contiene i link per navigare in tutto il sito. Le voci del menù vengono evidenziate e i link disattivati in modo congruo alla pagina in cui l'utente si trova in quel preciso momento. Il secondo utilizzo di breadcrumb viene fatto nella sidebar, dove viene evidenziato l'elenco corrispondente al macroargomento e relativi sottoargomenti che l'utente sta visualizzando e, nel caso stesse leggendo un articolo, viene evidenziato solo il sottoargomento a cui esso appartiene.
 	
@@ -166,18 +166,18 @@
 	sezione js
 	sezione php
 	\subsubsection{Scrittura articoli}
-	Gli utenti amministratori hanno la possibilità di scrivere nuovi articoli o di modificare quelli esistenti. Per offrire questa funzionalità abbiamo scelto di utilizzare il tag \emph{<textarea>}. Il motivo di questa è scelta deriva da diversi fattori tra cui, la semplicità di gestione e il tempo a dispozione per produrre qualcosa di più elaborato. La seconda strada che si poteva intraprendere era l'inserimento di un plugin \emph{WYSIWYG(What You See Is What You Get)}, ma abbiamo constatato che uno strumento del genere, oltre ad essere molto difficile da gestire senza JavaScript, poteva generare dei problemi di incompatibilità con i browser e addirittura introdurre degli errori di struttura nei documenti HTML, invalidando così la pagine. Perciò abbiamo implementato la soluzione già descritta in cui l'utente può inserire il contenuto dell'articolo nella textarea utilizzando anche alcuni dei tag HTML che abbiamo concesso di utilizzare, i queli verranno interpretati correttamente dal browser. Siamo comunque consapevoli che, anche in questo caso l'articolo è prono ad errori, infatti l'utente potrebbe inavvertitamente utilizzare in modo scorretto i tag, rendendo così non valida la pagina dell'articolo.
+	Gli utenti amministratori hanno la possibilità di scrivere nuovi articoli o di modificare quelli esistenti. Per offrire questa funzionalità abbiamo scelto di utilizzare il tag \emph{<textarea>}. Il motivo di questa scelta deriva da diversi fattori tra cui, la semplicità di gestione e il tempo a disposizione per produrre qualcosa di più elaborato. La seconda strada che si poteva intraprendere era l'inserimento di un plugin \emph{WYSIWYG(What You See Is What You Get)}, ma abbiamo constatato che uno strumento del genere, oltre ad essere molto difficile da gestire senza JavaScript, poteva generare dei problemi di incompatibilità con i browser e addirittura introdurre degli errori di struttura nei documenti HTML, invalidando così la pagine. Perciò abbiamo implementato la soluzione già descritta in cui l'utente può inserire il contenuto dell'articolo nella textarea utilizzando anche alcuni dei tag HTML che abbiamo concesso di utilizzare, e che verranno interpretati dal browser. Siamo comunque consapevoli che, anche in questo caso l'articolo è prono ad errori, infatti l'utente potrebbe inavvertitamente utilizzare in modo scorretto i tag, rendendo così non valida la pagina dell'articolo.
 	\subsection{Separazione parte privata e pubblica}
-	I file relativi alle funzionalità riservate agli amministratori si trovano nella cartella \textbf{admin} mentre quelli relativi alla parte pubblica o in comune alle due tipologie di utenti si trovano nella cartella \textbf{public}. Molte delle funzionalità di amministratore sono quindi state isolate da quelle riservate al resto degli utenti, in questo modo si aumenta la mantenibilità del sito e soprattutto una buona struttura logica dell'applicazione. Tuttavia in alcune situazioni abbiamo preferito gestire le funzionalità di entrambe le tipologie di utente nella stessa pagina, gestendo tramite codice quale funzionalità offrire in base al tipo account. In ogni caso le pagine sono tutte strutturate per essere molto corte e leggibili, richiedendo solo la chiamata di metodi per inserire le funzionalità.
+	I file relativi alle funzionalità riservate agli amministratori si trovano nella cartella \textbf{admin} mentre quelli relativi alla parte pubblica o in comune alle due tipologie di utenti si trovano nella cartella \textbf{public}. Molte delle funzionalità di amministratore sono quindi state isolate da quelle riservate al resto degli utenti; in questo modo si aumenta la mantenibilità del sito e soprattutto si conserva una buona struttura logica dell'applicazione. Tuttavia in alcune situazioni abbiamo preferito gestire le funzionalità di entrambe le tipologie di utente nella stessa pagina, gestendo tramite codice quale funzionalità offrire in base al tipo account. In ogni caso le pagine sono tutte strutturate per essere molto corte e leggibili, richiedendo solo la chiamata di metodi per inserire le funzionalità.
 	\begin{itemize}
 		\item Funzionalità amministratore
 			\begin{itemize}
-				\item Scrittura/Modifica articolo (writeArticle.php): pagina dedicata per l'amministratore;
-				\item Gestione argomenti (manageArguments.php): pagina dedicata per l'amministratore;
+				\item Scrittura/Modifica articolo (writeArticle.php): pagina dedicata, per l'amministratore;
+				\item Gestione argomenti (manageArguments.php): pagina dedicata, per l'amministratore;
 			\end{itemize}
 		\item Funzionalità comuni
 			\begin{itemize}
-				\item Lista dei link agli articoli (ArticleLinks.php): condivisa, l'utente visualizza solo la lista dei link mentre l'amministratore visualizza anche un form con cui può inserire un nuovo sottoargomento o articoli relativi ai sottoargomenti;
+				\item Lista dei link agli articoli (ArticleLinks.php): condivisa, l'utente visualizza solo la lista dei link mentre l'amministratore visualizza anche un form con cui può inserire un nuovo sottoargomento e funzionalità con cui può creare/gestire articoli relativi ai sottoargomenti;
 				\item Lettura articolo (ReadArticle.php): condivisa, l'utente può leggere l'articolo e commentare mentre l'amministratore oltre a fare ciò, può anche eliminare i commenti degli utenti;
 				\item Navbar (navbar.php): codivisa, gli utenti visualizzano le voci per navigare nel sito, mentre gli amministratori oltre a queste visualizzano un link che porta al pannello amministratore.
 			\end{itemize}
@@ -186,7 +186,7 @@
 	Agli utenti di tipo amministratore viene fornito un pannello che permette di accedere ad altre funzionalità oltre a quelle già descritte al punto precedente. Nella pagina adminTools.php, l'amministratore dispone di tre funzionalità a cui può avere accesso tramite un link:
 	\begin{itemize}	
 		\item \textbf{Gestione degli argomenti (manageArguments.php)}: in questa pagina è possibile creare un nuovo macroargomento ed eventualmente cancellarne di esistenti;
-		\item \textbf{Aggiunta amministratore (addAdmin.php)}: in questa pagina è possibile rendere amministrare un utente che ancora non lo è, inserendo il suo indirizzo mail. \textbf{Nota}: non è possibile rimuovere amministratori poiché, in tal caso, un amministratore potrebbe revocare i permessi a tutti gli altri ed essere quindi l'unico ad avere il controllo totale sul sito. Siamo consapevoli della mancanza di questa opzione ma per questioni di tempo e semplicità non abbiamo implementato un sistema di utenti e permessi più dettagliato;
+		\item \textbf{Aggiunta amministratore (addAdmin.php)}: in questa pagina è possibile rendere amministratore un utente che ancora non lo è, inserendo il suo indirizzo email. \textbf{Nota}: non è possibile rimuovere amministratori poiché, in tal caso, un amministratore potrebbe revocare i permessi a tutti gli altri ed essere quindi l'unico ad avere il controllo totale sul sito. Siamo consapevoli della mancanza di questa opzione ma per questioni di tempo e semplicità non abbiamo implementato un sistema di utenti e permessi più dettagliato;
 		\item \textbf{Gestione utenti (manageUsers.php)}: in questa pagina è possibile sospendere un utente inserendo il suo nickname ed eventualmente revocare la sospensione agli utenti attualmente sospesi.
 	\end{itemize}
 	\subsection{Classi}
@@ -204,9 +204,9 @@
 	Le classi sopra elencate contengono solo metodi statici e pertanto non necessitano di essere istanziate, questo per rendere semplice il loro utilizzo e facile il loro evolversi. Ci è sembrata la scelta migliore poiché non è stato possibile, per questioni di tempo, implementare un design pattern più complesso (e sicuramente più efficiente e mantenibile) come \emph{MVC}.
 	Le uniche classi istanziabili sono le seguenti:
 	\begin{itemize}
-		\item \textbf{ResultManager}: situata in ResulManager.php, si occupa di gestire i messaggi di stato dei metodi;
+		\item \textbf{ResultManager}: situata in ResultManager.php, si occupa di gestire i messaggi di stato dei metodi;
 		\item \textbf{SearchElement}: situata in SearchManager.php, si occupa di gestire una ricerca effettuata tramite la searchbar;
-		\item \textbf{UserInfo}: situtata in User.php, si occupa di raccogliere le informazioni relative di un utente e viene inoltre utilizzata per salvare un oggetto in una variabile di sessione, utile quando si necessita avere più informazioni contemporaneamente sulla sessione di un utente.
+		\item \textbf{UserInfo}: situata in User.php, si occupa di raccogliere le informazioni relative di un utente e viene inoltre utilizzata per salvare un oggetto in una variabile di sessione, utile quando si necessita avere più informazioni contemporaneamente sulla sessione di un utente.
 	\end{itemize}
 	\subsection{Gestione degli errori}
 	Come già accennato la classe \textbf{ResultManager} viene utilizzata per gestire i messaggi di stato dei metodi.
@@ -215,16 +215,16 @@
 	\subsection{Progettazione del Database - Rove}
 	sasa
 	\subsection{Gestione assenza JavaScript}
-	Per la gestione delle pagine in assenza di javascript sono state utilizzate principalmente due tecniche:
+	Per la gestione delle pagine in assenza di JavaScript sono state utilizzate principalmente due tecniche:
 	\begin{itemize}
-			\item l'utilizzo del tag <noscript> che permette di definire porzioni di codice HTML che verranno interpretate dal browser solamente in caso javascript sia disattivato.
-			\item l'utilizzo di una semplice ma efficace tecnica che permette di definire del codice CSS che verrà interpretato dal browser solamente in caso JS sia attivato. Questa tecnica consiste nel:
+			\item l'utilizzo del tag <noscript> che permette di definire porzioni di codice HTML che verranno interpretate dal browser solamente in caso JavaScript fosse disattivato.
+			\item l'utilizzo di una semplice ma efficace tecnica che permette di definire del codice CSS che verrà interpretato dal browser solamente in caso JavaScript sia attivato. Questa tecnica consiste nel:
 			\begin{itemize}
-				\item definire all'interno del file CSS principale solo ed esclusivamente il codice che dovrà essere eseguito in assenza di js.
-				\item In un secondo file definire il codice CSS che al contrario verrà eseguito solo ed esclusivamente nel caso in cui JS sia abilitato.
-				\item Tramite un apposito script JS effettuare l'append di quest'ultimo foglio di stile nel tag <head> della pagina web.
+				\item definire all'interno del file CSS principale solo ed esclusivamente il codice che dovrà essere eseguito in assenza di JavaScript;
+				\item In un secondo file definire il codice CSS che al contrario verrà eseguito solo ed esclusivamente nel caso in cui JavaScript sia abilitato;
+				\item Tramite un apposito script JavaScript effettuare l'append di quest'ultimo foglio di stile nel tag <head> della pagina web.
 			\end{itemize}
-			L'append ovviamente potrà avvenire solo ed esclusivamente con JS abilitato, e ciò permette di ottenere con facilità il risultato desiderato.
+			L'append ovviamente potrà avvenire solo ed esclusivamente con JavaScript abilitato, e ciò permette di ottenere con facilità il risultato desiderato.
 	\end{itemize}
 
 	\subsection{Ricerca dei contenuti - Rove}
@@ -237,7 +237,7 @@
 	\subsection{Tag HTML5 utilizzati}
 	ksajdkl
 	\subsection{Browser supportati}
-	Il sito deve essere funzionante sul maggior numero di browser disponibili sul mercato con le versioni più recenti. I test sono stati effettutati sui seguenti browser:
+	Il sito deve essere funzionante sul maggior numero di browser disponibili sul mercato con le versioni più recenti. I test sono stati effettuati sui seguenti browser:
 		\begin{itemize}
 			\item Google Chrome - v.
 			\item Mozilla Firefox - v
@@ -254,7 +254,7 @@
 	Strumenti utilizzati per valutare l'accessibilità e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
 		\begin{itemize}
-			\item NVDA: screen reader gratuito repereribile al seguente indirizzo \url{https://www.nvaccess.org/};
+			\item NVDA: screen reader gratuito reperibile al seguente indirizzo \url{https://www.nvaccess.org/};
 			\item WebAIM Color Contrast Checker: strumento per controllare il contrasto dei colori reperibile al seguente indirizzo \url{https://webaim.org/resources/contrastchecker/};
 			\item Web Accessibility Checker: strumento per valutare il grado di accessibilità di un sito secondo gli standard WCAG 2.0 reperibile al seguente indirizzo \url{https://achecker.ca/checker/index.php};
 			\item Total Validator: strumento per validare le pagine e valutarne l'accessibilità reperibile al seguente indirizzo \url{https://www.totalvalidator.com/index.html};
@@ -288,7 +288,7 @@
 	\subsubsection{Risultati}
 		\begin{itemize}
 			\item Google PageSpeed Insights: i test con questo strumento hanno ottenuto un punteggio ottimo [fare tanti test e fare una media];
-			\item Google Chrome Audits: i test con questo strumento hanno ottenuto un punteggio ottimo [fare tanti test e fare una media].
+			\item Google Chrome Audits: i test con questo strumento hanno ottenuto un punteggio ottimo [fare tanti test e fare una media](99/100 performance,100 accessibility,80 best practices, 100 SEO).
 		\end{itemize}
 	\textbf{Nota}: i valori di questi test possono variare a seconda di diversi fattori, ad esempio la velocità della connessione.
 	\subsection{Validazione}

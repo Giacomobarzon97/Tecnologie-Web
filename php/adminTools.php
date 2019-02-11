@@ -10,25 +10,22 @@
         header("Location: errore.php?errorCode=nonAdmin");
     }
 
-    if(User::isBanned($_SESSION['email'])){
-        header("Location: errore.php?errorCode=bannanto");
-    }
 ?>  
 <!DOCTYPE html>
 <html lang="en">
     <head>
     <title>Admin Tools &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina strumenti amministratore" />
+        <meta name="description" content="Administrator tools page" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
         <?php include_once ('favicon.php'); ?>
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
-        <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="./style/style.css" />
+        <link rel="stylesheet" type="text/css" href="./style/print.css" media="print"/>
+        <script src="./script/scripts.js"></script>
         
     </head>
     
@@ -43,10 +40,10 @@
             <div id="login-error-box-zone"></div>
             <div class="regform-main-section">
             <ul class="regform-errorbox">
-                            <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
-                            another user have to remove your suspension.</li>
-                            </ul>
-                        </div>';
+                <li>Your account has been suspended, you can\'t use admin tools anymore. In order to get back your admin role
+                another user have to remove your suspension.</li>
+            </ul>
+            </div>';
             echo '<noscript>';
             SimpleNavbar::printSimpleNavbar(true);
             echo '</noscript>';
@@ -54,7 +51,6 @@
         } else {
             echo "<div id='registration-form'>
             <div class='regform-introduction'>
-                
                 <h2>Admin tools</h2>
             </div>
             <div class='regform-main-section'>
@@ -73,8 +69,6 @@
         echo '<noscript>';
         SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
-        
         ?>
-        
     </body>
 </html>

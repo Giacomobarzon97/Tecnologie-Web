@@ -4,15 +4,15 @@
     <head>
         <title>About &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Informazioni sulla piattaforma DevSpace e i suoi sviluppatori" />
+        <meta name="description" content="Information about DevSpace and its developers" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
         <?php include_once ('favicon.php'); ?>
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
+        <link rel="stylesheet" type="text/css" href="./style/style.css" />
+        <link rel="stylesheet" type="text/css" href="./style/print.css" media="print"/>
         <script src="./scripts.js"></script>
         
     </head>
@@ -90,8 +90,6 @@
             echo '<noscript>';
             SimpleNavbar::printSimpleNavbar(true);
             echo '</noscript>';
-        ?>
-        <?php
             include_once ('footer.php');
             Footer::printDefaultFooterWithLargeJSError();
         ?>

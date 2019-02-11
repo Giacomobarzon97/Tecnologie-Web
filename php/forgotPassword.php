@@ -11,15 +11,15 @@
     <head>
         <title>Forgot password &#124; DevSpace</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Password dimenticata nella piattaforma DevSpace" />
+        <meta name="description" content="Forgotten password on the DevSpace website" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta name="theme-color" content="#F5F5F5" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <?php include_once ('favicon.php'); ?>
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
-        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
-        <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="./style/style.css" />
+        <link rel="stylesheet" type="text/css" href="./style/print.css" media="print"/>
+        <script src="./script/scripts.js"></script>
         
     </head>
     
