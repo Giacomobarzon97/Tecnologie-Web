@@ -87,7 +87,7 @@ class SimpleNavbar
         if (!$isNoJsVersion) {
             echo '<img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
                     <noscript>
-                        <a href="#nojs-menu"><img src="img/hamburger.svg" alt="hamburger icon" id="nojs-hamburger"/></a>
+                        <a href="#nojs-menu"><img src="img/hamburger.svg" alt="hamburger icon" id="nojs-menu-icon"/></a>
                     </noscript>
                     </div>';
         }
