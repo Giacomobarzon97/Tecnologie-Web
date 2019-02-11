@@ -133,10 +133,9 @@
             </form>';
         }
 
-        static function printDeleteTopicForm($topicID, $imageUrl){
+        static function printDeleteTopicForm($topicID){
             echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                 <input type="hidden" name="delete-topic" />
-                <input type="hidden" name="image-url" value="'.$imageUrl.'" />
                 <input type="hidden" name="topicID" value="'.$topicID.'" />
                 <input type="image" title="Delete this topic" alt="button delete topic" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
             </form>';
@@ -155,13 +154,25 @@
                     <h3>'.SearchManager::shortDescription($topic['Description']).'</h3>
                 </div>';
                 echo '<div class="buttons">';
-                Card::printDeleteTopicForm($topic['Id'], $topic['ImageLink']);
+                Card::printDeleteTopicForm($topic['Id']);
                 echo '</div>'; //end buttons
                 echo '</div>'; //end div for topic
                 echo '</li>';
             }
             echo '</ul>';
             $connection = NULL;
+        }
+
+        static function getTopicRow($topicID){
+            $connection = new Connection();
+            $connection -> prepareQuery("SELECT * FROM TOPICS WHERE Id = $topicID");
+            $topic = $connection -> executeQuery();
+            $connection = NULL;
+            if(isset($topic[0])){
+                return $topic[0];
+            }else{
+                return NULL;
+            }
         }
 
     }//class end
