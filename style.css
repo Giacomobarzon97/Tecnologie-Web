@@ -171,7 +171,7 @@ textarea{
     overflow: hidden;
     padding: 2em 0em;
     border-bottom: 1px solid #707070;
-    word-break: break-word;
+    word-wrap: break-word;
 }
 
 .sidebar > li > div {
@@ -741,7 +741,7 @@ HOMEPAGE
 }
 
 .home-card-content {
-    word-break: break-word;
+    word-wrap: break-word;
     padding: 0.5em 1em;
 }
 
@@ -1087,7 +1087,7 @@ FOOTER
 .comment-username {
     float: left;
     max-width: 70%;
-    word-break: break-word;
+    word-wrap: break-word;
     display: inline;
     color: #000000;
     font-size: 1.3em;
