@@ -140,7 +140,6 @@
 	\subsubsection{JavaScript}
 	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. Lo abbiamo inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine rendere disponibile la consultazione delle voci.
 	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vegono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati.	Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
-	[E MOBILE?]
 	\subsubsection{Breadcrumb}
 	Abbiamo utilizzato i breadcrumb per due differenti aree e funzionalità del sito. La prima riguarda la navbar, presente in tutte le pagine, che contiene i link per navigare in tutto il sito. Le voci del menù vengono evidenziate e i link disattivati in modo congruo alla pagina in cui l'utente si trova in quel preciso momento. Il secondo utilizzo di breadcrumb viene fatto nella sidebar, dove viene evidenziato l'elenco corrispondente al macroargomento e relativi sottoargomenti che l'utente sta visualizzando e, nel caso stesse leggendo un articolo, viene evidenziato solo il sottoargomento a cui esso appartiene.
 	
@@ -201,7 +200,10 @@
 				\item In un secondo file definire il codice CSS che al contrario verrà eseguito solo ed esclusivamente nel caso in cui JS sia abilitato.
 				\item Tramite un apposito script JS effettuare l'append di  quest'ultimo foglio di stile nel tag <head> della pagina web.
 			\end{itemize}
-			L'append ovviamente potrà avvenire solo ed esclusivamente con JS abilitato, e cio permette di ottenere con facilità il risultato desiderato.
+			L'append ovviamente potrà avvenire solo ed esclusivamente con JS abilitato, e ciò permette di ottenere con facilità il risultato desiderato.
+			In particolare per permettere l'uso di sidebar e menù della navbar nella versione mobile del sito web è stato necessario effettuare una copia di quest'ultime due e porle alla fine della pagina. Per permettere all'utente di accedervi con facilità i due pulsanti hamburger, a cui sono normalmente associati gli script javascript verrano sostituiti da dei link che puntano a delle ancore associate alla sidebar e menu alternativi stampati a fine pagina.
+			Siamo consapevoli che stampare due volte la stessa sidebar, che può arrivare ad assumere dimensioni considerevoli, non è propriamente una soluzione ottimale e può comportare notevoli rallentamenti nelle performance del sito. Tuttavia l'unica soluzione alternativa per permettere la piena navigazione su mobile in assenza di JS, era quella di utilizzare una label associata ad una checkbox nascosta che sarebbe andata a sostituire il normale bottone associato agli script JS. Questa soluzione è stata ritenuta da noi molto peggiore rispetto a quella adottata spiegata precedentemente, a causa delle evidenti problematiche di accessibilità. 
+			Inoltre i molti test fatti dal team hanno dimostrato che le performance complessive del sito rimangono ugualmente ottime nonostante questa la scelta adottata.
 	\end{itemize}
 	\subsection{Ricerca dei contenuti}
 	assa
