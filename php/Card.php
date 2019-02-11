@@ -1,5 +1,7 @@
 <?php
     include_once ("Connection.php");
+    include_once ('SearchManager.php');
+
     class Card {
 
         static function printCard ($topicName){
@@ -150,7 +152,7 @@
                 echo '<div>';
                 echo '<div class="details">
                     <h2><a href="ArticleLinks.php?id='.$topic['Id'].'">'.$topic['Name'].'</a></h2>
-                    <h3>'.$topic['Description'].'</h3>
+                    <h3>'.SearchManager::shortDescription($topic['Description']).'</h3>
                 </div>';
                 echo '<div class="buttons">';
                 Card::printDeleteTopicForm($topic['Id'], $topic['ImageLink']);

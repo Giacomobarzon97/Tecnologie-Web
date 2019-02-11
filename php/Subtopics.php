@@ -2,6 +2,7 @@
     include_once ("Connection.php");
     include_once ("User.php");
     include_once ("ResultManager.php");
+    include_once ('SearchManager.php');
     
     class Subtopics {
 
@@ -161,7 +162,7 @@
                 echo '<div class="details">';
                 echo '<h2 class="subtopic-title" ><span id="subtopic_'.$subtopic['Id'].'"></span>'.$subtopic['Title'].'</h2>';
                 if(strlen($subtopic['Description']) > 0){
-                    echo '<h3>'.$subtopic['Description'].'</h3>';
+                    echo '<h3>'.SearchManager::shortDescription($subtopic['Description'], 300).'</h3>';
                 }
                 echo '</div>';
                 //Stampa bottoni elemento (se l'utente è admin)

@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Risultati di ricerca per "<?php echo $_GET["search-term"] ?>" &#124; DevSpace</title>
+        <title>Search results for "<?php echo $_GET["search-term"] ?>" &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina risultati di ricerca" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -49,7 +49,7 @@
 						<li class="arg_title">
 							<div>
 								<div class="details">
-									<h2>Risultati Card(argomenti)</h2>
+									<h2>Topics found</h2>
 								</div>
                             </div>
                             <ul class="arg_link">
@@ -65,7 +65,7 @@
                                             echo '</li>';
                                         }
                                     }else{
-                                        echo '<li>Non ci sono risultati in questa sezione...</li>';
+                                        echo '<li>There are no results in this section ...</li>';
                                     }
                                     unset($results);
                                 ?>
@@ -74,7 +74,7 @@
                         <li class="arg_title">
 							<div>
 								<div class="details">
-									<h2>Risultati Subtopic(sotto-argomenti)</h2>
+									<h2>Subtopics found</h2>
 								</div>
 							</div>
 							<ul class="arg_link">
@@ -90,7 +90,7 @@
                                             echo '</li>';
                                         }
                                     }else{
-                                        echo '<li>Non ci sono risultati in questa sezione...</li>';
+                                        echo '<li>There are no results in this section ...</li>';
                                     }
                                     unset($results);
                                 ?>
@@ -99,7 +99,7 @@
                         <li class="arg_title">
 							<div>
 								<div class="details">
-									<h2>Risultati Article(articoli)</h2>
+									<h2>Articles found</h2>
 								</div>
 							</div>
 							<ul class="arg_link">
@@ -112,7 +112,7 @@
                                             echo '</li>';
                                         }
                                     }else{
-                                        echo '<li>Non ci sono risultati in questa sezione...</li>';
+                                        echo '<li>There are no results in this section ...</li>';
                                     }
                                     unset($results);
                                 ?>
