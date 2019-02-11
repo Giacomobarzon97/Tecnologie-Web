@@ -73,15 +73,17 @@ textarea{
     text-align: center;
     padding: 0.5em 1%;
     color: white;
-    background-color: red;
+    background-color: #B30000;
     position: fixed;
     bottom: 0;
 }
 
-#nojs-messgebox-full {
+#nojs-messagebox-full {
     width: 100%;
 }
-
+.nojs-menu-spacer{
+    margin-bottom:6em;
+}
 #nojs-menu{
     padding-top:5em;
     margin-top:-5em;
@@ -90,6 +92,7 @@ textarea{
     text-align:center;
     font-size:1.2em;
 }
+
 #nojs-menu h1{
     font-size:2em;
 }
@@ -168,7 +171,7 @@ textarea{
     overflow: hidden;
     padding: 2em 0em;
     border-bottom: 1px solid #707070;
-    word-break: break-word;
+    word-wrap: break-word;
 }
 
 .sidebar > li > div {
@@ -176,7 +179,7 @@ textarea{
     overflow: hidden;
 }
 
-.sidebar > li > div > a {
+.sidebar > li > div > a, .sidebar > li > div > p {
     float: left;
     width: 80%;
     text-decoration: none;
@@ -738,7 +741,7 @@ HOMEPAGE
 }
 
 .home-card-content {
-    word-break: break-word;
+    word-wrap: break-word;
     padding: 0.5em 1em;
 }
 
@@ -1084,7 +1087,7 @@ FOOTER
 .comment-username {
     float: left;
     max-width: 70%;
-    word-break: break-word;
+    word-wrap: break-word;
     display: inline;
     color: #000000;
     font-size: 1.3em;

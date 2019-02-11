@@ -18,17 +18,11 @@
     if(User::isBanned($_SESSION['email'])){
         header("Location: errore.php?errorCode=bannanto");
     }
-
-    //Rimuovi card
-    if(isset($_POST['delete-topic'])){
-        deleteFile($_POST['image-url']);
-        Card::deleteTopic($_POST['topicID']);
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Gestione Argomenti &#124; DevSpace</title>
+        <title>Topics management &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina di gestione dei macroargomenti argomenti" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -62,6 +56,23 @@
                 <div id="content-article-introduction">
                 <?php
                     echo '<div id="arguments-error-box-insert-card">';
+
+                    //Rimuovi card
+                    if(isset($_POST['delete-topic'])){
+                        $topicToDelete = Card::getTopicRow($_POST['topicID']);
+                        if($topicToDelete==NULL){
+                            echo '<ul class="regform-errorbox">';
+                            echo '<li>An error occurred deleting the topic, you probably changed something...';
+                            echo '</ul>';
+                        }else {
+                            deleteFile($topicToDelete['ImageLink']);
+                            Card::deleteTopic($_POST['topicID']);
+                            echo '<ul class="regform-successbox">';
+                            echo '<li>Topic deleted successfully</li>';
+                            echo '</ul>';
+                        }
+                    }
+
                     //aggiungi card
                     if(isset($_POST['add-topic'])){
                         $result = upload($_FILES['upfile']['name'], $_FILES['upfile']['size'], $_FILES['upfile']['type'], $_FILES['upfile']['tmp_name']);

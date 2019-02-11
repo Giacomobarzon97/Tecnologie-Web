@@ -13,12 +13,14 @@
         header("Location: errore.php?errorCode=404");
     }
 
-    if(isset($_POST["delete-article"])){
-        Article::deleteArticle($_POST["articleID"]);
-    }
+    if(isset($_SESSION['email']) && User::isAdmin($_SESSION['email'])) {
+        if (isset($_POST["delete-article"])) {
+            Article::deleteArticle($_POST["articleID"]);
+        }
 
-    if(isset($_POST["delete-subtopic"])){
-        Subtopics::deleteSubtopic($_POST["subtopicID"]);
+        if (isset($_POST["delete-subtopic"])) {
+            Subtopics::deleteSubtopic($_POST["subtopicID"]);
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -32,12 +34,12 @@
         <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="theme-color" content="#F5F5F5" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>		
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
         <?php include_once ('favicon.php'); ?>
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/style.css" />
         <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
         <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
-        
+
         <?php
             Sidebar::printSidebarIncludeHeader();
         ?>

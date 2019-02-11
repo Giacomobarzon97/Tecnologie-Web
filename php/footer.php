@@ -16,4 +16,8 @@
             </div>
         </div>
     </div>';
+    //Avviso no JS
+    echo '<noscript>
+				<div id="nojs-messagebox">ATTENTION - With JavaScript disabled some features may not be available or may not work properly!</div>
+			</noscript>';
 ?>

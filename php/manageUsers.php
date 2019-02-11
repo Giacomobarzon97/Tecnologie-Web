@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Sospensione account &#124; DevSpace</title>
+    <title>Account suspension &#124; DevSpace</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina di sospensione account utente" />
         <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
@@ -55,7 +55,7 @@
         ?>
         <div id="registration-form">
             <div class="regform-introduction">
-                <h2>Sospendi l'account di un utente</h2>
+                <h2>Suspend a user's account</h2>
             </div>
             <div id="ban-user-error-box-zone"></div>
             <div class="regform-main-section">
@@ -79,10 +79,10 @@
                         $nick = $_POST['nicknameDel'];
                         $result = User::removeSuspension($nick);
                         if($result) {
-                            echo '<ul class="regform-successbox"><li>Rimozione sospensione avvenuta con successo!</li></ul>';
+                            echo '<ul class="regform-successbox"><li>Removal of suspension successfully completed!</li></ul>';
                         } else { //Stampa dell'errore
                             echo '<ul class="regform-errorbox">
-                            <li>Sospensone già rimossa o utente inesistente!</li>
+                            <li>Suspension already removed or non-existent user!</li>
                             </ul>
                             ';
                         }
@@ -95,7 +95,7 @@
                             <input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" required onchange="BanUser_HideBanUserError()" />
                         </p>
                         <p>
-                            <input class="profile-input" name="submit" type="submit" value="Esegui" />
+                            <input class="profile-input" name="submit" type="submit" value="Suspend" />
                         </p>
                     </fieldset>
                 </form>
@@ -107,6 +107,7 @@
         <?php
         echo '<noscript>';
         SimpleNavbar::printSimpleNavbar(true);
+        SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
         ?>
     </body>

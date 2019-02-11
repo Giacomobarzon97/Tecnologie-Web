@@ -85,6 +85,11 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="index.php">About</a></li>
             </ul>
-        </div>	
+        </div>
+        <?php
+        echo '<noscript>';
+        SimpleNavbar::printNoJSWarning();
+        echo '</noscript>';
+        ?>
     </body>
 </html>

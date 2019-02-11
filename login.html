@@ -1,55 +1,78 @@
-<!DOCTYPE html>
-<html lang="it">
-	<head>
-		<title>WebSite</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="title" content="progetto tech-web" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="language" content="italian it" />
-		<meta name="author" content="" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-		
-		<link rel="stylesheet" type="text/css" href="style.css" />
-		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
-		
-		<script src="./scripts.js"></script>
-
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
-		<!-- Plugin CSS -->
-        <link type="text/css" href="OverlayScrollbars/css/OverlayScrollbars.min.css" rel="stylesheet"/>
-        <!-- Plugin JS -->
-        <script src="OverlayScrollbars/js/OverlayScrollbars.min.js"></script>
-	</head>
   
-	<body>
-		<div id="registration-form">
-			<h1><a href="index.html">Dev Space</a></h1>
-			<h2>Login to Dev Space</h2>
-			<ul class="regform-successbox">
-				<li>Insert a valid email</li>
-				<li>Passwords are not the same</li>
-				<li>Wrong email or password</li>
-			</ul>
-			<div class="regform-main-section">
-				<form action="login.php" method="POST">
-					<label for="lemail">Email</label>
-					<input class="profile-input" type="text" id="lemail" name="email" placeholder="Email@some.boh" />
-					<label for="lpassword">Password</label>
-					<input class="profile-input" type="text" id="lpassword" name="password" placeholder="Password" />
-				
-					<input class="profile-input" name="submit" type="submit" value="Login" />
-				</form>
-			</div>
-			<div class="regform-side-section">
-				<p>Not registered yet?<a href='registrazione.php'>Click here</a>to register new account</p>
-				<p>Did you forget your password? <a href='#'>Click here</a> to recover it</p>
-			</div>
-			<ul id="regform-links">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="index.html">About</a></li>
-			</ul>
-		</div>	
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Login &#124; DevSpace</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Pagina di login" />
+        <meta name="keywords" content="computer, science, informatica, development, teconologia, technology" />
+        <meta name="author" content="Barzon Giacomo, De Filippis Francesco, Greggio Giacomo, Roverato Michele" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="theme-color" content="#F5F5F5" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>	
+        
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+            <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="https://frncscdf.github.io/Tecnologie-Web/print.css" media="print"/>
+        <script src="https://frncscdf.github.io/Tecnologie-Web/scripts.js"></script>
+        
+    </head>
+    
+    <body>
+                
+<div id="nav-full"><a href="index.php"><img src="img/logo.png" alt="Dev Space" id="nav-logo"></a><ul id="menu"><li><a href='index.php'>Home</a></li>
+            <li><a href='registrazione.php'>Create a new account</a></li>
+            <li class='current-menu-entry'>Login</li>
+            <li><a href='about.php'>About</a></li>
+        </ul><img src="img/hamburger.svg" alt="menu-icon" id="nav-menu-icon"/>
+                    <noscript>
+                        <a href="#nojs-menu"><img src="img/hamburger.svg" alt="hamburger icon" id="nojs-menu-icon"/></a>
+                    </noscript>
+                    </div>        <div id="registration-form">
+            <div class="regform-introduction">
+                <h2>You're going to login to <strong>DevSpace</strong></h2>
+            </div>
+            <div id="login-error-box-zone"></div>
+            <div class="regform-main-section">
+                                <form action="login.php" id="login-main-form" method="POST">
+                    <fieldset>
+                        <p>
+                            <label for="lemail">Email</label>
+                            <input class="profile-input" type="email" id="lemail" name="email" placeholder="Email@some.boh" required onchange="LoginPage_HideChangeLoginDataError()" />                        </p>
+                        <p>
+                            <label for="lpassword">Password</label>
+                            <input class="profile-input" type="password" id="lpassword" name="password" placeholder="Password" required onchange="LoginPage_HideChangeLoginDataError()" />
+                        </p>
+                        <p>
+                            <input class="profile-input" name="submit" type="submit" value="Login" />
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="regform-side-section">
+                <p>Not yet registered?<a href='registrazione.php'>Click here</a> to create a new account.</p>
+                <p>Did you forget your password?<a href='forgotPassword.php'>Click here</a> to recover it.</p>
+            </div>
+        </div>
+        <noscript><ul id="nojs-menu" class="nojs-menu-spacer"><li><h1>Menu</h1></li><li><a href='index.php'>Home</a></li>
+            <li><a href='registrazione.php'>Create a new account</a></li>
+            <li class='current-menu-entry'>Login</li>
+            <li><a href='about.php'>About</a></li>
+        </ul><div id="nojs-messagebox">ATTENTION - With JavaScript disabled some features may not be available or may not work properly!</div></noscript>    </body>
 </html>

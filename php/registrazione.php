@@ -104,13 +104,14 @@
                 ?>
             </div>
             <div class="regform-side-section">
-                <p>Sei già registrato?
-                <p>Clicca <a href='login.php'>qui</a> per effettuare il login.</p>
+                <p>Are you already registered?
+                <p>Click <a href='login.php'>here</a> to login.</p>
             </div>
         </div>
         <?php
         echo '<noscript>';
         SimpleNavbar::printSimpleNavbar(true);
+        SimpleNavbar::printNoJSWarning();
         echo '</noscript>';
         ?>
     </body>
