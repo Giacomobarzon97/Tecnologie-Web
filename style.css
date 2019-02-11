@@ -179,7 +179,7 @@ textarea{
     overflow: hidden;
 }
 
-.sidebar > li > div > a {
+.sidebar > li > div > a, .sidebar > li > div > p {
     float: left;
     width: 80%;
     text-decoration: none;
