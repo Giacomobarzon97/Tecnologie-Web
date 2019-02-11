@@ -144,7 +144,7 @@ class Card
         echo '<form action="' . $_SERVER['REQUEST_URI'] . '" method="POST">
                 <input type="hidden" name="delete-topic" />
                 <input type="hidden" name="topicID" value="' . $topicID . '" />
-                <input type="image" title="Delete this topic" alt="button delete topic" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
+                <input type="image" title="Delete this topic" alt="button delete topic" src="./img/waste-bin.svg" class="delete_button_gen" />
             </form>';
     }
 

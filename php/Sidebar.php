@@ -103,7 +103,7 @@ Class Sidebar
                 echo '<a href="ArticleLinks.php?id=' . $topic['Id'] . '">' . $topic['Name'] . '</a>';
             }
             if (!$isNoJsSidebar && $hasEntries) { //Se il topic ha almeno un elemento ci metto la freccetta
-                echo '<img src="https://frncscdf.github.io/Tecnologie-Web/img/expand-button.svg" id="' . $topic['Id'] . '" class="expand-button" alt="Expand"/>';
+                echo '<img src="./img/expand-button.svg" id="' . $topic['Id'] . '" class="expand-button" alt="Expand"/>';
             }
             echo '</div>
                 ';

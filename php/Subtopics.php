@@ -117,13 +117,13 @@
                     <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                         <input type="hidden" name="delete-article" />
                         <input type="hidden" name="articleID" value="'.$article['Id'].'" />
-                        <input type="image" title="Delete this article" alt="button delete article" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_link" />
+                        <input type="image" title="Delete this article" alt="button delete article" src="./img/waste-bin.svg" class="delete_button_link" />
                     </form>
                     <form action="writeArticle.php" method="GET">
                         <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                         <input type="hidden" name="topicID" value="'.$topicID.'" />
                         <input type="hidden" name="articleID" value="'.$article['Id'].'" />
-                        <input type="image" title="Edit this article" alt="button edit article" src="https://frncscdf.github.io/Tecnologie-Web/img/edit.svg" class="add_button_link" />
+                        <input type="image" title="Edit this article" alt="button edit article" src="./img/edit.svg" class="add_button_link" />
                     </form>
                     </div>';
                 }
@@ -171,12 +171,12 @@
                     echo '<form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
                             <input type="hidden" name="delete-subtopic" />
                             <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
-                            <input type="image" title="Delete this subtopic" alt="button delete subtopic" src="https://frncscdf.github.io/Tecnologie-Web/img/waste-bin.svg" class="delete_button_gen" />
+                            <input type="image" title="Delete this subtopic" alt="button delete subtopic" src="./img/waste-bin.svg" class="delete_button_gen" />
                         </form>
                         <form action="writeArticle.php" method="GET">
                             <input type="hidden" name="subtopicID" value="'.$subtopic['Id'].'" />
                             <input type="hidden" name="topicID" value="'.$topicID.'" />
-                            <input type="image" title="Write an article for this subtopic" alt="button write article" src="https://frncscdf.github.io/Tecnologie-Web/img/new-article.svg" class="add_button_gen" />
+                            <input type="image" title="Write an article for this subtopic" alt="button write article" src="./img/new-article.svg" class="add_button_gen" />
                         </form>';
                     echo '</div>';
                 }
