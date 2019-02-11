@@ -1,4 +1,4 @@
-N.B. Google Chrome Audits verà eseguito in navigazione in incognito per evitare che le estensioni intacchino il risultato della performance
+﻿N.B. Google Chrome Audits verà eseguito in navigazione in incognito per evitare che le estensioni intacchino il risultato della performance
 
 General
     style.css
@@ -8,7 +8,7 @@ General
     CSS Validation Service: Congratulazioni! Nessun errore trovato.
 
 Index
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Colorblind Web Page Filter: OK (tutte le varianti)
 
@@ -34,7 +34,7 @@ Article_links(no logged in)
 
 Login
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Colorblind Web Page Filter: OK (tutte le varianti)
 
@@ -46,7 +46,7 @@ Login
 
 Article_links(logged in)
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
 
@@ -58,7 +58,7 @@ Article_links(logged in)
 
 Profile
     
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili 
                                     Page caricata parzialmente
@@ -70,7 +70,7 @@ Profile
 
 Admin Tool
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili.
 
@@ -80,7 +80,7 @@ Admin Tool
 
 Create argument
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
 
@@ -93,7 +93,7 @@ Create argument
 
 Manage users
     
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili.
 
@@ -103,7 +103,7 @@ Manage users
     
 AddAdmin
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili.
 
@@ -113,7 +113,7 @@ AddAdmin
 
 Article(logged in)
 
-    Web Accessibility Checker: 2.4 Navigable: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: 2.4 Navigable: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
 
@@ -125,7 +125,7 @@ Article(logged in)
 
 Write Article
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Google Mobile Friendliness Test: La pagina è ottimizzata per i dispositivi mobili
 
@@ -137,7 +137,7 @@ Write Article
 
 About
     
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Colorblind Web Page Filter: OK (tutte le varianti)
 
@@ -149,7 +149,7 @@ About
 
 Research result
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Colorblind Web Page Filter: OK (tutte le varianti)
 
@@ -163,7 +163,7 @@ Research result
 
 404
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Colorblind Web Page Filter: OK (tutte le varianti)
 
@@ -173,7 +173,7 @@ Research result
 
 Registration
 
-    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AA))
+    Web Accessibility Checker: Congratulations! No known problems. Accessibility Review (Guidelines: WCAG 2.0 (Level AAA))
 
     Colorblind Web Page Filter: OK (tutte le varianti)
 
