@@ -440,6 +440,28 @@ class User
         }
 
         $connection = new Connection();
+
+        //Check if there's something to update
+        $connection->prepareQuery(
+            "SELECT * FROM USERS WHERE Nickname = '$newNickname' AND Email = '$email'"
+        );
+        $result = $connection->executeQuery();
+        if(isset($result[0])){
+            $connection = NULL;
+            return new ResultManager("Nothing to update");
+        }
+
+        //Check if the nicnkame is in use
+        $connection->prepareQuery(
+            "SELECT Nickname FROM USERS WHERE Nickname = '$newNickname'"
+        );
+        $result = $connection->executeQuery();
+        if(isset($result[0])){
+            $connection = NULL;
+            return new ResultManager("Sorry, but this nickname is already in use!", true);
+        }
+
+        //Update
         $connection->prepareQuery(
             "UPDATE USERS SET Nickname = '$newNickname' WHERE Email = '$email'"
         );
@@ -447,9 +469,9 @@ class User
 
         $connection = NULL;
         if (!isset($result)) {
-            return false;
+            return new ResultManager("An error occurred changing the nickname!", true);
         }
-        return true;
+        return NULL;
     }
 
     static function changeName($email, $newName)
@@ -458,6 +480,18 @@ class User
             return false;
         }
         $connection = new Connection();
+
+        //Check if there's something to update
+        $connection->prepareQuery(
+            "SELECT * FROM USERS WHERE Name = '$newName' AND Email = '$email'"
+        );
+        $result = $connection->executeQuery();
+        if(isset($result[0])){
+            $connection = NULL;
+            return new ResultManager("Nothing to update");
+        }
+
+        //Update
         $connection->prepareQuery(
             "UPDATE USERS SET Name = '$newName' WHERE Email = '$email'"
         );
@@ -465,9 +499,9 @@ class User
 
         $connection = NULL;
         if (!isset($result)) {
-            return false;
+            return new ResultManager("An error occurred changing the name!", true);
         }
-        return true;
+        return NULL;
     }
 
     static function changeSurname($email, $newSurname)
@@ -476,6 +510,18 @@ class User
             return false;
         }
         $connection = new Connection();
+
+        //Check if there's something to update
+        $connection->prepareQuery(
+            "SELECT * FROM USERS WHERE Surname = '$newSurname' AND Email = '$email'"
+        );
+        $result = $connection->executeQuery();
+        if(isset($result[0])){
+            $connection = NULL;
+            return new ResultManager("Nothing to update");
+        }
+
+        //Update
         $connection->prepareQuery(
             "UPDATE USERS SET Surname = '$newSurname' WHERE Email = '$email'"
         );
@@ -483,9 +529,9 @@ class User
 
         $connection = NULL;
         if (!isset($result)) {
-            return false;
+            return new ResultManager("An error occurred changing the surname!", true);
         }
-        return true;
+        return NULL;
     }
 
     static function deleteAccount($email)

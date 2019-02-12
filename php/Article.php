@@ -51,10 +51,10 @@ class Article
 
     static function insertArticleInTable($title, $content, $authorID, $subtopicID)
     {
-        if(!isset($title) || strlen($title)<2 || strlen($title)>100){
+        if(!isset($title) || strlen($title)<2 || strlen($title)>100 || !ValidateData::checkStringIsEmpty($title)){
             return new ResultManager("<li>The article title is not valid! (Probably is too short/long or empty)</li>", true);
         }
-        if(!isset($content) || strlen($content)<2 || strlen($content)>100000){
+        if(!isset($content) || strlen($content)<2 || strlen($content)>100000 || !ValidateData::checkStringIsEmpty($content)){
             return new ResultManager("<li>The article content is not valid! (Probably is too short/long or empty)</li>", true);
         }
         $connection = new Connection();
@@ -89,10 +89,10 @@ class Article
 
     static function editArticle($articleID, $title, $content)
     {
-        if(!isset($title) || strlen($title)<2 || strlen($title)>100){
+        if(!isset($title) || strlen($title)<2 || strlen($title)>100 || !ValidateData::checkStringIsEmpty($title)){
             return new ResultManager("<li>The article title is not valid! (Probably is too short/long or empty)</li>", true);
         }
-        if(!isset($content) || strlen($content)<2 || strlen($content)>100000){
+        if(!isset($content) || strlen($content)<2 || strlen($content)>100000 || !ValidateData::checkStringIsEmpty($content)){
             return new ResultManager("<li>The article content is not valid! (Probably is too short/long or empty)</li>", true);
         }
         $connection = new Connection();

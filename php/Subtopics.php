@@ -3,6 +3,7 @@
     include_once ("User.php");
     include_once ("ResultManager.php");
     include_once ('SearchManager.php');
+    include_once ('validateData.php');
     
     class Subtopics {
 
@@ -234,10 +235,10 @@
         }
 
         static function insertSubtopic($title, $description, $topicID){
-            if(!isset($title) || strlen($title)<2 || strlen($title)>100){
+            if(!isset($title) || strlen($title)<2 || strlen($title)>100 || !ValidateData::checkStringIsEmpty($title)){
                 return new ResultManager("<li>The subtopic title is not valid! (Probably is too short/long or empty)</li>", true);
             }
-            if(!isset($description) || strlen($description)<2 || strlen($description)>500){
+            if(!isset($description) || strlen($description)<2 || strlen($description)>500 || !ValidateData::checkStringIsEmpty($description)){
                 return new ResultManager("<li>The subtopic description is not valid! (Probably is too short/long or empty)</li>", true);
             }
             if(!Subtopics::checkIfTopicExists($topicID)){

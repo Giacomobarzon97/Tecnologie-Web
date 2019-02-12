@@ -43,6 +43,7 @@
                     echo '<div class="regform-introduction">';
                         echo '<ul class="regform-successbox">';
                             echo '<li>Your account has been successfully deleted</li>';
+                            echo '<li>Go back to <a href="index.php">Home</a></li>';
                         echo '</ul>';
                     echo '</div>';
                 }else{

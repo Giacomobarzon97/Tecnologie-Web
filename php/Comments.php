@@ -35,7 +35,7 @@ class Comments
                         <p><input name="comment" type="submit" value="Send comment" /></p>';
             echo '</fieldset></form>';
         } else {
-            echo '<h2>Please, login or register to comment this article or to vote existing comments...</h2>';
+            echo '<h2>Please, <a href="login.php">login</a> or <a href="registrazione.php">register</a> to comment this article or to vote existing comments...</h2>';
         }
         //Destroy the object
         $connection = NULL;

@@ -1,6 +1,7 @@
 <?php
 include_once("Connection.php");
 include_once('SearchManager.php');
+include_once('validateData.php');
 
 class Card
 {
@@ -99,10 +100,10 @@ class Card
 
     static function insertTopic($title, $description, $image)
     {
-        if (!isset($title) || strlen($title) < 2 || strlen($title) > 100) {
+        if (!isset($title) || strlen($title) < 2 || strlen($title) > 100 || !ValidateData::checkStringIsEmpty($title)) {
             return new ResultManager("<li>The topic title is not valid! (Probably is too short/long or empty)</li>", true);
         }
-        if (!isset($description) || strlen($description) < 2 || strlen($description) > 10000) {
+        if (!isset($description) || strlen($description) < 2 || strlen($description) > 10000 || !ValidateData::checkStringIsEmpty($description)) {
             return new ResultManager("<li>The topic description is not valid! (Probably is too short/long or empty)</li>", true);
         }
         $connection = new Connection();

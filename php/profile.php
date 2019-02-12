@@ -57,33 +57,52 @@
                 <?php
                     if(isset($_POST['submitChangeInfo'])) {
                         if(isset($_POST['nickname'])) {
-                            $result = User::changeNickname($_SESSION['email'], $_POST['nickname']);
-                            if($result) {
+                            $change_nick_result = User::changeNickname($_SESSION['email'], $_POST['nickname']);
+                            if($change_nick_result == NULL) {
                                 echo '<ul class="regform-successbox"><li>Nickname updated successfully!</li></ul>';
                                 $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
                             } else {
-                                echo '<ul class="regform-errorbox"><li>The new nickname is not valid!</li></ul>';
+                                if($change_nick_result->getIsError()) {
+                                    echo '<ul class="regform-errorbox">';
+                                    echo '<li>' . $change_nick_result->getMessage() . '</li>';
+                                    echo '</ul>';
+                                }
                             }
                         }
                         
                         if(isset($_POST['name'])) {
-                            $result = User::changeName($_SESSION['email'], $_POST['name']);
-                            if($result) {
+                            $change_name_result = User::changeName($_SESSION['email'], $_POST['name']);
+                            if($change_name_result == NULL) {
                                 echo '<ul class="regform-successbox"><li>Name successfully updated!</li></ul>';
                                 $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
                             } else {
-                                echo '<ul class="regform-errorbox"><li>The new name is invalid!</li></ul>';
+                                if($change_name_result->getIsError()) {
+                                    echo '<ul class="regform-errorbox">';
+                                    echo '<li>' . $change_name_result->getMessage() . '</li>';
+                                    echo '</ul>';
+                                }
                             }
                         }
 
                         if(isset($_POST['surname'])) {
-                            $result = User::changeSurname($_SESSION['email'], $_POST['surname']);
-                            if($result) {
+                            $change_surname_result = User::changeSurname($_SESSION['email'], $_POST['surname']);
+                            if($change_surname_result == NULL) {
                                 echo '<ul class="regform-successbox"><li>Surname updated successfully!</li></ul>';
                                 $_SESSION['userInfo'] = serialize(User::getUserInfo($_SESSION['email']));
                             } else {
-                                echo '<ul class="regform-errorbox"><li>The new surname is invalid!</li></ul>';
+                                if($change_surname_result->getIsError()) {
+                                    echo '<ul class="regform-errorbox">';
+                                    echo '<li>' . $change_surname_result->getMessage() . '</li>';
+                                    echo '</ul>';
+                                }
                             }
+                        }
+
+                        if(($change_nick_result!=NULL && !$change_nick_result->getIsError()) &&
+                            ($change_name_result!=NULL && !$change_name_result->getIsError()) &&
+                            ($change_surname_result!=NULL && !$change_surname_result->getIsError())
+                        ){
+                            echo '<ul class="regform-successbox"><li>Nothing to update!</li></ul>';
                         }
                         
                     }
