@@ -140,7 +140,7 @@ function checkFileUpload(value) {
 
 //---FUNZIONI PER MOSTRARE/NASCONDERE BOX ERRORE---
 
-function CreateErrorBox(parentID, boxID, hideOnCreate = true) {
+function CreateErrorBox(parentID, boxID, hideOnCreate) {
     var parent = document.getElementById(parentID);
     if (parent != null) {
         var createdElement = document.createElement("UL");
@@ -181,7 +181,7 @@ function ShowErrorBox(boxID, HTML_message) {
 
 //Crea il box dell'errore nella posizione data
 function LoginPage_CreateErrorBox() {
-    CreateErrorBox("login-error-box-zone", "js-login-input-error");
+    CreateErrorBox("login-error-box-zone", "js-login-input-error",true);
 }
 
 //Nascondi il box dell'errore
@@ -219,7 +219,7 @@ function validateLoginData() {
 
 //Crea il box dell'errore nella posizione data
 function RegisterPage_CreateErrorBox() {
-    CreateErrorBox("register-error-box-zone", "js-register-input-error");
+    CreateErrorBox("register-error-box-zone", "js-register-input-error",true);
 }
 
 //Nascondi il box dell'errore
@@ -271,7 +271,7 @@ function validateRegisterData() {
 
 //Crea il box dell'errore nella posizione data
 function ProfilePage_CreateErrorBox_BasicData() {
-    CreateErrorBox("profile-error-box-base-data", "base-data-error-box");
+    CreateErrorBox("profile-error-box-base-data", "base-data-error-box",true);
 }
 
 //Nascondi il box dell'errore
@@ -311,7 +311,7 @@ function validateChangeBasicData() {
 
 //Crea il box dell'errore nella posizione data
 function ProfilePage_CreateErrorBox_ChangePw() {
-    CreateErrorBox("profile-error-box-change-pw", "password-error-box");
+    CreateErrorBox("profile-error-box-change-pw", "password-error-box",true);
 }
 
 //Nascondi il box dell'errore
@@ -357,7 +357,7 @@ function validateChangePassword() {
 
 //Crea il box dell'errore nella posizione data
 function ManageArguments_CreateErrorBox_InsertCard() {
-    CreateErrorBox("arguments-error-box-insert-card", "card-error-box");
+    CreateErrorBox("arguments-error-box-insert-card", "card-error-box",true);
 }
 
 //Nascondi il box dell'errore
@@ -399,7 +399,7 @@ function validateInsertCardData() {
 
 //Crea il box dell'errore nella posizione data
 function ReadArticle_CreateErrorBox_InsertComment() {
-    CreateErrorBox("comments-error-box-insert-comment", "insert-comment-error-box");
+    CreateErrorBox("comments-error-box-insert-comment", "insert-comment-error-box",true);
 }
 
 //Nascondi il box dell'errore
@@ -434,7 +434,7 @@ function validateInsertCommentData() {
 
 //Crea il box dell'errore nella posizione data
 function ArticleLinks_CreateErrorBox_InsertNewSubtopic() {
-    CreateErrorBox("subtopics-error-box-insert-subtopic", "insert-new-subtopic-error-box");
+    CreateErrorBox("subtopics-error-box-insert-subtopic", "insert-new-subtopic-error-box",true);
 }
 
 //Nascondi il box dell'errore
@@ -473,7 +473,7 @@ function validateInsertNewSubtopicData() {
 
 //Crea il box dell'errore nella posizione data
 function RecoverPassword_CreateErrorBox_ChangePw() {
-    CreateErrorBox("forgot-pw-error-box-change-password", "recover-password-error-box");
+    CreateErrorBox("forgot-pw-error-box-change-password", "recover-password-error-box",true);
 }
 
 //Nascondi il box dell'errore
@@ -515,7 +515,7 @@ function validateRecoverPasswordData() {
 
 //Crea il box dell'errore nella posizione data
 function InsertArticle_CreateErrorBox_InsertArticle() {
-    CreateErrorBox("insert-article-error-box", "recover-password-error-box");
+    CreateErrorBox("insert-article-error-box", "recover-password-error-box",true);
 }
 
 //Nascondi il box dell'errore
@@ -554,7 +554,7 @@ function validateInsertNewArticleData() {
 
 //Crea il box dell'errore nella posizione data
 function AddAdmin_CreateErrorBox() {
-    CreateErrorBox("add-admin-error-box-zone", "js-add-admin-input-error");
+    CreateErrorBox("add-admin-error-box-zone", "js-add-admin-input-error",true);
 }
 
 //Nascondi il box dell'errore
@@ -588,7 +588,7 @@ function validateAddAdminData() {
 
 //Crea il box dell'errore nella posizione data
 function BanUser_CreateErrorBox() {
-    CreateErrorBox("ban-user-error-box-zone", "js-ban-user-input-error");
+    CreateErrorBox("ban-user-error-box-zone", "js-ban-user-input-error",true);
 }
 
 //Nascondi il box dell'errore
