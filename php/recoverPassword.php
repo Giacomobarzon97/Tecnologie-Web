@@ -2,11 +2,8 @@
 
     include_once('sessionManager.php');
 
-    if(isset($_SESSION['nickname'])) {
-        header("Location: ".SessionManager::getPageRedirect());
-    }
-    if(!isset($_GET['token']) && !isset($_POST['change_pw_token'])){
-        header("Location: ".SessionManager::getPageRedirect());
+    if(!isset($_SESSION['email'])) {
+        header("Location: errore.php?errorCode=paginaNonDisponibile");
     }
 
 ?> 

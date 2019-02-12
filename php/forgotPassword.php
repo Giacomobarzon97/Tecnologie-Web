@@ -2,9 +2,13 @@
 
     include_once('sessionManager.php');
 
-    if(isset($_SESSION['nickname'])) {
+    if(isset($_SESSION['email'])) {
         header("Location: ".SessionManager::getPageRedirect());
     }
+    /*
+     * This page may not work properly and not send the email on deploy server (tecweb1819)
+     * This is probably a server problem, but the code works fine in another server
+     */
 ?> 
 <!DOCTYPE html>
 <html lang="en">
