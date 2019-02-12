@@ -161,8 +161,10 @@
 	Per poter garantire un buon coordinamento all'interno del team di sviluppo è stato utilizzato il servizio \emph{GitHub} per ospitare il repository del progetto, per tenere traccia delle attività da svolgere e per suddividere in modo efficiente e strutturato il lavoro. Inoltre è stato utilizzato \emph{TravisCI}, un servizio di continuous integration, per validare la pagine HTML e i fogli CSS prodotti ad ogni attività di push sul repository remoto. Questo ci ha permesso di controllare costantemente che le modifiche apportate al progetto non avessero introdotto errori che avrebbero potuto rendere non valide le pagine del nostro sito.
 	\subsection{Form}
 	\subsubsection{Struttura dei form}
-	sa
+	//TODO
 	\subsubsection{Validazione dei form - Rove}
+	//TODO	
+	
 	sezione html5
 	sezione js
 	sezione php
@@ -212,9 +214,22 @@
 	\subsection{Gestione degli errori}
 	Come già accennato la classe \textbf{ResultManager} viene utilizzata per gestire i messaggi di stato dei metodi.
 	Questa classe è costituita da un campo che identifica la stringa del messaggio e da un campo booleano che stabilisce se questo è un errore oppure no.
-	Molti metodi ne fanno uso per poter ritornare al chiamante un oggetto di questo tipo, al fine di semplificare le modalità in cui vengono stampati i messaggi nel front-end. 
-	\subsection{Progettazione del Database - Rove}
-	sasa
+	Molti metodi ne fanno uso per poter ritornare al chiamante un oggetto di questo tipo, al fine di semplificare le modalità in cui vengono stampati i messaggi nel front-end.
+	
+	\subsection{Progettazione del Database}
+	Il database è composto da una struttura abbastanza basilare per conservare tutti i dati nella maniera più semplice ma comoda possibile. Le tabelle del database sono:
+	\begin{itemize}
+	\item In primis, c'è la tabella per gli utenti, chiamata \textbf{USERS}, che contiene i dettagli dell'utente più un campo che segna se quell'utente è stato bannato;
+	\item La tabella \textbf{ROLES} è una tabella adibita a contenere i possibili ruoli che un utente può avere, nel nostro caso solo Amministratore
+	\item Per collegare le due tabelle qui sopra c'è la tabella \textbf{USER\_ROLES} che associa ad un utente un ruolo;
+	\item La tabella \textbf{TOPICS} è la tabella che contiene tutti i macroargomenti, particolare attenzione qui va al campo \textit{ImageLink}, che conterrà il percorso per la copertina del macroargomento caricata in "uploads/" durante la creazione;
+	\item La tabella \textbf{SUBTOPICS} contiene tutti i sottoargomenti con il riferimento al macroargomento di cui fanno parte;
+	\item La tabella \textbf{ARTICLES} contiene tutti gli articoli con il riferimento al sottoargomento di cui fanno parte, salvando anche chi è l'autore dell'articolo;
+	\item La tabella \textbf{COMMENTS} contiene tutti i commenti, con contenuto data e autore e il riferimento all'articolo di cui ogni commento fa parte;
+	\item Collegata alla tabella \textbf{COMMENTS} c'è \textbf{COMMENTS\_VOTES} che segna quando un utente mette mi piace/non mi piace ad un commento, chiaramente con un riferimento al commento originale, in modo da poter ricavare velocemente tutti i voti di un commento;
+	\item Infine, la tabella \textbf{FORGOT\_PASSWORD\_TOKENS} è utilizzata per memorizzare i token di recupero password, generati quando un utente chiede l'email per recuperare la password dimenticata. Oltre al token è presente una data di scadenza, utilizzata per verificare che il token non sia più utilizzabile dopo 7 giorni.
+	\end{itemize}
+	
 	\subsection{Gestione assenza JavaScript}
 	Per la gestione delle pagine in assenza di JavaScript sono state utilizzate principalmente due tecniche:
 	\begin{itemize}
@@ -228,10 +243,13 @@
 			L'append ovviamente potrà avvenire solo ed esclusivamente con JavaScript abilitato, e ciò permette di ottenere con facilità il risultato desiderato.
 	\end{itemize}
 
-	\subsection{Ricerca dei contenuti - Rove}
-	assa
-	\subsection{Menù a tendina}
+	\subsection{Ricerca dei contenuti}
+	La ricerca dei contenuti è effettuata tramite la barra di ricerca, presente nella home e nelle pagine con la sidebar. Una volta inserito il termine di ricerca e inviata la richiesta alla pagina search.php, quest'ultima utilizzerà la classe la classe \textbf{SearchManager} per ottenere i risultati di ricerca da stampare. Questa classe ha tre metodi principali, uno per ogni possibile risultato: macroargomento, sottoargomento e articolo. \\
+Ognuno di questi metodi funziona in maniera abbastanza semplice: legge dal database tutti i possibili elementi e li analizza uno per uno utilizzando la funzione PHP \textit{similar\_text(...)} per calcolare la somiglianza tra il termine di ricerca inserito e l'elemento del database analizzato. Quando questa somiglianza è sopra una certa percentuale il risultato viene considerato valido. \\
+Per rendere il calcolo della funzione di somiglianza più efficace, sia il termine di ricerca che il termine letto da database vengono portati in minuscolo, per non svantaggiare l'utente che potrebbe dimenticarsi di utilizzare le maiuscole. Infine, abbiamo considerato una percentuale di somiglianza abbastanza bassa, precisamente del 55\%, questo perché ci siamo accorti che un valore troppo alto filtrava troppo i risultati e secondo noi è più conveniente mostrare qualche risultato in più che qualcuno in meno.
 	
+	\subsection{Menù a tendina}
+	//TODO
 	\section{Compatibilità}
 	\subsection{Descrizione}
 	In questa sezione verrà discussa la compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito. Il sito è stato realizzato seguendo in parte le specifiche HTML5, concordando sull'utilizzo  di specifici tag relativi a questa versione HTML, soprattutto durante i controlli dei form.
@@ -239,7 +257,7 @@
 	\begin{itemize}
 		\item \textbf{<label>}: usato per definire "label", etichette per tutti i tag che la prevedono all'interno dei form. Fornisce un miglioramento dell'usabilità per gli utenti che navigano tramite utilizzo del mouse perché attiva il controllo nel caso un utente clicchi sul testo che prevede una label.
 		\item \textbf{<fieldset>}: questo tag è stato utilizzato per raggruppare gli elementi correlati per ciascun form.
-		\item \textbf{attributo type per <input>}: abbiamo utilizzato alcuni valori introdotti con HTML5 per dichiarare lo scopo di un elemento <input>. Nei form ad esempio, di login, del profile e di registrazione, è presente il type="email"e il type="password". Un'altro esempio può essere riferito al type="file", utilizzato durante la creazione di un nuovo macroargomento, per il caricamento di una thumbnail image.
+		\item \textbf{attributo type per <input>}: abbiamo utilizzato alcuni valori introdotti con HTML5 per dichiarare lo scopo di un elemento <input>. Nei form ad esempio, di login, del profile e di registrazione, è presente il type="email"e il type="password". Un altro esempio può essere riferito al type="file", utilizzato durante la creazione di un nuovo macroargomento, per il caricamento di una thumbnail image.
 		E' stato inoltre utilizzato l'attributo "placeholder" per fornire un suggerimento su ciò che si deve inserire nei campi di input.
 	\end{itemize}
 	\subsection{Browser supportati}
@@ -270,7 +288,7 @@
 		\end{itemize}
 	\subsubsection{Risultati}
 		\begin{itemize}
-			\item sjd
+			\item //TODO
 		\end{itemize}
 	
 	\subsection{Usabilità}
@@ -312,7 +330,7 @@
 		\end{itemize}
 	
 	\section{Suddivisione dei ruoli}
-	dsfsdf
+	//TODO
 	\begin{itemize}
 		\item \textbf{Giacomo Barzon}:
 		\item \textbf{Francesco De Filippis}: 
