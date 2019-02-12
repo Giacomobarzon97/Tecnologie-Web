@@ -25,6 +25,9 @@ function loadCSSstylesheet() {
 	var location = document.location.pathname;
 	var pos = location.lastIndexOf("/");
 	location = location.substring(0, pos+1);
+	if(location==="/"){ //Too short, not the deploy server
+	    location = "";
+    }
 
     var link = document.createElement("link");
     link.href = location+"/style/onlyJS.css";
