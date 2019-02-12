@@ -140,7 +140,7 @@ function checkFileUpload(value) {
 
 //---FUNZIONI PER MOSTRARE/NASCONDERE BOX ERRORE---
 
-function CreateErrorBox(parentID, boxID, hideOnCreate = true) {
+function CreateErrorBox(parentID, boxID, hideOnCreate) {
     var parent = document.getElementById(parentID);
     if (parent != null) {
         var createdElement = document.createElement("UL");
