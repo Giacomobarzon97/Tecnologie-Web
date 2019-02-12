@@ -124,7 +124,7 @@ class Card
                     <h1>Create a new topic</h1>
                     <p>
                         <label for="title-input-box">Title of the new topic:</label>
-                        <input type="text" name="titolo" id="title-input-box" placeholder="Write the topic title" required maxlength="100" onchange="ManageArguments_HideInsertCardError()" />
+                        <input type="text" name="titolo" id="title-input-box" pattern="^[a-zA-Z0-9_!.\'()-]+( [a-zA-Z0-9_!.\'()-]+)*$" placeholder="Write the topic title" required maxlength="100" onchange="ManageArguments_HideInsertCardError()" />
                     </p>
                     <p>
                         <label for="descrizione">Description of the new topic:</label>

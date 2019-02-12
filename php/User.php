@@ -545,17 +545,22 @@ class User
 
         $result = $connection->executeQuery();
 
+        $recover_token = User::generateRandomString(rand(10, 200));
+        while(User::checkIfTokenExist($recover_token)){
+            $recover_token = User::generateRandomString(rand(10, 200));
+        }
+
         if (isset($result[0])) {
             //Add the current user with 7 days from expire date
             $connection->prepareQuery(
                 "INSERT INTO FORGOT_PASSWORD_TOKENS (UserID, Token, expireDate)
                     VALUES (:userid, :token, (SELECT DATE_ADD(NOW(), INTERVAL 7 DAY)))");
-            $recover_token = User::generateRandomString(rand(10, 200));
+
             $connection->bindParameterToQuery(":userid", $email, PDO::PARAM_STR);
             $connection->bindParameterToQuery(":token", $recover_token, PDO::PARAM_STR);
             $result = $connection->executeQueryDML();
 
-            $recover_password_link = "http://testsitotecweb.altervista.org/recoverPassword.php?token=" . $recover_token;
+            $recover_password_link = "http://tecweb1819.studenti.math.unipd.it/mroverat/recoverPassword.php?token=" . $recover_token;
 
             //Contenuto email in HTML
             $email_content = '

@@ -49,7 +49,7 @@
 						<fieldset class="search-bar">
 							<p>
                                 <label for="search-bar-textarea">Search for topics and articles</label>
-                                <input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />
+                                <input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_!.'()-]+( [a-zA-Z0-9_!.'()-]+)*$" required />
                             </p>
 	                    	<p>
                                 <input type="submit" value="Search" />

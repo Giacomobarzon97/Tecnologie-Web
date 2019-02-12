@@ -97,10 +97,10 @@
                             <?php
                                 if(isset($_GET['articleID'])){
                                     echo '<label for="title">Edit the title for your article</label>';
-                                    echo '<input type="text" name="title" required id="title" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" placeholder="Title of the article" value="'.$articleInfo['Title'].'">';
+                                    echo '<input type="text" name="title" required id="title" pattern="^[a-zA-Z0-9_!.\'()-]+( [a-zA-Z0-9_!.\'()-]+)*$" placeholder="Title of the article" value="'.$articleInfo['Title'].'">';
                                 }else{
                                     echo '<label for="title">Enter the title for your article</label>';
-                                    echo '<input type="text" name="title" required id="title" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" placeholder="Title of the article">';
+                                    echo '<input type="text" name="title" required id="title" pattern="^[a-zA-Z0-9_!.\'()-]+( [a-zA-Z0-9_!.\'()-]+)*$" placeholder="Title of the article">';
                                 }
                             ?>
                         </p>

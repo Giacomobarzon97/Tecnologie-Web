@@ -68,9 +68,9 @@ Class Sidebar
                         <p>
                             <label for="search-bar-textarea">Search for topics and articles</label>';
         if (isset($_GET["search-term"])) {
-            echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="' . $_GET["search-term"] . '" />';
+            echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_!.\'()-]+( [a-zA-Z0-9_!.\'()-]+)*$" required value="' . $_GET["search-term"] . '" />';
         } else {
-            echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />';
+            echo '<input type="text" id="search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_!.\'()-]+( [a-zA-Z0-9_!.\'()-]+)*$" required />';
         }
         echo '</p>
 	                	<p><input type="submit" value="Search"></p>
@@ -193,9 +193,9 @@ Class Sidebar
                             <p>
                                 <label for="nojs-search-bar-textarea">Search for topics and articles</label>';
         if (isset($_GET["search-term"])) {
-            echo '<input type="text" accesskey="s" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required value="' . $_GET["search-term"] . '" />';
+            echo '<input type="text" accesskey="s" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_!.\'()-]+( [a-zA-Z0-9_!.\'()-]+)*$" required value="' . $_GET["search-term"] . '" />';
         } else {
-            echo '<input type="text" accesskey="s" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" required />';
+            echo '<input type="text" accesskey="s" id="nojs-search-bar-textarea" name="search-term" pattern="^[a-zA-Z0-9_!.\'()-]+( [a-zA-Z0-9_!.\'()-]+)*$" required />';
         }
         echo '</p>
                             <p><input type="submit" value="Search"></p>

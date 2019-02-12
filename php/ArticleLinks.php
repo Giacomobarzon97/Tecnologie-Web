@@ -21,6 +21,10 @@
         if (isset($_POST["delete-subtopic"])) {
             Subtopics::deleteSubtopic($_POST["subtopicID"]);
         }
+
+        if(isset($_POST["add-subtopic"])) {
+            $result = Subtopics::insertSubtopic($_POST["title"], $_POST["descrizione"], $_POST["topicID"]);
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -63,7 +67,6 @@
                     Subtopics::printTopicIntroduction($_GET["id"]);
                     echo '<div id="subtopics-error-box-insert-subtopic">';
                     if(isset($_POST["add-subtopic"])){
-                        $result = Subtopics::insertSubtopic($_POST["title"], $_POST["descrizione"], $_POST["topicID"]);
                         if($result->getIsError()){
                             echo '<ul class="regform-errorbox">';
                             echo $result->getMessage();
