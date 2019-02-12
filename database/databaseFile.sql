@@ -77,10 +77,10 @@ CREATE TABLE COMMENTS_VOTES(
 ) ENGINE=InnoDB;
 
 CREATE TABLE FORGOT_PASSWORD_TOKENS(
+    Id INT PRIMARY KEY AUTO_INCREMENT,
     UserID varchar(100) REFERENCES USERS(Email) ON UPDATE CASCADE ON DELETE CASCADE,
     Token varchar(255) UNIQUE,
-    expireDate date,
-    PRIMARY KEY (UserID, Token, expireDate)
+    expireDate date
 ) ENGINE=InnoDB;
 
 -- ------------------------------------------
