@@ -143,8 +143,8 @@
 	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vengono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati. Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
 	\subsubsection{Breadcrumb}
 	Abbiamo utilizzato i breadcrumb per due differenti aree e funzionalità del sito. La prima riguarda la navbar, presente in tutte le pagine, che contiene i link per navigare in tutto il sito. Le voci del menù vengono evidenziate e i link disattivati in modo congruo alla pagina in cui l'utente si trova in quel preciso momento. Il secondo utilizzo di breadcrumb viene fatto nella sidebar, dove viene evidenziato l'elenco corrispondente al macroargomento e relativi sottoargomenti che l'utente sta visualizzando e, nel caso stesse leggendo un articolo, viene evidenziato solo il sottoargomento a cui esso appartiene.
-	
-	\subsubsection{Altro per accessibilità?}
+	\subsubsection{Navigazione tramite Tab e accessKey}
+	Il sito è stato realizzato in modo tale che fosse prevista la navigazione anche senza la presenza di un mouse e dunque tramite esclusivo utilizzo della tastiera. E' stato dunque ottimizzato al fine di renderlo navigabile tramite "Tab" e sono state inserite delle shortcut grazie all'uso dell'attributo accessKey per raggiungere velocemente le sezioni principali del sito. Queste shortcut riguardano principalmente la navbar, come per esempio la lettera "h" è stata usata per il riferimento alla home page, la lettera "l" per il login/logout, la lettera "a" per la pagina about.
 	
 
 	\section{Sviluppo}
@@ -234,12 +234,13 @@
 	
 	\section{Compatibilità}
 	\subsection{Descrizione}
-	In questa sezione verrà discussa la compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito. Il sito è stato realizzato seguendo in parte le specifiche HTML5, concordando sull'utilizzo  di specifici tag relativi a questa versione HTML.
+	In questa sezione verrà discussa la compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito. Il sito è stato realizzato seguendo in parte le specifiche HTML5, concordando sull'utilizzo  di specifici tag relativi a questa versione HTML, soprattutto durante i controlli dei form.
 	\subsection{Tag HTML5 utilizzati}
 	\begin{itemize}
-		\item \textbf{<header>}: questo tag è stato utilizzato nella home page e nella pagina about per inserire il titolo e un'immagine di copertina associata al nostro sito e ai suo target. Risulta ben supportato dai principali browser.
-		\item \textbf{<footer>}: questa sezione è stata inserita in tutte le pagine informative con lo scopo di fornire informazioni aggiuntive relative a sviluppatori e committente. Anche questo risulta ben supportato come il precedente.
+		\item \textbf{<label>}: usato per definire "label", etichette per tutti i tag che la prevedono all'interno dei form. Fornisce un miglioramento dell'usabilità per gli utenti che navigano tramite utilizzo del mouse perché attiva il controllo nel caso un utente clicchi sul testo che prevede una label.
+		\item \textbf{<fieldset>}: questo tag è stato utilizzato per raggruppare gli elementi correlati per ciascun form.
 		\item \textbf{attributo type per <input>}: abbiamo utilizzato alcuni valori introdotti con HTML5 per dichiarare lo scopo di un elemento <input>. Nei form ad esempio, di login, del profile e di registrazione, è presente il type="email"e il type="password". Un'altro esempio può essere riferito al type="file", utilizzato durante la creazione di un nuovo macroargomento, per il caricamento di una thumbnail image.
+		E' stato inoltre utilizzato l'attributo "placeholder" per fornire un suggerimento su ciò che si deve inserire nei campi di input.
 	\end{itemize}
 	\subsection{Browser supportati}
 	Il sito deve essere funzionante sul maggior numero di browser disponibili sul mercato con le versioni più recenti. I test sono stati effettuati sui seguenti browser:
