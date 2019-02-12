@@ -249,8 +249,8 @@ function validateRegisterData() {
     if (!checkStringIsValid(email) || email.length > 100 || !checkEmailStringFormat(email)) {
         errorMessage += "<li>The email is not valid!</li>";
     }
-    if (!checkStringIsValid(nick) || nick.length > 100) {
-        errorMessage += "<li>The nickname is not valid!</li>";
+    if (!checkStringIsValid(nick) || nick.length > 100 || nick.length < 2) {
+        errorMessage += "<li>The nickname is not valid (Probably is too short/long or empty)!</li>";
     }
     if (!checkStringIsValid(name) || name.length > 100 || !checkNameStringFormat(name)) {
         errorMessage += "<li>The name is not valid!</li>";
@@ -258,8 +258,8 @@ function validateRegisterData() {
     if (!checkStringIsValid(surname) || surname.length > 100 || !checkNameStringFormat(surname)) {
         errorMessage += "<li>The surname entered is not valid!</li>";
     }
-    if (!checkStringIsValid(password) || password.length > 100) {
-        errorMessage += "<li>The password is invalid!</li>";
+    if (!checkStringIsValid(password) || password.length > 100 || password.length < 3) {
+        errorMessage += "<li>The password is invalid, check that is between 3 and 100 characters long!</li>";
     }
     if (errorMessage !== "") {
         RegisterPage_ShowChangeLoginDataError(errorMessage);
@@ -296,8 +296,8 @@ function validateChangeBasicData() {
     var surname = document.getElementById("lsurname").value;
 
     var errorMessage = "";
-    if (!checkStringIsValid(nickname) || nickname.length > 100) {
-        errorMessage += "<li>The entered nickname is not valid!</li>";
+    if (!checkStringIsValid(nickname) || nickname.length > 100 || nickname.length < 2) {
+        errorMessage += "<li>The entered nickname is not valid (Probably is too short/long or empty)!</li>";
     }
     if (!checkStringIsValid(name) || name.length > 100 || !checkNameStringFormat(name)) {
         errorMessage += "<li>The name is not valid!</li>";
@@ -336,14 +336,14 @@ function validateChangePassword() {
     var new_password_2 = document.getElementById("lconf-new-password").value;
 
     var errorMessage = "";
-    if (!checkStringIsValid(original_password) || original_password.length > 100) {
+    if (!checkStringIsValid(original_password) || original_password.length > 100 || original_password.length < 3) {
         errorMessage += "<li>The original password is invalid!</li>";
     }
-    if (!checkStringIsValid(new_password_1) || new_password_1.length > 100) {
-        errorMessage += "<li>The new password is invalid!</li>";
+    if (!checkStringIsValid(new_password_1) || new_password_1.length > 100 || new_password_1.length < 3) {
+        errorMessage += "<li>The new password is invalid, check that is between 3 and 100 characters long!</li>";
     }
-    if (!checkStringIsValid(new_password_2) || new_password_2.length > 100) {
-        errorMessage += "<li>Confirmation of the new password is invalid!</li>";
+    if (!checkStringIsValid(new_password_2) || new_password_2.length > 100 || new_password_2.length < 3) {
+        errorMessage += "<li>Confirmation of the new password is invalid, check that is between 3 and 100 characters long!</li>";
     }
     if (errorMessage !== "") {
         ProfilePage_ShowChangePwError(errorMessage);
@@ -383,10 +383,10 @@ function validateInsertCardData() {
 
     var errorMessage = "";
     if (!checkStringIsValid(title) || title.length > 100) {
-        errorMessage += "<li>The title is not valid!</li>";
+        errorMessage += "<li>The title is not valid (Probably is too long or empty)!</li>";
     }
     if (!checkStringIsValid(description) || description.length > 10000) {
-        errorMessage += "<li>The description is invalid!</li>";
+        errorMessage += "<li>The description is invalid (Probably is too long or empty)!</li>";
     }
     if (!checkFileUpload(image)) {
         errorMessage += "<li>The cover image is invalid (probably you're not uploading an image)!</li>";
@@ -423,7 +423,7 @@ function validateInsertCommentData() {
 
     var errorMessage = "";
     if (!checkStringIsValid(commentTextArea) || commentTextArea.length > 10000) {
-        errorMessage += "<li>The comment content is invalid!</li>";
+        errorMessage += "<li>The comment content is invalid (Probably is too long or empty)!</li>";
     }
 
     if (errorMessage !== "") {
@@ -459,10 +459,10 @@ function validateInsertNewSubtopicData() {
 
     var errorMessage = "";
     if (!checkStringIsValid(subtopic_title) || subtopic_title.length > 100) {
-        errorMessage += "<li>The title is not valid!</li>";
+        errorMessage += "<li>The title is not valid (Probably is too long or empty)!</li>";
     }
     if (!checkStringIsValid(subtopic_description) || subtopic_description.length > 500) {
-        errorMessage += "<li>The description is not valid!</li>";
+        errorMessage += "<li>The description is not valid (Probably is too long or empty)!</li>";
     }
 
     if (errorMessage !== "") {
@@ -498,10 +498,10 @@ function validateRecoverPasswordData() {
 
     var errorMessage = "";
     if (!checkStringIsValid(new_password_1) || new_password_1.length > 100) {
-        errorMessage += "<li>The new password is invalid!</li>";
+        errorMessage += "<li>The new password is invalid, check that is between 3 and 100 characters long!</li>";
     }
     if (!checkStringIsValid(new_password_2) || new_password_2.length > 100) {
-        errorMessage += "<li>The confirmation of the new password is invalid!</li>";
+        errorMessage += "<li>The confirmation of the new password is invalid, check that is between 3 and 100 characters long!</li>";
     }
     if (errorMessage !== "") {
         RecoverPassword_ShowChangePwError(errorMessage);
@@ -533,17 +533,17 @@ function InsertArticle_ShowInsertArticleError(HTML_message) {
     ShowErrorBox("recover-password-error-box", HTML_message);
 }
 
-//Valida i dati del cambio dati base
+//Valida i dati della scrittura dell'articolo
 function validateInsertNewArticleData() {
     var article_title = document.getElementById("title").value;
     var article_content = document.getElementById("new-article-content").value;
 
     var errorMessage = "";
     if (!checkStringIsValid(article_title) || article_title.length > 100) {
-        errorMessage += "<li>The title is not valid!</li>";
+        errorMessage += "<li>The title is not valid (Probably is too long or empty)!</li>";
     }
     if (!checkStringIsValid(article_content) || article_content.length > 100000) {
-        errorMessage += "<li>The content of the article is not valid!</li>";
+        errorMessage += "<li>The content of the article is not valid (Probably is too long or empty)!</li>";
     }
 
     if (errorMessage !== "") {

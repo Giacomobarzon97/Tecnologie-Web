@@ -68,7 +68,7 @@
                                     <label for="lnickname">Nickname</label>';
                                     if(isset($_POST['submit'])){
                                         echo '<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" 
-                                        required pattern=".{1,}" title="The nickname must be at least one character" value="'.$nickname.'"/>';
+                                        required pattern=".{1,100}" title="The nickname must be at least one character" value="'.$nickname.'"/>';
                                     }else{
                                         echo '<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" 
                                         required pattern=".{1,100}" title="The nickname must be at least one character" />';

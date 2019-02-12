@@ -51,6 +51,12 @@ class Article
 
     static function insertArticleInTable($title, $content, $authorID, $subtopicID)
     {
+        if(!isset($title) || strlen($title)<2 || strlen($title)>100){
+            return new ResultManager("<li>The article title is not valid! (Probably is too short/long or empty)</li>", true);
+        }
+        if(!isset($content) || strlen($content)<2 || strlen($content)>100000){
+            return new ResultManager("<li>The article content is not valid! (Probably is too short/long or empty)</li>", true);
+        }
         $connection = new Connection();
         $connection->prepareQuery(
             "INSERT INTO ARTICLES (Title, HTMLCode, AuthorID, SubtopicID)
@@ -60,6 +66,7 @@ class Article
         $connection->bindParameterToQuery(":authorID", $authorID, PDO::PARAM_STR);
         $result = $connection->executeQueryDML();
         $connection = NULL;
+        return NULL;
     }
 
     static function getArticleTitle($articleID)
@@ -82,6 +89,12 @@ class Article
 
     static function editArticle($articleID, $title, $content)
     {
+        if(!isset($title) || strlen($title)<2 || strlen($title)>100){
+            return new ResultManager("<li>The article title is not valid! (Probably is too short/long or empty)</li>", true);
+        }
+        if(!isset($content) || strlen($content)<2 || strlen($content)>100000){
+            return new ResultManager("<li>The article content is not valid! (Probably is too short/long or empty)</li>", true);
+        }
         $connection = new Connection();
         $connection->prepareQuery(
             "UPDATE ARTICLES SET Title = :title , HTMLCode = :code WHERE Id = $articleID");
@@ -89,6 +102,7 @@ class Article
         $connection->bindParameterToQuery(":code", strip_tags($content, Article::$allowed_content_tags), PDO::PARAM_STR);
         $result = $connection->executeQueryDML();
         $connection = NULL;
+        return NULL;
     }
 }
 

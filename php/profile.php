@@ -92,7 +92,7 @@
                     <fieldset>
                         <p>
                             <label for="lnickname">Nickname</label>
-                            <input class="profile-input" type="text" id="lnickname" name="nickname" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
+                            <input class="profile-input" type="text" id="lnickname" name="nickname" pattern=".{1,100}" maxlength="100" required onchange="ProfilePage_HideChangeBasicDataPWError()"
                             value="<?php if(isset($_SESSION['userInfo'])) echo unserialize($_SESSION['userInfo'])->nickname;?>"/>
                         </p>
                         <p>
@@ -129,15 +129,15 @@
                     <fieldset>
                         <p>
                             <label for="lold-password">Current Password</label>
-                            <input class="profile-input" type="password" id="lold-password" name="old-password" placeholder="Current Password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lold-password" name="old-password" pattern=".{3,100}" placeholder="Current Password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p>
                             <label for="lnew-password">New password</label>
-                            <input class="profile-input" type="password" id="lnew-password" name="new-password" placeholder="New password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lnew-password" name="new-password" pattern=".{3,100}" placeholder="New password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p>
                             <label for="lconf-new-password">Confirm new password</label>
-                            <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" placeholder="Confirm new password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
+                            <input class="profile-input" type="password" id="lconf-new-password" name="conf-new-password" pattern=".{3,100}" placeholder="Confirm new password" maxlength="100" required onchange="ProfilePage_HideChangePWError()" />
                         </p>
                         <p><input class="profile-input" name="submitChangePassword" type="submit" value="Change Password" /></p>
                     </fieldset>
