@@ -116,7 +116,8 @@
 	\end{center}
 	
 	\subsection{Gestione dell'errore 404}
-	dfs
+	E' stato previsto un apposito reindirizzamento a una pagina di errore nel caso di richiesta di reperimento, da parte dell'utente, di una pagina non esistente.
+	All'interno di questa pagina di errore 404 è stato inserito un apposito messaggio di errore comprendente un link per poter tornare alla home page.
 
 	\subsection{Sidebar}
 	La sidebar come già accennato è pensata per offrire un modo semplice ed intuitivo per navigare tra i contenuti del sito, pertanto costituisce un elemento cruciale all'interno della nostra piattaforma. Nella sidebar è presente per prima cosa una casella di ricerca, la quale permette di cercare immediatamente dei contenuti specifici invece di navigare per le varie voci presenti più in basso. Sotto la casella di ricerca vi è una lista di voci che rappresentano i macroargomenti, e ciascuna di queste voci si può espandere per visualizzare i rispettivi sottoargomenti, i quali sono link ancora verso la parte centrale della pagina che mostra i sottoargomenti con relativi articoli. Per facilitare l'orientamento dell'utente abbiamo fatto uso dei \emph{breadcrumb} che si occupano di evidenziare il macroargomento (e la lista dei sottoargomenti) che si sta visualizzando oppure nel caso di un articolo, viene evidenziato il sottoargomento a cui appartiene l'articolo che si sta leggendo.
@@ -233,19 +234,24 @@
 	
 	\section{Compatibilità}
 	\subsection{Descrizione}
-	In questa sezione verranno discusse le compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito.
+	In questa sezione verrà discussa la compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito. Il sito è stato realizzato seguendo in parte le specifiche HTML5, concordando sull'utilizzo  di specifici tag relativi a questa versione HTML.
 	\subsection{Tag HTML5 utilizzati}
-	ksajdkl
+	\begin{itemize}
+		\item \textbf{<header>}: questo tag è stato utilizzato nella home page e nella pagina about per inserire il titolo e un'immagine di copertina associata al nostro sito e ai suo target. Risulta ben supportato dai principali browser.
+		\item \textbf{<footer>}: questa sezione è stata inserita in tutte le pagine informative con lo scopo di fornire informazioni aggiuntive relative a sviluppatori e committente. Anche questo risulta ben supportato come il precedente.
+		\item \textbf{attributo type per <input>}: abbiamo utilizzato alcuni valori introdotti con HTML5 per dichiarare lo scopo di un elemento <input>. Nei form ad esempio, di login, del profile e di registrazione, è presente il type="email"e il type="password". Un'altro esempio può essere riferito al type="file", utilizzato durante la creazione di un nuovo macroargomento, per il caricamento di una thumbnail image.
+	\end{itemize}
 	\subsection{Browser supportati}
 	Il sito deve essere funzionante sul maggior numero di browser disponibili sul mercato con le versioni più recenti. I test sono stati effettuati sui seguenti browser:
 		\begin{itemize}
-			\item Google Chrome - v.
-			\item Mozilla Firefox - v
+			\item Google Chrome - Versione 72.0.3626.96 (Build ufficiale) (a 64 bit).
+			\item Mozilla Firefox - Versione 65.0 (64 bit)
 			\item Safari - v
 			\item Opera - v
-			\item Microsoft Edge - v
-			\item Internet Explorer - v
+			\item Microsoft Edge - Versione 17.17134
+			\item Internet Explorer - Versione 9 e successive (11.523.17134.0)
 		\end{itemize}
+	Si presuppone che alcune funzionalità non si comportino allo stesso modo in tutti i browser e non siano garantite su quelli più datati. Si accerta comunque che il sito degradi in	maniera elegante sui browser più vecchi.
 	\subsection{JavaScript}
 	Dai test effettuati abbiamo riscontrato che il sito è utilizzabile e consultabile completamente senza l'utilizzo di JavaScript. L'unica componente non funzionante (Safari e Internet Explorer) è il pulsante che permette di tornare in cima alla pagina, il quale non inficia sul corretto funzionamento del sito in quanto è solo un miglioramento dell'esperienza d'uso.
 	
