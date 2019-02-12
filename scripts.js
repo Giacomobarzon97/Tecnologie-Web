@@ -25,6 +25,9 @@ function loadCSSstylesheet() {
 	var location = document.location.pathname;
 	var pos = location.lastIndexOf("/");
 	location = location.substring(0, pos+1);
+	if(location==="/"){ //Too short, not the deploy server
+	    location = "";
+    }
 
     var link = document.createElement("link");
     link.href = location+"/style/onlyJS.css";
@@ -795,14 +798,15 @@ window.addEventListener("load", function () {
 
 
 /* nav-bar menu collapse */
-document.addEventListener("DOMContentLoaded", function () {
+function addScrollbar(){
     //The first argument are the elements to which the plugin shall be initialized
     //The second argument has to be at least a empty object or a object with your desired options
     var sidebar = document.getElementById("sidebar-wrapper");
     if (sidebar != null) {
-        OverlayScrollbars(sidebar, {});
+        return OverlayScrollbars(sidebar, {});
     }
-});
+}
+
 
 function commentRedirect(articleID, commentID) {
     window.location.replace("ReadArticle.php?id=" + articleID + '#comment_' + commentID);
