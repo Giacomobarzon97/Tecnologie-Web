@@ -803,3 +803,7 @@ document.addEventListener("DOMContentLoaded", function () {
         OverlayScrollbars(sidebar, {});
     }
 });
+
+function commentRedirect(articleID, commentID) {
+    window.location.replace("ReadArticle.php?id=" + articleID + '#comment_' + commentID);
+}
