@@ -15,14 +15,19 @@
         }
     }
 
-    if($_SERVER['REQUEST_URI'] == "/"){
-        $page_string = substr($_SERVER['PHP_SELF'], 1);
+    if(substr_count($_SERVER['REQUEST_URI'],"/")>=2){
+    	$pos = strrpos($_SERVER['REQUEST_URI'], "/");
+    	$page_string = substr($_SERVER['REQUEST_URI'],$pos+1,strlen($_SERVER['REQUEST_URI']));
     }else{
-        if(substr($_SERVER['REQUEST_URI'], 0, 1) == "/"){
-            $page_string = substr($_SERVER['REQUEST_URI'], 1);
-        }else{
-            $page_string = $_SERVER['REQUEST_URI'];
-        }
+		if($_SERVER['REQUEST_URI'] == "/" && strlen($_SERVER['REQUEST_URI'])==1){
+			$page_string = substr($_SERVER['PHP_SELF'], 1);
+		}else{
+			if(substr($_SERVER['REQUEST_URI'], 0, 1) == "/"){
+				$page_string = substr($_SERVER['REQUEST_URI'], 1);
+			}else{
+				$page_string = $_SERVER['REQUEST_URI'];
+			}
+		}
     }
     //Mi salvo la pagina attuale
     $_SESSION["breadcrumb"] = $page_string;

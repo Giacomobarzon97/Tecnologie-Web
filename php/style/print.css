@@ -38,7 +38,7 @@ a{
     margin-top: 0.5em;
 }
 
-#search-bar input[type="submit"] {
+.search-bar input[type="submit"] {
     border: 1px solid #000000;
     background-color: #FFFFFF;
     color: #000000;

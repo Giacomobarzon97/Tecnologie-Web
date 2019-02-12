@@ -42,7 +42,7 @@
         </div>
         <div id="sidebar-wrapper">
         <?php
-            Sidebar::printSidebar();
+            Sidebar::printSidebar(NULL);
         ?>
         </div>
         <div id="rightSideWrapper">

@@ -7,5 +7,5 @@
     Deny from all
 </Files>
 
-ErrorDocument 404 /errore.php?errorCode=404
-ErrorDocument 403 /errore.php?errorCode=404
+ErrorDocument 404 http://tecweb1819.studenti.math.unipd.it/mroverat/errore.php?errorCode=404
+ErrorDocument 403 http://tecweb1819.studenti.math.unipd.it/mroverat/errore.php?errorCode=404

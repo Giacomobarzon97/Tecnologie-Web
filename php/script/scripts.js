@@ -22,10 +22,12 @@ function topFunction(){
     }
 }
 function loadCSSstylesheet() {
-    var file = location.pathname.split("/").pop();
+	var location = document.location.pathname;
+	var pos = location.lastIndexOf("/");
+	location = location.substring(0, pos+1);
 
     var link = document.createElement("link");
-    link.href = "../style/onlyJS.css";
+    link.href = location+"/style/onlyJS.css";
     link.type = "text/css";
     link.rel = "stylesheet";
     document.getElementsByTagName("head")[0].appendChild(link);
@@ -64,9 +66,9 @@ function sidebarExpandButtons() {
                 target.alt="Expand";
                 sublist.style.display = "none";
             } else {
+            	target.src = "img/collapse-button.svg";
+            	target.alt="Collapse";
                 sublist.style.display = "block";
-                target.src = "img/collapse-button.svg";
-                target.alt="Collapse";
             }
         }, false);
     }
