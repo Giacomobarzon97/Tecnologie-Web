@@ -396,10 +396,10 @@ class User
     static function changePassword($email, $oldPassword, $newPassword, $confNewPassword)
     {
         //CONTROLLARE VALIDITA' DELLA PASSWORD
-        if(strlen($newPassword) < 3 || strlen($newPassword) > 100){
-            return new ResultManager("Attention, the new password is not long at least 3 character or is too long(more than 100!", true);
+        if(!ValidateData::validatePassword($newPassword)){
+            return new ResultManager("Attention, the new password is not long at least 3 character or is too long(more than 100)!", true);
         }
-        if(strlen($confNewPassword) < 3 || strlen($confNewPassword) > 100){
+        if(!ValidateData::validatePassword($confNewPassword)){
             return new ResultManager("Attention, the confirmation of the new password is not long at least 3 character or is too long(more than 100)!", true);
         }
         if ($newPassword != $confNewPassword) {
