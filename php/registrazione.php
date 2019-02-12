@@ -71,7 +71,7 @@
                                         required pattern=".{1,}" title="The nickname must be at least one character" value="'.$nickname.'"/>';
                                     }else{
                                         echo '<input class="profile-input" type="text" id="lnickname" name="nickname" placeholder="Nickname" maxlength="100" 
-                                        required pattern=".{1,}" title="The nickname must be at least one character" />';
+                                        required pattern=".{1,100}" title="The nickname must be at least one character" />';
                                     }
                                 echo '</p>
                                 <p>

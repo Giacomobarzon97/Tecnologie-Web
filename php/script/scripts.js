@@ -681,6 +681,7 @@ window.addEventListener("load", function () {
     if (menuIcon != null) {
         menuIcon.addEventListener("click", toggleMobileNavMenu, true);
     }
+    addScrollbar();
     //Profile.php
     var changePwForm = document.getElementById("change_pw_form");
     var changeBasicDataForm = document.getElementById("change_basic_data_form");
@@ -798,14 +799,15 @@ window.addEventListener("load", function () {
 
 
 /* nav-bar menu collapse */
-document.addEventListener("DOMContentLoaded", function () {
+function addScrollbar(){
     //The first argument are the elements to which the plugin shall be initialized
     //The second argument has to be at least a empty object or a object with your desired options
     var sidebar = document.getElementById("sidebar-wrapper");
     if (sidebar != null) {
-        OverlayScrollbars(sidebar, {});
+        OverlayScrollbars(sidebar, {}).scroll(document.getElementsByClassName("breadcrumb")[0]);
     }
-});
+}
+
 
 function commentRedirect(articleID, commentID) {
     window.location.replace("ReadArticle.php?id=" + articleID + '#comment_' + commentID);
