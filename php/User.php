@@ -433,10 +433,8 @@ class User
 
     static function changeNickname($email, $newNickname)
     {
-        if (!ValidateData::checkStringIsEmpty($newNickname)) {
-            return false;
-        }elseif(strlen($newNickname) < 2){
-            return false;
+        if (!ValidateData::checkStringIsEmpty($newNickname) || strlen($newNickname) < 2) {
+            return new ResultManager("The nickname you entered is not valid!", true);
         }
 
         $connection = new Connection();
@@ -477,7 +475,7 @@ class User
     static function changeName($email, $newName)
     {
         if (!ValidateData::validateName($newName)) {
-            return false;
+            return new ResultManager("The name you entered is not valid!", true);
         }
         $connection = new Connection();
 
@@ -507,7 +505,7 @@ class User
     static function changeSurname($email, $newSurname)
     {
         if (!ValidateData::validateName($newSurname)) {
-            return false;
+            return new ResultManager("The surname you entered is not valid!", true);
         }
         $connection = new Connection();
 
