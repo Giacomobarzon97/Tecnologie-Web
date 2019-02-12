@@ -681,6 +681,7 @@ window.addEventListener("load", function () {
     if (menuIcon != null) {
         menuIcon.addEventListener("click", toggleMobileNavMenu, true);
     }
+    addScrollbar();
     //Profile.php
     var changePwForm = document.getElementById("change_pw_form");
     var changeBasicDataForm = document.getElementById("change_basic_data_form");
@@ -803,7 +804,7 @@ function addScrollbar(){
     //The second argument has to be at least a empty object or a object with your desired options
     var sidebar = document.getElementById("sidebar-wrapper");
     if (sidebar != null) {
-        return OverlayScrollbars(sidebar, {});
+        OverlayScrollbars(sidebar, {}).scroll(document.getElementsByClassName("breadcrumb")[0]);
     }
 }
 
