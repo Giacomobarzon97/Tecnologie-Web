@@ -33,16 +33,21 @@ class SimpleNavbar
                 echo "<li class='current-menu-entry'>Home</li>
             ";
             } else {
-                echo "<li><a href='index.php' accesskey='h'>Home</a></li>
-            ";
+                if($isNoJsVersion){
+                    echo "<li><a href='index.php'>Home</a></li>";
+                }else{
+                    echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
+                }
             }
             if ($_SESSION["breadcrumb"] == "profile.php") {
                 echo "<li class='current-menu-entry'>Profile</li>
             ";
             } else {
-
-                echo "<li><a href='profile.php' accesskey='p'>Profile</a></li>
-            ";
+                if($isNoJsVersion) {
+                    echo "<li><a href='profile.php'>Profile</a></li>";
+                }else{
+                    echo "<li><a href='profile.php' accesskey='p'>Profile</a></li>";
+                }
             }
 
             if (User::isAdmin($_SESSION['email'])) {
@@ -50,41 +55,60 @@ class SimpleNavbar
                     echo "<li class='current-menu-entry'>Admin tools</li>
                 ";
                 } else {
-                    echo "<li><a href='adminTools.php' accesskey='t'>Admin tools</a></li>
-                ";
+                    if($isNoJsVersion) {
+                        echo "<li><a href='adminTools.php'>Admin tools</a></li>";
+                    }else{
+                        echo "<li><a href='adminTools.php' accesskey='t'>Admin tools</a></li>";
+                    }
+
                 }
             }
-            echo "<li><a href='logout.php' accesskey='l'>Logout</a></li>
-        ";
+            if($isNoJsVersion) {
+                echo "<li><a href='logout.php'>Logout</a></li>";
+            }else {
+                echo "<li><a href='logout.php' accesskey='l'>Logout</a></li>";
+            }
         } else {
             if ($_SESSION["breadcrumb"] == "index.php") {
                 echo "<li class='current-menu-entry'>Home</li>
             ";
             } else {
-                echo "<li><a href='index.php' accesskey='h'>Home</a></li>
-            ";
+                if($isNoJsVersion){
+                    echo "<li><a href='index.php'>Home</a></li>";
+                }else{
+                    echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
+                }
             }
             if ($_SESSION["breadcrumb"] == "registrazione.php") {
                 echo "<li class='current-menu-entry'>Create a new account</li>
             ";
             } else {
-                echo "<li><a href='registrazione.php' accesskey='c'>Create a new account</a></li>
-            ";
+                if($isNoJsVersion){
+                    echo "<li><a href='registrazione.php'>Create a new account</a></li>";
+                }else {
+                    echo "<li><a href='registrazione.php' accesskey='c'>Create a new account</a></li>";
+                }
             }
             if ($_SESSION["breadcrumb"] == "login.php") {
                 echo "<li class='current-menu-entry'>Login</li>
             ";
             } else {
-                echo "<li><a href='login.php' accesskey='l'>Login</a></li>
-            ";
+                if($isNoJsVersion){
+                    echo "<li><a href='login.php'>Login</a></li>";
+                }else {
+                    echo "<li><a href='login.php' accesskey='l'>Login</a></li>";
+                }
             }
         }
         if ($_SESSION["breadcrumb"] == "about.php") {
             echo "<li class='current-menu-entry'>About</li>
         ";
         } else {
-            echo "<li><a href='about.php' accesskey='a'>About</a></li>
-        ";
+            if($isNoJsVersion){
+                echo "<li><a href='about.php'>About</a></li>";
+            }else {
+                echo "<li><a href='about.php' accesskey='a'>About</a></li>";
+            }
         }
 
         echo '</ul>';

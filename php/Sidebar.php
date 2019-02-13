@@ -169,19 +169,19 @@ Class Sidebar
         echo '<ul id="nojs-menu">';
         echo '<li><h1>Menu</h1></li>';
         if (isset($_SESSION['email'])) {
-            echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
-            echo "<li><a href='profile.php' accesskey='p'>Profile</a></li>";
+            echo "<li><a href='index.php'>Home</a></li>";
+            echo "<li><a href='profile.php'>Profile</a></li>";
             if (User::isAdmin($_SESSION['email'])) {
-                echo "<li><a href='adminTools.php' accesskey='t'>Admin tools</a></li>
+                echo "<li><a href='adminTools.php'>Admin tools</a></li>
                     ";
             }
-            echo "<li><a href='logout.php' accesskey='l'>Logout</a></li>";
+            echo "<li><a href='logout.php'>Logout</a></li>";
         } else {
-            echo "<li><a href='index.php' accesskey='h'>Home</a></li>";
-            echo "<li><a href='registrazione.php' accesskey='c'>Create a new account</a></li>";
-            echo "<li><a href='login.php' accesskey='l'>Login</a></li>";
+            echo "<li><a href='index.php'>Home</a></li>";
+            echo "<li><a href='registrazione.php'>Create a new account</a></li>";
+            echo "<li><a href='login.php'>Login</a></li>";
         }
-        echo '<li><a href="about.php" accesskey="a">About</a></li>';
+        echo '<li><a href="about.php">About</a></li>';
         echo '</ul>';
     }
 
