@@ -13,7 +13,7 @@
         <?php include_once ('favicon.php'); ?>
         <link rel="stylesheet" type="text/css" href="./style/style.css" />
         <link rel="stylesheet" type="text/css" href="./style/print.css" media="print"/>
-        <script src="./scripts.js"></script>
+        <script src="./script/scripts.js"></script>
         
     </head>
     
