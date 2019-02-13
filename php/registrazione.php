@@ -31,6 +31,7 @@
         ?>
         <div id="registration-form">
             <div class="regform-introduction">
+                <h1>Dev Space</h1>
                 <h2>Create an account for <strong>DevSpace</strong></h2>
             </div>
             <div id="register-error-box-zone"></div>
@@ -105,7 +106,7 @@
             </div>
             <div class="regform-side-section">
                 <p>Are you already registered?
-                <p>Click <a href='login.php'>here</a> to login.</p>
+                <p><a href='login.php'>Login.</a></p>
             </div>
         <?php
         echo '<noscript>';

@@ -66,7 +66,7 @@
             </div>
             <div class="regform-side-section">
                 <p>Not yet registered?
-                <p>Click <a href='registrazione.php'>here</a> to create a new account.</p>
+                <p><a href='registrazione.php'>Register</a> to create a new account.</p>
             </div>
             <?php
             echo '<noscript>';

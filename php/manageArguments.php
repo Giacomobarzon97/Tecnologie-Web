@@ -37,7 +37,7 @@
         ?>
     </head>
     <body>
-        <button onclick="topFunction()" id="retTop" title="Torna su"></button>
+        <button onclick="topFunction()" id="retTop" title="Back to the top"></button>
         <div id="mobile-sidebar-mask">
         </div>
         <div id="sidebar-wrapper">

@@ -31,6 +31,7 @@
         ?>
         <div id="registration-form">
             <div class="regform-introduction">
+                <h1>Dev Space</h1>
                 <h2>You're going to login to <strong>DevSpace</strong></h2>
             </div>
             <div id="login-error-box-zone"></div>
@@ -78,8 +79,8 @@
                 </form>
             </div>
             <div class="regform-side-section">
-                <p>Not yet registered?<a href='registrazione.php'>Click here</a> to create a new account.</p>
-                <p>Did you forget your password?<a href='forgotPassword.php'>Click here</a> to recover it.</p>
+                <p>Not yet registered?<a href='registrazione.php'>Register</a> to create a new account.</p>
+                <p>Did you forget your password?<a href='forgotPassword.php'>Recover it.</a></p>
             </div>
             <?php
             echo '<noscript>';

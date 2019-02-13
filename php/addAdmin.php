@@ -30,7 +30,7 @@
     </head>
 
     <body>
-        <button onclick="topFunction()" id="retTop" title="Torna su"></button>
+        <button onclick="topFunction()" id="retTop" title="Back to the top"></button>
         <?php
         include_once('navbar.php');
         SimpleNavbar::printSimpleNavbar();

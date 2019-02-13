@@ -88,7 +88,7 @@ class User
             try {
                 $result = $connection->executeQueryDML();
                 $messagge = "<li>Registration was successful! <br/>
-                                Click <a href='login.php'>here</a> to login into your account.</li>";
+                                <a href='login.php'>Go to login page</a> to login into your account.</li>";
             } catch (PDOException $e) {
                 $messagge = "<li>Unable to register, nickname already in use!</li>";
                 $error = true;
