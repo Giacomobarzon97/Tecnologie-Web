@@ -109,7 +109,7 @@
 			\item \textbf{Account (profile.php)}: in questa pagina l'utente può visualizzare le sue informazioni personali, ed eventualmente le può modificare;
 		\end{itemize}
 	
-	\subsubsection{Struttura pagine privata}
+	\subsection{Struttura pagine privata}
 	La parte privata del sito è accessibile ai soli account amministratori della piattaforma. Di seguito verranno descritte le pagine di interesse con le relative funzionalità offerte.
 	\begin{itemize}
 		\item \textbf{Link Articoli (ArticleLinks.php)}: questa pagina, già descritta, presenta un aspetto diverso per l'utente amministratore, il quale può:
@@ -153,7 +153,10 @@
 
 	\subsection{Sidebar}
 	La sidebar come già accennato è pensata per offrire un modo semplice ed intuitivo per navigare tra i contenuti del sito, pertanto costituisce un elemento cruciale all'interno della nostra piattaforma. Nella sidebar è presente per prima cosa una casella di ricerca, la quale permette di cercare immediatamente dei contenuti specifici invece di navigare per le varie voci presenti più in basso. Sotto la casella di ricerca vi è una lista di voci che rappresentano i macroargomenti, e ciascuna di queste voci si può espandere per visualizzare i rispettivi sottoargomenti, i quali sono link ancora verso la parte centrale della pagina che mostra i sottoargomenti con relativi articoli. Per facilitare l'orientamento dell'utente abbiamo fatto uso dei \emph{breadcrumb} che si occupano di evidenziare il macroargomento (e la lista dei sottoargomenti) che si sta visualizzando oppure nel caso di un articolo, viene evidenziato il sottoargomento a cui appartiene l'articolo che si sta leggendo.
-		
+
+	\subsection{Visualizzazione sotto-argomenti e relativi articoli}
+	Per minimizzare il numero di click che l'utente deve effettuare per raggiungere un articolo, il quale non dovrebbe essere superiore a 3 o 4, si è deciso di visualizzare all'interno di un unica pagina tutti i sotto-argomenti ed i relativi articoli ad essi associati e poi, sia nella sidebar che nelle card presenti all'interno della home, elencare per ogni argomento delle ancore che puntano al sotto-argomento specifico nella pagina descritta precedentemente. L'alternativa sarebbe stata quella di creare due pagine separate per argomenti e sotto-argomenti, tuttavia abbiamo ritenuto che questa scelta avrebbe rallentato notevolmente la navigazione aumentando considerevolmente il numero di click necessari per spostarsi da articolo ad articolo. Inoltre riteniamo che l'implementazione da no effettuata non generi ne problemi di usabilità ne problemi di accessibilità.
+
 	\subsection{Minificazioni}
 	I file .css e .js generalmente vengono minificati al fine di ridurre il loro peso complessivo e quindi velocizzare la richiesta della risorsa al server. Per questioni di leggibilità non è stato fatto, eccetto per le librerie JavaScript che abbiamo utilizzato per gestire lo stile della scrollbar situata nella sidebar poiché non sviluppate da noi.
 	
