@@ -1,0 +1,58 @@
+\BOOKMARK [1][-]{section.1}{Analisi dei requisiti}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Requisiti}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Target di utenza}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Architettura delle informazioni}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Descrizione}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Struttura pagine pubbliche}{section.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Struttura pagine privata}{subsection.2.2}% 7
+\BOOKMARK [1][-]{section.3}{Usabilit\340}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Introduzione}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Layout e design}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Scroll verticale}{subsection.3.2}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Favicon}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Gestione dell'errore 404}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.5}{Sidebar}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.6}{Minificazioni}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.7}{Media queries}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Accessibilit\340}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{Introduzione}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{Scelte adottate}{section.4}% 19
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Colori}{subsection.4.2}% 20
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Link}{subsection.4.2}% 21
+\BOOKMARK [3][-]{subsubsection.4.2.3}{JavaScript}{subsection.4.2}% 22
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Breadcrumb}{subsection.4.2}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Navigazione tramite Tab e accessKey}{subsection.4.2}% 24
+\BOOKMARK [1][-]{section.5}{Sviluppo}{}% 25
+\BOOKMARK [2][-]{subsection.5.1}{Tecnologie utilizzate}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.2}{Strumenti di supporto}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.3}{Form}{section.5}% 28
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Struttura dei form}{subsection.5.3}% 29
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Validazione dei form - Rove}{subsection.5.3}% 30
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Scrittura articoli}{subsection.5.3}% 31
+\BOOKMARK [2][-]{subsection.5.4}{Separazione parte privata e pubblica}{section.5}% 32
+\BOOKMARK [2][-]{subsection.5.5}{Strumenti amministratore}{section.5}% 33
+\BOOKMARK [2][-]{subsection.5.6}{Classi}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.7}{Gestione degli errori}{section.5}% 35
+\BOOKMARK [2][-]{subsection.5.8}{Progettazione del Database}{section.5}% 36
+\BOOKMARK [2][-]{subsection.5.9}{Gestione asScript}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.10}{Ricerca dei contenuti}{section.5}% 38
+\BOOKMARK [2][-]{subsection.5.11}{Men\371 e sidebar senza JavaScript}{section.5}% 39
+\BOOKMARK [1][-]{section.6}{Compatibilit\340}{}% 40
+\BOOKMARK [2][-]{subsection.6.1}{Descrizione}{section.6}% 41
+\BOOKMARK [2][-]{subsection.6.2}{Tag HTML5 utilizzati}{section.6}% 42
+\BOOKMARK [2][-]{subsection.6.3}{Browser supportati}{section.6}% 43
+\BOOKMARK [2][-]{subsection.6.4}{JavaScript}{section.6}% 44
+\BOOKMARK [1][-]{section.7}{Test}{}% 45
+\BOOKMARK [2][-]{subsection.7.1}{Accessibilit\340}{section.7}% 46
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Strumenti utilizzati}{subsection.7.1}% 47
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Risultati}{subsection.7.1}% 48
+\BOOKMARK [2][-]{subsection.7.2}{Usabilit\340}{section.7}% 49
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Strumenti utilizzati}{subsection.7.2}% 50
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Risultati}{subsection.7.2}% 51
+\BOOKMARK [2][-]{subsection.7.3}{Performance}{section.7}% 52
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Strumenti utilizzati}{subsection.7.3}% 53
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Risultati}{subsection.7.3}% 54
+\BOOKMARK [2][-]{subsection.7.4}{Validazione}{section.7}% 55
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Strumenti utilizzati}{subsection.7.4}% 56
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Risultati}{subsection.7.4}% 57
+\BOOKMARK [1][-]{section.8}{Suddivisione dei ruoli}{}% 58

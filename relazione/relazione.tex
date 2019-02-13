@@ -1,11 +1,43 @@
 \documentclass[12pt]{article}
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
-\usepackage{mathpazo} % Palatino font
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
 \usepackage{graphicx}
-\usepackage{imakeidx}
+\usepackage{geometry}
 \usepackage{url}
-\makeindex[columns=3, title=Alphabetical Index, intoc]
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{footnote}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage[colorinlistoftodos]{todonotes}
+%\usepackage[hidelinks]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\hypersetup{colorlinks, linkcolor=black, urlcolor=blue}
+
+%Layout di pagina
+\geometry{
+	a4paper,
+	total={160mm,225mm},
+	left=25mm,
+	top=25mm
+}
+
+%intestazione e piè di pagina
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength\headheight{57pt}
+\lhead{Relazione del progetto \textbf{DevSpace}}
+\rhead{\nouppercase{\leftmark}}
+\lfoot{DevSpace}
+\rfoot{Pagina \thepage\ di \pageref{LastPage}}
+
+
+%\newcommand{\code}[1]{\texttt{#1}}
+\interfootnotelinepenalty=10000
+\DeclareTextFontCommand{\code}{\ttfamily\hyphenchar\font=45\relax}
 
 \begin{document}
 
@@ -137,10 +169,11 @@
 	\subsubsection{Colori}
 	Per quanto riguarda l'utilizzo dei colori per i testi e gli elementi di tutte le pagine, abbiamo assicurato di ottenere un rapporto di contrasto pari 7:1 tra un elemento in foreground e uno in background, rendendo così il sito conforme ai livelli di accessibilità AA e AAA del WCAG 2.0. 
 	\subsubsection{Link}
-	Sono stati uniformati i link presenti all'interno del sito web, in modo da renderli facilmente riconoscibili da qualsiasi tipologia di utente. La maggior parte dei link è facilmente riconoscibile da una particolare tonalità di blu, e dalla caratteristica sottolineatura diventata ormai uno standard all'interno del web. Gli unici link che fanno eccezione a queste regole sono quelli presenti all'interno della sidebar per questioni estetiche e di contrasto. Il team ritiene tuttavia che siano ugualmente riconoscibili grazie alla notevole diffusione all'interno del web di sidebar dalla struttura simile. 
+	Sono stati uniformati i link presenti all'interno del sito web, in modo da renderli facilmente riconoscibili da qualsiasi tipologia di utente. La maggior parte dei link è facilmente riconoscibile da una particolare tonalità di blu, e dalla caratteristica sottolineatura diventata ormai uno standard all'interno del web. Gli unici link che fanno eccezione a queste regole sono quelli presenti all'interno della sidebar per questioni estetiche e di contrasto. Il team ritiene tuttavia che siano ugualmente riconoscibili grazie alla notevole diffusione all'interno del web di sidebar dalla struttura simile.
+	Come si può notare navigando tra le pagine del sito, non è stato previsto la gestione dei link visited perché secondo il team era sufficiente l'utilizzo dei breadcrumb sia nel menù situato sulla navbar (che ha poche voci e molto basilari) sia nella sidebar (anch'essa dotata di breadcrumb) poiché essendo quest'ultima utilizzata per navigare i contenuti del sito l'utente potrebbe, dopo poco tempo di navigazione, aver visitato molte delle voci (o quasi tutte) rendendo poco utile la funzione svolta dai link visited.
 	\subsubsection{JavaScript}
-	Il sito risponde bene in caso di impossibilità di esecuzione di JavaScript da parte del browser, nonostante sia molto consigliato per una migliore esperienza d'uso della sidebar. Infatti ci siamo serviti di una libreria esterna che permette di utilizzare una scrollbar personalizzata al fine di migliorare l'aspetto grafico del sito. JavaScript è stato inoltre adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar. Tuttavia nel caso in cui JavaScript non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine di rendere disponibile la consultazione delle voci. Per quanto riguarda i dispositivi mobili, qualora JavaScript non fosse attivato, viene utilizzata una versione del menù a tendina e della sidebar studiate appositamente. 
-	Questa tecnologia è stata inoltre utilizzata per la validazione dei form lato client e per altre funzionalità minori, senza le quali non viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti. Per quanto riguarda i form, questi vengono controllati anche lato server, in questo modo l'assenza di JavaScript non fa insorgere nessun problema della validazione di dati. Nella sezione  riguardante lo sviluppo verranno forniti dettagli aggiuntivi sulla gestione di JavaScript.
+	Il sito risponde bene in caso di assenza di JavaScript in quanto non è stato utilizzato per alterare la struttura della pagina, ma solo per offrire una migliore esperienza d'uso di alcuni elementi quali il menù a tendina, la sidebar e la scrollbar associata alla sidebar. Inoltre è stato utilizzato per i controlli dei form client-side e per mostrare messaggi di errori con un miglior aspetto.  Perciò i caso in cui JavaScript non fosse disponibile, viene preclusa la possibilità di utilizzare il sito e consultarne i contenuti.
+	Nella sezione 5 (Sviluppo) verranno illustrate, in diverse sezioni, le tecniche adottate per gestire le funzionalità appena descritte qualora JavaScript fosse appunto disabilitato oppure non presente.
 	\subsubsection{Breadcrumb}
 	Abbiamo utilizzato i breadcrumb per due differenti aree e funzionalità del sito. La prima riguarda la navbar, presente in tutte le pagine, che contiene i link per navigare in tutto il sito. Le voci del menù vengono evidenziate e i link disattivati in modo congruo alla pagina in cui l'utente si trova in quel preciso momento. Il secondo utilizzo di breadcrumb viene fatto nella sidebar, dove viene evidenziato l'elenco corrispondente al macroargomento e relativi sottoargomenti che l'utente sta visualizzando e, nel caso stesse leggendo un articolo, viene evidenziato solo il sottoargomento a cui esso appartiene.
 	\subsubsection{Navigazione tramite Tab e accessKey}
@@ -162,8 +195,10 @@
 		\item HTML5;
 		\item CSS3;
 		\item JavaScript;
-		\item PHP v[];
-		\item SQL v[];
+		\item PHP v7.2.10 (Ubuntu 18.04.1);
+		\item DBMS MariaDB v10.1.38 (Ubuntu 18.04.1);
+		\item MySql 5.0.12-dev (Ubuntu 18.04.1);
+		\item Web Server Apache/2.4.29 (Ubuntu)
 	\end{itemize}
 	\subsection{Strumenti di supporto}
 	Per poter garantire un buon coordinamento all'interno del team di sviluppo è stato utilizzato il servizio \emph{GitHub} per ospitare il repository del progetto, per tenere traccia delle attività da svolgere e per suddividere in modo efficiente e strutturato il lavoro. Inoltre è stato utilizzato \emph{TravisCI}, un servizio di continuous integration, per validare la pagine HTML e i fogli CSS prodotti ad ogni attività di push sul repository remoto. Questo ci ha permesso di controllare costantemente che le modifiche apportate al progetto non avessero introdotto errori che avrebbero potuto rendere non valide le pagine del nostro sito.
@@ -177,9 +212,9 @@
 	sezione js
 	sezione php
 	\subsubsection{Scrittura articoli}
-	Gli utenti amministratori hanno la possibilità di scrivere nuovi articoli o di modificare quelli esistenti. Per offrire questa funzionalità abbiamo scelto di utilizzare il tag \emph{<textarea>}. Il motivo di questa scelta deriva da diversi fattori tra cui, la semplicità di gestione e il tempo a disposizione per produrre qualcosa di più elaborato. La seconda strada che si poteva intraprendere era l'inserimento di un plugin \emph{WYSIWYG(What You See Is What You Get)}, ma abbiamo constatato che uno strumento del genere, oltre ad essere molto difficile da gestire senza JavaScript, poteva generare dei problemi di incompatibilità con i browser e addirittura introdurre degli errori di struttura nei documenti HTML, invalidando così la pagine. Perciò abbiamo implementato la soluzione già descritta in cui l'utente può inserire il contenuto dell'articolo nella textarea utilizzando anche alcuni dei tag HTML che abbiamo concesso di utilizzare, e che verranno interpretati dal browser. Siamo comunque consapevoli che, anche in questo caso l'articolo è prono ad errori, infatti l'utente potrebbe inavvertitamente utilizzare in modo scorretto i tag, rendendo così non valida la pagina dell'articolo.
+	Gli utenti amministratori hanno la possibilità di scrivere nuovi articoli o di modificare quelli esistenti. Per offrire questa funzionalità abbiamo scelto di utilizzare il tag \emph{\code{<textarea>}}. Il motivo di questa scelta deriva da diversi fattori tra cui, la semplicità di gestione e il tempo a disposizione per produrre qualcosa di più elaborato. La seconda strada che si poteva intraprendere era l'inserimento di un plugin \emph{WYSIWYG(What You See Is What You Get)}, ma abbiamo constatato che uno strumento del genere, oltre ad essere molto difficile da gestire senza JavaScript, poteva generare dei problemi di incompatibilità con i browser e addirittura introdurre degli errori di struttura nei documenti HTML, invalidando così la pagine. Perciò abbiamo implementato la soluzione già descritta in cui l'utente può inserire il contenuto dell'articolo nella textarea utilizzando anche alcuni dei tag HTML che abbiamo concesso di utilizzare, e che verranno interpretati dal browser. Siamo comunque consapevoli che, anche in questo caso l'articolo è prono ad errori, infatti l'utente potrebbe inavvertitamente utilizzare in modo scorretto i tag, rendendo così non valida la pagina dell'articolo.
 	\subsection{Separazione parte privata e pubblica}
-	I file relativi alle funzionalità riservate agli amministratori si trovano nella cartella \textbf{admin} mentre quelli relativi alla parte pubblica o in comune alle due tipologie di utenti si trovano nella cartella \textbf{public}. Molte delle funzionalità di amministratore sono quindi state isolate da quelle riservate al resto degli utenti; in questo modo si aumenta la mantenibilità del sito e soprattutto si conserva una buona struttura logica dell'applicazione. Tuttavia in alcune situazioni abbiamo preferito gestire le funzionalità di entrambe le tipologie di utente nella stessa pagina, gestendo tramite codice quale funzionalità offrire in base al tipo account. In ogni caso le pagine sono tutte strutturate per essere molto corte e leggibili, richiedendo solo la chiamata di metodi per inserire le funzionalità.
+	Molte delle funzionalità di amministratore sono state isolate da quelle riservate al resto degli utenti; in questo modo si aumenta la mantenibilità del sito e soprattutto si conserva una buona struttura logica dell'applicazione. Tuttavia in alcune situazioni abbiamo preferito gestire le funzionalità di entrambe le tipologie di utente nella stessa pagina, gestendo tramite codice quale funzionalità offrire in base al tipo account. In ogni caso le pagine sono tutte strutturate per essere molto corte e leggibili, richiedendo solo la chiamata di metodi per inserire le funzionalità.
 	\begin{itemize}
 		\item Funzionalità amministratore
 			\begin{itemize}
@@ -238,15 +273,15 @@
 	\item Infine, la tabella \textbf{FORGOT\_PASSWORD\_TOKENS} è utilizzata per memorizzare i token di recupero password, generati quando un utente chiede l'email per recuperare la password dimenticata. Oltre al token è presente una data di scadenza, utilizzata per verificare che il token non sia più utilizzabile dopo 7 giorni.
 	\end{itemize}
 	
-	\subsection{Gestione assenza JavaScript}
+	\subsection{Gestione asScript}
 	Per la gestione delle pagine in assenza di JavaScript sono state utilizzate principalmente due tecniche:
 	\begin{itemize}
-			\item l'utilizzo del tag <noscript> che permette di definire porzioni di codice HTML che verranno interpretate dal browser solamente in caso JavaScript fosse disattivato.
+			\item l'utilizzo del tag \code{<noscript>} che permette di definire porzioni di codice HTML che verranno interpretate dal browser solamente in caso JavaScript fosse disattivato.
 			\item l'utilizzo di una semplice ma efficace tecnica che permette di definire del codice CSS che verrà interpretato dal browser solamente in caso JavaScript sia attivato. Questa tecnica consiste nel:
 			\begin{itemize}
 				\item definire all'interno del file CSS principale solo ed esclusivamente il codice che dovrà essere eseguito in assenza di JavaScript;
 				\item In un secondo file definire il codice CSS che al contrario verrà eseguito solo ed esclusivamente nel caso in cui JavaScript sia abilitato;
-				\item Tramite un apposito script JavaScript effettuare l'append di quest'ultimo foglio di stile nel tag <head> della pagina web.
+				\item Tramite un apposito script JavaScript effettuare l'append di quest'ultimo foglio di stile nel tag \code{<head>} della pagina web.
 			\end{itemize}
 			L'append ovviamente potrà avvenire solo ed esclusivamente con JavaScript abilitato, e ciò permette di ottenere con facilità il risultato desiderato.
 	\end{itemize}
@@ -256,85 +291,96 @@
 Ognuno di questi metodi funziona in maniera abbastanza semplice: legge dal database tutti i possibili elementi e li analizza uno per uno utilizzando la funzione PHP \textit{similar\_text(...)} per calcolare la somiglianza tra il termine di ricerca inserito e l'elemento del database analizzato. Quando questa somiglianza è sopra una certa percentuale il risultato viene considerato valido. \\
 Per rendere il calcolo della funzione di somiglianza più efficace, sia il termine di ricerca che il termine letto da database vengono portati in minuscolo, per non svantaggiare l'utente che potrebbe dimenticarsi di utilizzare le maiuscole. Infine, abbiamo considerato una percentuale di somiglianza abbastanza bassa, precisamente del 55\%, questo perché ci siamo accorti che un valore troppo alto filtrava troppo i risultati e secondo noi è più conveniente mostrare qualche risultato in più che qualcuno in meno.
 	
-	\subsection{Menù a tendina}
-	//TODO
+	\subsection{Menù e sidebar senza JavaScript}
+		Come già accennatto il sito si comporta bene senza JavaScript e di seguito verranno illustrati tutti i suoi usi all'interno del sito.
+		JavaScript è stato adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar e per  personalizzare la scrollbar associata ad essa al fine di migliorare l'aspetto grafico del sito. Per la scrollbar ci siamo serviti di una libreria esterna (quindi non sviluppata da noi). Tuttavia nel caso in cui non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine di rendere disponibile la consultazione delle voci. Per quanto riguarda i dispositivi mobili, qualora JavaScript non fosse attivato, viene utilizzata una versione del menù a tendina e della sidebar studiate appositamente. Le versioni del menù e della sidebar da utilizzare senza JavaScript vengono stampate in fondo alla pagina e sono accessibile sempre attraverso i consueti pulsanti (ovvero gli stessi utilizzati in presenza di JavaScript) che in questo caso sono delle ancore che portano alla zona della pagina in cui sono situati questi due elementi.
 	\section{Compatibilità}
 	\subsection{Descrizione}
 	In questa sezione verrà discussa la compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito. Il sito è stato realizzato seguendo in parte le specifiche HTML5, concordando sull'utilizzo  di specifici tag relativi a questa versione HTML, soprattutto durante i controlli dei form.
 	\subsection{Tag HTML5 utilizzati}
 	\begin{itemize}
-		\item \textbf{<label>}: usato per definire "label", etichette per tutti i tag che la prevedono all'interno dei form. Fornisce un miglioramento dell'usabilità per gli utenti che navigano tramite utilizzo del mouse perché attiva il controllo nel caso un utente clicchi sul testo che prevede una label.
-		\item \textbf{<fieldset>}: questo tag è stato utilizzato per raggruppare gli elementi correlati per ciascun form.
-		\item \textbf{attributo type per <input>}: abbiamo utilizzato alcuni valori introdotti con HTML5 per dichiarare lo scopo di un elemento <input>. Nei form ad esempio, di login, del profile e di registrazione, è presente il type="email".
+		\item \textbf{\code{<label>}}: usato per definire "label", etichette per tutti i tag che la prevedono all'interno dei form. Fornisce un miglioramento dell'usabilità per gli utenti che navigano tramite utilizzo del mouse perché attiva il controllo nel caso un utente clicchi sul testo che prevede una label.
+		\item \textbf{\code{<fieldset>}}: questo tag è stato utilizzato per raggruppare gli elementi correlati per ciascun form.
+		\item \textbf{attributo type per \code{<input>}}: abbiamo utilizzato alcuni valori introdotti con HTML5 per dichiarare lo scopo di un elemento \code{<input>}. Nei form ad esempio, di login, del profile e di registrazione, è presente il type="email".
 		E' stato inoltre utilizzato l'attributo "placeholder" per fornire un suggerimento su ciò che si deve inserire nei campi di input.
 	\end{itemize}
 	\subsection{Browser supportati}
 	Il sito deve essere funzionante sul maggior numero di browser disponibili sul mercato con le versioni più recenti. I test sono stati effettuati sui seguenti browser:
 		\begin{itemize}
-			\item Google Chrome - Versione 72.0.3626.96 (Build ufficiale) (a 64 bit).
-			\item Mozilla Firefox - Versione 65.0 (64 bit)
-			\item Safari - v
-			\item Opera - v
-			\item Microsoft Edge - Versione 17.17134
-			\item Internet Explorer - Versione 9 e successive (11.523.17134.0)
+			\item Google Chrome - Versione 72.0.3626.96 (Build ufficiale) (a 64 bit);
+			\item Mozilla Firefox - Versione 65.0 (64 bit);
+			\item Safari - Versione 12.0.3 (14606.4.5);
+			\item Microsoft Edge - Versione 17.17134;
+			\item Internet Explorer - Versione 9 e successive (11.523.17134.0).
 		\end{itemize}
 	Si presuppone che alcune funzionalità non si comportino allo stesso modo in tutti i browser e non siano garantite su quelli più datati. Si accerta comunque che il sito degradi in	maniera elegante sui browser più vecchi.
 	\subsection{JavaScript}
-	Dai test effettuati abbiamo riscontrato che il sito è utilizzabile e consultabile completamente senza l'utilizzo di JavaScript. L'unica componente non funzionante (Safari e Internet Explorer) è il pulsante che permette di tornare in cima alla pagina, il quale non inficia sul corretto funzionamento del sito in quanto è solo un miglioramento dell'esperienza d'uso.
+	Dai test effettuati abbiamo riscontrato che il sito è utilizzabile e consultabile completamente senza l'utilizzo di JavaScript secondo le tecniche per ovviare alla sua mancanza descritte nella sezione \textbf{Sviluppo}. Alcune limitazioni:
+	\begin{itemize}
+		\item Non avere la possibilità di chiudere le sezioni degli argomenti nella sidebar poiché vengono aperte automanticamente per poter fruire dei contenuti;
+		\item Tasto "torna su" non funzionante;
+	\end{itemize}
+	Siamo consapevoli di aver utilizzato moldo JavaScript ma, a parte la libreria esterna per gestire la scrollbar non sviluppata da noi e utilizzata per lo stile, la maggior parte del codice riguarda ai controlli dei form client-side personalizzati (circa 600 righe sulle 800 che abbiamo).
+	Tutto ciò però non inficia né sull'accessibilità in quanto è stato già descritto come abbiamo gestito la sua assenza, né le prestazioni del sito in termini di caricamento e tempi di riposta come si può notare nella sezione dei test delle performance.
 	
 	\section{Test}
 	\subsection{Accessibilità}
 	Strumenti utilizzati per valutare l'accessibilità e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
 		\begin{itemize}
-			\item NVDA: screen reader gratuito reperibile al seguente indirizzo \url{https://www.nvaccess.org/};
-			\item WebAIM Color Contrast Checker: strumento per controllare il contrasto dei colori reperibile al seguente indirizzo \url{https://webaim.org/resources/contrastchecker/};
-			\item Web Accessibility Checker: strumento per valutare il grado di accessibilità di un sito secondo gli standard WCAG 2.0 reperibile al seguente indirizzo \url{https://achecker.ca/checker/index.php};
-			\item Total Validator: strumento per validare le pagine e valutarne l'accessibilità reperibile al seguente indirizzo \url{https://www.totalvalidator.com/index.html};
-			\item Colorblind Web Page Filter: strumento per simulare il modo in cui un utente affetto da disturbi visivi quali Protanopia, Deutanopia, Tritanopia e Achromatopsia visualizza una pagina web, reperibile al seguente indirizzo \url{https://www.toptal.com/designers/colorfilter};
+			\item NVDA: screen reader gratuito reperibile al seguente indirizzo: \url{https://www.nvaccess.org/};
+			\item WebAIM Color Contrast Checker: strumento per controllare il contrasto dei colori reperibile al seguente indirizzo: \url{https://webaim.org/resources/contrastchecker/};
+			\item Web Accessibility Checker: strumento per valutare il grado di accessibilità di un sito secondo le linee guida WCAG 2.0 reperibile al seguente indirizzo: \url{https://achecker.ca/checker/index.php};
+			\item Total Validator: strumento per validare le pagine e valutarne l'accessibilità reperibile al seguente indirizzo: \url{https://www.totalvalidator.com/index.html};
+			\item Colorblind Web Page Filter: strumento per simulare il modo in cui un utente affetto da disturbi visivi quali Protanopia, Deutanopia, Tritanopia e Achromatopsia visualizza una pagina web, reperibile al seguente indirizzo: \url{https://www.toptal.com/designers/colorfilter};
 			\item Google Chrome Audits: strumento integrato nei tools degli sviluppatori che fornisce un numero che indica il grado di accessibilità di un sito web (e anche altri parametri).
 		\end{itemize}
 	\subsubsection{Risultati}
 		\begin{itemize}
-			\item //TODO
+			\item NVDA: nonostante la nostra prova con lo screen reader conti molto poco in termini di valutazione (infatti è stato molto difficile da utilizzare), abbiamo notato che alcune accortezze di base (come alt nelle immagini) risultano soddisfatte, e in generale il sito dovrebbe essere consultabile seppur con qualche difficoltà. Siamo comunque consapevoli di non aver potuto avere un giudizio reale sotto questo punto di vista, perciò il sito potrebbe presentare ancora molti da aspetti che devono essere migliorabili per aiutare l'accessibilità a individui che fanno uso di questo strumento;
+			\item WebAIM Color Contrast Checker: in fase di scelta dei colori da utilizzare per foreground e background è stato utilizzato questo strumento al fine di assicurarci che il rapporto dei contrasti fosse almeno pari a 7:1. Pertanto tutti i colori utilizzati sono in linea con WCAG 2.0 AAA;
+			\item Web Accessibility Checker: tutte le pagine sono state sottoposte ai test effettuati da questo strumento (selezionando WCAG 2.0 come riferimento) e non sono stati segnalati errori di alcun tipo. Le uniche segnalazioni sono miglioramenti che possono essere apportati per migliorare ancora di più il grado di accessibilità;
+			\item Total Validator: ehehehe //TODO;
+			\item Colorblind Web Page Filter: il simulatore di daltonismo che permette di simulare il modo in cui gli utenti affetti da Protanopia, Deutanopia, Tritanopia e Achromatopsia, visualizzano il sito è stato utilizzato su tutte le pagine del sito. Pur essendo questo aspetto difficile da valutare se non svolto da individui affetti dalle patologie già citate, il sito ci è sembrato comunque accessibile e usabile in quanto non abbiamo realizzato pagine molto colorate, infatti i colori più utilizzati sono il bianco, il grigio e il blu per i pulsanti. Inoltre i link (in particolare quelli per navigare all'interno del sito) sono tutti sottolineati e quindi ciò aiuta a identificarli anche laddove i colori non riescano;
+			\item Google Chrome Audits: questo strumento, integrato nella toolbar degli sviluppatori di Google Chrome, riporta alcuni parametri principali (Performance, Accessibilità, SEO). Per quanto riguarda l'accessibilità il sito ha riportato un punteggio pari a 100/100. Tuttavia siamo consapevoli che questo strumento non è preciso ed esaustivo come altri già citati ai punti precedenti, come Web Accessibility Checker.
 		\end{itemize}
 	
 	\subsection{Usabilità}
 	Strumenti utilizzati per valutare l'usabilità e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
 		\begin{itemize}
-			\item Google Mobile Friendliness Test: strumento offerto da Google per testare l'usabilità di un sito su dispositivi mobili, reperibile al seguente indirizzo \url{https://search.google.com/test/mobile-friendly};
-			\item Test umano: ...
+			\item Google Mobile Friendliness Test: strumento offerto da Google per testare l'usabilità di un sito su dispositivi mobili, reperibile al seguente indirizzo: \url{https://search.google.com/test/mobile-friendly};
+			\item Test umano: il sito è stato utilizzato da persone esterne allo sviluppo per ottenere un parare oggettivo. Inoltre è stato utile per osservare la facilità con cui navigavano e il tempo necessario per capire dove trovare le informazioni.
 		\end{itemize}
 	\subsubsection{Risultati}
 		\begin{itemize}
 			\item Google Mobile Friendliness Test: il sito è stato valutato come positivamente, pertanto risulta essere ottimizzato per i dispositivi mobili;
-			\item Test umano: ...
+			\item Test umano: coloro che hanno utilizzato il sito non hanno trovato difficoltà nella navigazione e si sono trovati davanti un sito a detta loro "familiare", questo indica che la struttura scelta è abbastanza affermata e quindi facile da imparare a ricordare.
 		\end{itemize}
 	\subsection{Performance}
 	Strumenti utilizzati per valutare le performance e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
 		\begin{itemize}
-			\item Google PageSpeed Insights: strumento offerto da Google per testare le performance di un sito web, reperibile al seguente indirizzo \url{https://developers.google.com/speed/pagespeed/insights/?hl=it};
+			\item Google PageSpeed Insights: strumento offerto da Google per testare le performance di un sito web, reperibile al seguente indirizzo: \url{https://developers.google.com/speed/pagespeed/insights/?hl=it};
 			\item Google Chrome Audits: strumento integrato nei tools degli sviluppatori che fornisce informazioni sulle performance di un sito web (e anche altri parametri).
 		\end{itemize}
 	\subsubsection{Risultati}
 		\begin{itemize}
-			\item Google PageSpeed Insights: i test con questo strumento hanno ottenuto un punteggio ottimo [fare tanti test e fare una media];
-			\item Google Chrome Audits: i test con questo strumento hanno ottenuto un punteggio ottimo [fare tanti test e fare una media](99/100 performance,100 accessibility,80 best practices, 100 SEO).
+			\item Google PageSpeed Insights: i test con questo strumento hanno ottenuto un punteggio ottimo, compreso tra 98 e 100;
+			\item Google Chrome Audits: i test con questo strumento hanno ottenuto un punteggio ottimo, compreso tra 95 e 100.
 		\end{itemize}
 	\textbf{Nota}: i valori di questi test possono variare a seconda di diversi fattori, ad esempio la velocità della connessione.
 	\subsection{Validazione}
 	Strumenti utilizzati per validare i documenti e risultati ottenuti.
 	\subsubsection{Strumenti utilizzati}
 	\begin{itemize}
-		\item Validatore HTML: validatore di documenti HTML offerto dal W3C, reperibile al seguente indirizzo \url{https://validator.w3.org/};
-		\item Validatore HTML\&CSS: validatore di documenti HTML compresi di CSS offerto dal W3C, reperibile al seguente indirizzo \url{https://jigsaw.w3.org/css-validator/}
+		\item Validatore HTML: validatore di documenti HTML offerto dal W3C, reperibile al seguente indirizzo: \url{https://validator.w3.org/};
+		\item Validatore HTML\&CSS: validatore di documenti HTML compresi di CSS offerto dal W3C, reperibile al seguente indirizzo: \url{https://jigsaw.w3.org/css-validator/}
 	\end{itemize}
 	\subsubsection{Risultati}
 		\begin{itemize}
-			\item Validatore HTML: il sito è stato valutato come positivamente, pertanto risulta essere ottimizzato per i dispositivi mobili;
-			\item Validatore HTML\&CSS:: ...
+			\item Validatore HTML: le pagine del sito sono state tutte validate e non presentano errori;
+			\item Validatore HTML\&CSS: i fogli di stile sono stati validati e non presentano errori.
 		\end{itemize}
 	
 	\section{Suddivisione dei ruoli}
