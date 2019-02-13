@@ -34,25 +34,26 @@
 \BOOKMARK [2][-]{subsection.5.6}{Classi}{section.5}% 34
 \BOOKMARK [2][-]{subsection.5.7}{Gestione degli errori}{section.5}% 35
 \BOOKMARK [2][-]{subsection.5.8}{Progettazione del Database}{section.5}% 36
-\BOOKMARK [2][-]{subsection.5.9}{Gestione asScript}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.9}{Gestione Javascript}{section.5}% 37
 \BOOKMARK [2][-]{subsection.5.10}{Ricerca dei contenuti}{section.5}% 38
 \BOOKMARK [2][-]{subsection.5.11}{Men\371 e sidebar senza JavaScript}{section.5}% 39
-\BOOKMARK [1][-]{section.6}{Compatibilit\340}{}% 40
-\BOOKMARK [2][-]{subsection.6.1}{Descrizione}{section.6}% 41
-\BOOKMARK [2][-]{subsection.6.2}{Tag HTML5 utilizzati}{section.6}% 42
-\BOOKMARK [2][-]{subsection.6.3}{Browser supportati}{section.6}% 43
-\BOOKMARK [2][-]{subsection.6.4}{JavaScript}{section.6}% 44
-\BOOKMARK [1][-]{section.7}{Test}{}% 45
-\BOOKMARK [2][-]{subsection.7.1}{Accessibilit\340}{section.7}% 46
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Strumenti utilizzati}{subsection.7.1}% 47
-\BOOKMARK [3][-]{subsubsection.7.1.2}{Risultati}{subsection.7.1}% 48
-\BOOKMARK [2][-]{subsection.7.2}{Usabilit\340}{section.7}% 49
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Strumenti utilizzati}{subsection.7.2}% 50
-\BOOKMARK [3][-]{subsubsection.7.2.2}{Risultati}{subsection.7.2}% 51
-\BOOKMARK [2][-]{subsection.7.3}{Performance}{section.7}% 52
-\BOOKMARK [3][-]{subsubsection.7.3.1}{Strumenti utilizzati}{subsection.7.3}% 53
-\BOOKMARK [3][-]{subsubsection.7.3.2}{Risultati}{subsection.7.3}% 54
-\BOOKMARK [2][-]{subsection.7.4}{Validazione}{section.7}% 55
-\BOOKMARK [3][-]{subsubsection.7.4.1}{Strumenti utilizzati}{subsection.7.4}% 56
-\BOOKMARK [3][-]{subsubsection.7.4.2}{Risultati}{subsection.7.4}% 57
-\BOOKMARK [1][-]{section.8}{Suddivisione dei ruoli}{}% 58
+\BOOKMARK [2][-]{subsection.5.12}{Framework scrollbar}{section.5}% 40
+\BOOKMARK [1][-]{section.6}{Compatibilit\340}{}% 41
+\BOOKMARK [2][-]{subsection.6.1}{Descrizione}{section.6}% 42
+\BOOKMARK [2][-]{subsection.6.2}{Tag HTML5 utilizzati}{section.6}% 43
+\BOOKMARK [2][-]{subsection.6.3}{Browser supportati}{section.6}% 44
+\BOOKMARK [2][-]{subsection.6.4}{JavaScript}{section.6}% 45
+\BOOKMARK [1][-]{section.7}{Test}{}% 46
+\BOOKMARK [2][-]{subsection.7.1}{Accessibilit\340}{section.7}% 47
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Strumenti utilizzati}{subsection.7.1}% 48
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Risultati}{subsection.7.1}% 49
+\BOOKMARK [2][-]{subsection.7.2}{Usabilit\340}{section.7}% 50
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Strumenti utilizzati}{subsection.7.2}% 51
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Risultati}{subsection.7.2}% 52
+\BOOKMARK [2][-]{subsection.7.3}{Performance}{section.7}% 53
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Strumenti utilizzati}{subsection.7.3}% 54
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Risultati}{subsection.7.3}% 55
+\BOOKMARK [2][-]{subsection.7.4}{Validazione}{section.7}% 56
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Strumenti utilizzati}{subsection.7.4}% 57
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Risultati}{subsection.7.4}% 58
+\BOOKMARK [1][-]{section.8}{Suddivisione dei ruoli}{}% 59

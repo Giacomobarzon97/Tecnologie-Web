@@ -275,7 +275,7 @@
 	\item Infine, la tabella \textbf{FORGOT\_PASSWORD\_TOKENS} è utilizzata per memorizzare i token di recupero password, generati quando un utente chiede l'email per recuperare la password dimenticata. Oltre al token è presente una data di scadenza, utilizzata per verificare che il token non sia più utilizzabile dopo 7 giorni. In questa tabella il \textit{token} era \textit{UNIQUE} per garantire che non potessero essercene di doppi, tuttavia la versione di SQL installata nel server di tecweb non permetteva questo poiché il campo era troppo lungo per essere \textit{UNIQUE}. L'assenza di doppioni è quindi controllata da PHP alla creazione di un nuovo token.
 	\end{itemize}
 	
-	\subsection{Gestione asScript}
+	\subsection{Gestione Javascript}
 	Per la gestione delle pagine in assenza di JavaScript sono state utilizzate principalmente due tecniche:
 	\begin{itemize}
 			\item l'utilizzo del tag \code{<noscript>} che permette di definire porzioni di codice HTML che verranno interpretate dal browser solamente in caso JavaScript fosse disattivato.
@@ -296,6 +296,18 @@ Per rendere il calcolo della funzione di somiglianza più efficace, sia il termi
 	\subsection{Menù e sidebar senza JavaScript}
 		Come già accennatto il sito si comporta bene senza JavaScript e di seguito verranno illustrati tutti i suoi usi all'interno del sito.
 		JavaScript è stato adoperato per gestire l'apertura e la chiusura degli elenchi presenti nella sidebar e per  personalizzare la scrollbar associata ad essa al fine di migliorare l'aspetto grafico del sito. Per la scrollbar ci siamo serviti di una libreria esterna (quindi non sviluppata da noi). Tuttavia nel caso in cui non fosse disponibile, è comunque possibile utilizzare pienamente la sidebar, in quanto la scrollbar viene sostituita con quella di default e gli elenchi vengono aperti tutti automaticamente, al fine di rendere disponibile la consultazione delle voci. Per quanto riguarda i dispositivi mobili, qualora JavaScript non fosse attivato, viene utilizzata una versione del menù a tendina e della sidebar studiate appositamente. Le versioni del menù e della sidebar da utilizzare senza JavaScript vengono stampate in fondo alla pagina e sono accessibile sempre attraverso i consueti pulsanti (ovvero gli stessi utilizzati in presenza di JavaScript) che in questo caso sono delle ancore che portano alla zona della pagina in cui sono situati questi due elementi.
+		Maggiori informazioni riguardanti il funzionamento nello specifico della scrollbar verranno date all'interno della sezione successiva.
+	\subsection{Framework scrollbar}
+	Il team ai fini di rendere la sidebar più piacevole alla vista ha scelto di adottare un framework che permette di implementare una sidebar custom. Il team dopo una approfondita ricerca, ha deciso di scegliere il framework OverlayScrollBar, in quanto era relativamente semplice da utilizzare e forniva una copertura pressochè totale su tutti i browser più comuni, persino sull'ormai datato Internet Explorer fino alla versione 8.
+	Per applicare la scroll bar si è dovuta utilizzare la seguente istruzione definita all'interno delle API del framework:
+	\[ OverlayScrollbars(element, \{ \}) \]
+	dove element corrisponde all'elemento su cui si vuole applicare la scroll bar e "\{ \}" corrisponde ad una lista di possibili parametri che ai fini del progetto si è deciso di lasciare vuota.
+	Si è notato inoltre che applicando la funzione precidentemente descritta direttamente sulla sidebar si presentava un conflitto tra gli stili del framework e quelli da noi descritti. Per risolvere questa problematica si è dovuto inserire un wrapper praticamente privo di stili che contenesse la sidebar ed applicare su di esso la suddetta funzione.
+	Inoltre per far risaltare maggiormente i breacrumb descritti più nel dettaglio nelle sezioni precedenti si è dovuta utilizzare la seguente istruzione definita all'interno delle API del framework:
+	\[ instance.scroll(element) \]
+	In cui instance corrisponde ad un istanza della scrollbar ritornata dall'istruzione spiegata precedentemente ed element corrisponde all' ID dell'elemento a cui si vuole scrollare.
+	Inoltre si sono effettuati molti test sulle performance del sito ed è stato constatato che esse non vengono pressochè intaccate dall'utilizzo di questo framework nonostante coinvolga molto codice javascript.
+	E' importante sottolineare nuovamente che il sito web non sia per niente dipendente da questo framework e che la sua unica funzionalità sia quella di rendere l'estetica della pagina più piacevole. Maggiori informazioni riguardo quest'ultima affermazione sono presenti nella sezione precedente.
 	\section{Compatibilità}
 	\subsection{Descrizione}
 	In questa sezione verrà discussa la compatibilità delle tecnologie utilizzate con i browser adottati per testare il sito. Il sito è stato realizzato seguendo in parte le specifiche HTML5, concordando sull'utilizzo  di specifici tag relativi a questa versione HTML, soprattutto durante i controlli dei form.
