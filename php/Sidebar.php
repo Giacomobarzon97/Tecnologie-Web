@@ -129,7 +129,7 @@ Class Sidebar
 				    <a href="#nojs-sidebar-wrapper"><img src="img/list.svg" alt="hamburger icon" id="nojs-hamburger"/></a>
 				</noscript>
                 <img src="img/list.svg" alt="hamburger-icon" id="nav-hamburger"/>
-                <a href="index.php"><img src="img/logo.png" alt="Dev Space" id="nav-logo"></a>
+                <a href="index.php"><img src="img/logo.png" alt="Logo Dev Space" id="nav-logo"></a>
                 <ul id="menu">';
         if (isset($_SESSION['email'])) {
             echo "<li><a href='index.php' accesskey='h'>Home</a></li>";

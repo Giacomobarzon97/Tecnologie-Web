@@ -14,9 +14,9 @@ class SimpleNavbar
             echo '<div id="nav-full">';
 
             if ($_SESSION["breadcrumb"] !== "index.php") {
-                echo '<a href="index.php"><img src="img/logo.png" alt="Dev Space" id="nav-logo"></a>';
+                echo '<a href="index.php"><img src="img/logo.png" alt="Logo Dev Space" id="nav-logo"></a>';
             } else {
-                echo '<img src="img/logo.png" alt="Dev Space" id="nav-logo">';
+                echo '<img src="img/logo.png" alt="Logo Dev Space" id="nav-logo">';
             }
         }
 
