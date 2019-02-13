@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="https://avatars0.githubusercontent.com/u/43989185?s=400&v=4" alt="Github avatar of Barzon Giacomo"/>
+                            <img src="img/avatar_jeck.jpg" alt="Github avatar of Barzon Giacomo"/>
                         </div>
                         <h1>Barzon Giacomo</h1>
                         <h2>Full stack developer</h2>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="https://avatars2.githubusercontent.com/u/11294898?s=400&v=4" alt="Github avatar of Michele Roverato"/>
+                            <img src="img/avatar_rove.png" alt="Github avatar of Michele Roverato"/>
                         </div>
                         <h1>Roverato Michele</h1>
                         <h2>Full stack developer</h2>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="https://avatars3.githubusercontent.com/u/29098430?s=400&v=4" alt="Github avatar of De Filippis Francesco"/>
+                            <img src="img/avatar_defi.jpg" alt="Github avatar of De Filippis Francesco"/>
                         </div>
                         <h1>De Filippis Francesco</h1>
                         <h2>Full stack developer</h2>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="bio-card">
                         <div class="bio-image">
-                            <img src="https://avatars1.githubusercontent.com/u/43755172?s=460&v=4" alt="Github avatar of Greggio Giacomo"/>
+                            <img src="img/avatar_giacomo.png" alt="Github avatar of Greggio Giacomo"/>
                         </div>
                         <h1>Greggio Giacomo</h1>
                         <h2>Full stack developer</h2>
