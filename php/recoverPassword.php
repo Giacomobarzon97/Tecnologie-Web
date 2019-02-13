@@ -32,6 +32,7 @@
         ?>
         <div id="registration-form">
             <div class="regform-introduction">
+                <h1>Dev Space</h1>
                 <h2>Recover your password</h2>
             </div>
             <div class="regform-main-section">

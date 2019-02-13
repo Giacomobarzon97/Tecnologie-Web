@@ -48,6 +48,7 @@
         } else {
             echo '<div id="registration-form">
                 <div class="regform-introduction">
+                    <h1>Dev Space</h1>
                     <h2>Add a new administrator</h2>
                 </div>
                 <div id="add-admin-error-box-zone"></div>

@@ -140,12 +140,12 @@ class Card
             </form>';
     }
 
-    static function printDeleteTopicForm($topicID)
+    static function printDeleteTopicForm($topicID, $title)
     {
         echo '<form action="' . $_SERVER['REQUEST_URI'] . '" method="POST">
                 <input type="hidden" name="delete-topic" />
                 <input type="hidden" name="topicID" value="' . $topicID . '" />
-                <input type="image" title="Delete this topic" alt="button delete topic" src="./img/waste-bin.svg" class="delete_button_gen" />
+                <input type="image" title="Delete this topic" alt="button to delete topic '.$title.'" src="./img/waste-bin.svg" class="delete_button_gen" />
             </form>';
     }
 
@@ -163,7 +163,7 @@ class Card
                     <h3>' . SearchManager::shortDescription($topic['Description']) . '</h3>
                 </div>';
             echo '<div class="buttons">';
-            Card::printDeleteTopicForm($topic['Id']);
+            Card::printDeleteTopicForm($topic['Id'], $topic['Name']);
             echo '</div>'; //end buttons
             echo '</div>'; //end div for topic
             echo '</li>';

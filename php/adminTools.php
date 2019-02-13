@@ -51,6 +51,7 @@
         } else {
             echo "<div id='registration-form'>
             <div class='regform-introduction'>
+                <h1>Dev Space</h1>
                 <h2>Admin tools</h2>
             </div>
             <div class='regform-main-section'>

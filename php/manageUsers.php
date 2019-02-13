@@ -50,6 +50,7 @@
 
             echo '<div id="registration-form">
                 <div class="regform-introduction">
+                    <h1>Dev Space</h1>
                     <h2>Suspend a user account</h2>
                 </div>
                 <div id="ban-user-error-box-zone"></div>
