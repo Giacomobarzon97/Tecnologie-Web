@@ -260,17 +260,19 @@
 	Molti metodi ne fanno uso per poter ritornare al chiamante un oggetto di questo tipo, al fine di semplificare le modalità in cui vengono stampati i messaggi nel front-end.
 	
 	\subsection{Progettazione del Database}
-	Il database è composto da una struttura abbastanza basilare per conservare tutti i dati nella maniera più semplice ma comoda possibile. Le tabelle del database sono:
+	\includegraphics[scale=0.34]{img/ER_DevSpace.png}	
+	
+	Il database è composto da una struttura abbastanza basilare per conservare tutti i dati nella maniera più semplice possibile e per garantire facile reperibilità di ogni cosa. Le tabelle del database sono:
 	\begin{itemize}
-	\item In primis, c'è la tabella per gli utenti, chiamata \textbf{USERS}, che contiene i dettagli dell'utente più un campo che segna se quell'utente è stato bannato;
+	\item In primis, c'è la tabella per gli utenti, chiamata \textbf{USERS}, che contiene i dettagli dell'utente come l'email e la password, più un campo che segna se quell'utente è stato bannato;
 	\item La tabella \textbf{ROLES} è una tabella adibita a contenere i possibili ruoli che un utente può avere, nel nostro caso solo Amministratore
-	\item Per collegare le due tabelle qui sopra c'è la tabella \textbf{USER\_ROLES} che associa ad un utente un ruolo;
+	\item Per collegare le due tabelle qui sopra, dalla relazione nasce la tabella \textbf{USER\_ROLES} che associa ad un utente un ruolo;
 	\item La tabella \textbf{TOPICS} è la tabella che contiene tutti i macroargomenti, particolare attenzione qui va al campo \textit{ImageLink}, che conterrà il percorso per la copertina del macroargomento caricata in "uploads/" durante la creazione;
 	\item La tabella \textbf{SUBTOPICS} contiene tutti i sottoargomenti con il riferimento al macroargomento di cui fanno parte;
 	\item La tabella \textbf{ARTICLES} contiene tutti gli articoli con il riferimento al sottoargomento di cui fanno parte, salvando anche chi è l'autore dell'articolo;
 	\item La tabella \textbf{COMMENTS} contiene tutti i commenti, con contenuto data e autore e il riferimento all'articolo di cui ogni commento fa parte;
 	\item Collegata alla tabella \textbf{COMMENTS} c'è \textbf{COMMENTS\_VOTES} che segna quando un utente mette mi piace/non mi piace ad un commento, chiaramente con un riferimento al commento originale, in modo da poter ricavare velocemente tutti i voti di un commento;
-	\item Infine, la tabella \textbf{FORGOT\_PASSWORD\_TOKENS} è utilizzata per memorizzare i token di recupero password, generati quando un utente chiede l'email per recuperare la password dimenticata. Oltre al token è presente una data di scadenza, utilizzata per verificare che il token non sia più utilizzabile dopo 7 giorni.
+	\item Infine, la tabella \textbf{FORGOT\_PASSWORD\_TOKENS} è utilizzata per memorizzare i token di recupero password, generati quando un utente chiede l'email per recuperare la password dimenticata. Oltre al token è presente una data di scadenza, utilizzata per verificare che il token non sia più utilizzabile dopo 7 giorni. In questa tabella il \textit{token} era \textit{UNIQUE} per garantire che non potessero essercene di doppi, tuttavia la versione di SQL installata nel server di tecweb non permetteva questo poiché il campo era troppo lungo per essere \textit{UNIQUE}. L'assenza di doppioni è quindi controllata da PHP alla creazione di un nuovo token.
 	\end{itemize}
 	
 	\subsection{Gestione asScript}

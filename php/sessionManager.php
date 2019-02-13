@@ -17,7 +17,11 @@
 
     if(substr_count($_SERVER['REQUEST_URI'],"/")>=2){
     	$pos = strrpos($_SERVER['REQUEST_URI'], "/");
-    	$page_string = substr($_SERVER['REQUEST_URI'],$pos+1,strlen($_SERVER['REQUEST_URI']));
+        $page_string = substr($_SERVER['REQUEST_URI'],$pos+1,strlen($_SERVER['REQUEST_URI']));
+        if($page_string == ""){
+            $pos = strrpos($_SERVER['PHP_SELF'], "/");
+            $page_string = substr($_SERVER['PHP_SELF'],$pos+1,strlen($_SERVER['PHP_SELF']));
+        }
     }else{
 		if($_SERVER['REQUEST_URI'] == "/" && strlen($_SERVER['REQUEST_URI'])==1){
 			$page_string = substr($_SERVER['PHP_SELF'], 1);
@@ -29,6 +33,7 @@
 			}
 		}
     }
+
     //Mi salvo la pagina attuale
     $_SESSION["breadcrumb"] = $page_string;
 
