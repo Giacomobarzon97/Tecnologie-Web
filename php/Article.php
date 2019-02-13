@@ -33,6 +33,12 @@ class Article
         }
     }
 
+    static function clearArticleCode($text){
+        $text = str_replace(" < "," &lt; ",$text);
+        $text = str_replace(" > "," &gt; ",$text);
+        return $text;
+    }
+
     static function printArticleHTML($articleID)
     {
         $connection = new Connection();
@@ -45,7 +51,7 @@ class Article
         $connection = NULL;
         echo '<h1>' . $result[0]['Title'] . '</h1>';
         echo '<!--Inizio paragrafo-->';
-        echo $result[0]['HTMLCode'];
+        echo Article::clearArticleCode($result[0]['HTMLCode']);
         echo '<p id="article-author">Article author: ' . $author[0]['Nickname'] . '</p>';
     }
 

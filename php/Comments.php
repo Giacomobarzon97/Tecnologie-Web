@@ -97,16 +97,16 @@ class Comments
                 echo '<input type="hidden" name="commentID" value="' . $comment['Id'] . '" />';
                 if (isset($loggedUserVote[0]) && !$loggedUserVote[0]['is_like']) {
                     echo '<input type="hidden" name="delete-vote" />';
-                    echo '<input type="image" title="Button to remove the dislike" alt="dislike button - already voted" src="./img/dislike-red.svg" class="vote-button vote-button-dislike" />';
+                    echo '<input type="image" id="dislike_'.$comment['Id'].'" title="Button to remove the dislike" alt="dislike button - already voted" src="./img/dislike-red.svg" class="vote-button vote-button-dislike" />';
                 } else {
                     echo '<input type="hidden" name="isLike" value="0" />';
                     echo '<input type="hidden" name="vote-comment" />';
-                    echo '<input type="image" title="Button to add a dislike" alt="dislike button" src="./img/dislike.svg" class="vote-button vote-button-dislike" />';
+                    echo '<input type="image" id="dislike_'.$comment['Id'].'" title="Button to add a dislike" alt="dislike button" src="./img/dislike.svg" class="vote-button vote-button-dislike" />';
                 }
                 echo '</form>';
             } else { //Form non funzionante per utente non loggato
                 echo '<form class="vote-form">';
-                echo '<input type="image" title="Button to add a dislike - not active, login or register to vote" alt="dislike button - not active" src="./img/dislike.svg" disabled class="vote-button-disabled vote-button-dislike" />';
+                echo '<input type="image" id="dislike_'.$comment['Id'].'" title="Button to add a dislike - not active, login or register to vote" alt="dislike button - not active" src="./img/dislike.svg" disabled class="vote-button-disabled vote-button-dislike" />';
                 echo '</form>';
             }
 
@@ -128,16 +128,16 @@ class Comments
                 echo '<input type="hidden" name="commentID" value="' . $comment['Id'] . '" />';
                 if (isset($loggedUserVote[0]) && $loggedUserVote[0]['is_like']) {
                     echo '<input type="hidden" name="delete-vote" />';
-                    echo '<input type="image" title="Button to remove the like" alt="like button - already voted" src="./img/like-green.svg" class="vote-button vote-button-like" />';
+                    echo '<input type="image" id="like_'.$comment['Id'].'" title="Button to remove the like" alt="like button - already voted" src="./img/like-green.svg" class="vote-button vote-button-like" />';
                 } else {
                     echo '<input type="hidden" name="isLike" value="1" />';
                     echo '<input type="hidden" name="vote-comment" />';
-                    echo '<input type="image" title="Button to add a like" alt="like button" src="./img/like.svg" class="vote-button vote-button-like" />';
+                    echo '<input type="image" id="like_'.$comment['Id'].'" title="Button to add a like" alt="like button" src="./img/like.svg" class="vote-button vote-button-like" />';
                 }
                 echo '</form>';
             } else { //Form non funzionante per utente non loggato
                 echo '<form class="vote-form">';
-                echo '<input type="image" title="Button to add a like - not active, login or register to vote" alt="like button - not active" src="./img/like.svg" disabled class="vote-button-disabled vote-button-like" />';
+                echo '<input type="image" id="like_'.$comment['Id'].'" title="Button to add a like - not active, login or register to vote" alt="like button - not active" src="./img/like.svg" disabled class="vote-button-disabled vote-button-like" />';
                 echo '</form>';
             }
             echo '</div>';

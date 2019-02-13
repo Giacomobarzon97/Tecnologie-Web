@@ -106,7 +106,7 @@
             </div>
             <div class="regform-side-section">
                 <p>Are you already registered?
-                <p><a href='login.php'>Login.</a></p>
+                <p><a href='login.php'>Login here.</a></p>
             </div>
         <?php
         echo '<noscript>';

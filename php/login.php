@@ -79,8 +79,8 @@
                 </form>
             </div>
             <div class="regform-side-section">
-                <p>Not yet registered?<a href='registrazione.php'>Register</a> to create a new account.</p>
-                <p>Did you forget your password?<a href='forgotPassword.php'>Recover it.</a></p>
+                <p>Not yet registered?<a href='registrazione.php'>Register here</a> to create a new account.</p>
+                <p>Did you forget your password?<a href='forgotPassword.php'>Recover it here.</a></p>
             </div>
             <?php
             echo '<noscript>';
