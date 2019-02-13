@@ -121,6 +121,15 @@
 					</ul>
 				</div>
             </div> <!--Chiusura div main-->
+            <noscript>
+                <?php
+                Sidebar::printNoJsNavbar();
+                echo '<div id="nojs-sidebar-wrapper">';
+                Sidebar::printNoJsSidebarSearchbox();
+                Sidebar::printSidebar($_GET["id"], NULL, false, true);
+                echo '</div>';
+                ?>
+            </noscript>
             <?php
                 include_once ('footer.php');
                 Footer::printDefaultFooterWithJSError();
