@@ -14,7 +14,7 @@ Lo scopo del progetto era la progettazione e lo sviluppo di un sito web con cont
 * **database**: cartella con il file .sql di creazione delle tabelle e un file markdown che descrive i campi di ogni tabella;
 * **php**: cartella con i file principali per effettuare il deploy del sito. Contiene tutte le pagine in formato php, i file css, i file js e le immagini necessarie.
 * **relazione**: cartella contentente i file .tex utilizzati per scrivere la relazione e il risultante file .pdf;
-* **struttura_html**: pagine HTML base, utilizzate per progettare e testare la struttura HTML delle pagine principali e gli stili e gli script collegati.
+* **struttura_html**: cartella che contiene le pagine HTML base, utilizzate per progettare e testare la struttura HTML delle pagine principali e gli stili e gli script che ogni pagina sfrutta.
 
 ## Autori
 
